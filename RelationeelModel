@@ -1,0 +1,7 @@
+Card(cardnr, cardtype, cost)
+CardTreasure(cardnr, value)
+CardAction(cardnr, effect)
+CardVictory(cardnr, value)
+Turn(turnnr, cardnr, action, buy, coin)
+Player(playernr,points)
+Game(gamenr,log)
