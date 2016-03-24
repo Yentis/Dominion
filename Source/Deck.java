@@ -1,4 +1,4 @@
-package com.company;
+package dominion;
 
 /**
  *
@@ -11,6 +11,8 @@ public class Deck {
     //Deck maken
     private ArrayList deck = new ArrayList();
     private ArrayList hand = new ArrayList();
+    private ArrayList aflegstapel = new ArrayList();
+    private ArrayList vuilbak = new ArrayList();
     //startDeck (7copper, 3 estate)
 
 
@@ -37,6 +39,7 @@ public class Deck {
     {
 
     }
+
     public void voegKaartToeAanDeck(int aantalKaarten, Kaart kaart)
     {
         for(int i=0;i<aantalKaarten;i++){
@@ -50,5 +53,17 @@ public class Deck {
             hand.add(deck.get(i));
             deck.remove(i);
         }
+    }
+
+    public void kaartAfleggen(Kaart kaart){
+        int index = hand.indexOf(kaart);
+        hand.remove(index);
+        aflegstapel.add(kaart);
+    }
+
+    public void verwijderKaart(Kaart kaart){
+        int index = hand.indexOf(kaart);
+        hand.remove(index);
+        vuilbak.add(kaart);
     }
 }
