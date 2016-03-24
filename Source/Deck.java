@@ -31,12 +31,17 @@ public class Deck {
             deck.add("landgoed");
                 
         }
-        deck.
+        schuifelen();
+        
         System.out.print(deck);
         
     }
     
-    public void schuifelen
+    public void schuifelen()      
+    {
+        
+       Collections.shuffle(deck);
+    }
     
     //Kaarten Toevoegen aan Deck
     public void setDeck()
