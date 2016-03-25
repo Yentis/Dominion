@@ -1,4 +1,4 @@
-package com.company;
+package dominion;
 
 /**
  * Created by Yentl-PC on 22/03/2016.
@@ -42,14 +42,6 @@ public class Kaart {
     }
     public String getOmschrijving() {
         return omschrijving;
-    }
-
-    public void voegKaartenToe(int aantal, Deck deck){
-        deck.voegKaartenToeAanHand(aantal);
-    }
-
-    public void voegActiesToe(int aantal, Beurt beurt){
-        beurt.setActies(aantal);
     }
 
     @Override
