@@ -20,44 +20,103 @@ public class Spel {
         Statement myStmt = myConn.createStatement();
         ResultSet myRs = myStmt.executeQuery("select * from kaart");
         
-        int j = 0;
+        int i = 0;
         while (myRs.next()) {
-            kaarten.add(j, new Kaart(myRs.getString("naam"), myRs.getInt("kost"), myRs.getString("type"), myRs.getString("omschrijving")));
-            j++;
+            kaarten.add(i, new Kaart(myRs.getString("naam"), myRs.getInt("kost"), myRs.getString("type"), myRs.getString("omschrijving")));
+            i++;
         }
     }
 
     public void vulVeldOp(){
         //Actie kaarten
         int i = 0;
-        while(i<10){
+        int aantalactiekaarten = 100;
+        while(i<aantalactiekaarten){
             Random rand = new Random();
             int value = rand.nextInt(kaarten.size());
             if((Objects.equals(kaarten.get(value).getType(), "Actie") || Objects.equals(kaarten.get(value).getType(), "Actie-Reactie") || Objects.equals(kaarten.get(value).getType(), "Actie-Aanval") || Objects.equals(kaarten.get(value).getNaam(), "Tuinen")) && actieveld.contains(kaarten.get(value)) == false){
-                actieveld.add(kaarten.get(value));
-                System.out.println(kaarten.get(value).toString() + "\n");
-                i++;
+                int aantalopstapel = 10;
+                for(int stapelopvullen=0;stapelopvullen<aantalopstapel;stapelopvullen++){
+                    actieveld.add(kaarten.get(value));
+                    System.out.println(kaarten.get(value).toString() + "\n");
+                    i++;
+                }
             }
         }
 
         //Overwinningskaarten
         for(int j = 0;j<kaarten.size();j++){
             if(Objects.equals(kaarten.get(j).getType(), "Overwinning") && !Objects.equals(kaarten.get(j).getNaam(), "Tuinen") && !Objects.equals(kaarten.get(j).getNaam(), "Vloek")){
-                overwinningsveld.add(kaarten.get(j));
-                System.out.println(kaarten.get(j).toString() + "\n");
+                int aantalopstapel;
+                if(kaarten.get(j).getNaam() == "Landgoed"){
+                    aantalopstapel = 14;
+                } else {
+                    aantalopstapel = 8;
+                }
+
+                for(int stapelopvullen = 0;stapelopvullen<aantalopstapel;stapelopvullen++){
+                    overwinningsveld.add(kaarten.get(j));
+                    System.out.println(kaarten.get(j).toString() + "\n");
+                }
             }
         }
 
         //Geldkaarten
         for(int k = 0;k<kaarten.size();k++){
             if(Objects.equals(kaarten.get(k).getType(), "Geld") || Objects.equals(kaarten.get(k).getNaam(), "Vloek")){
-                geldveld.add(kaarten.get(k));
-                System.out.println(kaarten.get(k).toString() + "\n");
+                int aantalopstapel;
+                switch(kaarten.get(k).getNaam()) {
+                    case "Koper":
+                        aantalopstapel = 60;
+                        break;
+                    case "Zilver":
+                        aantalopstapel = 40;
+                        break;
+                    case "Goud":
+                        aantalopstapel = 30;
+                        break;
+                    case "Vloek":
+                        aantalopstapel = 10;
+                        break;
+                    default: aantalopstapel = 0;
+                        break;
+                }
+
+                for(int stapelopvullen = 0;stapelopvullen < aantalopstapel;stapelopvullen++){
+                    geldveld.add(kaarten.get(k));
+                    System.out.println(kaarten.get(k).toString() + "\n");
+                }
             }
         }
     }
 
-    public void verwijderVanVeld(int i){
-        //
+    public void verwijderVanVeld(String naam, String type){
+        if(Objects.equals(type, "Overwinning")){
+            for(int i = 0;i<overwinningsveld.size();i++){
+                if(Objects.equals(overwinningsveld.get(i).getNaam(), naam)){
+                    overwinningsveld.remove(i);
+                }
+            }
+        } else if (Objects.equals(type, "Geld") || Objects.equals(type, "Vloek")){
+            for(int i = 0;i<geldveld.size();i++){
+                if(Objects.equals(geldveld.get(i).getNaam(), naam)){
+                    geldveld.remove(i);
+                }
+            }
+        } else {
+            for(int i = 0;i<actieveld.size();i++){
+                if(Objects.equals(actieveld.get(i).getNaam(), naam)){
+                    actieveld.remove(i);
+                }
+            }
+        }
+    }
+
+    public List<Kaart> getGeldveld() {
+        return geldveld;
+    }
+
+    public List<Kaart> getOverwinningsveld() {
+        return overwinningsveld;
     }
 }
