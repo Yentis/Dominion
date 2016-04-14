@@ -1,10 +1,7 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
-import java.sql.*;
+        import java.util.*;
+        import java.sql.*;
 
 /**
  * Created by Yentl-PC on 24/03/2016.
@@ -19,12 +16,85 @@ public class Spel {
         Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/dominion", "root", "");
         Statement myStmt = myConn.createStatement();
         ResultSet myRs = myStmt.executeQuery("select * from kaart");
-        
+
         int i = 0;
         while (myRs.next()) {
             kaarten.add(i, new Kaart(myRs.getString("naam"), myRs.getInt("kost"), myRs.getString("type"), myRs.getString("omschrijving")));
             i++;
         }
+    }
+
+    public void starterDeck(Spel spel, List<Kaart> deck)
+    {
+        int aantalkaarten = 0;
+
+        for(int i=0;i<spel.getGeldveld().size();i++){
+            if(Objects.equals(spel.getGeldveld().get(i).getNaam(), "Koper") && aantalkaarten < 7){
+                deck.add(spel.getGeldveld().get(i));
+                aantalkaarten++;
+                spel.getGeldveld().remove(i);
+            }
+        }
+
+        for(int i=0;i<spel.getOverwinningsveld().size();i++){
+            if(Objects.equals(spel.getOverwinningsveld().get(i).getNaam(), "Landgoed") && aantalkaarten < 10){
+                deck.add(spel.getOverwinningsveld().get(i));
+                aantalkaarten++;
+                spel.getOverwinningsveld().remove(i);
+            }
+        }
+
+        schudden(deck);
+    }
+
+    public void voegKaartToeAanHand(int aantalKaarten, List<Kaart> hand, List<Kaart> deck)
+    {
+        for(int i=0;i<aantalKaarten;i++){
+            hand.add(deck.get(i));
+        }
+        verwijderKaartenUitDeck(aantalKaarten, deck);
+    }
+
+    public void verwijderKaartenUitDeck(int aantalKaarten, List<Kaart> deck)
+    {
+        for(int i=0;i<aantalKaarten;i++){
+            deck.remove(0);
+        }
+    }
+
+    public void legKaartenAf(List<Kaart> hand, List<Kaart> aflegstapel)
+    {
+        //System.out.println("legKaartenWeg");
+        for (int i = 0; i<hand.size();i++)
+        {
+            aflegstapel.add(hand.get(i));
+            //System.out.println("Hand"+hand);
+            //System.out.println("aflegstapel"+aflegstapel);
+        }
+        hand.clear();
+        //System.out.println("aflegstapel"+aflegstapel+"\nhand"+hand);
+    }
+
+    public void kaartenTerugNaarDeck(List<Kaart> deck, List<Kaart> aflegstapel)
+    {
+        //System.out.println("deck"+deck);
+        if (deck.isEmpty())
+        {
+            for (int i = 0; i<aflegstapel.size();i++)
+            {
+                deck.add(aflegstapel.get(i));
+
+            }
+
+            aflegstapel.clear();
+            schudden(deck);
+
+        }
+    }
+
+    public void schudden(List<Kaart> deck)
+    {
+        Collections.shuffle(deck);
     }
 
     public void vulVeldOp(){
@@ -38,7 +108,7 @@ public class Spel {
                 int aantalopstapel = 10;
                 for(int stapelopvullen=0;stapelopvullen<aantalopstapel;stapelopvullen++){
                     actieveld.add(kaarten.get(value));
-                    System.out.println(kaarten.get(value).toString() + "\n");
+                    //System.out.println(kaarten.get(value).toString() + "\n");
                     i++;
                 }
             }
@@ -50,13 +120,15 @@ public class Spel {
                 int aantalopstapel;
                 if(kaarten.get(j).getNaam() == "Landgoed"){
                     aantalopstapel = 14;
+                } else if (kaarten.get(j).getType() == "Vloek") {
+                    aantalopstapel = 10;
                 } else {
                     aantalopstapel = 8;
                 }
 
                 for(int stapelopvullen = 0;stapelopvullen<aantalopstapel;stapelopvullen++){
                     overwinningsveld.add(kaarten.get(j));
-                    System.out.println(kaarten.get(j).toString() + "\n");
+                    //System.out.println(kaarten.get(j).toString() + "\n");
                 }
             }
         }
@@ -75,16 +147,13 @@ public class Spel {
                     case "Goud":
                         aantalopstapel = 30;
                         break;
-                    case "Vloek":
-                        aantalopstapel = 10;
-                        break;
                     default: aantalopstapel = 0;
                         break;
                 }
 
                 for(int stapelopvullen = 0;stapelopvullen < aantalopstapel;stapelopvullen++){
                     geldveld.add(kaarten.get(k));
-                    System.out.println(kaarten.get(k).toString() + "\n");
+                    //System.out.println(kaarten.get(k).toString() + "\n");
                 }
             }
         }
