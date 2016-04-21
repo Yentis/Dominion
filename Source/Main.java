@@ -5,7 +5,6 @@ import java.util.*;
 import java.util.List;
 
 public class Main {
-    boolean beurt = true;
     int teller = 0;
 
     public static void main(String[] args) {
@@ -71,10 +70,14 @@ public class Main {
         System.out.println("Het is " + speler.getNaam() + " zijn beurt.");
 
         spel.setSpelerValues(speler);
-        if(speler.getDeck().size()==0){
-            speler.leegAflegstapel();
+        System.out.println("Deck size: " + speler.getDeck().size());
+        System.out.println("Hand size: " + speler.getHand().size());
+        if(speler.getDeck().size() == 0){
+            speler.leegAflegstapel(spel);
+        } else if (speler.getHand().size()==0) {
+            spel.voegKaartToe(5, speler.getDeck(), speler.getHand());
         }
-        beurt = true;
+        boolean beurt = true;
         Scanner keyboard = new Scanner(System.in);
         while(beurt){
             System.out.println("Kaarten:\n");
@@ -159,11 +162,13 @@ public class Main {
 
     public boolean spelGedaan(Spel spel){
         for(Kaart k : spel.getOverwinningsveld()){
-            if(Objects.equals(k.getNaam(), "Landgoed")){
+            if(Objects.equals(k.getNaam(), "Provincie")){
                 return false;
             }
         }
 
+        //3 stapels leeg
+        
         System.out.println("Game over");
         return true;
     }
