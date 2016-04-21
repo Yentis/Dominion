@@ -39,9 +39,11 @@ public class Main {
                 System.out.println("Voer je naam in");
                 input = keyboard.nextLine();
                 Speler speler1 = new Speler(input, 0);
+                spel.addSpeler(speler1);
                 System.out.println("Voer de naam van je vijand in");
                 input = keyboard.nextLine();
                 Speler speler2 = new Speler(input, 0);
+                spel.addSpeler(speler2);
                 spel.maakKaarten();
                 spel.vulVeldOp();
 
@@ -168,7 +170,7 @@ public class Main {
         }
 
         //3 stapels leeg
-        
+
         System.out.println("Game over");
         return true;
     }
