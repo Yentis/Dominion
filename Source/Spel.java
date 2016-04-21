@@ -1,7 +1,7 @@
 package com.company;
 
-        import java.util.*;
-        import java.sql.*;
+import java.util.*;
+import java.sql.*;
 
 /**
  * Created by Yentl-PC on 24/03/2016.
@@ -43,10 +43,9 @@ public class Spel {
                 spel.getOverwinningsveld().remove(i);
             }
         }
-
         schudden(deck);
     }
-
+/*
     public void voegKaartToeAanHand(int aantalKaarten, List<Kaart> hand, List<Kaart> deck)
     {
         for(int i=0;i<aantalKaarten;i++){
@@ -91,10 +90,18 @@ public class Spel {
 
         }
     }
-
+*/
     public void schudden(List<Kaart> deck)
     {
         Collections.shuffle(deck);
+    }
+
+
+    public void voegKaartToe(int aantalKaarten, List<Kaart> startpunt, List<Kaart> bestemming){
+        for(int  i=0; i<aantalKaarten;i++){
+            bestemming.add(startpunt.get(i));
+            startpunt.remove(0);
+        }
     }
 
     public void vulVeldOp(){
