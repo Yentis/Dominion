@@ -12,79 +12,79 @@ public class Actiekaart {
     private List<Kaart> deck = new ArrayList();
     private List<Kaart> hand = new ArrayList();
     private List<Kaart> aflegstapel = new ArrayList();
-    
+
     public void speelactiekaart(String naam, Speler speler, Spel spel){
         switch(naam){
-            case "heks":
+            case "Heks":
                 heks();
                 break;
-            case "kelder":
+            case "Kelder":
                 kelder(speler);
                 break;
-            case "kerk":
+            case "Kerk":
                 kerk(speler);
                 break;
-            case "gracht":
+            case "Gracht":
                 gracht(spel, speler);
                 break;
-            case "kanselier":
+            case "Kanselier":
                 kanselier(spel, speler);
                 break;
-            case "dorp":
-                dorp(spel, speler);
+            case "Dorps":
+                dorps(spel, speler);
                 break;
-            case "houthakker":
+            case "Houthakker":
                 houthakker(speler);
                 break;
-            case "werkplaats":
+            case "Werkplaats":
                 werkplaats(spel);
                 break;
-            case "bureaucraat":
+            case "Bureaucraat":
                 bureaucraat(spel, speler);
                 break;
-            case "feest":
+            case "Feest":
                 feest(spel, speler);
                 break;
-            case "schutterij":
+            case "Schutterij":
                 schutterij(spel, speler);
                 break;
-            case "geldverlener":
+            case "Geldverlener":
                 geldverlener(speler);
                 break;
-            case "ombouwen":
+            case "Ombouwen":
                 ombouwen(spel);
                 break;
-            case "smederij":
+            case "Smederij":
                 smederij(spel, speler);
                 break;
-            case "spion":
+            case "Spion":
                 spion(spel, speler);
                 break;
-            case "dief":
+            case "Dief":
                 dief(spel);
                 break;
-            case "troonzaal":
+            case "Troonzaal":
                 troonzaal(spel, speler);
                 break;
-            case "raadzaal":
+            case "Raadzaal":
                 raadzaal(spel, speler);
                 break;
-            case "festival":
+            case "Festival":
                 festival(spel, speler);
                 break;
-            case "laboratorium":
+            case "Laboratorium":
                 laboratorium(spel, speler);
                 break;
-            case "bibliotheek":
+            case "Bibliotheek":
                 bibliotheek(spel, speler);
                 break;
-            case "markt":
+            case "Markt":
                 markt(spel, speler);
                 break;
-            case "mijn":
+            case "Mijn":
                 mijn(spel);
                 break;
-            case "avonturier":
+            case "Avonturier":
                 avonturier(spel);
                 break;
         }
@@ -92,7 +92,7 @@ public class Actiekaart {
 
     public void heks(){
         //geef de andere spelers 2 vloekkaarten
-        
+
     }
 
     public void kelder(Speler speler){
@@ -103,7 +103,7 @@ public class Actiekaart {
 
     public void kerk(Speler speler){
         //plaats tot 4 kaarten in de vuilbak
-        
+
     }
 
     public void gracht(Spel spel, Speler speler)
@@ -119,13 +119,11 @@ public class Actiekaart {
         spel.voegKaartToe(deck.size(), speler.getDeck(), speler.getAflegstapel());
 
     }
-    public void dorp(Spel spel,Speler speler){
-
+    public void dorps(Spel spel,Speler speler){
         //+1 kaart
         spel.voegKaartToe(1, speler.getDeck(), speler.getHand());
         //+2 acties
         speler.addActie(2);
-
     }
     public void houthakker(Speler speler){
         //+1 koop
@@ -141,7 +139,7 @@ public class Actiekaart {
         //+1 actiekaart
         speler.addActie(1);
         //elk ander speler toont  een overwinningskaart en plaatst het op zijn deck (of toont een hand zonder overwinningskaarten)
-        
+
     }
     public void feest(Spel spel,Speler speler){
         //deze kaart naar thrash
