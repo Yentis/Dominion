@@ -1,9 +1,5 @@
 package com.company;
 
-import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.lang.reflect.Array;
 import java.sql.SQLException;
 import java.util.*;
 import java.util.List;
@@ -28,9 +24,9 @@ public class Main {
                 Speler speler2 = new Speler(input, 0);
                 spel.maakKaarten();
                 spel.vulVeldOp();
-                spel.starterDeck(speler1.getDeck());
-                spel.starterDeck(speler2.getDeck());
-                spel.voegKaartToeAanHand(5, speler1.getHand(), speler1.getDeck());
+                spel.starterDeck(spel, speler1.getDeck());
+                spel.starterDeck(spel, speler2.getDeck());
+                spel.voegKaartToe(5, speler1.getDeck(), speler1.getHand());
                 System.out.println("\nHet is " + speler1.getNaam() + " zijn beurt");
                 System.out.println("Kaarten:\n");
                 for(Kaart k: speler1.getHand()){
@@ -60,6 +56,7 @@ public class Main {
                                 }
                             }
                             System.out.println("Geld: " + speler1.getGeld());
+                            speler1.addKoop(-1);
                             break;
                         case "1":
                             break;
@@ -88,9 +85,10 @@ public class Main {
                                 }
                             }
                             input = keyboard.nextLine();
-                            spel.koopKaart(koopopties.get(Integer.parseInt(input)), speler1.getAflegstapel());
-                            speler1.addGeld(-koopopties.get(Integer.parseInt(input)).getKost());
-                            System.out.println(speler1.getGeld());
+                            Kaart tekopenkaart = koopopties.get(Integer.parseInt(input));
+                            spel.koopKaart(tekopenkaart, speler1.getAflegstapel());
+                            speler1.addGeld(-tekopenkaart.getKost());
+                            System.out.println("Geld: " + speler1.getGeld());
                             break;
                         case "3":
                             beurt = false;
