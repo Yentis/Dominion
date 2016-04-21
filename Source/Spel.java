@@ -11,6 +11,15 @@ public class Spel {
     private List<Kaart> actieveld = new ArrayList();
     private List<Kaart> overwinningsveld = new ArrayList();
     private List<Kaart> geldveld = new ArrayList();
+    private List<Speler> spelers = new ArrayList();
+
+    public List<Speler> getSpelers() {
+        return spelers;
+    }
+
+    public void addSpeler(Speler speler){
+        spelers.add(speler);
+    }
 
     public void maakKaarten() throws SQLException {
         Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/dominion", "root", "");
