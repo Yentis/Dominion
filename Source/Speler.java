@@ -12,14 +12,52 @@ public class Speler {
     private List<Kaart> deck = new ArrayList();
     private List<Kaart> hand = new ArrayList();
     private List<Kaart> aflegstapel = new ArrayList();
+    private List<Kaart> vuilbak = new ArrayList();
     private int geld;
     private int koop;
     private int actie;
+    private boolean beurt;
+
+    public void leegAflegstapel(Spel spel){
+        for(Kaart k : aflegstapel){
+            deck.add(k);
+        }
+        aflegstapel.clear();
+        spel.voegKaartToe(5, deck, hand);
+    }
+
+    public void setDeck(List<Kaart> deck) {
+        this.deck = deck;
+    }
+
+    public void setBeurt(boolean beurt) {
+        this.beurt = beurt;
+    }
+
+    public int getKoop() {
+        return koop;
+    }
+
+    public int getActie() {
+        return actie;
+    }
+
+    public void setGeld(int geld) {
+        this.geld = geld;
+    }
+
+    public void setKoop(int koop) {
+        this.koop = koop;
+    }
+
+    public void setActie(int actie) {
+        this.actie = actie;
+    }
 
     public void addKoop(int x) { koop += x;}
-    
+
     public void addActie(int x) { actie += x;}
-    
+
     public List<Kaart> getAflegstapel() {
         return aflegstapel;
     }
