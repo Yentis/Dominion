@@ -45,52 +45,7 @@ public class Spel {
         }
         schudden(deck);
     }
-    /*
-        public void voegKaartToeAanHand(int aantalKaarten, List<Kaart> hand, List<Kaart> deck)
-        {
-            for(int i=0;i<aantalKaarten;i++){
-                hand.add(deck.get(i));
-            }
-            verwijderKaartenUitDeck(aantalKaarten, deck);
-        }
 
-        public void verwijderKaartenUitDeck(int aantalKaarten, List<Kaart> deck)
-        {
-            for(int i=0;i<aantalKaarten;i++){
-                deck.remove(0);
-            }
-        }
-
-        public void legKaartenAf(List<Kaart> hand, List<Kaart> aflegstapel)
-        {
-            //System.out.println("legKaartenWeg");
-            for (int i = 0; i<hand.size();i++)
-            {
-                aflegstapel.add(hand.get(i));
-                //System.out.println("Hand"+hand);
-                //System.out.println("aflegstapel"+aflegstapel);
-            }
-            hand.clear();
-            //System.out.println("aflegstapel"+aflegstapel+"\nhand"+hand);
-        }
-
-        public void kaartenTerugNaarDeck(List<Kaart> deck, List<Kaart> aflegstapel)
-        {
-            //System.out.println("deck"+deck);
-            if (deck.isEmpty())
-            {
-                for (int i = 0; i<aflegstapel.size();i++)
-                {
-                    deck.add(aflegstapel.get(i));
-
-                }
-
-                aflegstapel.clear();
-                schudden(deck);
-
-            }
-        }
-    */
     public void schudden(List<Kaart> deck)
     {
         Collections.shuffle(deck);
@@ -123,11 +78,11 @@ public class Spel {
 
         //Overwinningskaarten
         for(int j = 0;j<kaarten.size();j++){
-            if(Objects.equals(kaarten.get(j).getType(), "Overwinning") && !Objects.equals(kaarten.get(j).getNaam(), "Tuinen") && !Objects.equals(kaarten.get(j).getNaam(), "Vloek")){
+            if((Objects.equals(kaarten.get(j).getType(), "Overwinning") || Objects.equals(kaarten.get(j).getType(), "Vloek")) && !Objects.equals(kaarten.get(j).getNaam(), "Tuinen")){
                 int aantalopstapel;
-                if(kaarten.get(j).getNaam() == "Landgoed"){
+                if(Objects.equals(kaarten.get(j).getNaam(), "Landgoed")){
                     aantalopstapel = 14;
-                } else if (kaarten.get(j).getType() == "Vloek") {
+                } else if (Objects.equals(kaarten.get(j).getType(), "Vloek")) {
                     aantalopstapel = 10;
                 } else {
                     aantalopstapel = 8;
@@ -197,6 +152,12 @@ public class Spel {
                 }
             }
         }
+    }
+
+    public void setSpelerValues(Speler speler){
+        speler.setActie(1);
+        speler.setKoop(1);
+        speler.setGeld(0);
     }
 
     public List<Kaart> getGeldveld() {
