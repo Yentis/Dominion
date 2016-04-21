@@ -1,4 +1,4 @@
-package dominion;
+package com.company;
 
 /**
  * Created by Yentl-PC on 22/03/2016.
@@ -8,12 +8,18 @@ public class Kaart {
     private int kost;
     private String type;
     private String omschrijving;
+    private int waarde;
 
-    public Kaart(String naam, int kost, String type, String omschrijving){
+    public Kaart(String naam, int kost, String type, String omschrijving, int waarde){
         this.naam = naam;
         this.kost = kost;
         this.type = type;
         this.omschrijving = omschrijving;
+        this.waarde = waarde;
+    }
+
+    public int getWaarde() {
+        return waarde;
     }
 
     public void setNaam(String naam) {
