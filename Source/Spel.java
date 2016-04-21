@@ -19,7 +19,7 @@ public class Spel {
 
         int i = 0;
         while (myRs.next()) {
-            kaarten.add(i, new Kaart(myRs.getString("naam"), myRs.getInt("kost"), myRs.getString("type"), myRs.getString("omschrijving")));
+            kaarten.add(i, new Kaart(myRs.getString("naam"), myRs.getInt("kost"), myRs.getString("type"), myRs.getString("omschrijving"), myRs.getInt("waarde")));
             i++;
         }
     }
@@ -45,52 +45,52 @@ public class Spel {
         }
         schudden(deck);
     }
-/*
-    public void voegKaartToeAanHand(int aantalKaarten, List<Kaart> hand, List<Kaart> deck)
-    {
-        for(int i=0;i<aantalKaarten;i++){
-            hand.add(deck.get(i));
-        }
-        verwijderKaartenUitDeck(aantalKaarten, deck);
-    }
-
-    public void verwijderKaartenUitDeck(int aantalKaarten, List<Kaart> deck)
-    {
-        for(int i=0;i<aantalKaarten;i++){
-            deck.remove(0);
-        }
-    }
-
-    public void legKaartenAf(List<Kaart> hand, List<Kaart> aflegstapel)
-    {
-        //System.out.println("legKaartenWeg");
-        for (int i = 0; i<hand.size();i++)
+    /*
+        public void voegKaartToeAanHand(int aantalKaarten, List<Kaart> hand, List<Kaart> deck)
         {
-            aflegstapel.add(hand.get(i));
-            //System.out.println("Hand"+hand);
-            //System.out.println("aflegstapel"+aflegstapel);
+            for(int i=0;i<aantalKaarten;i++){
+                hand.add(deck.get(i));
+            }
+            verwijderKaartenUitDeck(aantalKaarten, deck);
         }
-        hand.clear();
-        //System.out.println("aflegstapel"+aflegstapel+"\nhand"+hand);
-    }
 
-    public void kaartenTerugNaarDeck(List<Kaart> deck, List<Kaart> aflegstapel)
-    {
-        //System.out.println("deck"+deck);
-        if (deck.isEmpty())
+        public void verwijderKaartenUitDeck(int aantalKaarten, List<Kaart> deck)
         {
-            for (int i = 0; i<aflegstapel.size();i++)
+            for(int i=0;i<aantalKaarten;i++){
+                deck.remove(0);
+            }
+        }
+
+        public void legKaartenAf(List<Kaart> hand, List<Kaart> aflegstapel)
+        {
+            //System.out.println("legKaartenWeg");
+            for (int i = 0; i<hand.size();i++)
             {
-                deck.add(aflegstapel.get(i));
+                aflegstapel.add(hand.get(i));
+                //System.out.println("Hand"+hand);
+                //System.out.println("aflegstapel"+aflegstapel);
+            }
+            hand.clear();
+            //System.out.println("aflegstapel"+aflegstapel+"\nhand"+hand);
+        }
+
+        public void kaartenTerugNaarDeck(List<Kaart> deck, List<Kaart> aflegstapel)
+        {
+            //System.out.println("deck"+deck);
+            if (deck.isEmpty())
+            {
+                for (int i = 0; i<aflegstapel.size();i++)
+                {
+                    deck.add(aflegstapel.get(i));
+
+                }
+
+                aflegstapel.clear();
+                schudden(deck);
 
             }
-
-            aflegstapel.clear();
-            schudden(deck);
-
         }
-    }
-*/
+    */
     public void schudden(List<Kaart> deck)
     {
         Collections.shuffle(deck);
@@ -166,6 +166,17 @@ public class Spel {
         }
     }
 
+    public void koopKaart(Kaart k, List<Kaart> aflegstapel){
+        aflegstapel.add(k);
+        if(getActieveld().contains(k)){
+            getActieveld().remove(k);
+        } else if (getOverwinningsveld().contains(k)){
+            getOverwinningsveld().remove(k);
+        } else {
+            getGeldveld().remove(k);
+        }
+    }
+
     public void verwijderVanVeld(String naam, String type){
         if(Objects.equals(type, "Overwinning")){
             for(int i = 0;i<overwinningsveld.size();i++){
@@ -194,5 +205,9 @@ public class Spel {
 
     public List<Kaart> getOverwinningsveld() {
         return overwinningsveld;
+    }
+
+    public List<Kaart> getActieveld() {
+        return actieveld;
     }
 }
