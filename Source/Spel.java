@@ -55,6 +55,8 @@ public class Spel {
     public void voegKaartToe(int aantalKaarten, List<Kaart> startpunt, List<Kaart> bestemming){
         for(int  i=0; i<aantalKaarten;i++){
             bestemming.add(startpunt.get(i));
+        }
+        for(int  i=0; i<aantalKaarten;i++){
             startpunt.remove(0);
         }
     }
