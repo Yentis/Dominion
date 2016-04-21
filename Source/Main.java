@@ -71,9 +71,8 @@ public class Main {
     public void beurt(Speler speler, Spel spel){
         System.out.println("Het is " + speler.getNaam() + " zijn beurt.");
 
+        Actiekaart acties = new Actiekaart();
         spel.setSpelerValues(speler);
-        System.out.println("Deck size: " + speler.getDeck().size());
-        System.out.println("Hand size: " + speler.getHand().size());
         if(speler.getDeck().size() == 0){
             speler.leegAflegstapel(spel);
         } else if (speler.getHand().size()==0) {
@@ -82,6 +81,9 @@ public class Main {
         boolean beurt = true;
         Scanner keyboard = new Scanner(System.in);
         while(beurt){
+            System.out.println("Acties: " + speler.getActie());
+            System.out.println("Koop: " + speler.getKoop());
+            System.out.println("Geld: " + speler.getGeld() + "\n");
             System.out.println("Kaarten:\n");
             for(Kaart k: speler.getHand()){
                 System.out.println(k.getNaam());
@@ -108,10 +110,24 @@ public class Main {
                             aantalVerwijderd++;
                         }
                     }
-                    System.out.println("Geld: " + speler.getGeld());
                     break;
                 case "1":
                     if(speler.getActie() > 0){
+                        int i = 0;
+                        int j = 0;
+                        List<Kaart> actiekaarten = new ArrayList();
+                        System.out.println("Kies een actiekaart: \n");
+                        for(Kaart k: speler.getHand()){
+                            if(Objects.equals(k.getType(), "Actie") || Objects.equals(k.getType(), "Actie-Reactie") || Objects.equals(k.getType(), "Actie-Aanval")){
+                                System.out.println(k.getNaam() + " | " + i);
+                                actiekaarten.add(k);
+                            }
+                            j++;
+                        }
+                        input = keyboard.nextLine();
+                        Kaart tespelenkaart = actiekaarten.get(Integer.parseInt(input));
+                        acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel);
+                        speler.verwijderKaart(tespelenkaart, j-1);
                         speler.addActie(-1);
                     } else {
                         System.out.println("U heeft onvoldoende actiebeurten.");
