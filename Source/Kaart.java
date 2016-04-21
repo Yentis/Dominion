@@ -18,6 +18,14 @@ public class Kaart {
         this.waarde = waarde;
     }
 
+    public Kaart(){
+        naam = "Placeholder";
+        kost = 0;
+        type = "Placeholder";
+        omschrijving = "Placeholder";
+        waarde = 0;
+    }
+
     public int getWaarde() {
         return waarde;
     }
