@@ -16,10 +16,10 @@ public class Actiekaart {
     public void speelactiekaart(String naam, Speler speler, Spel spel){
         switch(naam){
             case "Heks":
-                heks();
+                heks(spel, speler);
                 break;
             case "Kelder":
-                kelder(speler);
+                kelder(spel, speler);
                 break;
             case "Kerk":
                 kerk(speler);
@@ -90,15 +90,43 @@ public class Actiekaart {
         }
     }
 
-    public void heks(){
+    public void heks(Spel spel, Speler speler){
         //geef de andere spelers 2 vloekkaarten
-
+        Kaart vloek = new Kaart();
+        for(Kaart k : spel.getOverwinningsveld()){
+            if(Objects.equals(k.getNaam(), "Vloek")){
+                vloek = k;
+            }
+        }
+        for(Speler s : spel.getSpelers()){
+            if(!Objects.equals(s.getNaam(), speler.getNaam())){
+                spel.voegKaartToe(2, vloek, speler.getAflegstapel());
+            }
+        }
     }
 
-    public void kelder(Speler speler){
-        //+1 actie, selecteer de kaarten die je wilt afleggen, voeg hetzelfde kaarten toe aan de hand vanuit deck
+    public void kelder(Spel spel, Speler speler){
+        //+1 actie
         speler.addActie(1);
-        //leg kaarten af
+        //selecteer de kaarten die je wilt afleggen
+        Scanner keyboard = new Scanner(System.in);
+        String input = "";
+        int aantalkaarten = 0;
+
+        System.out.println("Kies de kaarten die je wilt afleggen, typ 'OK' om door te gaan: \n");
+        while(!Objects.equals(input, "OK")){
+            int i = 0;
+            for(Kaart k: speler.getHand()){
+                System.out.println(k.getNaam() + " | " + i);
+                input = keyboard.nextLine();
+                Kaart afteleggenkaart = speler.getHand().get(Integer.parseInt(input));
+                speler.verwijderKaart(afteleggenkaart, i);
+                i++;
+                aantalkaarten++;
+            }
+        }
+        //trek x nieuwe kaarten
+        spel.voegKaartToe(aantalkaarten, speler.getDeck(), speler.getHand());
     }
 
     public void kerk(Speler speler){
