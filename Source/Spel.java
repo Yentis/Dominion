@@ -70,6 +70,12 @@ public class Spel {
         }
     }
 
+    public void voegKaartToe(int aantalKaarten, Kaart kaart, List<Kaart> bestemming){
+        for(int  i=0; i<aantalKaarten;i++){
+            bestemming.add(kaart);
+        }
+    }
+
     public void vulVeldOp(){
         //Actie kaarten
         int i = 0;
