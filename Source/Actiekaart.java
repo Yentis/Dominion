@@ -374,7 +374,7 @@ public class Actiekaart {
         }
     }
 
-    public void dief(Spel spel, Speler speler) {  // not finished
+public void dief(Spel spel, Speler speler) {  // nalezen aub
 
         /*Each other player reveals the top 2 cards of his deck.
         If they revealed any Treasure cards, they trash one of them that you choose.
@@ -389,15 +389,21 @@ public class Actiekaart {
                 for(int i =0;i<2;i++){
                     Kaart k = s.getDeck().get(i);
                     System.out.println(k.getNaam());
-                    System.out.println("Wil je deze kaart plaatsen op de aflegstapel? \n");
-                    input = keyboard.nextLine();
-                    if (Objects.equals(input, "ja")){
-                        spel.voegKaartToe(1, k, speler.getAflegstapel());
+                    if (Objects.equals(k.getType(), "Geld")){
+                        System.out.println("Wil je deze kaart stelen en naar je aflegstapel? \n");
+                        input = keyboard.nextLine();
+                        if (Objects.equals(input, "ja")){
+                            spel.voegKaartToe(1, s.getDeck().get(i), speler.getAflegstapel());
+                    }
+                    
+                    
+                    }
                     }
                 }
             }
         }
     }
+
 
     public void troonzaal(Spel spel, Speler speler) {
         //kies een actiekaart
