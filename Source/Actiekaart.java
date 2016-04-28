@@ -190,7 +190,7 @@ public class Actiekaart {
         //neem een kaart met <=4 kost
         String input;
         Scanner keyboard = new Scanner(System.in);
-        
+
         System.out.println("Kies een kaart met een kost minder dan 4: \n");
         int i = 0;
         for(Kaart k: spel.getAlleKaarten()){
@@ -201,7 +201,7 @@ public class Actiekaart {
         }
         input = keyboard.nextLine();
         Kaart teOntvangenKaart = spel.getAlleKaarten().get(Integer.parseInt(input));
-        spel.voegKaartToe(1,teOntvangenKaart, speler.getAflegstapel());
+        spel.voegKaartToe(1, teOntvangenKaart, speler.getAflegstapel());
     }
 
     public void bureaucraat(Spel spel, Speler speler) {   //Input moet er nog bij horen
@@ -250,11 +250,12 @@ public class Actiekaart {
                     System.out.println("Kies de kaarten die je wilt verwijderen: \n");
                     for (Kaart k : speler.getHand()) {
                         System.out.println(k.getNaam() + " | " + i);
-                        input = keyboard.nextLine();
-                        Kaart teverwijderenkaart = s.getHand().get(Integer.parseInt(input));
-                        s.verwijderKaart(teverwijderenkaart, i);
                         i++;
                     }
+
+                    input = keyboard.nextLine();
+                    Kaart teverwijderenkaart = s.getHand().get(Integer.parseInt(input));
+                    s.verwijderKaart(teverwijderenkaart, Integer.parseInt(input));
                 }
             }
         }
@@ -270,15 +271,16 @@ public class Actiekaart {
         int i = 0;
         for (Kaart k : speler.getHand()) {
             System.out.println(k.getNaam() + " | " + i);
-            input = keyboard.nextLine();
-            Kaart teVerwijderenKaart = speler.getHand().get(Integer.parseInt(input));
-            if (Objects.equals(teVerwijderenKaart.getNaam(), "Koper")) {
-                speler.addGeld(3);
-            } else {
-                System.out.println("Dit is geen Geldkaart die je gekozen hebt, probeer opnieuw noob.");
-                geldverlener(speler);
-            }
             i++;
+        }
+
+        input = keyboard.nextLine();
+        Kaart teVerwijderenKaart = speler.getHand().get(Integer.parseInt(input));
+        if (Objects.equals(teVerwijderenKaart.getNaam(), "Koper")) {
+            speler.addGeld(3);
+        } else {
+            System.out.println("Dit is geen Geldkaart die je gekozen hebt, probeer opnieuw noob.");
+            geldverlener(speler);
         }
     }
 
@@ -287,12 +289,13 @@ public class Actiekaart {
         //krijg een kaart die tot 2 meer geld kost
         String input;
         Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("Kies de kaart die je wilt verwijderen: \n");
         int i = 0;
         for (Kaart k : speler.getHand()) {
-
             System.out.println(k.getNaam() + " | " + i);
+            i++;
         }
-        System.out.println("Kies de kaart die je wilt verwijderen: \n");
         input = keyboard.nextLine();
         Kaart teVerwijderenKaart = speler.getHand().get(Integer.parseInt(input));
         int waardeVanTeVerwijderenKaart = teVerwijderenKaart.getWaarde();
