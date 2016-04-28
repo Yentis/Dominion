@@ -188,4 +188,6 @@ public class Spel {
     public List<Kaart> getActieveld() {
         return actieveld;
     }
+
+    public List<Kaart> getKaarten() {return kaarten; }
 }
