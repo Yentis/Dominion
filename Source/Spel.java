@@ -12,6 +12,7 @@ public class Spel {
     private List<Kaart> overwinningsveld = new ArrayList();
     private List<Kaart> geldveld = new ArrayList();
     private List<Speler> spelers = new ArrayList();
+    private List<Kaart> alleKaarten = new ArrayList();
 
     public List<Speler> getSpelers() {
         return spelers;
@@ -177,6 +178,19 @@ public class Spel {
         speler.setGeld(0);
     }
 
+    public List<Kaart> getAlleKaarten() {
+        for(Kaart k : geldveld){
+            alleKaarten.add(k);
+        }
+        for(Kaart k : overwinningsveld){
+            alleKaarten.add(k);
+        }
+        for(Kaart k : actieveld){
+            alleKaarten.add(k);
+        }
+        return alleKaarten;
+    }
+
     public List<Kaart> getGeldveld() {
         return geldveld;
     }
@@ -189,5 +203,8 @@ public class Spel {
         return actieveld;
     }
 
-    public List<Kaart> getKaarten() {return kaarten; }
+    public List<Kaart> getKaarten() {
+        
+        
+    }
 }
