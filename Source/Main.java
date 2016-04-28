@@ -36,11 +36,11 @@ public class Main {
             //Maak spel
             if(input != null) {
                 Spel spel = new Spel();
-                System.out.println("Voer je naam in");
+                System.out.println("Voer de naam van speler 1 in");
                 input = keyboard.nextLine();
                 Speler speler1 = new Speler(input, 0);
                 spel.addSpeler(speler1);
-                System.out.println("Voer de naam van je vijand in");
+                System.out.println("Voer de naam van speler 2 in");
                 input = keyboard.nextLine();
                 Speler speler2 = new Speler(input, 0);
                 spel.addSpeler(speler2);
@@ -50,8 +50,8 @@ public class Main {
                 //Geef startkaarten
                 spel.starterDeck(spel, speler1.getDeck());
                 spel.starterDeck(spel, speler2.getDeck());
-                spel.voegKaartToe(5, speler1.getDeck(), speler1.getHand());
-                spel.voegKaartToe(5, speler2.getDeck(), speler2.getHand());
+                speler1.voegKaartToe(5, speler1.getDeck(), speler1.getHand());
+                speler2.voegKaartToe(5, speler2.getDeck(), speler2.getHand());
 
                 //Start beurt
                 while(!spelGedaan(spel)){
@@ -76,7 +76,7 @@ public class Main {
         if(speler.getDeck().size() == 0){
             speler.leegAflegstapel(spel);
         } else if (speler.getHand().size()==0) {
-            spel.voegKaartToe(5, speler.getDeck(), speler.getHand());
+            speler.voegKaartToe(5, speler.getDeck(), speler.getHand());
         }
         boolean beurt = true;
         Scanner keyboard = new Scanner(System.in);
@@ -171,7 +171,7 @@ public class Main {
                     break;
                 case "3":
                     while(speler.getHand().size()>0)
-                    spel.voegKaartToe(1, speler.getHand(), speler.getAflegstapel());
+                    speler.voegKaartToe(1, speler.getHand(), speler.getAflegstapel());
                     beurt = false;
                     break;
             }
