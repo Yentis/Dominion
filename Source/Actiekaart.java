@@ -206,7 +206,7 @@ public class Actiekaart {
         spel.voegKaartToe(1, teOntvangenKaart, speler.getAflegstapel());
     }
 
-    public void bureaucraat(Spel spel, Speler speler) {   //not finished
+    public void bureaucraat(Spel spel, Speler speler) {
         //+1 actiekaart, plaats deze op je deck
         int i = 0;
         String input = "";
@@ -227,7 +227,7 @@ public class Actiekaart {
 
         //elk ander speler toont een overwinningskaart en plaatst het op zijn deck (of toont een hand zonder overwinningskaarten)
         koopopties = new ArrayList();
-        
+
         for (Speler s : spel.getSpelers()) {
             if (!Objects.equals(s.getNaam(), speler.getNaam())) {
                 System.out.println(s.getNaam() + "\n");
