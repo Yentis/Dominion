@@ -23,7 +23,7 @@ public class Speler {
             deck.add(k);
         }
         aflegstapel.clear();
-        spel.voegKaartToe(5, deck, hand);
+        voegKaartToe(5, deck, hand);
     }
 
     public void setDeck(List<Kaart> deck) {
@@ -32,6 +32,10 @@ public class Speler {
 
     public void setBeurt(boolean beurt) {
         this.beurt = beurt;
+    }
+
+    public List<Kaart> getVuilbak() {
+        return vuilbak;
     }
 
     public int getKoop() {
@@ -100,12 +104,8 @@ public class Speler {
         aflegstapel.add(k);
         hand.remove(i);
     }
-    public void gooiKaartWegNaarVuilbak(Kaart k,int i){
-        vuilbak.add(k);
-        hand.remove(i);
-    }
 
-    public void verplaatsKaart(int aantalKaarten, List<Kaart> startpunt, List<Kaart> bestemming){
+    public void voegKaartToe(int aantalKaarten, List<Kaart> startpunt, List<Kaart> bestemming){
         for(int  i=0; i<aantalKaarten;i++){
             bestemming.add(startpunt.get(i));
         }
