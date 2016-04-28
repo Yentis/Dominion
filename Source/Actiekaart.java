@@ -58,7 +58,7 @@ public class Actiekaart {
                 spion(speler);
                 break;
             case "Dief":
-                dief(spel);
+                dief(spel, speler);
                 break;
             case "Troonzaal":
                 troonzaal(spel, speler);
@@ -87,6 +87,29 @@ public class Actiekaart {
         }
     }
 
+    public Kaart toonKaarten(Speler speler, String input){
+        Scanner keyboard = new Scanner(System.in);
+        int i = 0;
+
+        for (Kaart k : speler.getHand()) {
+            System.out.println(k.getNaam() + " | " + i);
+            i++;
+        }
+        input = keyboard.nextLine();
+        Kaart gekozenkaart = speler.getHand().get(Integer.parseInt(input));
+        return gekozenkaart;
+    }
+
+    public boolean heeftReactiekaart(Speler s){
+        for(Kaart k : s.getHand()){
+            if(Objects.equals(k.getType(), "Actie-Reactie")){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public void heks(Spel spel, Speler speler) {
         //+2 kaarten
         speler.voegKaartToe(2, speler.getDeck(), speler.getHand());
@@ -99,42 +122,22 @@ public class Actiekaart {
             }
         }
         for (Speler s : spel.getSpelers()) {
-            if (!Objects.equals(s.getNaam(), speler.getNaam())) {
+            if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
                 spel.voegKaartToe(1, vloek, speler.getAflegstapel());
             }
         }
-    }
-    
-    public void toonKaarten(Speler speler){
-        String input;
-        Scanner keyboard = new Scanner(System.in);
-        int i = 0;
-        for (Kaart k : speler.getHand()) {
-            System.out.println(k.getNaam() + " | " + i);
-            i++;
-        }
-        input = keyboard.nextLine();
-        Kaart afteleggenkaart = speler.getHand().get(Integer.parseInt(input));
     }
 
     public void kelder(Speler speler) {
         //+1 actie
         speler.addActie(1);
         //selecteer de kaarten die je wilt afleggen
-        Scanner keyboard = new Scanner(System.in);
         String input = "";
         int aantalkaarten = 0;
 
         System.out.println("Kies de kaarten die je wilt afleggen, typ 'OK' om door te gaan: \n");
         while (!Objects.equals(input, "OK")) {
-            int i = 0;
-            for (Kaart k : speler.getHand()) {
-                System.out.println(k.getNaam() + " | " + i);
-                i++;
-            }
-            input = keyboard.nextLine();
-            Kaart afteleggenkaart = speler.getHand().get(Integer.parseInt(input));
-            speler.verwijderKaart(afteleggenkaart, Integer.parseInt(input));
+            speler.verwijderKaart(toonKaarten(speler, input), Integer.parseInt(input));
             aantalkaarten++;
         }
         //trek x nieuwe kaarten
@@ -144,26 +147,17 @@ public class Actiekaart {
     public void kerk(Spel spel, Speler speler) {
         //plaats tot 4 kaarten in de vuilbak
         int aantalkaarten = 0;
-        Scanner keyboard = new Scanner(System.in);
         String input = "";
 
         System.out.println("Kies max 4 kaarten die je wilt wegsmijten, typ 'OK' om door te gaan: ");
         while (!Objects.equals(input, "OK") || aantalkaarten<4) {
-            int i = 0;
-            for (Kaart k : speler.getHand()) {
-                System.out.println(k.getNaam() + " | " + i);
-                i++;
-            }
-            input = keyboard.nextLine();
-            Kaart afteleggenkaart = speler.getHand().get(Integer.parseInt(input));
-            spel.voegKaartToe(1, afteleggenkaart, speler.getVuilbak());
+            spel.voegKaartToe(1, toonKaarten(speler, input), speler.getVuilbak());
             aantalkaarten++;
         }
     }
 
-    public void gracht(Speler speler) {      //not finished
+    public void gracht(Speler speler) {
         speler.voegKaartToe(2, speler.getDeck(), speler.getHand());
-        //counter-card
     }
 
     public void kanselier(Speler speler) {
@@ -204,7 +198,7 @@ public class Actiekaart {
         Scanner keyboard = new Scanner(System.in);
         List<Kaart> koopopties = new ArrayList();
 
-        System.out.println("Kies een kaart met een kost minder dan 4: \n");
+        System.out.println("Kies een kaart met een kost van maximum 4: \n");
         int i = 0;
         for(Kaart k: spel.getAlleKaarten()){
             if(k.getKost()<= 4 && !koopopties.contains(k)){
@@ -237,11 +231,11 @@ public class Actiekaart {
         Kaart teOntvangenKaart = koopopties.get(Integer.parseInt(input));
         spel.koopKaart(teOntvangenKaart, speler.getDeck());
 
-        //elk ander speler toont een overwinningskaart en plaatst het op zijn deck (of toont een hand zonder overwinningskaarten)
+        //elke andere speler toont een overwinningskaart en plaatst het op zijn deck (of toont een hand zonder overwinningskaarten)
         koopopties = new ArrayList();
 
         for (Speler s : spel.getSpelers()) {
-            if (!Objects.equals(s.getNaam(), speler.getNaam())) {
+            if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
                 System.out.println(s.getNaam() + "\n");
                 i = 0;
                 for (Kaart k : s.getHand()){
@@ -254,8 +248,8 @@ public class Actiekaart {
                 Kaart teVerplaatsenKaart = koopopties.get(Integer.parseInt(input));
                 spel.voegKaartToe(1, teVerplaatsenKaart, s.getDeck());
                 if(i == 0){
-                    for(Kaart k : s.getHand()){
-                        System.out.println(k.getNaam());
+                    for(Kaart k2 : s.getHand()){
+                        System.out.println(k2.getNaam());
                     }
                 }
             }
@@ -266,7 +260,22 @@ public class Actiekaart {
         //deze kaart naar thrash
 
         //neem kaart die max 5 geld kost
+        String input;
+        Scanner keyboard = new Scanner(System.in);
+        List<Kaart> koopopties = new ArrayList();
 
+        System.out.println("Kies een kaart met een kost van maximum 5: \n");
+        int i = 0;
+        for(Kaart k: spel.getAlleKaarten()){
+            if(k.getKost()<= 5 && !koopopties.contains(k)){
+                System.out.println(k.getNaam() + " | " + i);
+                koopopties.add(k);
+                i++;
+            }
+        }
+        input = keyboard.nextLine();
+        Kaart teOntvangenKaart = koopopties.get(Integer.parseInt(input));
+        spel.voegKaartToe(1, teOntvangenKaart, speler.getAflegstapel());
     }
 
     public void schutterij(Spel spel, Speler speler) {
@@ -274,21 +283,12 @@ public class Actiekaart {
         speler.addGeld(2);
         //leg kaarten af tot alle spelers 3 kaarten over heeft
         for (Speler s : spel.getSpelers()) {
-            if (!Objects.equals(s.getNaam(), speler.getNaam())) {
+            if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
                 while (s.getHand().size() > 3) {
-                    int i = 0;
-                    Scanner keyboard = new Scanner(System.in);
-                    String input;
+                    String input = "";
 
                     System.out.println("Kies de kaarten die je wilt verwijderen: \n");
-                    for (Kaart k : speler.getHand()) {
-                        System.out.println(k.getNaam() + " | " + i);
-                        i++;
-                    }
-
-                    input = keyboard.nextLine();
-                    Kaart teverwijderenkaart = s.getHand().get(Integer.parseInt(input));
-                    s.verwijderKaart(teverwijderenkaart, Integer.parseInt(input));
+                    s.verwijderKaart(toonKaarten(speler, input), Integer.parseInt(input));
                 }
             }
         }
@@ -297,19 +297,10 @@ public class Actiekaart {
     public void geldverlener(Speler speler) {
         //thrash koper
         //krijg +3 geld
-        String input;
-        Scanner keyboard = new Scanner(System.in);
+        String input = "";
         System.out.println("Kies de kaart die je wilt verwijderen: \n");
 
-        int i = 0;
-        for (Kaart k : speler.getHand()) {
-            System.out.println(k.getNaam() + " | " + i);
-            i++;
-        }
-
-        input = keyboard.nextLine();
-        Kaart teVerwijderenKaart = speler.getHand().get(Integer.parseInt(input));
-        if (Objects.equals(teVerwijderenKaart.getNaam(), "Koper")) {
+        if (Objects.equals(toonKaarten(speler, input).getNaam(), "Koper")) {
             speler.addGeld(3);
         } else {
             System.out.println("Dit is geen Geldkaart die je gekozen hebt, probeer opnieuw noob.");
@@ -320,18 +311,12 @@ public class Actiekaart {
     public void ombouwen(Spel spel, Speler speler) {  //not finished
         //select kaart -> thrash
         //krijg een kaart die tot 2 meer geld kost
-        String input;
+        String input = "";
         Scanner keyboard = new Scanner(System.in);
 
         System.out.println("Kies de kaart die je wilt verwijderen: \n");
-        int i = 0;
-        for (Kaart k : speler.getHand()) {
-            System.out.println(k.getNaam() + " | " + i);
-            i++;
-        }
-        input = keyboard.nextLine();
-        Kaart teVerwijderenKaart = speler.getHand().get(Integer.parseInt(input));
-        int waardeVanTeVerwijderenKaart = teVerwijderenKaart.getWaarde();
+
+        int waardeVanTeVerwijderenKaart = toonKaarten(speler, input).getWaarde();
         int bereikKost = 2;
         int j = 0;
         for (Kaart k: spel.getAlleKaarten()){
@@ -359,10 +344,29 @@ public class Actiekaart {
 
     }
 
-    public void dief(Spel spel) {  // not finished
-        //bekijk de 2 bovenste kaarten van elk persoon zijn deck en beslis of je de kaart wilt plaatsen op de aflegstapel
+    public void dief(Spel spel, Speler speler) {  // not finished
 
+        /*Each other player reveals the top 2 cards of his deck.
+        If they revealed any Treasure cards, they trash one of them that you choose.
+        You may gain any or all of these trashed cards.
+        They discard the other revealed cards.*/
 
+        String input = "";
+        Scanner keyboard = new Scanner(System.in);
+
+        for (Speler s : spel.getSpelers()) {
+            if (!Objects.equals(s.getNaam(), speler.getNaam())) {
+                for(int i =0;i<2;i++){
+                    Kaart k = s.getDeck().get(i);
+                    System.out.println(k.getNaam());
+                    System.out.println("Wil je deze kaart plaatsen op de aflegstapel? \n");
+                    input = keyboard.nextLine();
+                    if (Objects.equals(input, "ja")){
+                        spel.voegKaartToe(1, k, speler.getAflegstapel());
+                    }
+                }
+            }
+        }
     }
 
     public void troonzaal(Spel spel, Speler speler) {
