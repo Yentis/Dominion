@@ -64,7 +64,7 @@ public class Actiekaart {
                 troonzaal(spel, speler);
                 break;
             case "Raadzaal":
-                raadzaal(speler);
+                raadzaal(spel, speler);
                 break;
             case "Festival":
                 festival(speler);
@@ -407,7 +407,7 @@ public class Actiekaart {
         Scanner keyboard = new Scanner(System.in);
         List<Kaart> koopopties = new ArrayList();
         int i = 0;
-        
+
         for(Kaart k : speler.getHand()){
             if(Objects.equals(k.getType(), "Actie") || Objects.equals(k.getType(), "Actie-Reactie") || Objects.equals(k.getType(), "Actie-Aanval")){
                 System.out.println(k.getNaam() + " | " + i);
@@ -421,13 +421,20 @@ public class Actiekaart {
         //effect gekozen actiekaart*2
         speelactiekaart(teSpelenKaart.getNaam(), speler, spel);
         speelactiekaart(teSpelenKaart.getNaam(), speler, spel);
-        
+
     }
 
-    public void raadzaal(Speler speler) {
+    public void raadzaal(Spel spel, Speler speler) {
+        //+4 kaarten
         speler.voegKaartToe(4, speler.getDeck(), speler.getHand());
         //+1 koop
         speler.addKoop(1);
+        //andere spelers trekken 1 kaart
+        for(Speler s : spel.getSpelers()){
+            if(!Objects.equals(s.getNaam(), speler.getNaam())){
+                s.voegKaartToe(1, s.getDeck(), s.getHand());
+            }
+        }
     }
 
     public void festival(Speler speler) {
