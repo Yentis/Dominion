@@ -451,12 +451,31 @@ public class Actiekaart {
     }
 
     public void bibliotheek(Speler speler) {
+        Scanner keyboard = new Scanner(System.in);
+
         while (speler.getHand().size() < 7) {
-            speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
+            if(Objects.equals(speler.getDeck().get(0).getType(), "Actie") || Objects.equals(speler.getDeck().get(0).getType(), "Actie-Reactie") || Objects.equals(speler.getDeck().get(0).getType(), "Actie-Aanval")){
+                System.out.println("Wil je " + speler.getDeck().get(0).getNaam() + " aan de kant leggen? J/N");
+                String input = keyboard.nextLine();
+                boolean besloten = true;
+                do{
+                    if(Objects.equals(input, "J") || Objects.equals(input, "j")){
+                        speler.voegKaartToe(1, speler.getDeck(), speler.getAflegstapel());
+                    } else if (Objects.equals(input, "N") || Objects.equals(input, "n")) {
+                        speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
+                    } else {
+                        System.out.println("Ongeldige invoer, probeer opnieuw.");
+                        besloten = false;
+                    }
+                }while(!besloten);
+            } else {
+                speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
+            }
         }
     }
 
     public void markt(Speler speler) {
+        //+1 kaart
         speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
         //+1geld +1 koop +1actie
         speler.addGeld(1);
