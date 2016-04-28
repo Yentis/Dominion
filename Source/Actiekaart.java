@@ -470,13 +470,12 @@ public class Actiekaart {
         }
     }
 
-    public void avonturier(Speler speler) {  //not checked yet
+    public void avonturier(Speler speler) {
         //blijf kaarten trekken tot je 2 geldkaarten krijgt
         int maxGeldKaarten = 2;
         int i = 0;
         while (i < maxGeldKaarten) {
-            Kaart bovenliggendeKaart = new Kaart();
-            bovenliggendeKaart = speler.getDeck().get(0);
+            Kaart bovenliggendeKaart = speler.getDeck().get(0);
             if (!Objects.equals(bovenliggendeKaart.getType(), "Geld")) {
                 speler.voegKaartToe(1, speler.getDeck(), speler.getAflegstapel());
             } else {
