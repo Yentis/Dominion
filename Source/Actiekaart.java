@@ -19,7 +19,7 @@ public class Actiekaart {
                 kelder(speler);
                 break;
             case "Kerk":
-                kerk(speler);
+                kerk(spel, speler);
                 break;
             case "Gracht":
                 gracht(speler);
@@ -127,10 +127,23 @@ public class Actiekaart {
         speler.voegKaartToe(aantalkaarten, speler.getDeck(), speler.getHand());
     }
 
-    public void kerk(Speler speler) {     //not finished
+    public void kerk(Spel spel, Speler speler) {
         //plaats tot 4 kaarten in de vuilbak
+        int counter = 0;
+        Scanner keyboard = new Scanner(System.in);
+        String input = "";
 
-
+        System.out.println("Kies max 4 kaarten die je wilt wegsmijten, typ 'OK' om door te gaan: ");
+        while (!Objects.equals(input, "OK") || counter<4) {
+            int i = 0;
+            for (Kaart k : speler.getHand()) {
+                System.out.println(k.getNaam() + " | " + i);
+                input = keyboard.nextLine();
+                Kaart afteleggenkaart = speler.getHand().get(Integer.parseInt(input));
+                spel.voegKaartToe(1, afteleggenkaart, speler.getVuilbak());
+                counter++;
+            }
+        }
     }
 
     public void gracht(Speler speler) {      //not finished
