@@ -156,9 +156,23 @@ public class Actiekaart {
     public void kanselier(Speler speler) {
         //+2 geld
         speler.addGeld(2);
-        //gooi deck in aflegstapel
-        speler.voegKaartToe(speler.getDeck().size(), speler.getDeck(), speler.getAflegstapel());
-
+        //je mag je deck in de aflegstapel gooien
+        Scanner keyboard = new Scanner(System.in);
+        String input = "";
+        boolean escape = false;
+        
+        while(!escape){
+            System.out.println("Wil je je deck in de aflegstapel gooien? J/N");
+            input = keyboard.nextLine();
+            if(Objects.equals(input, "J") || Objects.equals(input, "j")) {
+                speler.voegKaartToe(speler.getDeck().size(), speler.getDeck(), speler.getAflegstapel());
+                escape = true;
+            } else if (!Objects.equals(input, "N") || !Objects.equals(input, "n")){
+                System.out.println("Ongeldige invoer, probeer opnieuw.");
+            } else {
+                escape = true;
+            }
+        }
     }
 
     public void dorps(Speler speler) {
