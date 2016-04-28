@@ -486,15 +486,13 @@ public class Actiekaart {
     public void mijn(Spel spel, Speler speler) {    //idk if finished
         //thrash een geldkaart en geef de geldkaart met 1 waarde meer
 
-        String input;
+        String input = "";
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Kies de kaart die je wilt verwijderen: \n");
+        Kaart teVerwijderenKaart = toonKaarten(speler, input);
         for (Kaart k : speler.getHand()) {
-            int i = 0;
-            System.out.println(k.getNaam() + " | " + i);
-            input = keyboard.nextLine();
-            Kaart teVerwijderenKaart = speler.getHand().get(Integer.parseInt(input));
-            i++;
+
+
             if (teVerwijderenKaart.getWaarde() > 0 && teVerwijderenKaart.getType() == "Geld") {
                 Kaart teOntvangenKaart = new Kaart();
                 int waardeVanTeOntvangenKaart = teVerwijderenKaart.getWaarde() + 1;
