@@ -16,19 +16,19 @@ public class Actiekaart {
                 heks(spel, speler);
                 break;
             case "Kelder":
-                kelder(spel, speler);
+                kelder(speler);
                 break;
             case "Kerk":
                 kerk(speler);
                 break;
             case "Gracht":
-                gracht(spel, speler);
+                gracht(speler);
                 break;
             case "Kanselier":
-                kanselier(spel, speler);
+                kanselier(speler);
                 break;
             case "Dorps":
-                dorps(spel, speler);
+                dorps(speler);
                 break;
             case "Houthakker":
                 houthakker(speler);
@@ -53,10 +53,10 @@ public class Actiekaart {
                 ombouwen(spel,speler);
                 break;
             case "Smederij":
-                smederij(spel, speler);
+                smederij(speler);
                 break;
             case "Spion":
-                spion(spel, speler);
+                spion(speler);
                 break;
             case "Dief":
                 dief(spel);
@@ -65,25 +65,25 @@ public class Actiekaart {
                 troonzaal(spel, speler);
                 break;
             case "Raadzaal":
-                raadzaal(spel, speler);
+                raadzaal(speler);
                 break;
             case "Festival":
-                festival(spel, speler);
+                festival(speler);
                 break;
             case "Laboratorium":
-                laboratorium(spel, speler);
+                laboratorium(speler);
                 break;
             case "Bibliotheek":
-                bibliotheek(spel, speler);
+                bibliotheek(speler);
                 break;
             case "Markt":
-                markt(spel, speler);
+                markt(speler);
                 break;
             case "Mijn":
                 mijn(spel, speler);
                 break;
             case "Avonturier":
-                avonturier(spel, speler);
+                avonturier(speler);
                 break;
         }
     }
@@ -103,7 +103,7 @@ public class Actiekaart {
         }
     }
 
-    public void kelder(Spel spel, Speler speler) {
+    public void kelder(Speler speler) {
         //+1 actie
         speler.addActie(1);
         //selecteer de kaarten die je wilt afleggen
@@ -124,7 +124,7 @@ public class Actiekaart {
             }
         }
         //trek x nieuwe kaarten
-        spel.voegKaartToe(aantalkaarten, speler.getDeck(), speler.getHand());
+        speler.voegKaartToe(aantalkaarten, speler.getDeck(), speler.getHand());
     }
 
     public void kerk(Speler speler) {     //not finished
@@ -133,21 +133,21 @@ public class Actiekaart {
 
     }
 
-    public void gracht(Spel spel, Speler speler) {      //not finished
-        spel.voegKaartToe(2, speler.getDeck(), speler.getHand());
+    public void gracht(Speler speler) {      //not finished
+        speler.voegKaartToe(2, speler.getDeck(), speler.getHand());
         //counter-card
     }
 
-    public void kanselier(Spel spel, Speler speler) {
+    public void kanselier(Speler speler) {
         //+2 geld
         speler.addGeld(2);
         //gooi deck in aflegstapel
-        spel.voegKaartToe(speler.getDeck().size(), speler.getDeck(), speler.getAflegstapel());
+        speler.voegKaartToe(speler.getDeck().size(), speler.getDeck(), speler.getAflegstapel());
 
     }
 
-    public void dorps(Spel spel, Speler speler) {
-        spel.voegKaartToe(1, speler.getDeck(), speler.getHand());
+    public void dorps(Speler speler) {
+        speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
         speler.addActie(2);
     }
 
@@ -166,14 +166,14 @@ public class Actiekaart {
         int maximaleKost = 4;
         int i = 0;
         System.out.println("Kies de kaart die je wilt nemen: \n");
-        for(Kaart k: spel.getKaarten()){
+        for(Kaart k: spel.getAlleKaarten()){
             if(k.getKost()<= maximaleKost){
                 System.out.println(k.getNaam() + " | " + i);
                 i++;
             }
         }
         input = keyboard.nextLine();
-        teOntvangenKaart = spel.getKaarten().get(Integer.parseInt(input));
+        teOntvangenKaart = spel.getAlleKaarten().get(Integer.parseInt(input));
         spel.voegKaartToe(1,teOntvangenKaart, speler.getAflegstapel());
     }
 
@@ -188,7 +188,7 @@ public class Actiekaart {
                 System.out.println(s.getNaam() + "\n");
                 int i = 0;
                 for (Kaart k : s.getHand()){
-                    if (k.getType() == "Overwinning"){
+                    if (Objects.equals(k.getType(), "Overwinning")){
                         System.out.println(k.getNaam() + "|" + i);
                         i++;
                     }
@@ -248,7 +248,7 @@ public class Actiekaart {
             Kaart teVerwijderenKaart = speler.getHand().get(Integer.parseInt(input));
             if (Objects.equals(k.getNaam(), "Koper")) {
                 Kaart teOntvangenKaart = new Kaart();
-                speler.gooiKaartWegNaarVuilbak(teVerwijderenKaart, i);
+                spel.voegKaartToe(1, teVerwijderenKaart, speler.getVuilbak());
                 for (Kaart kaart : spel.getGeldveld()) {
                     if (Objects.equals(k.getNaam(), "Goud")) {
                         teOntvangenKaart = kaart;
@@ -279,7 +279,7 @@ public class Actiekaart {
         int waardeVanTeVerwijderenKaart = teVerwijderenKaart.getWaarde();
         int bereikKost = 2;
         int j = 0;
-        for (Kaart k: spel.getKaarten()){
+        for (Kaart k: spel.getAlleKaarten()){
             if (k.getWaarde() <= waardeVanTeVerwijderenKaart + bereikKost){
                 System.out.println(k.getNaam() + " | " + j);
                 j++;
@@ -294,12 +294,12 @@ public class Actiekaart {
 
     }
 
-    public void smederij(Spel spel, Speler speler) {
-        spel.voegKaartToe(3, speler.getDeck(), speler.getHand());
+    public void smederij(Speler speler) {
+        speler.voegKaartToe(3, speler.getDeck(), speler.getHand());
     }
 
-    public void spion(Spel spel, Speler speler) {  //not finished
-        spel.voegKaartToe(1, speler.getDeck(), speler.getHand());
+    public void spion(Speler speler) {  //not finished
+        speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
         //elke speler bekijkt de bovenste kaart van de deck en de speler kan beslissen of het naar de aflegstapel gaat
 
 
@@ -319,33 +319,33 @@ public class Actiekaart {
         speelactiekaart(actiekaart, speler, spel);
     }
 
-    public void raadzaal(Spel spel, Speler speler) {
-        spel.voegKaartToe(4, speler.getDeck(), speler.getHand());
+    public void raadzaal(Speler speler) {
+        speler.voegKaartToe(4, speler.getDeck(), speler.getHand());
         //+1 koop
         speler.addKoop(1);
     }
 
-    public void festival(Spel spel, Speler speler) {
+    public void festival(Speler speler) {
         //+2 acties +1 kaart +2geld
         speler.addActie(2);
-        spel.voegKaartToe(1, speler.getDeck(), speler.getHand());
+        speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
         speler.addGeld(2);
     }
 
-    public void laboratorium(Spel spel, Speler speler) {
-        spel.voegKaartToe(2, speler.getDeck(), speler.getHand());
+    public void laboratorium(Speler speler) {
+        speler.voegKaartToe(2, speler.getDeck(), speler.getHand());
         //+1actie
         speler.addActie(1);
     }
 
-    public void bibliotheek(Spel spel, Speler speler) {
+    public void bibliotheek(Speler speler) {
         while (speler.getHand().size() < 7) {
-            spel.voegKaartToe(1, speler.getDeck(), speler.getHand());
+            speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
         }
     }
 
-    public void markt(Spel spel, Speler speler) {
-        spel.voegKaartToe(1, speler.getDeck(), speler.getHand());
+    public void markt(Speler speler) {
+        speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
         //+1geld +1 koop +1actie
         speler.addGeld(1);
         speler.addKoop(1);
@@ -372,7 +372,7 @@ public class Actiekaart {
                         teOntvangenKaart = k;
                     }
                 }
-                speler.gooiKaartWegNaarVuilbak(teVerwijderenKaart, i);
+                spel.voegKaartToe(1, teVerwijderenKaart, speler.getVuilbak());
                 spel.voegKaartToe(1, teOntvangenKaart, speler.getAflegstapel());
             } else {
                 System.out.println("Je hebt geen geldkaart gekozen, probeer opnieuw (git gud nub)");
@@ -382,7 +382,7 @@ public class Actiekaart {
         }
     }
 
-    public void avonturier(Spel spel, Speler speler) {  //not checked yet
+    public void avonturier(Speler speler) {  //not checked yet
         //blijf kaarten trekken tot je 2 geldkaarten krijgt
         int maxGeldKaarten = 2;
         int i = 0;
@@ -390,9 +390,9 @@ public class Actiekaart {
             Kaart bovenliggendeKaart = new Kaart();
             bovenliggendeKaart = speler.getDeck().get(0);
             if (!Objects.equals(bovenliggendeKaart.getType(), "Geld")) {
-                spel.voegKaartToe(1, speler.getDeck(), speler.getAflegstapel());
+                speler.voegKaartToe(1, speler.getDeck(), speler.getAflegstapel());
             } else {
-                spel.voegKaartToe(1, speler.getDeck(), speler.getHand());
+                speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
                 i++;
             }
         }
