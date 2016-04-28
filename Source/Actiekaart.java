@@ -104,6 +104,18 @@ public class Actiekaart {
             }
         }
     }
+    
+    public void toonKaarten(Speler speler){
+        String input;
+        Scanner keyboard = new Scanner(System.in);
+        int i = 0;
+        for (Kaart k : speler.getHand()) {
+            System.out.println(k.getNaam() + " | " + i);
+            i++;
+        }
+        input = keyboard.nextLine();
+        Kaart afteleggenkaart = speler.getHand().get(Integer.parseInt(input));
+    }
 
     public void kelder(Speler speler) {
         //+1 actie
