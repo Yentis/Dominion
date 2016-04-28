@@ -55,7 +55,7 @@ public class Actiekaart {
                 smederij(speler);
                 break;
             case "Spion":
-                spion(speler);
+                spion(spel, speler);
                 break;
             case "Dief":
                 dief(spel, speler);
