@@ -256,8 +256,16 @@ public class Actiekaart {
         }
     }
 
-    public void feest(Spel spel, Speler speler) {    //not finished
-        //deze kaart naar thrash
+    public void feest(Spel spel, Speler speler) {
+        //deze kaart naar trash
+        boolean discarded = false;
+        
+        for(Kaart k : speler.getAflegstapel()){
+            if(Objects.equals(k.getNaam(), "Feest") && !discarded){
+                spel.voegKaartToe(1, k, speler.getVuilbak());
+                discarded = true;
+            }
+        }
 
         //neem kaart die max 5 geld kost
         String input;
