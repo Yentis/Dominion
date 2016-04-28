@@ -44,10 +44,9 @@ public class Actiekaart {
                 break;
             case "Schutterij":
                 schutterij(spel, speler);
-
                 break;
             case "Geldverlener":
-                geldverlener(speler, spel);
+                geldverlener(speler);
                 break;
             case "Ombouwen":
                 ombouwen(spel,speler);
@@ -218,9 +217,7 @@ public class Actiekaart {
     public void feest(Spel spel, Speler speler) {    //not finished
         //deze kaart naar thrash
 
-        //speler.verwijderKaart(this,); to be continued
         //neem kaart die max 5 geld kost
-
 
     }
 
@@ -248,29 +245,23 @@ public class Actiekaart {
         }
     }
 
-    public void geldverlener(Speler speler, Spel spel) {   //idk if finished
+    public void geldverlener(Speler speler) {
         //thrash koper
-        //krijg +3 geldkaart
+        //krijg +3 geld
         String input;
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Kies de kaart die je wilt verwijderen: \n");
+
+        int i = 0;
         for (Kaart k : speler.getHand()) {
-            int i = 0;
             System.out.println(k.getNaam() + " | " + i);
             input = keyboard.nextLine();
             Kaart teVerwijderenKaart = speler.getHand().get(Integer.parseInt(input));
-            if (Objects.equals(k.getNaam(), "Koper")) {
-                Kaart teOntvangenKaart = new Kaart();
-                spel.voegKaartToe(1, teVerwijderenKaart, speler.getVuilbak());
-                for (Kaart kaart : spel.getGeldveld()) {
-                    if (Objects.equals(k.getNaam(), "Goud")) {
-                        teOntvangenKaart = kaart;
-                    }
-                }
-                spel.voegKaartToe(1, teOntvangenKaart, speler.getAflegstapel());
+            if (Objects.equals(teVerwijderenKaart.getNaam(), "Koper")) {
+                speler.addGeld(3);
             } else {
-                System.out.println("Dit is geen Geldkaart die je gekozen hebt, probeer opnieuw noob");
-                geldverlener(speler, spel);
+                System.out.println("Dit is geen Geldkaart die je gekozen hebt, probeer opnieuw noob.");
+                geldverlener(speler);
             }
             i++;
         }
@@ -304,7 +295,6 @@ public class Actiekaart {
         Kaart teOntvangenKaart =
         spel.voegKaartToe(1, teOntvangenKaart, speler.getAflegstapel());
         */
-
     }
 
     public void smederij(Speler speler) {
