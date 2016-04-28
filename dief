@@ -1,0 +1,19 @@
+    public void dief(Spel spel, Speler speler) {  // not finished
+        //bekijk de 2 bovenste kaarten van elk persoon zijn deck en beslis of je de kaart wilt plaatsen op de aflegstapel
+        for (Speler s : spel.getSpelers()) {
+            if (!Objects.equals(s.getNaam(), speler.getNaam())) {
+                for(int i =0;i<2;i++){
+                    Kaart k = s.getDeck().get(i);
+                    System.out.println(k);
+                    System.out.println("Wil je deze kaart plaatsen op de aflegstapel? \n");
+                    String input;
+                    Scanner keyboard = new Scanner(System.in);
+                    input = keyboard.nextLine();
+                    if (input = 'ja'){
+                        speler.voegKaartToe(1, k, speler.getAflegstapel());
+                    }
+
+                }
+            }
+        }
+    }
