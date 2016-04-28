@@ -374,7 +374,7 @@ public class Actiekaart {
         }
     }
 
-public void dief(Spel spel, Speler speler) {  // nalezen aub
+    public void dief(Spel spel, Speler speler) {
 
         /*Each other player reveals the top 2 cards of his deck.
         If they revealed any Treasure cards, they trash one of them that you choose.
@@ -385,25 +385,21 @@ public void dief(Spel spel, Speler speler) {  // nalezen aub
         Scanner keyboard = new Scanner(System.in);
 
         for (Speler s : spel.getSpelers()) {
-            if (!Objects.equals(s.getNaam(), speler.getNaam())) {
+            if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
                 for(int i =0;i<2;i++){
                     Kaart k = s.getDeck().get(i);
                     System.out.println(k.getNaam());
                     if (Objects.equals(k.getType(), "Geld")){
-                        System.out.println("Wil je deze kaart stelen en naar je aflegstapel? \n");
+                        System.out.println("Wil je deze kaart stelen en op je aflegstapel plaatsen? J/N\n");
                         input = keyboard.nextLine();
-                        if (Objects.equals(input, "ja")){
+                        if (Objects.equals(input, "J") || Objects.equals(input, "j")){
                             spel.voegKaartToe(1, s.getDeck().get(i), speler.getAflegstapel());
-                    }
-                    
-                    
-                    }
+                        }
                     }
                 }
             }
         }
     }
-
 
     public void troonzaal(Spel spel, Speler speler) {
         //kies een actiekaart
