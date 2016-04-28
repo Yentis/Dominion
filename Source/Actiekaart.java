@@ -403,10 +403,25 @@ public class Actiekaart {
 
     public void troonzaal(Spel spel, Speler speler) {
         //kies een actiekaart
+        String input = "";
+        Scanner keyboard = new Scanner(System.in);
+        List<Kaart> koopopties = new ArrayList();
+        int i = 0;
+        
+        for(Kaart k : speler.getHand()){
+            if(Objects.equals(k.getType(), "Actie") || Objects.equals(k.getType(), "Actie-Reactie") || Objects.equals(k.getType(), "Actie-Aanval")){
+                System.out.println(k.getNaam() + " | " + i);
+                koopopties.add(k);
+                i++;
+            }
+        }
+        input = keyboard.nextLine();
+        Kaart teSpelenKaart = koopopties.get(Integer.parseInt(input));
+
         //effect gekozen actiekaart*2
-        String actiekaart = "";
-        speelactiekaart(actiekaart, speler, spel);
-        speelactiekaart(actiekaart, speler, spel);
+        speelactiekaart(teSpelenKaart.getNaam(), speler, spel);
+        speelactiekaart(teSpelenKaart.getNaam(), speler, spel);
+        
     }
 
     public void raadzaal(Speler speler) {
