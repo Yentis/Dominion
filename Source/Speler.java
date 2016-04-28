@@ -100,4 +100,17 @@ public class Speler {
         aflegstapel.add(k);
         hand.remove(i);
     }
+    public void gooiKaartWegNaarVuilbak(Kaart k,int i){
+        vuilbak.add(k);
+        hand.remove(i);
+    }
+
+    public void verplaatsKaart(int aantalKaarten, List<Kaart> startpunt, List<Kaart> bestemming){
+        for(int  i=0; i<aantalKaarten;i++){
+            bestemming.add(startpunt.get(i));
+        }
+        for(int  i=0; i<aantalKaarten;i++){
+            startpunt.remove(0);
+        }
+    }
 }
