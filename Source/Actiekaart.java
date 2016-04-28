@@ -88,7 +88,10 @@ public class Actiekaart {
     }
 
     public void heks(Spel spel, Speler speler) {
-        //geef de andere spelers 2 vloekkaarten
+        //+2 kaarten
+        speler.voegKaartToe(2, speler.getDeck(), speler.getHand());
+
+        //geef de andere spelers een vloekkaart
         Kaart vloek = new Kaart();
         for (Kaart k : spel.getOverwinningsveld()) {
             if (Objects.equals(k.getNaam(), "Vloek")) {
@@ -97,7 +100,7 @@ public class Actiekaart {
         }
         for (Speler s : spel.getSpelers()) {
             if (!Objects.equals(s.getNaam(), speler.getNaam())) {
-                spel.voegKaartToe(2, vloek, speler.getAflegstapel());
+                spel.voegKaartToe(1, vloek, speler.getAflegstapel());
             }
         }
     }
