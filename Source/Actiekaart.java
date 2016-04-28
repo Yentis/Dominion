@@ -190,36 +190,57 @@ public class Actiekaart {
         //neem een kaart met <=4 kost
         String input;
         Scanner keyboard = new Scanner(System.in);
+        List<Kaart> koopopties = new ArrayList();
 
         System.out.println("Kies een kaart met een kost minder dan 4: \n");
         int i = 0;
         for(Kaart k: spel.getAlleKaarten()){
-            if(k.getKost()<= 4){
+            if(k.getKost()<= 4 && !koopopties.contains(k)){
                 System.out.println(k.getNaam() + " | " + i);
+                koopopties.add(k);
                 i++;
             }
         }
         input = keyboard.nextLine();
-        Kaart teOntvangenKaart = spel.getAlleKaarten().get(Integer.parseInt(input));
+        Kaart teOntvangenKaart = koopopties.get(Integer.parseInt(input));
         spel.voegKaartToe(1, teOntvangenKaart, speler.getAflegstapel());
     }
 
-    public void bureaucraat(Spel spel, Speler speler) {   //Input moet er nog bij horen
-        //+1 actiekaart
-        speler.addActie(1);
-        //elk ander speler toont een overwinningskaart en plaatst het op zijn deck (of toont een hand zonder overwinningskaarten)
-        String input;
+    public void bureaucraat(Spel spel, Speler speler) {   //not finished
+        //+1 actiekaart, plaats deze op je deck
+        int i = 0;
+        String input = "";
         Scanner keyboard = new Scanner(System.in);
+        List<Kaart> koopopties = new ArrayList();
+
+        System.out.println("Kies een actiekaart: ");
+        for(Kaart k : spel.getAlleKaarten()){
+            if((Objects.equals(k.getType(), "Actie") || Objects.equals(k.getType(), "Actie-Reactie") || Objects.equals(k.getType(), "Actie-Aanval")) && !koopopties.contains(k)){
+                System.out.println(k.getNaam() + " | " + i);
+                koopopties.add(k);
+                i++;
+            }
+        }
+        input = keyboard.nextLine();
+        Kaart teOntvangenKaart = koopopties.get(Integer.parseInt(input));
+        spel.koopKaart(teOntvangenKaart, speler.getDeck());
+
+        //elk ander speler toont een overwinningskaart en plaatst het op zijn deck (of toont een hand zonder overwinningskaarten)
+        koopopties = new ArrayList();
+        
         for (Speler s : spel.getSpelers()) {
             if (!Objects.equals(s.getNaam(), speler.getNaam())) {
                 System.out.println(s.getNaam() + "\n");
-                int i = 0;
+                i = 0;
                 for (Kaart k : s.getHand()){
                     if (Objects.equals(k.getType(), "Overwinning")){
                         System.out.println(k.getNaam() + "|" + i);
                         i++;
                     }
                 }
+                input = keyboard.nextLine();
+                Kaart teVerplaatsenKaart = koopopties.get(Integer.parseInt(input));
+                spel.voegKaartToe(1, teVerplaatsenKaart, s.getDeck());
                 if(i == 0){
                     for(Kaart k : s.getHand()){
                         System.out.println(k.getNaam());
