@@ -1,5 +1,6 @@
 package com.company;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +58,8 @@ public class Speler {
     public void setActie(int actie) {
         this.actie = actie;
     }
+
+    public void addOverwinningspunten(int x) { overwinningspunten += x; }
 
     public void addKoop(int x) { koop += x;}
 
