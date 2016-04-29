@@ -7,12 +7,13 @@ import java.sql.*;
  * Created by Yentl-PC on 24/03/2016.
  */
 public class Spel {
-    private List<Kaart> kaarten = new ArrayList<>();
+    private List<Kaart> kaarten = new ArrayList();
     private List<Kaart> actieveld = new ArrayList();
     private List<Kaart> overwinningsveld = new ArrayList();
     private List<Kaart> geldveld = new ArrayList();
     private List<Speler> spelers = new ArrayList();
     private List<Kaart> alleKaarten = new ArrayList();
+    private List<Integer> stapelskaarten = new ArrayList<>(Collections.nCopies(32, 0));
 
     public List<Speler> getSpelers() {
         return spelers;
@@ -29,31 +30,37 @@ public class Spel {
 
         int i = 0;
         while (myRs.next()) {
-            kaarten.add(i, new Kaart(myRs.getString("naam"), myRs.getInt("kost"), myRs.getString("type"), myRs.getString("omschrijving"), myRs.getInt("waarde")));
+            kaarten.add(i, new Kaart(myRs.getInt("kaartnr")-1, myRs.getString("naam"), myRs.getInt("kost"), myRs.getString("type"), myRs.getString("omschrijving"), myRs.getInt("waarde")));
             i++;
         }
     }
 
-    public void starterDeck(Spel spel, List<Kaart> deck)
+    public void setStapelskaarten(int kaart, int waarde) {
+        stapelskaarten.set(kaart, stapelskaarten.get(kaart) + waarde);
+    }
+
+    public void starterDeck(Spel spel, Speler speler)
     {
         int aantalkaarten = 0;
 
         for(int i=0;i<spel.getGeldveld().size();i++){
             if(Objects.equals(spel.getGeldveld().get(i).getNaam(), "Koper") && aantalkaarten < 7){
-                deck.add(spel.getGeldveld().get(i));
+                speler.getDeck().add(spel.getGeldveld().get(i));
+                setStapelskaarten(25, -1);
                 aantalkaarten++;
-                spel.getGeldveld().remove(i);
+                getGeldveld().remove(i);
             }
         }
 
         for(int i=0;i<spel.getOverwinningsveld().size();i++){
             if(Objects.equals(spel.getOverwinningsveld().get(i).getNaam(), "Landgoed") && aantalkaarten < 10){
-                deck.add(spel.getOverwinningsveld().get(i));
+                speler.getDeck().add(spel.getOverwinningsveld().get(i));
+                setStapelskaarten(28, -1);
                 aantalkaarten++;
                 spel.getOverwinningsveld().remove(i);
             }
         }
-        schudden(deck);
+        schudden(speler.getDeck());
     }
 
     public void schudden(List<Kaart> deck)
@@ -61,11 +68,31 @@ public class Spel {
         Collections.shuffle(deck);
     }
 
-
-    public void voegKaartToe(int aantalKaarten, Kaart kaart, List<Kaart> bestemming){
+    public void voegKaartToe(int aantalKaarten, Kaart kaart, List<Kaart> bron, List<Kaart> bestemming){
         for(int  i=0; i<aantalKaarten;i++){
             bestemming.add(kaart);
         }
+        bron.remove(kaart);
+    }
+
+    public void berekenScore(Speler speler){
+        int score = 0;
+        for(Kaart k : speler.getAflegstapel()){
+            if(Objects.equals(k.getType(), "Overwinning") || Objects.equals(k.getType(), "Vloek")){
+                score += k.getWaarde();
+            }
+        }
+        for(Kaart k : speler.getDeck()){
+            if(Objects.equals(k.getType(), "Overwinning") || Objects.equals(k.getType(), "Vloek")){
+                score += k.getWaarde();
+            }
+        }
+        for(Kaart k : speler.getHand()){
+            if(Objects.equals(k.getType(), "Overwinning") || Objects.equals(k.getType(), "Vloek")){
+                score += k.getWaarde();
+            }
+        }
+        speler.addOverwinningspunten(score);
     }
 
     public void vulVeldOp(){
@@ -77,8 +104,10 @@ public class Spel {
             int value = rand.nextInt(kaarten.size());
             if((Objects.equals(kaarten.get(value).getType(), "Actie") || Objects.equals(kaarten.get(value).getType(), "Actie-Reactie") || Objects.equals(kaarten.get(value).getType(), "Actie-Aanval") || Objects.equals(kaarten.get(value).getNaam(), "Tuinen")) && actieveld.contains(kaarten.get(value)) == false){
                 int aantalopstapel = 10;
+                setStapelskaarten(kaarten.get(value).getNr(), 1);
                 for(int stapelopvullen=0;stapelopvullen<aantalopstapel;stapelopvullen++){
                     actieveld.add(kaarten.get(value));
+                    setStapelskaarten(kaarten.get(value).getNr(), 1);
                     //System.out.println(kaarten.get(value).toString() + "\n");
                     i++;
                 }
@@ -97,8 +126,10 @@ public class Spel {
                     aantalopstapel = 8;
                 }
 
+                setStapelskaarten(kaarten.get(j).getNr(), 1);
                 for(int stapelopvullen = 0;stapelopvullen<aantalopstapel;stapelopvullen++){
                     overwinningsveld.add(kaarten.get(j));
+                    setStapelskaarten(kaarten.get(j).getNr(), 1);
                     //System.out.println(kaarten.get(j).toString() + "\n");
                 }
             }
@@ -106,7 +137,7 @@ public class Spel {
 
         //Geldkaarten
         for(int k = 0;k<kaarten.size();k++){
-            if(Objects.equals(kaarten.get(k).getType(), "Geld") || Objects.equals(kaarten.get(k).getNaam(), "Vloek")){
+            if(Objects.equals(kaarten.get(k).getType(), "Geld")){
                 int aantalopstapel;
                 switch(kaarten.get(k).getNaam()) {
                     case "Koper":
@@ -122,8 +153,10 @@ public class Spel {
                         break;
                 }
 
+                setStapelskaarten(kaarten.get(k).getNr(), 1);
                 for(int stapelopvullen = 0;stapelopvullen < aantalopstapel;stapelopvullen++){
                     geldveld.add(kaarten.get(k));
+                    setStapelskaarten(kaarten.get(k).getNr(), 1);
                     //System.out.println(kaarten.get(k).toString() + "\n");
                 }
             }
@@ -132,34 +165,15 @@ public class Spel {
 
     public void koopKaart(Kaart k, List<Kaart> aflegstapel){
         aflegstapel.add(k);
-        if(getActieveld().contains(k)){
-            getActieveld().remove(k);
-        } else if (getOverwinningsveld().contains(k)){
-            getOverwinningsveld().remove(k);
-        } else {
-            getGeldveld().remove(k);
-        }
-    }
-
-    public void verwijderVanVeld(String naam, String type){
-        if(Objects.equals(type, "Overwinning")){
-            for(int i = 0;i<overwinningsveld.size();i++){
-                if(Objects.equals(overwinningsveld.get(i).getNaam(), naam)){
-                    overwinningsveld.remove(i);
-                }
-            }
-        } else if (Objects.equals(type, "Geld") || Objects.equals(type, "Vloek")){
-            for(int i = 0;i<geldveld.size();i++){
-                if(Objects.equals(geldveld.get(i).getNaam(), naam)){
-                    geldveld.remove(i);
-                }
-            }
-        } else {
-            for(int i = 0;i<actieveld.size();i++){
-                if(Objects.equals(actieveld.get(i).getNaam(), naam)){
-                    actieveld.remove(i);
-                }
-            }
+        if(actieveld.contains(k)){
+            actieveld.remove(k);
+            setStapelskaarten(k.getNr(), -1);
+        } else if (overwinningsveld.contains(k)){
+            overwinningsveld.remove(k);
+            setStapelskaarten(k.getNr(), -1);
+        } else if (geldveld.contains(k)) {
+            geldveld.remove(k);
+            setStapelskaarten(k.getNr(), -1);
         }
     }
 
@@ -167,6 +181,10 @@ public class Spel {
         speler.setActie(1);
         speler.setKoop(1);
         speler.setGeld(0);
+    }
+
+    public List<Integer> getStapelskaarten() {
+        return stapelskaarten;
     }
 
     public List<Kaart> getAlleKaarten() {
@@ -188,9 +206,5 @@ public class Spel {
 
     public List<Kaart> getOverwinningsveld() {
         return overwinningsveld;
-    }
-
-    public List<Kaart> getActieveld() {
-        return actieveld;
     }
 }
