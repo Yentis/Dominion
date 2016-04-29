@@ -4,13 +4,15 @@ package com.company;
  * Created by Yentl-PC on 22/03/2016.
  */
 public class Kaart {
+    private int nr;
     private String naam;
     private int kost;
     private String type;
     private String omschrijving;
     private int waarde;
 
-    public Kaart(String naam, int kost, String type, String omschrijving, int waarde){
+    public Kaart(int nr, String naam, int kost, String type, String omschrijving, int waarde){
+        this.nr = nr;
         this.naam = naam;
         this.kost = kost;
         this.type = type;
@@ -24,6 +26,10 @@ public class Kaart {
         type = "Placeholder";
         omschrijving = "Placeholder";
         waarde = 0;
+    }
+
+    public int getNr() {
+        return nr;
     }
 
     public int getWaarde() {
