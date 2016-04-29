@@ -48,8 +48,8 @@ public class Main {
                 spel.vulVeldOp();
 
                 //Geef startkaarten
-                spel.starterDeck(spel, speler1.getDeck());
-                spel.starterDeck(spel, speler2.getDeck());
+                spel.starterDeck(spel, speler1);
+                spel.starterDeck(spel, speler2);
                 speler1.voegKaartToe(5, speler1.getDeck(), speler1.getHand());
                 speler2.voegKaartToe(5, speler2.getDeck(), speler2.getHand());
 
@@ -97,17 +97,10 @@ public class Main {
             String input = keyboard.nextLine();
             switch (input){
                 case "0":
-                    List<Kaart> kaarten = new ArrayList();
-                    for(int i=0;i<speler.getHand().size();i++){
-                        kaarten.add(speler.getHand().get(i));
-                    }
-                    int aantalVerwijderd = 0;
-                    for (int j = 0;j<kaarten.size();j++) {
-                        Kaart k = kaarten.get(j);
+                    for (Kaart k : speler.getHand()) {
                         if (k.getType().equals("Geld")) {
                             speler.addGeld(k.getWaarde());
-                            speler.verwijderKaart(k, j-aantalVerwijderd);
-                            aantalVerwijderd++;
+                            spel.voegKaartToe(1, k, speler.getHand(), speler.getAflegstapel());
                         }
                     }
                     break;
@@ -126,8 +119,8 @@ public class Main {
                         }
                         input = keyboard.nextLine();
                         Kaart tespelenkaart = actiekaarten.get(Integer.parseInt(input));
+                        spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
                         acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel);
-                        speler.verwijderKaart(tespelenkaart, j-1);
                         speler.addActie(-1);
                     } else {
                         System.out.println("U heeft onvoldoende actiebeurten.");
@@ -138,21 +131,7 @@ public class Main {
                     if(speler.getKoop() > 0){
                         int i = 0;
                         List<Kaart> koopopties = new ArrayList();
-                        for(Kaart k : spel.getGeldveld()){
-                            if (k.getKost() <= speler.getGeld() && !koopopties.contains(k)){
-                                koopopties.add(k);
-                                System.out.println(k.getNaam() + " - " + k.getKost() + " | " + i);
-                                i++;
-                            }
-                        }
-                        for(Kaart k : spel.getActieveld()){
-                            if (k.getKost() <= speler.getGeld() && !koopopties.contains(k)){
-                                koopopties.add(k);
-                                System.out.println(k.getNaam() + " - " + k.getKost() + " | " + i);
-                                i++;
-                            }
-                        }
-                        for(Kaart k : spel.getOverwinningsveld()){
+                        for(Kaart k : spel.getAlleKaarten()){
                             if (k.getKost() <= speler.getGeld() && !koopopties.contains(k)){
                                 koopopties.add(k);
                                 System.out.println(k.getNaam() + " - " + k.getKost() + " | " + i);
@@ -179,6 +158,7 @@ public class Main {
     }
 
     public boolean spelGedaan(Spel spel){
+        //provincie stapel leeg
         for(Kaart k : spel.getOverwinningsveld()){
             if(Objects.equals(k.getNaam(), "Provincie")){
                 return false;
@@ -186,8 +166,28 @@ public class Main {
         }
 
         //3 stapels leeg
+        int aantallegestapels = 0;
+        for(int i=1;i<spel.getStapelskaarten().size();i++){
+            if(spel.getStapelskaarten().get(i) == 1){
+                aantallegestapels++;
+            }
+        }
+        if(aantallegestapels < 3){
+            return false;
+        }
 
         System.out.println("Game over");
+        int hoogstescore = 0;
+        String winnaar = "";
+        for(Speler s : spel.getSpelers()){
+            spel.berekenScore(s);
+            int score = s.getOverwinningspunten();
+            if(score > hoogstescore){
+                hoogstescore = score;
+                winnaar = s.getNaam();
+            }
+        }
+        System.out.println("De winnaar is " + winnaar);
         return true;
     }
 }
