@@ -57,7 +57,7 @@ function scorepagina(){
     <h3>Spelers</h3> <h3>punten</h3>
     <form>
         <button formmethod="get" formaction="Dominionindex.php"  type="submit" class="startp2">Opnieuwspelen</button>
-        <button type="submit" class="startp2">Doorgaan</button>
+        <button formmethod="get" formaction="Dominionindex.php" type="submit" class="startp2">Doorgaan</button>
     </form>
 <?php
 }
