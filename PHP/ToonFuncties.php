@@ -1,7 +1,7 @@
 <?php
 function startpagina()
 {
-    require_once "htmlkopStart.php";
+    require_once "htmlkopStartPagina.php";
     ?>
     
 
