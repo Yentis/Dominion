@@ -14,7 +14,7 @@ function gamepagina(){
         <li></li>
         <!--voeg hier de veldkaartenkaarten toe-->
     </ul> <ul id="Actiekaart">
-        <--voeg hier de veldkaartenkaarten toe-->
+        <!--voeg hier de veldkaartenkaarten toe-->
     </ul>
     <ul id="Geldkaart">
         <!--voeg hier de veldkaartenkaarten toe-->
