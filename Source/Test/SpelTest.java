@@ -14,6 +14,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.fail;
 
 /**
@@ -53,11 +54,7 @@ public class SpelTest {
     public void testAddSpeler() {
         System.out.println("addSpeler");
         Spel instance = new Spel();
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Geef je naam");
-        String input = keyboard.nextLine();
-        keyboard.close();
-        Speler speler = new Speler(input, 0);
+        Speler speler = new Speler("Test", 0);
         instance.addSpeler(speler);
         System.out.println(speler);
     }
@@ -123,18 +120,27 @@ public class SpelTest {
 
     /**
      * Test of koopKaart method, of class Spel.
+     * Confirmed working - Yentl
      */
     @Test
-    public void testKoopKaart() {
+    public void testKoopKaart() throws SQLException {
         System.out.println("koopKaart");
-        Kaart k = null;
-        List<Kaart> aflegstapel = null;
         Spel instance = new Spel();
+        Speler testspeler = new Speler("Test", 0);
+        instance.maakKaarten();
+        instance.vulVeldOp();
+        Kaart k = instance.getAlleKaarten().get(0);
+        List<Kaart> aflegstapel = testspeler.getAflegstapel();
+        int aantalkaartenvooraf = instance.getStapelskaarten().get(k.getNr());
         instance.koopKaart(k, aflegstapel);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        int aantalkaartenachteraf = instance.getStapelskaarten().get(k.getNr());
 
+        //Kaart wordt op de aflegstapel gelegd
+        assertEquals(aflegstapel.get(0), k);
+
+        //Stapel verminderd met 1
+        assertEquals(aantalkaartenvooraf, aantalkaartenachteraf+1);
+    }
 
     /**
      * Test of getStapelskaarten method, of class Spel.
