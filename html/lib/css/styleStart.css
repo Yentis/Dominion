@@ -80,12 +80,10 @@ input[type="text"]{
 .kleineKnop{
     width:112px;
     height: 112px;
-
+    margin-left: 30px;
     float: right;
     padding: 10px;
     border-radius: 15px;
-
-
 }
 #vorige{
 
@@ -148,7 +146,7 @@ input:hover{
     background-size: 75%;
     background-repeat: no-repeat;
     background-image: url(../images/2000px-Simple_Music.png);
-    margin-left: 30px;
+
 }
 #toggleMuziek:hover{
     background-image: url(../images/2000px-Simple_Music2.png);
@@ -188,9 +186,9 @@ audio{
     margin-left: auto;
     margin-right: auto;
 }
-#spelregelsKnop:before {
-    content:"?";
-
+#sluitSpelregels:hover{
+    color: sandybrown;
+    background-color: crimson;
 }
 
 
