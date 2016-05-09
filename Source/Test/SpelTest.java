@@ -3,11 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.company;
+package Test;
 
-import java.util.*;
+import com.company.*;
 import org.junit.*;
-import static org.junit.Assert.*;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  *
@@ -35,21 +42,8 @@ public class SpelTest {
     }
 
     @Test
-    public void kanarieTest(){
+    public void kanarieTest() {
         System.out.println("ej twerkt");
-    }
-    /**
-     * Test of getSpelers method, of class Spel.
-     */
-    @Test
-    public void testGetSpelers() {
-        System.out.println("getSpelers");
-        Spel instance = new Spel();
-        List<Speler> expResult = null;
-        List<Speler> result = instance.getSpelers();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     /**
@@ -58,11 +52,14 @@ public class SpelTest {
     @Test
     public void testAddSpeler() {
         System.out.println("addSpeler");
-        Speler speler = null;
         Spel instance = new Spel();
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Geef je naam");
+        String input = keyboard.nextLine();
+        keyboard.close();
+        Speler speler = new Speler(input, 0);
         instance.addSpeler(speler);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println(speler);
     }
 
     /**
@@ -75,102 +72,54 @@ public class SpelTest {
         Spel instance = new Spel();
         instance.maakKaarten();
         instance.vulVeldOp();
-        for (Kaart k : instance.getAlleKaarten()){
+        for (Kaart k : instance.getAlleKaarten()) {
             System.out.println(k);
         }
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
-
-
-    /**
-     * Test of setStapelskaarten method, of class Spel.
-     */
-
-    @Test
-    public void testSetStapelskaarten() {
-        System.out.println("setStapelskaarten");
-        int kaart = 0;
-        int waarde = 0;
-        Spel instance = new Spel();
-        instance.setStapelskaarten(kaart, waarde);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
 
     /**
      * Test of starterDeck method, of class Spel.
      */
     @Test
-    public void testStarterDeck() {
+    public void testStarterDeck() throws SQLException {
         System.out.println("starterDeck");
-        Spel spel = null;
+
         Speler speler = new Speler("derp", 0);
         Spel instance = new Spel();
+        instance.maakKaarten();
+        instance.vulVeldOp();
 
 
-       /* spel.starterDeck(spel, speler);
+        instance.starterDeck(instance, speler);
         speler.getDeck().forEach(System.out::println);
-*/
+
 
     }
 
-    /**
-     * Test of schudden method, of class Spel.
-     */
-    @Test
-    public void testSchudden() {
-        System.out.println("schudden");
-        List<Kaart> deck = null;
-        Spel instance = new Spel();
-        instance.schudden(deck);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of voegKaartToe method, of class Spel.
      */
     @Test
-    public void testVoegKaartToe(Speler speler, Spel spel) {
+    public void testVoegKaartToe() throws SQLException {
         System.out.println("voegKaartToe");
-
-        int aantalKaarten = 1;
-        Kaart kaart = spel.getGeldveld().get(1);
-        List<Kaart> bron = speler.getDeck();
-        List<Kaart> bestemming = speler.getHand();
+        Speler speler = new Speler("Tester", 0);
         Spel instance = new Spel();
-
-        instance.voegKaartToe(aantalKaarten, kaart , bron, bestemming);
-        // TODO review the generated test code and remove the default call to fail.
-
-    }
-
-    /**
-     * Test of berekenScore method, of class Spel.
-     */
-    @Test
-    public void testBerekenScore() {
-        System.out.println("berekenScore");
-        Speler speler = null;
-        Spel instance = new Spel();
-        instance.berekenScore(speler);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of vulVeldOp method, of class Spel.
-     */
-    @Test
-    public void testVulVeldOp() {
-        System.out.println("vulVeldOp");
-        Spel instance = new Spel();
+        instance.addSpeler(speler);
+        instance.maakKaarten();
         instance.vulVeldOp();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Kaart kaart = new Kaart();
+
+        List<Kaart> bron = instance.getGeldveld();
+        List<Kaart> bestemming = speler.getDeck();
+        int aantalKaarten = 1;
+        if (Objects.equals(kaart.getNaam(), "Heks")) {
+            System.out.println(speler.getDeck());
+            instance.voegKaartToe(aantalKaarten, kaart, bron, bestemming);
+        }
     }
+
 
     /**
      * Test of koopKaart method, of class Spel.
@@ -186,18 +135,6 @@ public class SpelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setSpelerValues method, of class Spel.
-     */
-    @Test
-    public void testSetSpelerValues() {
-        System.out.println("setSpelerValues");
-        Speler speler = null;
-        Spel instance = new Spel();
-        instance.setSpelerValues(speler);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of getStapelskaarten method, of class Spel.
@@ -217,42 +154,32 @@ public class SpelTest {
      * Test of getAlleKaarten method, of class Spel.
      */
     @Test
-    public void testGetAlleKaarten() {
+    public void testGetKaarten() throws SQLException {
         System.out.println("getAlleKaarten");
         Spel instance = new Spel();
-        List<Kaart> expResult = null;
+        instance.maakKaarten();
+        instance.vulVeldOp();
         List<Kaart> result = instance.getAlleKaarten();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getGeldveld method, of class Spel.
-     */
-    @Test
-    public void testGetGeldveld() {
-        System.out.println("getGeldveld");
-        Spel instance = new Spel();
-        List<Kaart> expResult = null;
-        List<Kaart> result = instance.getGeldveld();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for (Kaart k : result) {
+            System.out.println(k);
+        }
     }
 
     /**
      * Test of getOverwinningsveld method, of class Spel.
      */
     @Test
-    public void testGetOverwinningsveld() {
+    public void testGetOverwinningsveld() throws SQLException {
         System.out.println("getOverwinningsveld");
         Spel instance = new Spel();
-        List<Kaart> expResult = null;
-        List<Kaart> result = instance.getOverwinningsveld();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        instance.maakKaarten();
+        instance.vulVeldOp();
+        List<Kaart> result = instance.getAlleKaarten();
+        for (Kaart k : result) {
+            if (Objects.equals(k.getType(), "Overwinning")) {
+                System.out.println(k);
+            }
+        }
+// het zou dan ook werken voor de andere types
     }
-
 }
