@@ -146,14 +146,15 @@ public class SpelTest {
      * Test of getStapelskaarten method, of class Spel.
      */
     @Test
-    public void testGetStapelskaarten() {
+    public void testGetStapelskaarten() throws SQLException {
         System.out.println("getStapelskaarten");
         Spel instance = new Spel();
-        List<Integer> expResult = null;
+        instance.maakKaarten();
+        instance.vulVeldOp();
         List<Integer> result = instance.getStapelskaarten();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        for (Integer i : result){
+            System.out.println(i);
+        }
     }
 
     /**
