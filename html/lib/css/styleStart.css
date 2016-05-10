@@ -35,13 +35,20 @@ h3{
     font-style: italic;
     text-shadow: 5px 5px 50px chocolate;
 }
-ul{
-    font-size: 4rem;
-    margin-left: 100px;
-    display: inline;
+ul li{
+    font-size: 2.3rem;
+    margin-left: 75px;
+    margin-top: 30px;
+
+
+}
+p{
+    font-size: 3rem;
+    margin-left: 140px;
+    margin-right: 800px;
 }
 
-input{
+/*input{
     margin-bottom: 20px;
     background-color: transparent;
     padding-left: 180px;
@@ -56,7 +63,28 @@ input{
     color: chocolate;
     border-radius: 15px;
     transition: 0.5s;
+}*/
+
+
+
+ input, a{
+    text-decoration: none;
+    color: chocolate;
+    margin-bottom: 20px;
+    background-color: transparent;
+    padding-left: 180px;
+    padding-right: 100px;
+    padding-top: 55px;
+    padding-bottom: 55px;
+    box-shadow: 0 0 50px chocolate;
+    font-family: 'timesplitters';
+    font-size: 5rem;
+    display: block;
+     border-radius: 15px;
+    transition: 0.5s;
+     border: none;
 }
+
 input[type="text"]{
     height:30px;
     width:30%;
@@ -121,8 +149,11 @@ input[type="text"]{
     padding-bottom: 30px;
     font-size: 4rem;
     border-radius: 15px;
+    display: inline;
+    border: solid;
 
 }
+
 .scorebutt{
     display: inline-block;
     font-size: 2.5rem;
@@ -131,17 +162,19 @@ input[type="text"]{
     padding-bottom: 20px;
     padding-top: 20px;
     margin-left: 80px;
-    margin-top: 27%;
+    margin-top: 100px;
 
 }
 .scoretitel{
     display: block;
     margin-top: 30px;
+    margin-bottom: 100px;
 }
-.spelerslijst{
-    margin-right: 800px;
+.veld{
+    display: inline;
 }
-input:hover{
+
+input:hover, a:hover{
 
     background-color: orange;
     color: saddlebrown;
@@ -214,6 +247,10 @@ audio{
 #sluitSpelregels:hover{
     color: sandybrown;
     background-color: crimson;
+}
+#endgame .startp2{
+    display: inline-block;
+
 }
 
 
