@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'runescape';
-    src: url('../font/runescape_chat_font.ttf');
+    src: url('../fonts/runescape_uf.ttf');
     font-weight: normal;
     font-style: italic;
 
 }
 
 body {
-    background-image: url("../../images/background.jpg");
+    background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     font-family: 'runescape';
 
@@ -39,8 +39,8 @@ div{
 }
 #speler{
     position: absolute;
-    left: 0;
-    bottom: -515px;
+    left: 200px;
+    bottom: -350px;
 
 }
 #dank{
@@ -147,6 +147,4 @@ button{
     top: 630px;
 
 }
-
-
 
