@@ -67,7 +67,7 @@ p{
 
 
 
- input, a{
+input, a{
     text-decoration: none;
     color: chocolate;
     margin-bottom: 20px;
@@ -80,9 +80,9 @@ p{
     font-family: 'timesplitters';
     font-size: 5rem;
     display: block;
-     border-radius: 15px;
+    border-radius: 15px;
     transition: 0.5s;
-     border: none;
+    border: none;
 }
 
 input[type="text"]{
