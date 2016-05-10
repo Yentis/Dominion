@@ -40,7 +40,7 @@ div{
 #speler{
     position: absolute;
     left: 0;
-    bottom: -400px;
+    bottom: -515px;
 
 }
 #dank{
@@ -121,4 +121,32 @@ button{
 #buttons{
     position: absolute;
     margin-left: 1500px;
-}v
+}
+
+/*aflegstapel en deck*/
+.stapel{
+    position: absolute;
+    background-color: darkgreen;
+    padding: 10px;
+    margin-top: 80px;
+}
+
+.stapel img{
+    display: block;
+    height: 100px;
+    width: 66px;
+
+
+}
+
+#log{
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    left: 540px;
+    top: 630px;
+
+}
+
+
+
