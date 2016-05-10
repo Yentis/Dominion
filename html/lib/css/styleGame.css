@@ -1,14 +1,38 @@
-body{
-    background-image:url(../images/606641.jpg);
-    background-attachment: fixed;
-    font-family:Lobster, Arial, serif ;
+body {
+    background-image: url("../../images/background.jpg");
+
+}
+div{
+    position: relative;
 }
 
+.overwinningskaarten img{
+    display: block;
+    width: 120px;
+    margin-bottom: 3px;
+    margin-left: 5px;
+    margin-top: 5px;
 
-h1{
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 60px;
 
+}
+
+.geldcurse{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.geldcurse img{
+    display: block;
+    float: right;
+    height: 180px;
+    width: 120px;
+}
+
+#dank{
+    position: absolute;
+    left: 0;
+    bottom: -350px;
+
+    height: 100px;
+    width: 100px;
 }
