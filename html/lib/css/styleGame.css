@@ -1,5 +1,15 @@
+@font-face {
+    font-family: 'runescape';
+    src: url('../font/runescape_chat_font.ttf');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
 body {
     background-image: url("../../images/background.jpg");
+    background-repeat: no-repeat;
+    font-family: 'runescape';
 
 }
 div{
@@ -23,16 +33,92 @@ div{
 }
 .geldcurse img{
     display: block;
-    float: right;
+
     height: 180px;
     width: 120px;
 }
-
-#dank{
+#speler{
     position: absolute;
     left: 0;
-    bottom: -350px;
+    bottom: -400px;
+
+}
+#dank{
+
+
 
     height: 100px;
     width: 100px;
 }
+
+#speler li{
+    color: white;
+    font-size: 32px;
+    display: block;
+}
+
+.actiekaarten{
+    position: absolute;
+
+    top: 10px;
+    margin-left: 500px;
+}
+
+.actiekaarten img{
+    height: 240px;
+    width: 160px;
+
+}
+
+.hand{
+    position: absolute;
+    bottom: 0;
+    left: 500px;
+
+}
+
+.hand img{
+    display: inline-block;
+    height: 240px;
+    width: 160px;
+
+}
+
+#abc{
+    position: absolute;
+    top: 50px;
+    left:270px;
+    font-size: 42px;
+
+    border: 3px;
+    border-color: #D2139B;
+
+}
+
+.ABC li{
+    display: block;
+    font-family: 'runescape';
+
+}
+
+button{
+
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    display: block;
+    margin-bottom: 15px;
+
+
+}
+
+#buttons{
+    position: absolute;
+    margin-left: 1500px;
+}v
