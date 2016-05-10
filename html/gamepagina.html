@@ -1,32 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" href="lib/css/reset.css"/>
-    <link rel="stylesheet" href="lib/css/styleGame.css"/>
+    <title>Dominion</title>
+    <meta name="author" content="Laurens Visser"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+    <link rel="stylesheet" href="assets/css/screen.css" type="text/css"/>
 </head>
 <body>
-<h2>Speler 1: <?php echo  $_POST["speler1"]?></h2>
-<h2>Speler 2: <?php echo  $_POST["speler2"]?></h2>
+<div id="main">
+<div class="overwinningskaarten">
+    <img src="images/kaarten/overwinningskaarten/province.png" alt="province" title="province"/>
+    <img src="images/kaarten/overwinningskaarten/duchy.jpg" alt="duchy" title="duchy::"/>
+    <img src="images/kaarten/overwinningskaarten/estate.jpg" alt="estate" title="estate"/>
+</div>
 
-<h1>Het is <?php echo  $_GET["speler1"]?> zijn beurt</h1>  <!--moet nog aangepast worden met java-->
-<ul id="Overwinningskaart" class="veld">
-    <li><img src="lib/Kaarten/province.jpg"> </li>
-    <li><img src="lib/Kaarten/duchy.jpg"></li>
-    <li><img src="lib/Kaarten/estate.jpg"></li>
-    <!--voeg hier de veldkaartenkaarten toe-->
-</ul>
-<ul id="Actiekaart" class="veld">
+<div class="geldcurse">
+    <img src="images/kaarten/geldEnCursekaarten/gold.jpg" alt="gold" title="gold">
+    <img src="images/kaarten/geldEnCursekaarten/silver.jpg" alt="silver" title="silver">
+    <img src="images/kaarten/geldEnCursekaarten/copper.jpg" alt="copper" title="copper">
+    <img src="images/kaarten/geldEnCursekaarten/curse.jpg" alt="curse" title="curse">
+</div>
 
-    <!--voeg hier de veldkaartenkaarten toe-->
-</ul>
-<ul id="Geldkaart" class="veld">
-    <!--voeg hier de veldkaartenkaarten toe-->
-</ul>
-
-<ul id="hand">
-
-</ul>
+    <img src="images/dank.png" id="dank" alt="dank" title="dank">
+    </div>
 </body>
 </html>
+
+
