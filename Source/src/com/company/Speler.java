@@ -1,6 +1,5 @@
 package com.company;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,11 +8,11 @@ import java.util.List;
  */
 public class Speler {
     private String naam;
-    private int overwinningspunten;
-    private List<Kaart> deck = new ArrayList();
-    private List<Kaart> hand = new ArrayList();
-    private List<Kaart> aflegstapel = new ArrayList();
-    private List<Kaart> vuilbak = new ArrayList();
+    private int overwinningspunten = 0;
+    private List<Kaart> deck = new ArrayList<>();
+    private List<Kaart> hand = new ArrayList<>();
+    private List<Kaart> aflegstapel = new ArrayList<>();
+    private List<Kaart> vuilbak = new ArrayList<>();
     private int geld;
     private int koop;
     private int actie;
@@ -77,10 +76,9 @@ public class Speler {
         return overwinningspunten;
     }
 
-    public Speler(String naam, int overwinningspunten)
+    public Speler(String naam)
     {
         this.naam = naam;
-        this.overwinningspunten = overwinningspunten;
     }
 
     public void addGeld(int x){

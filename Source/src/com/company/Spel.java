@@ -7,12 +7,12 @@ import java.sql.*;
  * Created by Yentl-PC on 24/03/2016.
  */
 public class Spel {
-    private List<Kaart> kaarten = new ArrayList();
-    private List<Kaart> actieveld = new ArrayList();
-    private List<Kaart> overwinningsveld = new ArrayList();
-    private List<Kaart> geldveld = new ArrayList();
-    private List<Speler> spelers = new ArrayList();
-    private List<Kaart> alleKaarten = new ArrayList();
+    private List<Kaart> kaarten = new ArrayList<>();
+    private List<Kaart> actieveld = new ArrayList<>();
+    private List<Kaart> overwinningsveld = new ArrayList<>();
+    private List<Kaart> geldveld = new ArrayList<>();
+    private List<Speler> spelers = new ArrayList<>();
+    private List<Kaart> alleKaarten = new ArrayList<>();
     private List<Integer> stapelskaarten = new ArrayList<>(Collections.nCopies(32, 0));
 
     public List<Speler> getSpelers() {
@@ -207,4 +207,8 @@ public class Spel {
     public List<Kaart> getOverwinningsveld() {
         return overwinningsveld;
     }
+
+
+
+
 }
