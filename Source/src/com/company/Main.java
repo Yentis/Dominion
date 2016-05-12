@@ -38,11 +38,11 @@ public class Main {
                 Spel spel = new Spel();
                 System.out.println("Voer de naam van speler 1 in");
                 input = keyboard.nextLine();
-                Speler speler1 = new Speler(input, 0);
+                Speler speler1 = new Speler(input);
                 spel.addSpeler(speler1);
                 System.out.println("Voer de naam van speler 2 in");
                 input = keyboard.nextLine();
-                Speler speler2 = new Speler(input, 0);
+                Speler speler2 = new Speler(input);
                 spel.addSpeler(speler2);
                 spel.maakKaarten();
                 spel.vulVeldOp();
@@ -74,7 +74,7 @@ public class Main {
         Actiekaart acties = new Actiekaart();
         spel.setSpelerValues(speler);
         if(speler.getDeck().size() == 0){
-            speler.leegAflegstapel(spel);
+            speler.leegAflegstapel();
         } else if (speler.getHand().size()==0) {
             speler.voegKaartToe(5, speler.getDeck(), speler.getHand());
         }
@@ -99,7 +99,7 @@ public class Main {
                 case "0":
                     List<Kaart> kaarten = new ArrayList();
                     for(int i=0;i<speler.getHand().size();i++){
-                        kaarten.add(speler.p().get(i));
+                        kaarten.add(speler.getHand().get(i));
                     }
                     int aantalVerwijderd = 0;
                     for (int j = 0;j<kaarten.size();j++) {
@@ -187,7 +187,7 @@ public class Main {
         int hoogstescore = 0;
         String winnaar = "";
         for(Speler s : spel.getSpelers()){
-            spel.berekenScore(s);
+            s.berekenScore();
             int score = s.getOverwinningspunten();
             if(score > hoogstescore){
                 hoogstescore = score;
