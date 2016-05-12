@@ -93,7 +93,6 @@ public class Actiekaart {
     public Kaart toonKaarten(Speler speler, String input){
         Scanner keyboard = new Scanner(System.in);
         int i = 0;
-
         for (Kaart k : speler.getHand()) {
             System.out.println(k.getNaam() + " | " + i);
             i++;
@@ -112,21 +111,20 @@ public class Actiekaart {
         return false;
     }
 
-
-    public void heks(Spel spel, Speler speler) {
-        //+2 kaarten
-        speler.voegKaartToe(2, speler.getDeck(), speler.getHand());
-
-        //geef de andere spelers een vloekkaart
-        Kaart vloek = new Kaart();
-        for (Kaart k : spel.getOverwinningsveld()) {
-            if (Objects.equals(k.getNaam(), "Vloek")) {
-                vloek = k;
+    public Kaart duidSpecifiekeKaartAan(String naam, Spel spel) {
+        for (Kaart k : spel.getAlleKaarten()) {  //duid de vloekkaart aan
+            if (Objects.equals(k.getNaam(), naam)) {
+                return k;
             }
         }
-        for (Speler s : spel.getSpelers()) {
+        return null;
+    }
+
+    public void heks(Spel spel, Speler speler) {
+        speler.voegKaartToe(2, speler.getDeck(), speler.getHand()); //+2 kaarten
+        for (Speler s : spel.getSpelers()) { //geef de andere spelers een vloekkaart
             if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
-                spel.koopKaart(vloek, s.getAflegstapel());
+                spel.koopKaart(duidSpecifiekeKaartAan("Vloek", spel), s.getAflegstapel());
             }
         }
     }
@@ -164,13 +162,11 @@ public class Actiekaart {
     }
 
     public void kanselier(Speler speler) {
-        //+2 geld
-        speler.addGeld(2);
+        speler.addGeld(2);//+2 geld
         //je mag je deck in de aflegstapel gooien
         Scanner keyboard = new Scanner(System.in);
         String input = "";
         boolean escape = false;
-
         while(!escape){
             System.out.println("Wil je je deck in de aflegstapel gooien? J/N");
             input = keyboard.nextLine();
@@ -199,8 +195,7 @@ public class Actiekaart {
         //neem een kaart met <=4 kost
         String input;
         Scanner keyboard = new Scanner(System.in);
-        List<Kaart> koopopties = new ArrayList();
-
+        List<Kaart> koopopties = new ArrayList<>();
         System.out.println("Kies een kaart met een kost van maximum 4: \n");
         int i = 0;
         for(Kaart k: spel.getAlleKaarten()){
@@ -408,7 +403,7 @@ public class Actiekaart {
         //kies een actiekaart
         String input = "";
         Scanner keyboard = new Scanner(System.in);
-        List<Kaart> koopopties = new ArrayList();
+        List<Kaart> koopopties = new ArrayList<>();
         int i = 0;
 
         for(Kaart k : speler.getHand()){
