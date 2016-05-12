@@ -99,7 +99,7 @@ public class Main {
                 case "0":
                     List<Kaart> kaarten = new ArrayList();
                     for(int i=0;i<speler.getHand().size();i++){
-                        kaarten.add(speler.getHand().get(i));
+                        kaarten.add(speler.p().get(i));
                     }
                     int aantalVerwijderd = 0;
                     for (int j = 0;j<kaarten.size();j++) {

@@ -1,4 +1,4 @@
-package Test;
+package test;
 import com.company.*;
 import org.junit.Test;
 
@@ -22,7 +22,7 @@ public class SpelerTest {
             System.out.println("Aflegstapel :"+ k);
         }
         speler.leegAflegstapel(spel);
-       System.out.println("Aflegstapel na leging = " + speler.getAflegstapel().size());
+        System.out.println("Aflegstapel na leging = " + speler.getAflegstapel().size());
     }
 
     @Test

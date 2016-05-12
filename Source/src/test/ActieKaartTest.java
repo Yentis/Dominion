@@ -1,4 +1,4 @@
-package Test;
+package test;
 
 import com.company.Kaart;
 import com.company.Spel;
@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.*;
 /**
  * Created by Renzie on 9/05/2016.
- */
+ *//*
 public class ActiekaartTest {
     @Test
     public void speelactiekaart() throws Exception {
@@ -25,3 +25,4 @@ public class ActiekaartTest {
         }
     }
 }
+*/
