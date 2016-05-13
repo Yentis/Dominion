@@ -98,23 +98,23 @@ public class Spel {
     }
 
     public void voegKoperKaartenToe(int aantalkaarten, Speler speler){
-        for(Kaart k : geldveld){
-            if(Objects.equals(k.getNaam(), "Koper") && aantalkaarten < 7){
-                speler.getDeck().add(k);
+        for(int i=0;i<geldveld.size();i++){
+            if(Objects.equals(geldveld.get(i).getNaam(), "Koper") && aantalkaarten < 7){
+                speler.getDeck().add(geldveld.get(i));
                 setStapelskaarten(25, -1);
                 aantalkaarten++;
-                geldveld.remove(k);
+                geldveld.remove(i);
             }
         }
     }
 
     public void voegLandgoedKaartenToe(Spel spel, int aantalkaarten, Speler speler){
-        for(Kaart k : overwinningsveld){
-            if(Objects.equals(k.getNaam(), "Landgoed") && aantalkaarten < 10){
-                speler.getDeck().add(k);
+        for(int i=0;i<overwinningsveld.size();i++){
+            if(Objects.equals(overwinningsveld.get(i).getNaam(), "Landgoed") && aantalkaarten < 10){
+                speler.getDeck().add(overwinningsveld.get(i));
                 setStapelskaarten(28, -1);
                 aantalkaarten++;
-                overwinningsveld.remove(k);
+                overwinningsveld.remove(i);
             }
         }
     }

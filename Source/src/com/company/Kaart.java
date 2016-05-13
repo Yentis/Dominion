@@ -57,7 +57,7 @@ public class Kaart {
         return omschrijving;
     }
     //endregion
-    
+
     @Override
     public String toString() {
         return getNaam() + "\n" + getKost() + "\n" + getType() + "\n" + getOmschrijving();
