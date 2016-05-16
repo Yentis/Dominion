@@ -1,0 +1,14 @@
+
+
+
+Java servlets met intelliJ, goede video 
+https://www.youtube.com/watch?v=licQZlIenAk
+
+je moet wel de java EE hebben om servlets te kunnen maken denk ik en dat staat niet op de community edition van intelliJ 
+maar wel op de Ultimate versie
+30 dagen trial though link below
+https://www.jetbrains.com/idea/#chooseYourEdition
+
+
+gebruikte server: http://tomcat.apache.org/download-90.cgi            
+(64 bit windows zip)
