@@ -7,144 +7,253 @@
 }
 
 body {
+    background-attachment: fixed ;
     background-image: url("../images/background.jpg");
     background-repeat: no-repeat;
     font-family: 'runescape';
-
-}
-div{
-    position: relative;
+    color: white;
 }
 
-.overwinningskaarten img{
+
+.toonKaart li img{
+    position:absolute;
+    top:10%;
+    left:35%;
+    width: 20%;
+    z-index:10;
+}
+
+/*overwinningskaarten*/
+
+.overwinningskaarten{
+    display: inline-block;
+    position:absolute;
+    top:0;
+    left: 0.5%;
+    right:80%;
+}
+
+.overwinningskaarten li{
     display: block;
-    width: 120px;
-    margin-bottom: 3px;
-    margin-left: 5px;
-    margin-top: 5px;
-
-
 }
+
+.overwinningskaarten li img{
+    width:40%;
+    left:0;
+    right:0;
+}
+
+
+
+/*curse / geldkaarten */
 
 .geldcurse{
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-.geldcurse img{
-    display: block;
 
-    height: 180px;
-    width: 120px;
+
+    position: absolute;
+    top:0.5%;
+    left:95%;
+    right:-20%;
 }
+
+.geldcurse li{
+    display: block;
+    margin-right: 0;
+    margin-left: 0;
+}
+.geldcurse li img{
+
+
+    height: auto;
+    width: auto;
+    max-width: 20%;
+    max-height: 20%;
+    display: inline-block;
+}
+
+
+
+
+
+
+/*speler*/
+
 #speler{
+    display: none;
     position: absolute;
     left: 200px;
     bottom: -350px;
-
 }
 #dank{
-
-
-
     height: 100px;
     width: 100px;
 }
 
 #speler li{
-    color: white;
+
     font-size: 32px;
     display: block;
 }
 
+
+
+
+
+/*actiekaarten*/
+
+
+
 .actiekaarten{
-    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    display:inline-block;
+    position: relative;
+    left:30%;
+    width: 45%;
+    right:20%;
 
-    top: 10px;
-    margin-left: 500px;
+
+}
+.actiekaarten li {
+    display: inline;
+
+
+}
+.actiekaarten li img {
+    width: auto;
+    max-width: 15%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.actiekaarten img{
-    height: 240px;
-    width: 160px;
+#linebreaker{
+    display: block;
 
 }
+
+
+
+
+
+/* hand van de speler */
 
 .hand{
     position: absolute;
     bottom: 0;
-    left: 500px;
+    left: 25%;
+    right: 20%;
 
 }
 
-.hand img{
-    display: inline-block;
-    height: 240px;
-    width: 160px;
+.hand li{
+    display: inline;
+
+}
+.hand li img{
+    width: 13%;
+    display:inline;
+    justify-content: center;
 
 }
 
-#abc{
+#persoongegevens{
     position: absolute;
-    top: 50px;
-    left:270px;
+    top: 5%;
+    left:10%;
     font-size: 42px;
-
     border: 3px;
     border-color: #D2139B;
 
 }
 
-.ABC li{
-    display: block;
+#persoongegevens ul{
+    color:blue;
+    font-size: 2vw;
+    position: relative;
+    left: 10%;
     font-family: 'runescape';
 
 }
 
-button{
-
+#buttons input[type = button]{
+    width: 100%;
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
-
-    text-decoration: none;
-
+    border-radius: 3%;
     font-size: 16px;
-
     display: block;
     margin-bottom: 15px;
+    transition: 1s;
 
+}
 
+#buttons input[type = button]:hover{
+    background-color: yellowgreen;
+    color:black;
+    width: 120%;
+    transition: 1s;
 }
 
 #buttons{
     position: absolute;
-    margin-left: 1500px;
+    left: 80%;
+}
+
+
+
+/*veldkaarten*/
+
+.kaartOpVeld{
+    position:absolute;
+    left: 30%;
+    top:54%;
+    right:20%;
+    width:50%;
+
+}
+
+.kaartOpVeld li img{
+    width:10%; margin-left: auto;
+    margin-right: auto;
+}
+.kaartOpVeld li{
+    display: inline;
+
 }
 
 /*aflegstapel en deck*/
+
 .stapel{
     position: absolute;
     background-color: darkgreen;
     padding: 10px;
-    margin-top: 80px;
+    width: 5%;
+    bottom:10%;
+    left:0.5%;
+
+
 }
 
-.stapel img{
+.stapel li{
     display: block;
-    height: 100px;
-    width: 66px;
+    width:100%;
+}
 
+.stapel li img{
+    width: 100%;
 
 }
 
 #log{
-    font-size: 40px;
+    font-size: 2vw;
     color: white;
     position: absolute;
-    left: 540px;
-    top: 630px;
+    left: 30%;
+    right: 30%;
+    top:47%;
+    bottom: 40%;
 
 }
 
