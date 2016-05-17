@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
+import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.After;
+import static com.sun.xml.internal.ws.dump.LoggingDumpTube.Position.Before;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.fail;

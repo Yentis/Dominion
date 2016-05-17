@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://C:/repositories/Dominion/Source/Dominion.iml" filepath="C:/repositories/Dominion/Source/Dominion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebLink.iml" filepath="$PROJECT_DIR$/WebLink.iml" />
+    </modules>
+  </component>
+</project>
