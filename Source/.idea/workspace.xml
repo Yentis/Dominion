@@ -29,35 +29,22 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="112" column="26" selection-start-line="112" selection-start-column="26" selection-end-line="112" selection-end-column="26" />
+            <state relative-caret-position="85">
+              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpelTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/SpelTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="168" column="38" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#5020#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Spel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Spel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Spel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="174" column="31" selection-start-line="174" selection-start-column="31" selection-end-line="174" selection-end-column="31" />
+            <state relative-caret-position="-855">
+              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
-                <element signature="e#7070#7071#0" expanded="true" />
-                <element signature="e#7107#7108#0" expanded="true" />
-                <marker date="1461954734172" expanded="true" signature="943:962" placeholder="select * fro..kaart..." />
+                <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
+                <element signature="n#!!doc;n#getSpelers#0;n#Spel#0" expanded="false" />
+                <marker date="1463053255917" expanded="true" signature="1679:1698" placeholder="select * fro... kaart" />
               </folding>
             </state>
           </provider>
@@ -66,9 +53,14 @@
       <file leaf-file-name="Speler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Speler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1037">
-              <caret line="107" column="23" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="238">
+              <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
+              <folding>
+                <element signature="n#!!doc;n#naam#0;n#Speler#0" expanded="false" />
+                <element signature="n#!!doc;n#Speler#0;n#Speler#0" expanded="false" />
+                <element signature="n#!!doc;n#getVuilbak#0;n#Speler#0" expanded="false" />
+                <element signature="n#!!doc;n#leegAflegstapel#0;n#Speler#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,19 +68,54 @@
       <file leaf-file-name="Kaart.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Kaart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-              <folding />
+            <state relative-caret-position="238">
+              <caret line="64" column="1" selection-start-line="64" selection-start-column="1" selection-end-line="64" selection-end-column="1" />
+              <folding>
+                <element signature="n#!!doc;n#nr#0;n#Kaart#0" expanded="false" />
+                <element signature="n#!!doc;n#Kaart#0;n#Kaart#0" expanded="false" />
+                <element signature="method#Kaart#0;class#Kaart#0" expanded="false" />
+                <element signature="method#Kaart#1;class#Kaart#0" expanded="false" />
+                <element signature="n#!!doc;n#getNr#0;n#Kaart#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Actiekaart.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Actiekaart.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Actiekaart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4250">
-              <caret line="255" column="20" selection-start-line="255" selection-start-column="20" selection-end-line="255" selection-end-column="20" />
-              <folding />
+            <state relative-caret-position="1846">
+              <caret line="466" column="5" selection-start-line="466" selection-start-column="5" selection-end-line="466" selection-end-column="5" />
+              <folding>
+                <element signature="method#kiesKaart#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#heeftReactiekaart#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#duidSpecifiekeKaartAan#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#kaartAfleggen#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#heks#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#kelder#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#kerk#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#gracht#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#kanselier#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#dorps#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#houthakker#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#werkplaats#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#bureaucraat#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#feest#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#schutterij#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#geldverlener#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#ombouwen#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#spion#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#dief#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#troonzaal#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#raadzaal#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#festival#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#laboratorium#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#bibliotheek#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#markt#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#mijn#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#avonturier#0;class#Actiekaart#0" expanded="false" />
+                <element signature="method#tuinen#0;class#Actiekaart#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -132,21 +159,23 @@
         <option value="$PROJECT_DIR$/src/com/company/Deck.java" />
         <option value="$PROJECT_DIR$/src/com/company/Interface.java" />
         <option value="$PROJECT_DIR$/src/com/company/Console.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Kaart.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Actiekaart.java" />
         <option value="$PROJECT_DIR$/src/com/company/Speler.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Spel.java" />
         <option value="$PROJECT_DIR$/src/test/SpelerTest.java" />
         <option value="$PROJECT_DIR$/src/test/ActieKaartTest.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/test/SpelTest.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Kaart.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Spel.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Beginnen.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Actiekaart.java" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
-  <component name="JsBuildToolPackageJson" detection-done="true" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -187,31 +216,33 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dominion" />
+              <option name="myItemId" value="Source" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dominion" />
+              <option name="myItemId" value="Source" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dominion" />
+              <option name="myItemId" value="Source" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dominion" />
+              <option name="myItemId" value="Source" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dominion" />
+              <option name="myItemId" value="Source" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -225,11 +256,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dominion" />
+              <option name="myItemId" value="Source" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dominion" />
+              <option name="myItemId" value="Source" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -241,38 +272,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dominion" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dominion" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dominion" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dominion" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".idea" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,7 +304,7 @@
       <recent name="test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.test in Dominion">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
@@ -762,41 +763,47 @@
       <workItem from="1462951663234" duration="72000" />
       <workItem from="1462953712507" duration="1133000" />
       <workItem from="1462969566358" duration="709000" />
+      <workItem from="1463048257374" duration="9932000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="test_in_Dominion - 2016.05.12 at 13h 36m 09s.xml">
+      <configuration name="test in Dominion" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101655000" />
+    <option name="totallyTimeSpent" value="111587000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32464713" sideWeight="0.50416666" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39522257" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11770833" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10520833" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33043477" sideWeight="0.49583334" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47339848" sideWeight="0.49583334" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39522257" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32899022" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -814,7 +821,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="32" />
+      <option name="time" value="42" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -823,22 +830,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/Kaart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Actiekaart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4250">
-          <caret line="255" column="20" selection-start-line="255" selection-start-column="20" selection-end-line="255" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2261">
@@ -851,7 +842,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1241">
           <caret line="107" column="23" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#naam#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#Speler#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#getVuilbak#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#leegAflegstapel#0;n#Speler#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -859,7 +855,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5032">
           <caret line="301" column="62" selection-start-line="0" selection-start-column="0" selection-end-line="557" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#kiesKaart#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#heeftReactiekaart#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#duidSpecifiekeKaartAan#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kaartAfleggen#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#heks#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kelder#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kerk#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#gracht#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kanselier#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#dorps#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#houthakker#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#werkplaats#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#bureaucraat#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#feest#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#schutterij#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#geldverlener#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#ombouwen#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#spion#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#dief#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#troonzaal#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#raadzaal#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#festival#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#laboratorium#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#bibliotheek#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#markt#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#mijn#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#avonturier#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#tuinen#0;class#Actiekaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -867,7 +892,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#nr#0;n#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#Kaart#0;n#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#0;class#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#1;class#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#getNr#0;n#Kaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -876,9 +907,9 @@
         <state relative-caret-position="3009">
           <caret line="185" column="29" selection-start-line="185" selection-start-column="25" selection-end-line="185" selection-end-column="29" />
           <folding>
-            <element signature="e#7070#7071#0" expanded="true" />
-            <element signature="e#7107#7108#0" expanded="true" />
-            <marker date="1461954734172" expanded="true" signature="943:962" placeholder="select * fro..kaart..." />
+            <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
+            <element signature="n#!!doc;n#getSpelers#0;n#Spel#0" expanded="false" />
+            <marker date="1463053255917" expanded="true" signature="1679:1698" placeholder="select * fro... kaart" />
           </folding>
         </state>
       </provider>
@@ -888,7 +919,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#5020#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -906,7 +936,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1241">
           <caret line="107" column="23" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#naam#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#Speler#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#getVuilbak#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#leegAflegstapel#0;n#Speler#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -914,7 +949,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5032">
           <caret line="301" column="62" selection-start-line="0" selection-start-column="0" selection-end-line="557" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#kiesKaart#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#heeftReactiekaart#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#duidSpecifiekeKaartAan#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kaartAfleggen#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#heks#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kelder#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kerk#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#gracht#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kanselier#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#dorps#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#houthakker#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#werkplaats#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#bureaucraat#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#feest#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#schutterij#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#geldverlener#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#ombouwen#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#spion#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#dief#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#troonzaal#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#raadzaal#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#festival#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#laboratorium#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#bibliotheek#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#markt#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#mijn#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#avonturier#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#tuinen#0;class#Actiekaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -922,7 +986,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#nr#0;n#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#Kaart#0;n#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#0;class#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#1;class#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#getNr#0;n#Kaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -931,9 +1001,9 @@
         <state relative-caret-position="3009">
           <caret line="185" column="29" selection-start-line="185" selection-start-column="25" selection-end-line="185" selection-end-column="29" />
           <folding>
-            <element signature="e#7070#7071#0" expanded="true" />
-            <element signature="e#7107#7108#0" expanded="true" />
-            <marker date="1461954734172" expanded="true" signature="943:962" placeholder="select * fro..kaart..." />
+            <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
+            <element signature="n#!!doc;n#getSpelers#0;n#Spel#0" expanded="false" />
+            <marker date="1463053255917" expanded="true" signature="1679:1698" placeholder="select * fro... kaart" />
           </folding>
         </state>
       </provider>
@@ -943,7 +1013,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#5020#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -961,7 +1030,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="104" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#naam#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#Speler#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#getVuilbak#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#leegAflegstapel#0;n#Speler#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -969,7 +1043,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="301" column="62" selection-start-line="0" selection-start-column="0" selection-end-line="557" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#kiesKaart#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#heeftReactiekaart#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#duidSpecifiekeKaartAan#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kaartAfleggen#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#heks#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kelder#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kerk#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#gracht#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kanselier#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#dorps#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#houthakker#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#werkplaats#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#bureaucraat#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#feest#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#schutterij#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#geldverlener#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#ombouwen#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#spion#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#dief#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#troonzaal#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#raadzaal#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#festival#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#laboratorium#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#bibliotheek#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#markt#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#mijn#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#avonturier#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#tuinen#0;class#Actiekaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -977,7 +1080,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="13" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#nr#0;n#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#Kaart#0;n#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#0;class#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#1;class#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#getNr#0;n#Kaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -986,9 +1095,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#7070#7071#0" expanded="true" />
-            <element signature="e#7107#7108#0" expanded="true" />
-            <marker date="1461954734172" expanded="true" signature="943:962" placeholder="select * fro..kaart..." />
+            <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
+            <element signature="n#!!doc;n#getSpelers#0;n#Spel#0" expanded="false" />
+            <marker date="1463053255917" expanded="true" signature="1679:1698" placeholder="select * fro... kaart" />
           </folding>
         </state>
       </provider>
@@ -1005,7 +1114,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="104" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#naam#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#Speler#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#getVuilbak#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#leegAflegstapel#0;n#Speler#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1013,7 +1127,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="301" column="62" selection-start-line="0" selection-start-column="0" selection-end-line="557" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#kiesKaart#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#heeftReactiekaart#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#duidSpecifiekeKaartAan#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kaartAfleggen#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#heks#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kelder#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kerk#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#gracht#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kanselier#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#dorps#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#houthakker#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#werkplaats#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#bureaucraat#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#feest#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#schutterij#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#geldverlener#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#ombouwen#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#spion#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#dief#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#troonzaal#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#raadzaal#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#festival#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#laboratorium#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#bibliotheek#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#markt#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#mijn#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#avonturier#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#tuinen#0;class#Actiekaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1021,7 +1164,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="13" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#nr#0;n#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#Kaart#0;n#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#0;class#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#1;class#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#getNr#0;n#Kaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1030,9 +1179,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#7070#7071#0" expanded="true" />
-            <element signature="e#7107#7108#0" expanded="true" />
-            <marker date="1461954734172" expanded="true" signature="943:962" placeholder="select * fro..kaart..." />
+            <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
+            <element signature="n#!!doc;n#getSpelers#0;n#Spel#0" expanded="false" />
+            <marker date="1463053255917" expanded="true" signature="1679:1698" placeholder="select * fro... kaart" />
           </folding>
         </state>
       </provider>
@@ -1049,7 +1198,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="99" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#naam#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#Speler#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#getVuilbak#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#leegAflegstapel#0;n#Speler#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1058,9 +1212,9 @@
         <state relative-caret-position="0">
           <caret line="78" column="21" selection-start-line="0" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
           <folding>
-            <element signature="e#7070#7071#0" expanded="true" />
-            <element signature="e#7107#7108#0" expanded="true" />
-            <marker date="1461954734172" expanded="true" signature="943:962" placeholder="select * fro..kaart..." />
+            <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
+            <element signature="n#!!doc;n#getSpelers#0;n#Spel#0" expanded="false" />
+            <marker date="1463053255917" expanded="true" signature="1679:1698" placeholder="select * fro... kaart" />
           </folding>
         </state>
       </provider>
@@ -1069,7 +1223,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="31" column="22" selection-start-line="0" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#kiesKaart#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#heeftReactiekaart#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#duidSpecifiekeKaartAan#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kaartAfleggen#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#heks#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kelder#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kerk#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#gracht#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kanselier#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#dorps#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#houthakker#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#werkplaats#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#bureaucraat#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#feest#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#schutterij#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#geldverlener#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#ombouwen#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#spion#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#dief#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#troonzaal#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#raadzaal#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#festival#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#laboratorium#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#bibliotheek#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#markt#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#mijn#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#avonturier#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#tuinen#0;class#Actiekaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1077,7 +1260,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="23" column="18" selection-start-line="0" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#nr#0;n#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#Kaart#0;n#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#0;class#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#1;class#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#getNr#0;n#Kaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1093,7 +1282,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="27" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#naam#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#Speler#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#getVuilbak#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#leegAflegstapel#0;n#Speler#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1102,9 +1296,9 @@
         <state relative-caret-position="0">
           <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
           <folding>
-            <element signature="e#7070#7071#0" expanded="true" />
-            <element signature="e#7107#7108#0" expanded="true" />
-            <marker date="1461954734172" expanded="true" signature="943:962" placeholder="select * fro..kaart..." />
+            <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
+            <element signature="n#!!doc;n#getSpelers#0;n#Spel#0" expanded="false" />
+            <marker date="1463053255917" expanded="true" signature="1679:1698" placeholder="select * fro... kaart" />
           </folding>
         </state>
       </provider>
@@ -1113,7 +1307,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#nr#0;n#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#Kaart#0;n#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#0;class#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#1;class#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#getNr#0;n#Kaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1129,7 +1329,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#naam#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#Speler#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#getVuilbak#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#leegAflegstapel#0;n#Speler#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1138,9 +1343,9 @@
         <state relative-caret-position="0">
           <caret line="86" column="22" selection-start-line="86" selection-start-column="22" selection-end-line="86" selection-end-column="22" />
           <folding>
-            <element signature="e#7070#7071#0" expanded="true" />
-            <element signature="e#7107#7108#0" expanded="true" />
-            <marker date="1461954734172" expanded="true" signature="943:962" placeholder="select * fro..kaart..." />
+            <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
+            <element signature="n#!!doc;n#getSpelers#0;n#Spel#0" expanded="false" />
+            <marker date="1463053255917" expanded="true" signature="1679:1698" placeholder="select * fro... kaart" />
           </folding>
         </state>
       </provider>
@@ -1149,7 +1354,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#nr#0;n#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#Kaart#0;n#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#0;class#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#1;class#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#getNr#0;n#Kaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1166,9 +1377,9 @@
         <state relative-caret-position="0">
           <caret line="115" column="24" selection-start-line="115" selection-start-column="24" selection-end-line="115" selection-end-column="24" />
           <folding>
-            <element signature="e#7070#7071#0" expanded="true" />
-            <element signature="e#7107#7108#0" expanded="true" />
-            <marker date="1461954734172" expanded="true" signature="943:962" placeholder="select * fro..kaart..." />
+            <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
+            <element signature="n#!!doc;n#getSpelers#0;n#Spel#0" expanded="false" />
+            <marker date="1463053255917" expanded="true" signature="1679:1698" placeholder="select * fro... kaart" />
           </folding>
         </state>
       </provider>
@@ -1177,7 +1388,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#nr#0;n#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#Kaart#0;n#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#0;class#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#1;class#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#getNr#0;n#Kaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1193,7 +1410,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc;n#nr#0;n#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#Kaart#0;n#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#0;class#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#1;class#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#getNr#0;n#Kaart#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1217,26 +1440,31 @@
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#168#169#0" expanded="false" />
-            <element signature="e#214#215#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Actiekaart.java">
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/KV6C6a_Spel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4250">
-          <caret line="255" column="20" selection-start-line="255" selection-start-column="20" selection-end-line="255" selection-end-column="20" />
+        <state relative-caret-position="-153">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Beginnen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/SpelTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="168" column="38" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
+        <state relative-caret-position="458">
+          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
           <folding>
-            <element signature="e#0#5020#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -1244,36 +1472,84 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="112" column="26" selection-start-line="112" selection-start-column="26" selection-end-line="112" selection-end-column="26" />
+        <state relative-caret-position="85">
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Speler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="107" column="23" selection-start-line="107" selection-start-column="23" selection-end-line="107" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Kaart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="238">
+          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
+          <folding>
+            <element signature="n#!!doc;n#naam#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#Speler#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#getVuilbak#0;n#Speler#0" expanded="false" />
+            <element signature="n#!!doc;n#leegAflegstapel#0;n#Speler#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Spel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="174" column="31" selection-start-line="174" selection-start-column="31" selection-end-line="174" selection-end-column="31" />
+        <state relative-caret-position="-855">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="e#7070#7071#0" expanded="true" />
-            <element signature="e#7107#7108#0" expanded="true" />
-            <marker date="1461954734172" expanded="true" signature="943:962" placeholder="select * fro..kaart..." />
+            <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
+            <element signature="n#!!doc;n#getSpelers#0;n#Spel#0" expanded="false" />
+            <marker date="1463053255917" expanded="true" signature="1679:1698" placeholder="select * fro... kaart" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Kaart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="64" column="1" selection-start-line="64" selection-start-column="1" selection-end-line="64" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc;n#nr#0;n#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#Kaart#0;n#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#0;class#Kaart#0" expanded="false" />
+            <element signature="method#Kaart#1;class#Kaart#0" expanded="false" />
+            <element signature="n#!!doc;n#getNr#0;n#Kaart#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Actiekaart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1846">
+          <caret line="466" column="5" selection-start-line="466" selection-start-column="5" selection-end-line="466" selection-end-column="5" />
+          <folding>
+            <element signature="method#kiesKaart#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#heeftReactiekaart#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#duidSpecifiekeKaartAan#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kaartAfleggen#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#heks#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kelder#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kerk#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#gracht#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#kanselier#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#dorps#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#houthakker#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#werkplaats#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#bureaucraat#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#feest#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#schutterij#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#geldverlener#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#ombouwen#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#spion#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#dief#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#troonzaal#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#raadzaal#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#festival#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#laboratorium#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#bibliotheek#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#markt#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#mijn#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#avonturier#0;class#Actiekaart#0" expanded="false" />
+            <element signature="method#tuinen#0;class#Actiekaart#0" expanded="false" />
           </folding>
         </state>
       </provider>

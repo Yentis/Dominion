@@ -54,7 +54,7 @@ public class SpelTest {
     public void testAddSpeler() {
         System.out.println("addSpeler");
         Spel instance = new Spel();
-        Speler speler = new Speler("Test", 0);
+        Speler speler = new Speler("Test");
         instance.addSpeler(speler);
         System.out.println(speler);
     }
@@ -82,7 +82,7 @@ public class SpelTest {
     public void testStarterDeck() throws SQLException {
         System.out.println("starterDeck");
 
-        Speler speler = new Speler("derp", 0);
+        Speler speler = new Speler("derp");
         Spel instance = new Spel();
         instance.maakKaarten();
         instance.vulVeldOp();
@@ -101,7 +101,7 @@ public class SpelTest {
     @Test
     public void testVoegKaartToe() throws SQLException {
         System.out.println("voegKaartToe");
-        Speler speler = new Speler("Tester", 0);
+        Speler speler = new Speler("Tester");
         Spel instance = new Spel();
         instance.addSpeler(speler);
         instance.maakKaarten();
@@ -126,7 +126,7 @@ public class SpelTest {
     public void testKoopKaart() throws SQLException {
         System.out.println("koopKaart");
         Spel instance = new Spel();
-        Speler testspeler = new Speler("Test", 0);
+        Speler testspeler = new Speler("Test");
         instance.maakKaarten();
         instance.vulVeldOp();
         Kaart k = instance.getAlleKaarten().get(0);
