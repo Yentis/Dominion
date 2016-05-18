@@ -48,8 +48,9 @@
 
   <div>
     <!--<input type="submit" id="speelSpel" class="startp2" value="Spelen" name="jaknop">-->
-    <input type="submit" value="Beginnen">
+    <input type="button" value="Beginnen" id="testbutton">
   </div>
+  <span id="result"></span>
 </form>
 
 <script type="text/javascript" src="lib/js/jquery-2.2.3.min.js"></script>
