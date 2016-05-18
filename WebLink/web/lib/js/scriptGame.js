@@ -5,14 +5,9 @@
 
 $(document).ready(function () {
     $(".overwinningskaarten li img, .geldcurse li img, .actiekaarten li img").on("click" , zoomIn);
-<<<<<<< HEAD
     $("body").on("click",zoomOut);
     $(".toonKaart li img").on("click", check);
     showPlayerName();
-=======
- 
-
->>>>>>> 431556444e38048a4eea33c1f5dbd1513333a6ad
 });
 
 
@@ -27,8 +22,6 @@ var zoomIn = function () {
 
 };
 
-
-<<<<<<< HEAD
 var check = function () {
     console.log("kek");
 };
@@ -43,6 +36,3 @@ function showPlayerName(){
         }
     });
 }
-=======
-
->>>>>>> 431556444e38048a4eea33c1f5dbd1513333a6ad
