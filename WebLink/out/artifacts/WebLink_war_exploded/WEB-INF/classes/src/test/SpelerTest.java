@@ -1,4 +1,3 @@
-package test;
 import com.company.*;
 
 import static junit.framework.TestCase.assertTrue;

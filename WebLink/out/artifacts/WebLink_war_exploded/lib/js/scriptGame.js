@@ -15,16 +15,9 @@ var zoomIn = function () {
     if ($(".toonKaart li").has("img")){
         $(".toonKaart li img").remove();
     }
-    $(this).clone().appendTo(".toonKaart li");
-
-
-};
-
-var zoomOut = function () {
-    if ($(".toonKaart ul li " + ":contains('img')").length !=0){
-        console.log("derp");
-        $(".toonKaart li img").remove();
-    }
+    $(this).clone().appendTo(".toonKaart li").click(function () {
+        remove(this);
+    });
 
 
 };
