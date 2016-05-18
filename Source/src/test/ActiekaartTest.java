@@ -1,16 +1,8 @@
 package test;
-
 import com.company.*;
+
 import org.junit.*;
-
-import java.sql.SQLException;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.fail;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -54,4 +46,39 @@ public void setUp()
 
 
     }
-}
+@Test
+    public void RaadzaalTest() throws Exception {
+        Spel spel = new Spel();
+        spel.maakKaarten();
+        spel.vulVeldOp();
+        Speler laurens = new Speler("speler1");
+        Speler niels = new Speler("speler2");
+        spel.addSpeler(laurens);
+        spel.addSpeler(niels);
+        spel.starterDeck(spel, laurens);
+        spel.starterDeck(spel, niels);
+
+        int HandVoorRaadzaal = laurens.getHand().size();
+        int HandVoorRaadzaalSpeler2 = niels.getHand().size();
+
+        laurens.voegKaartToe(4, laurens.getDeck(), laurens.getHand());
+        for(Speler s : spel.getSpelers()){
+            if(!Objects.equals(s.getNaam(), laurens.getNaam())){
+                s.voegKaartToe(1, s.getDeck(), s.getHand());
+            }
+        }
+
+        int HandNaRaadzaal = laurens.getHand().size();
+        int HandNaRaadzaalSpeler2 = niels.getHand().size();
+
+        int StartKoop = laurens.getKoop();
+        laurens.addKoop(1);
+        int EindKoop = laurens.getKoop();
+
+        //CHECK
+
+        assertEquals(StartKoop, EindKoop - 1);
+        assertEquals(HandVoorRaadzaal , HandNaRaadzaal - 4);
+        assertEquals(HandVoorRaadzaalSpeler2 , HandNaRaadzaalSpeler2 - 1);
+        
+    }
