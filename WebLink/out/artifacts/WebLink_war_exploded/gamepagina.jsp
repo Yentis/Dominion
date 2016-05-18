@@ -71,7 +71,6 @@
         <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
         <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
         <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-
     </ul>
 
 
@@ -87,7 +86,7 @@
         <ul>
             <li><img src="lib/images/dank.png" id="dank" alt="dank" title="dank"></li>
 
-            <li>Speler 1</li>
+            <li id="naamspeler">Speler 1</li>
         </ul>
     </div>
 
