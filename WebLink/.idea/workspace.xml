@@ -26,17 +26,12 @@
       <file leaf-file-name="NaamServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NaamServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="493">
-              <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
-              <folding />
-=======
+
             <state relative-caret-position="306">
               <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
             </state>
           </provider>
         </entry>
@@ -44,75 +39,21 @@
       <file leaf-file-name="Spel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Spel.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="374">
-              <caret line="56" column="55" selection-start-line="56" selection-start-column="55" selection-end-line="56" selection-end-column="55" />
-              <folding>
-                <marker date="1463562089402" expanded="true" signature="1747:1766" placeholder="select * fro... kaart" />
-=======
+
             <state relative-caret-position="287">
               <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
               <folding>
                 <marker date="1463561932852" expanded="true" signature="1747:1766" placeholder="select * fro... kaart" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file leaf-file-name="ActieKaartTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Source/src/test/ActieKaartTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="scriptGame.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/lib/js/scriptGame.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styleGame.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/lib/css/styleGame.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="93" column="19" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpelerTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Source/src/test/SpelerTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-447">
-              <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-=======
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="359">
               <caret line="52" column="7" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
               <folding />
             </state>
           </provider>
@@ -121,11 +62,7 @@
       <file leaf-file-name="gamepagina.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/gamepagina.jsp">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="173">
-=======
             <state relative-caret-position="1496">
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
               <caret line="88" column="40" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="40" />
               <folding />
             </state>
@@ -145,13 +82,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-            <state relative-caret-position="748">
-              <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
-=======
             <state relative-caret-position="232">
               <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="53" selection-end-column="78" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
               <folding />
             </state>
           </provider>
@@ -429,11 +361,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-<<<<<<< HEAD
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Source/lib/mysql-connector-java-5.1.38-bin.jar!/" />
-=======
     <property name="last_opened_file_path" value="C:/Downloads/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar!/" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -1003,13 +931,8 @@
       <workItem from="1463484086817" duration="110000" />
       <workItem from="1463484230766" duration="4642000" />
       <workItem from="1463491482573" duration="3009000" />
-<<<<<<< HEAD
-      <workItem from="1463561055278" duration="1119000" />
-      <workItem from="1463562315491" duration="965000" />
-=======
       <workItem from="1463560615129" duration="567000" />
       <workItem from="1463561224576" duration="889000" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
     </task>
     <servers />
   </component>
@@ -1019,17 +942,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="16713000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1932" height="1056" extended-state="1" />
-=======
     <option name="totallyTimeSpent" value="16085000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1038,19 +954,11 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-<<<<<<< HEAD
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47674417" sideWeight="0.5125261" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47674417" sideWeight="0.4874739" order="2" side_tool="false" content_ui="tabs" />
-=======
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47717392" sideWeight="0.51875" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47717392" sideWeight="0.48125" order="2" side_tool="false" content_ui="tabs" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1116,17 +1024,11 @@
         <state relative-caret-position="2091">
           <caret line="137" column="54" selection-start-line="137" selection-start-column="54" selection-end-line="137" selection-end-column="54" />
           <folding>
-<<<<<<< HEAD
-            <marker date="1463562089402" expanded="true" signature="1747:1766" placeholder="select * fro... kaart" />
-=======
             <marker date="1463561932852" expanded="true" signature="1747:1766" placeholder="select * fro... kaart" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-=======
     <entry file="file://$PROJECT_DIR$/web/gamepagina.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1496">
@@ -1163,7 +1065,6 @@
         </state>
       </provider>
     </entry>
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
     <entry file="file://$PROJECT_DIR$/../Source/src/com/company/TestSpel.java" />
     <entry file="file://$PROJECT_DIR$/WebLink.iml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1192,11 +1093,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-<<<<<<< HEAD
-            <marker date="1463562089402" expanded="true" signature="1747:1766" placeholder="select * fro... kaart" />
-=======
             <marker date="1463561932852" expanded="true" signature="1747:1766" placeholder="select * fro... kaart" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
           </folding>
         </state>
       </provider>
@@ -1256,11 +1153,7 @@
         <state relative-caret-position="799">
           <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
-<<<<<<< HEAD
-            <marker date="1463562089402" expanded="true" signature="1747:1766" placeholder="select * fro... kaart" />
-=======
             <marker date="1463561932852" expanded="true" signature="1747:1766" placeholder="select * fro... kaart" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
           </folding>
         </state>
       </provider>
@@ -1340,10 +1233,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/sql/DriverManager.java" />
-=======
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
     <entry file="file://$PROJECT_DIR$/src/company/Kaart.java" />
     <entry file="file://$PROJECT_DIR$/src/company/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/company/Actiekaart.java" />
@@ -1388,23 +1277,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="748">
-          <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
-=======
         <state relative-caret-position="1496">
           <caret line="88" column="40" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="40" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/NaamServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
-=======
     <entry file="file://$PROJECT_DIR$/web/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
@@ -1425,83 +1303,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="53" selection-end-column="78" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NaamServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="374">
-          <caret line="56" column="55" selection-start-line="56" selection-start-column="55" selection-end-line="56" selection-end-column="55" />
-          <folding>
-            <marker date="1463562089402" expanded="true" signature="1747:1766" placeholder="select * fro... kaart" />
-=======
         <state relative-caret-position="306">
           <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
           </folding>
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/../Source/src/test/ActieKaartTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Source/src/test/SpelerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-447">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/lib/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/gamepagina.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="88" column="40" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/lib/js/scriptGame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/lib/css/styleGame.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="93" column="19" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
-          <folding />
-=======
     <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Spel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
@@ -1509,7 +1324,6 @@
           <folding>
             <marker date="1463561932852" expanded="true" signature="1747:1766" placeholder="select * fro... kaart" />
           </folding>
->>>>>>> c7c73d90e544bf812745a280c3219f61463b2575
         </state>
       </provider>
     </entry>
