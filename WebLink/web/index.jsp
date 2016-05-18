@@ -51,7 +51,6 @@
     <input type="submit" value="Beginnen">
   </div>
 </form>
-<input type="button" class="groteKnop" value="Aflsuiten">
 
 <script type="text/javascript" src="lib/js/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="lib/js/script.js"></script>
