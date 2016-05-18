@@ -7,6 +7,7 @@ $(document).ready(function () {
     $(".overwinningskaarten li img, .geldcurse li img, .actiekaarten li img").on("click" , zoomIn);
     $("body").on("click",zoomOut);
     $(".toonKaart li img").on("click", check);
+    showPlayerName();
 });
 
 
@@ -28,7 +29,17 @@ var zoomOut = function () {
 
 };
 
-
 var check = function () {
     console.log("kek");
 };
+
+function showPlayerName(){
+    $.ajax({
+        type: "POST",
+        data: 'NaamServlet='+ ' Speler1: ' + speler1 + ' Speler2: ' + speler2,
+        url: url,
+        success:function(content){
+            $("naamspeler").html(content);
+        }
+    });
+}
