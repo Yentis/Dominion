@@ -38,6 +38,9 @@ public class NaamServlet extends HttpServlet {
         speler1.voegKaartToe(5, speler1.getDeck(), speler1.getHand());
         speler2.voegKaartToe(5, speler2.getDeck(), speler2.getHand());
     }
+
+
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

@@ -81,17 +81,17 @@ body {
 #speler{
 
     position: absolute;
-    left: 200px;
-    bottom: -350px;
+    left: 10%;
+    bottom: 10%;
 }
 #dank{
-    height: 100px;
-    width: 100px;
+
+    width: 5%;
 }
 
 #speler li{
 
-    font-size: 32px;
+    font-size: 1vw;
     display: block;
 }
 
@@ -180,11 +180,11 @@ body {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 10% 8%;
     border-radius: 3%;
-    font-size: 16px;
+    font-size: 1vw;
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 5%;
     transition: 1s;
 
 }
