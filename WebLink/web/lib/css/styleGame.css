@@ -79,19 +79,19 @@ body {
 /*speler*/
 
 #speler{
-    display: none;
+
     position: absolute;
-    left: 200px;
-    bottom: -350px;
+    left: 10%;
+    bottom: 5%;
 }
 #dank{
-    height: 100px;
-    width: 100px;
+    height: 7%;
+    width: 5%;
 }
 
 #speler li{
 
-    font-size: 32px;
+    font-size: 1vw;
     display: block;
 }
 
