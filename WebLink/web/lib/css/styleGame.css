@@ -81,17 +81,17 @@ body {
 #speler{
 
     position: absolute;
-    left: 10%;
-    bottom: 5%;
+    left: 200px;
+    bottom: -350px;
 }
 #dank{
-    height: 7%;
-    width: 5%;
+    height: 100px;
+    width: 100px;
 }
 
 #speler li{
 
-    font-size: 1vw;
+    font-size: 32px;
     display: block;
 }
 

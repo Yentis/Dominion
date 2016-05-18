@@ -5,26 +5,17 @@
 
 $(document).ready(function () {
     $(".overwinningskaarten li img, .geldcurse li img, .actiekaarten li img").on("click" , zoomIn);
-    $("body").on("click",zoomOut);
-    $(".toonKaart li img").on("click", check);
     showPlayerName();
 });
 
 
 var zoomIn = function () {
-    if ($(".toonKaart li").has("img")){
-        $(".toonKaart li img").remove();
-    }
     $(this).clone().appendTo(".toonKaart li").click(function () {
         remove(this);
     });
-
-
 };
 
-var check = function () {
-    console.log("kek");
-};
+
 
 function showPlayerName(){
     $.ajax({

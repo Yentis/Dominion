@@ -104,7 +104,7 @@
 
 </div>
 
-
+<script type="text/javascript" src="lib/js/kaartGenereren.js"></script>
 <script type="text/javascript" src="lib/js/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="lib/js/scriptGame.js"></script>
 </body>

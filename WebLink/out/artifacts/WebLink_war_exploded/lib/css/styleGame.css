@@ -79,7 +79,7 @@ body {
 /*speler*/
 
 #speler{
-    display: none;
+
     position: absolute;
     left: 200px;
     bottom: -350px;
