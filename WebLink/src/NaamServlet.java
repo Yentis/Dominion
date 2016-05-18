@@ -16,27 +16,15 @@ import java.sql.SQLException;
 @WebServlet(name = "NaamServlet", urlPatterns = {"/NaamServlet"})
 public class NaamServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-
-        PrintWriter out = response.getWriter();
+        response.setContentType("text/plain");
         String naamspeler1 = request.getParameter("speler1");
         String naamspeler2 = request.getParameter("speler2");
-        response.sendRedirect("/gamepagina.jsp");
+
         Spel spel = new Spel();
         Speler speler1 = new Speler(naamspeler1);
         Speler speler2 = new Speler(naamspeler2);
         spel.addSpeler(speler1);
         spel.addSpeler(speler2);
-        try {
-            spel.maakKaarten();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        spel.vulVeldOp();
-        spel.starterDeck(spel, speler1);
-        spel.starterDeck(spel, speler2);
-        speler1.voegKaartToe(5, speler1.getDeck(), speler1.getHand());
-        speler2.voegKaartToe(5, speler2.getDeck(), speler2.getHand());
     }
 
 
