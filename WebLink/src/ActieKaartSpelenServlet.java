@@ -32,9 +32,7 @@ public class ActieKaartSpelenServlet extends HttpServlet {
 
             String kaartnaam = request.getParameter("kaart");
             for(Kaart k : spel.getActieveld()){
-                System.out.println("Kaartnaam: " + k.getNaam() + " \n Gekozen kaart naam: " + kaartnaam);
-                System.out.println(Objects.equals(k.getNaam(), kaartnaam));
-                if(Objects.equals(kaartnaam, k.getNaam()) && kaartgespeeld){
+                if(Objects.equals(kaartnaam, k.getNaam()) && !kaartgespeeld){
                     Kaart tespelenkaart = k;
                     spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
                     acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel);

@@ -19,16 +19,19 @@ var speelActieKaart = function(){
     var kaart = this.src;
     kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
     kaart = kaart.replace(".jpg","");
+
     $.ajax({
         type:"POST",
-        dataType:"json",
-        data: {kaart : kaart},
+        data:{kaart:kaart},
         url:"ActieKaartSpelenServlet",
         success: function(result){
+            alert(result);
             $(".kaartOpVeld").append("<li class='"+result+"'><img src='lib/images/kaarten/" + result + ".jpg' title='" + result + "'/></li>");
             $(".hand").remove("."+result+"");
         }
-    })
+    });
+    showPlayerGegevens();
+    showHand();
 };
 
 function beginBeurtServlet(){
@@ -43,6 +46,8 @@ var eindigBeurt = function(){
         type:"POST",
         url:"EindeBeurtServlet"
     })
+    showPlayerGegevens();
+    showHand();
 };
 
 var gooiGeld = function(){
@@ -104,7 +109,6 @@ function showHand() {
         success: function (result) {
             $(".hand").html("<li class='" + result[0] + "'><img src='lib/images/kaarten/" + result[0] + ".jpg' title='" + "temp" + "'/></li>");
             for(i=1;i<result.length;i++){
-                console.log(result[i]);
                 $(".hand").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
             }
         }
