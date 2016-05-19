@@ -32,7 +32,19 @@ public class NaamServlet extends HttpServlet {
         spel.addSpeler(speler1);
         spel.addSpeler(speler2);
 
-        response.sendRedirect("BeurtServlet");
+        //Vul veld op
+        try {
+            spel.maakKaarten();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        spel.vulVeldOp();
+        spel.starterDeck(spel, speler1);
+        spel.starterDeck(spel, speler2);
+        speler1.vulHand();
+        speler2.vulHand();
+
+        response.sendRedirect("gamepagina.jsp");
     }
 
 
