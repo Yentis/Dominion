@@ -42,14 +42,16 @@ function toonActieKaarten(){
 }
 
 function showPlayerGegevens() {
-        $.ajax({
-            type: "POST",
-            data: {speler1: speler1, speler2: speler2},
-            URL: "SpelerServlet",
-            success: function (result) {
-                $('#acties').html(result);
-            }
-        });
+    $.ajax({
+        type:"POST",
+        dataType:"json",
+        url:"SpelerServlet",
+        success: function(result){
+            $("#acties").append(result[0]);
+            $("#buys").append(result[1]);
+            $("#geld").append(result[2]);
+        }
+    })
 }
 
 var QueryString = function () {
