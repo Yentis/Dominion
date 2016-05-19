@@ -34,11 +34,9 @@
         <li><span id="linebreaker"> </span></li>
     </ul>
 
-
-
     <div id="buttons">
         <input type="button" value="Gooi alle geldkaarten" id="gooigeld">
-        <input type="button" value="Eindig je beurt">
+        <input type="button" value="Eindig je beurt" id="eindigbeurt">
     </div>
     <div id="log">
         <h2>Een cursekaart werd toegevoegd aan je deck</h2>
@@ -55,11 +53,11 @@
     </div>
 
     <ul class="kaartOpVeld">
+        <%--<li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
         <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
         <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
         <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
+        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>--%>
     </ul>
 
 
@@ -81,11 +79,11 @@
 
     <ul class="hand">
         <li><p>Hand :</p></li>
-        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
+        <%--<li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
         <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
         <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
         <li><img src="lib/images/kaarten/overwinningskaarten/estate.jpg" alt="estate" title="estate"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
+        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>--%>
     </ul>
     <ul class="toonKaart">
         <li></li>

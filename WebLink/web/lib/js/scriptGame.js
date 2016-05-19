@@ -8,15 +8,40 @@ $(document).ready(function () {
     showPlayerName();
     showPlayerGegevens();
     showActieKaarten();
+    beginBeurtServlet();
     $("#gooigeld").on("click", gooiGeld);
+    $("#eindigbeurt").on("click", eindigBeurt);
+    $(".hand").on("click", "img", speelActieKaart);
 });
 
-var gooigeld = function(){
+var speelActieKaart = function(){
+    
+}
+
+function beginBeurtServlet(){
     $.ajax({
         type:"POST",
+        url:"BeurtServlet"
+    })
+}
+
+var eindigBeurt = function(){
+    $.ajax({
+        type:"POST",
+        url:"EindeBeurtServlet"
+    })
+};
+
+var gooiGeld = function(){
+    $.ajax({
+        type:"POST",
+        dataType:"json",
         url:"GooiGeldServlet",
         success: function(result){
-            
+            for(i=0;i<result.length;i++){
+                $(".kaartOpVeld").append("<li id='"+result[i]+"'><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+                $(".hand").remove("#"+result[i]+"");
+            }
         }
     })
 };
@@ -48,10 +73,10 @@ function showActieKaarten(){
         url:"ActieKaartServlet",
         success: function(result){
             for(i=0;i<result.length/2;i++){
-                $("#actiekaarten").prepend("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+                $("#actiekaarten").prepend("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
             for(i=result.length/2;i<result.length;i++){
-                $("#actiekaarten").append("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+                $("#actiekaarten").append("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
         }
     })

@@ -27,9 +27,9 @@ public class BeurtServlet extends HttpServlet {
 
         while(!spel.spelGedaan()){
             if(teller%2 == 0){
-                beurt(speler1, spel);
+                beurt(speler1, spel, request);
             } else if (teller%2 == 1){
-                beurt(speler2, spel);
+                beurt(speler2, spel, request);
             }
             teller++;
         }
@@ -39,13 +39,15 @@ public class BeurtServlet extends HttpServlet {
 
     }
 
-    public void beurt(Speler speler, Spel spel){
+    public void beurt(Speler speler, Spel spel, HttpServletRequest request){
         Actiekaart acties = new Actiekaart();
         spel.setSpelerValues(speler);
         speler.checkHand();
-        boolean beurt = true;
+        boolean beurt = (Boolean)request.getSession().getAttribute("beurt");
         while(beurt){
             //toon kaarten
+            request.getSession().setAttribute("huidigespeler", speler);
+
             System.out.println("Actiekaart spelen | 1");
             System.out.println("Kaart kopen | 2");
             System.out.println("Beurt beeindigen | 3");
