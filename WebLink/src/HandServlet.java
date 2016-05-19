@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+import java.util.*;
 
 /**
  * Created by Renzie on 19/05/2016.
@@ -19,8 +19,10 @@ public class HandServlet extends HttpServlet {
         Gson gson = new Gson();
         Speler speler1 = (Speler)request.getSession().getAttribute("speler1");
         Spel spel = (Spel)request.getSession().getAttribute("spel");
-        speler1.
-        List<String>
+        
+        spel.geefStartKaarten(spel, speler1);
+
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

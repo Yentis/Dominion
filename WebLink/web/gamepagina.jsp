@@ -18,14 +18,14 @@
 
 
     <ul class="overwinningskaarten">
-        <li><img src="lib/images/kaarten/overwinningskaarten/provincePS.jpg" alt="province" title="province"/></li>
-        <li><img src="lib/images/kaarten/overwinningskaarten/duchyPS.jpg" alt="duchy" title="duchy::"/></li>
-        <li><img src="lib/images/kaarten/overwinningskaarten/estatePS.jpg" alt="estate" title="estate"/></li>
+        <li><img src="lib/images/kaarten/provincePS.jpg" alt="province" title="province"/></li>
+        <li><img src="lib/images/kaarten/duchyPS.jpg" alt="duchy" title="duchy::"/></li>
+        <li><img src="lib/images/kaarten/estatePS.jpg" alt="estate" title="estate"/></li>
     </ul>
 
 
     <ul class="stapel">
-        <li><img src="lib/images/kaarten/actiekaarten/Dief.jpg" alt="avonturier" title="avonturier"/></li>
+        <li><img src="lib/images/kaarten/Dief.jpg" alt="avonturier" title="avonturier"/></li>
         <li><img src="lib/images/kaarten/achterkant.jpg" alt="avonturier" title="avonturier"/></li>
     </ul>
 
@@ -55,19 +55,19 @@
     </div>
 
     <ul class="kaartOpVeld">
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
+        <li><img src="lib/images/kaarten/gold.jpg" alt="gold" title="gold"></li>
+        <li><img src="lib/images/kaarten/gold.jpg" alt="gold" title="gold"></li>
+        <li><img src="lib/images/kaarten/gold.jpg" alt="gold" title="gold"></li>
+        <li><img src="lib/images/kaarten/gold.jpg" alt="gold" title="gold"></li>
+        <li><img src="lib/images/kaarten/gold.jpg" alt="gold" title="gold"></li>
     </ul>
 
 
     <ul class="geldcurse">
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/silver.jpg" alt="silver" title="silver"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
-        <li><img src="lib/images/kaarten/overwinningskaarten/curse.jpg" alt="curse" title="curse"></li>
+        <li><img src="lib/images/kaarten/gold.jpg" alt="gold" title="gold"></li>
+        <li><img src="lib/images/kaarten/silver.jpg" alt="silver" title="silver"></li>
+        <li><img src="lib/images/kaarten/copper.jpg" alt="copper" title="copper"></li>
+        <li><img src="lib/images/kaarten/curse.jpg" alt="curse" title="curse"></li>
     </ul>
 
 
@@ -81,11 +81,11 @@
 
     <ul class="hand">
         <li><p>Hand :</p></li>
-        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
-        <li><img src="lib/images/kaarten/overwinningskaarten/estate.jpg" alt="estate" title="estate"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
+        <li><img src="lib/images/kaarten/copper.jpg" alt="copper" title="copper"></li>
+        <li><img src="lib/images/kaarten/copper.jpg" alt="copper" title="copper"></li>
+        <li><img src="lib/images/kaarten/copper.jpg" alt="copper" title="copper"></li>
+        <li><img src="lib/images/kaarten/estate.jpg" alt="estate" title="estate"></li>
+        <li><img src="lib/images/kaarten/copper.jpg" alt="copper" title="copper"></li>
     </ul>
     <ul class="toonKaart">
         <li></li>
