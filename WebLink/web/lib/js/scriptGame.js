@@ -11,6 +11,7 @@ $(document).ready(function () {
 
 
 var zoomIn = function () {
+    
     $(this).clone().appendTo(".toonKaart li").click(function () {
         remove(this);
     });

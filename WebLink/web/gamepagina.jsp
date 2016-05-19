@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="lib/css/reset.css"/>
     <link rel="stylesheet" href="lib/css/styleGame.css" type="text/css"/>
 </head>
-<body>
+<body onload="init()">
 <div id="wrapper">
 
 
@@ -86,7 +86,7 @@
         <ul>
             <li><img src="lib/images/dank.png" id="dank" alt="dank" title="dank"></li>
 
-            <li id="naamspeler">Speler 1</li>
+            <li id="naamspeler">${requestScope.get(speler1)}</li>
         </ul>
     </div>
 
