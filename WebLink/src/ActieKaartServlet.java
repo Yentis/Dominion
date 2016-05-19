@@ -25,12 +25,10 @@ public class ActieKaartServlet extends HttpServlet {
         Gson gson = new Gson();
         Spel spel = (Spel)request.getSession().getAttribute("spel");
         List<String> afgedruktekaarten = new ArrayList<>();
-        int i = 1;
+
         for(Kaart k : spel.getActieveld()){
            if(!afgedruktekaarten.contains(k.getNaam())){
                afgedruktekaarten.add(k.getNaam());
-               System.out.println("Kaart " + i + ": " + k.getNaam() + "\n");
-               i++;
           }
        }
         String json = gson.toJson(afgedruktekaarten);

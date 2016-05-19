@@ -26,8 +26,8 @@
       <file leaf-file-name="NaamServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NaamServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+            <state relative-caret-position="306">
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -52,8 +52,8 @@
       <file leaf-file-name="ActieKaartServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ActieKaartServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
+            <state relative-caret-position="289">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -94,8 +94,8 @@
       <file leaf-file-name="scriptGame.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/lib/js/scriptGame.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+            <state relative-caret-position="85">
+              <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -135,10 +135,10 @@
         <option value="$PROJECT_DIR$/src/ActiekaartServlet.java" />
         <option value="$PROJECT_DIR$/web/lib/js/script.js" />
         <option value="$PROJECT_DIR$/src/NaamServlet.java" />
-        <option value="$PROJECT_DIR$/src/ActieKaartServlet.java" />
         <option value="$PROJECT_DIR$/../Source/src/com/company/Spel.java" />
         <option value="$PROJECT_DIR$/../Source/src/com/company/Spel.java" />
         <option value="$PROJECT_DIR$/web/gamepagina.jsp" />
+        <option value="$PROJECT_DIR$/src/ActieKaartServlet.java" />
         <option value="$PROJECT_DIR$/web/lib/js/scriptGame.js" />
       </list>
     </option>
@@ -972,7 +972,7 @@
       <workItem from="1463560615129" duration="567000" />
       <workItem from="1463561224576" duration="889000" />
       <workItem from="1463565447848" duration="22038000" />
-      <workItem from="1463647334475" duration="3177000" />
+      <workItem from="1463647334475" duration="4521000" />
     </task>
     <servers />
   </component>
@@ -982,10 +982,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41300000" />
+    <option name="totallyTimeSpent" value="42644000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1304,8 +1304,8 @@
     <entry file="file://$PROJECT_DIR$/src/BeurtServlet.java" />
     <entry file="file://$PROJECT_DIR$/src/NaamServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        <state relative-caret-position="306">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1332,16 +1332,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActieKaartServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/lib/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1358,10 +1348,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActieKaartServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/lib/js/scriptGame.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="35" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
+        <state relative-caret-position="85">
+          <caret line="5" column="20" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
           <folding />
         </state>
       </provider>
