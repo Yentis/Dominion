@@ -16,7 +16,9 @@ $(document).ready(function () {
 });
 
 var speelActieKaart = function(){
-    var kaart = this;
+    var kaart = this.src;
+    kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
+    kaart = kaart.replace(".jpg","");
     $.ajax({
         type:"POST",
         dataType:"json",
@@ -56,6 +58,7 @@ var gooiGeld = function(){
         }
     });
     showPlayerGegevens();
+    showHand();
 };
 
 var zoomIn = function () {
@@ -99,7 +102,8 @@ function showHand() {
         dataType:"json",
         url:"HandServlet",
         success: function (result) {
-            for(i=0;i<result.length;i++){
+            $(".hand").html("<li class='" + result[0] + "'><img src='lib/images/kaarten/" + result[0] + ".jpg' title='" + "temp" + "'/></li>");
+            for(i=1;i<result.length;i++){
                 console.log(result[i]);
                 $(".hand").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
             }

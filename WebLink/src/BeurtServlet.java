@@ -23,11 +23,21 @@ public class BeurtServlet extends HttpServlet {
         Spel spel = (Spel)request.getSession().getAttribute("spel");
         Speler speler1 = (Speler)request.getSession().getAttribute("speler1");
         Speler speler2 = (Speler)request.getSession().getAttribute("speler2");
+        Boolean beurt = (Boolean)request.getSession().getAttribute("beurt");
         int teller = 0;
 
         //temp
+
+        /*if(beurt){
+            */request.getSession().setAttribute("huidigespeler", speler1);
+            speler1.getHand().add(spel.getActieveld().get(0));/*
+            *
+        } else {
+            request.getSession().setAttribute("huidigespeler", speler2);
+        }
+        Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
+        */
         spel.setSpelerValues(speler1);
-        request.getSession().setAttribute("huidigespeler", speler1);
 
         /*while(!spel.spelGedaan()){
             if(teller%2 == 0){
