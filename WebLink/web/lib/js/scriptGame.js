@@ -8,8 +8,18 @@ $(document).ready(function () {
     showPlayerName();
     showPlayerGegevens();
     showActieKaarten();
+    $("#gooigeld").on("click", gooiGeld);
 });
 
+var gooigeld = function(){
+    $.ajax({
+        type:"POST",
+        url:"GooiGeldServlet",
+        success: function(result){
+            
+        }
+    })
+};
 
 var zoomIn = function () {
     console.log("hey");
@@ -38,10 +48,10 @@ function showActieKaarten(){
         url:"ActieKaartServlet",
         success: function(result){
             for(i=0;i<result.length/2;i++){
-                $("#actiekaarten").prepend("<li><img src='lib/images/kaarten/actiekaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+                $("#actiekaarten").prepend("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
             }
             for(i=result.length/2;i<result.length;i++){
-                $("#actiekaarten").append("<li><img src='lib/images/kaarten/actiekaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+                $("#actiekaarten").append("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
             }
         }
     })
