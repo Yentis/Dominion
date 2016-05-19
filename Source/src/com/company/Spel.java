@@ -257,5 +257,10 @@ public class Spel {
         }
         return winnaar;
     }
+
+    public void geefStartKaarten(Spel spel, Speler speler){
+        spel.starterDeck(spel, speler);
+        speler.vulHand();
+    }
     //endregion
 }

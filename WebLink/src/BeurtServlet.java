@@ -1,71 +1,42 @@
-package com.company;
+import com.company.Actiekaart;
+import com.company.Kaart;
+import com.company.Spel;
+import com.company.Speler;
 
-import java.sql.SQLException;
-import java.util.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
 
-public class Main {
-    int teller = 0;
+/**
+ * Created by Yentl-PC on 19/05/2016.
+ */
+@WebServlet(name = "BeurtServlet", urlPatterns = {"/BeurtServlet"})
+public class BeurtServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Spel spel = (Spel)request.getSession().getAttribute("spel");
+        Speler speler1 = (Speler)request.getSession().getAttribute("speler1");
+        Speler speler2 = (Speler)request.getSession().getAttribute("speler2");
+        int teller = 0;
 
-    public static void main(String[] args) {
-        try
-        {
-            Main obj = new Main ();
-            obj.run(args);
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace ();
-        }
-    }
-
-    public void run (String[] args) throws Exception
-    {
-        startGame();
-    }
-
-    public void startGame() throws SQLException {
-        //Initializeer toetsenbord
-        Scanner keyboard = new Scanner(System.in);
-        boolean exit = false;
-        while (!exit) {
-            System.out.println("Welkom bij Dominion\n");
-            System.out.println("Druk op ENTER om te starten");
-            String input = keyboard.nextLine();
-
-            //Maak spel
-            if(input != null) {
-                Spel spel = new Spel();
-                System.out.println("Voer de naam van speler 1 in");
-                input = keyboard.nextLine();
-                Speler speler1 = new Speler(input);
-                spel.addSpeler(speler1);
-                System.out.println("Voer de naam van speler 2 in");
-                input = keyboard.nextLine();
-                Speler speler2 = new Speler(input);
-                spel.addSpeler(speler2);
-                spel.maakKaarten();
-                spel.vulVeldOp();
-
-                //Geef startkaarten
-                spel.geefStartKaarten(spel, speler1);
-                spel.geefStartKaarten(spel, speler2);
-
-                //Start beurt
-                while(!spel.spelGedaan()){
-                    if(teller%2 == 0){
-                        beurt(speler1, spel);
-                    } else if (teller%2 == 1){
-                        beurt(speler2, spel);
-                    }
-                    teller++;
-                }
-                System.out.println("Game over");
-                System.out.println("De winnaar is " + spel.winnaar());
+        while(!spel.spelGedaan()){
+            if(teller%2 == 0){
+                beurt(speler1, spel);
+            } else if (teller%2 == 1){
+                beurt(speler2, spel);
             }
-            exit = true;
+            teller++;
         }
-        keyboard.close();
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 
     public void beurt(Speler speler, Spel spel){
