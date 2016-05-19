@@ -35,7 +35,7 @@
   <input type="button" class="groteKnop" value="Aflsuiten">
 </form>
 
-<form action="NaamServlet" method="post" class="hide" id="naamgeving">
+<form action="BuildServlet" method="post" class="hide" id="naamgeving">
   <input type="button" id="vorige" value="<< vorige">
   <h3>Kies uw naam</h3>
 
