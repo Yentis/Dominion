@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.*;
 
 /**
@@ -19,9 +20,15 @@ public class HandServlet extends HttpServlet {
         Gson gson = new Gson();
         Speler speler1 = (Speler)request.getSession().getAttribute("speler1");
         Spel spel = (Spel)request.getSession().getAttribute("spel");
-        
-        spel.geefStartKaarten(spel, speler1);
+        PrintWriter out = response.getWriter();
+        List<String> Hand = new ArrayList<>();
 
+        for(Kaart k : speler1.getHand()){
+            Hand.add(k.getNaam());
+        }
+        String json = gson.toJson(Hand);
+
+        out.print(json);
 
     }
 

@@ -8,6 +8,7 @@ $(document).ready(function () {
     showPlayerName();
     showPlayerGegevens();
     showActieKaarten();
+    showHand();
 });
 
 
@@ -38,10 +39,23 @@ function showActieKaarten(){
         url:"ActieKaartServlet",
         success: function(result){
             for(i=0;i<result.length/2;i++){
-                $("#actiekaarten").prepend("<li><img src='lib/images/kaarten/actiekaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+                $("#actiekaarten").prepend("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
             }
             for(i=result.length/2;i<result.length;i++){
-                $("#actiekaarten").append("<li><img src='lib/images/kaarten/actiekaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+                $("#actiekaarten").append("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+            }
+        }
+    })
+}
+function showHand() {
+    $.ajax({
+        type:"POST",
+        dataType:"json",
+        url:"HandServlet",
+        success: function (result) {
+            for(i=0;i<result.length;i++){
+                console.log(result[i]);
+                $(".hand").append("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
             }
         }
     })
