@@ -27,14 +27,10 @@ function toonActieKaarten(){
         dataType:"json",
         url:"ActieKaartServlet",
         success: function(result){
-            var random = ["woord1", "woord2"];
             alert(result);
-            alert(typeof random);
-            for(i=0;i<result.size;i++)
+            alert("Object.size: " + Object.size(result) + " size(): " + result.size() + " size: " + result.size + " length: " + result.length);
+            for(i=0;i<Object.size(result);i++)
                 $("#actiekaarten").html("<li><img src='lib/images/kaarten/actiekaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
-        },
-        error: function(e){
-            alert(JSON.stringify(e))
         }
     })
 }
