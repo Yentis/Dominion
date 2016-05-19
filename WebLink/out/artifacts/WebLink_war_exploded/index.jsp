@@ -48,7 +48,7 @@
 
   <div>
     <!--<input type="submit" id="speelSpel" class="startp2" value="Spelen" name="jaknop">-->
-    <input type="button" value="Beginnen" id="testbutton">
+    <input type="submit" value="Beginnen">
   </div>
   <span id="result"></span>
 </form>
