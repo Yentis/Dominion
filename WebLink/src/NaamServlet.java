@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
+
 /**
  * Created by Yentl-PC on 17/05/2016.
  */
@@ -29,7 +30,7 @@ public class NaamServlet extends HttpServlet {
         spel.addSpeler(speler1);
         spel.addSpeler(speler2);
 
-		
+
 		//Zet veld op
         try {
             spel.maakKaarten();
@@ -41,7 +42,6 @@ public class NaamServlet extends HttpServlet {
         spel.starterDeck(spel, speler2);
         speler1.voegKaartToe(5, speler1.getDeck(), speler1.getHand());
         speler2.voegKaartToe(5, speler2.getDeck(), speler2.getHand());
-
     }
 
 
