@@ -41,7 +41,7 @@ public class ActiekaartTest {
         spel.vulVeldOp();
 
         spel.addSpeler(niels);
-        spel.geefStartKaarten(spel, niels);
+        spel.geefStartKaarten(niels);
 
         int Handvoorsmidse = niels.getHand().size();
 
@@ -59,7 +59,7 @@ public class ActiekaartTest {
         spel.vulVeldOp();
 
         spel.addSpeler(niels);
-        spel.geefStartKaarten(spel, niels);
+        spel.geefStartKaarten(niels);
 
         int Startactie = niels.getActie();
         int handvoorlaboratorium = niels.getHand().size();
@@ -79,7 +79,7 @@ public class ActiekaartTest {
         spel.maakKaarten();
         spel.vulVeldOp();
         spel.addSpeler(niels);
-        spel.geefStartKaarten(spel, niels);
+        spel.geefStartKaarten(niels);
 
         int Startgeld = niels.getGeld();
         int Startactie = niels.getActie();
@@ -107,8 +107,8 @@ public class ActiekaartTest {
 
         spel.addSpeler(laurens);
         spel.addSpeler(niels);
-        spel.geefStartKaarten(spel, laurens);
-        spel.geefStartKaarten(spel, niels);
+        spel.geefStartKaarten(laurens);
+        spel.geefStartKaarten(niels);
 
         int HandVoorRaadzaal = laurens.getHand().size();
         int HandVoorRaadzaalSpeler2 = niels.getHand().size();
@@ -137,7 +137,7 @@ public class ActiekaartTest {
         spel.vulVeldOp();
 
         spel.addSpeler(niels);
-        spel.starterDeck(spel, niels);
+        spel.starterDeck(niels);
 
         int Handvooravonturier = niels.getHand().size();
 
@@ -155,7 +155,7 @@ public class ActiekaartTest {
         spel.maakKaarten();
         spel.vulVeldOp();
         spel.addSpeler(laurens);
-        spel.geefStartKaarten(spel, laurens);
+        spel.geefStartKaarten(laurens);
 
         int StartOverwinningspunten = laurens.getOverwinningspunten();
         System.out.println(StartOverwinningspunten);

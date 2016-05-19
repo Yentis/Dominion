@@ -30,7 +30,7 @@ public class BeurtServlet extends HttpServlet {
 
         /*if(beurt){
             */request.getSession().setAttribute("huidigespeler", speler1);
-            speler1.getHand().add(spel.getActieveld().get(0));/*
+            /*
             *
         } else {
             request.getSession().setAttribute("huidigespeler", speler2);

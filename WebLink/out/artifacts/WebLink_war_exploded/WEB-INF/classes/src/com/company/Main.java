@@ -48,8 +48,8 @@ public class Main {
                 spel.vulVeldOp();
 
                 //Geef startkaarten
-                spel.geefStartKaarten(spel, speler1);
-                spel.geefStartKaarten(spel, speler2);
+                spel.geefStartKaarten(speler1);
+                spel.geefStartKaarten(speler2);
 
                 //Start beurt
                 while(!spel.spelGedaan()){

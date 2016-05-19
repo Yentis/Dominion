@@ -93,7 +93,7 @@ public class SpelerTest {
         Speler speler = new Speler("derp");
         spel.maakKaarten();
         spel.vulVeldOp();
-        spel.starterDeck(spel, speler);
+        spel.starterDeck(speler);
         speler.voegKaartToe(4,speler.getDeck(), speler.getAflegstapel());
         for (Kaart k : speler.getAflegstapel()){
             System.out.println("Aflegstapel :"+ k);

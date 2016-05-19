@@ -92,17 +92,17 @@ public class Spel {
         speler.setGeld(0);
     }
 
-    public void starterDeck(Spel spel, Speler speler)
+    public void starterDeck(Speler speler)
     {
         int aantalkaarten = 0;
 
-        voegKoperKaartenToe(aantalkaarten, speler);
-        voegLandgoedKaartenToe(spel, aantalkaarten, speler);
+        aantalkaarten = voegKoperKaartenToe(aantalkaarten, speler);
+        voegLandgoedKaartenToe(aantalkaarten, speler);
 
         schudden(speler.getDeck());
     }
 
-    public void voegKoperKaartenToe(int aantalkaarten, Speler speler){
+    public int voegKoperKaartenToe(int aantalkaarten, Speler speler){
         for(int i=0;i<geldveld.size();i++){
             if(Objects.equals(geldveld.get(i).getNaam(), "Koper") && aantalkaarten < 7){
                 speler.getDeck().add(geldveld.get(i));
@@ -111,9 +111,10 @@ public class Spel {
                 geldveld.remove(i);
             }
         }
+        return aantalkaarten;
     }
 
-    public void voegLandgoedKaartenToe(Spel spel, int aantalkaarten, Speler speler){
+    public void voegLandgoedKaartenToe(int aantalkaarten, Speler speler){
         for(int i=0;i<overwinningsveld.size();i++){
             if(Objects.equals(overwinningsveld.get(i).getNaam(), "Landgoed") && aantalkaarten < 10){
                 speler.getDeck().add(overwinningsveld.get(i));
@@ -258,8 +259,8 @@ public class Spel {
         return winnaar;
     }
 
-    public void geefStartKaarten(Spel spel, Speler speler){
-        spel.starterDeck(spel, speler);
+    public void geefStartKaarten(Speler speler){
+        starterDeck(speler);
         speler.vulHand();
     }
     //endregion
