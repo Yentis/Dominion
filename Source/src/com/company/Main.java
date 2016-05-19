@@ -50,8 +50,8 @@ public class Main {
                 //Geef startkaarten
                 spel.starterDeck(spel, speler1);
                 spel.starterDeck(spel, speler2);
-                speler1.voegKaartToe(5, speler1.getDeck(), speler1.getHand());
-                speler2.voegKaartToe(5, speler2.getDeck(), speler2.getHand());
+                speler1.vulHand();
+                speler2.vulHand();
 
                 //Start beurt
                 while(!spel.spelGedaan()){
@@ -75,11 +75,7 @@ public class Main {
 
         Actiekaart acties = new Actiekaart();
         spel.setSpelerValues(speler);
-        if(speler.getDeck().size() == 0){
-            speler.leegAflegstapel();
-        } else if (speler.getHand().size()==0) {
-            speler.voegKaartToe(5, speler.getDeck(), speler.getHand());
-        }
+        speler.checkHand();
         boolean beurt = true;
         Scanner keyboard = new Scanner(System.in);
         while(beurt){
@@ -99,7 +95,7 @@ public class Main {
             String input = keyboard.nextLine();
             switch (input){
                 case "0":
-                   speler.plaatsGeldkaartenOpVeld();
+                    speler.plaatsGeldkaartenOpVeld();
                     break;
                 case "1":
                     if(speler.getActie() > 0){
@@ -146,8 +142,7 @@ public class Main {
                     }
                     break;
                 case "3":
-                    while(speler.getHand().size()>0)
-                    speler.voegKaartToe(1, speler.getHand(), speler.getAflegstapel());
+                    speler.beëindigbeurt();
                     beurt = false;
                     break;
             }

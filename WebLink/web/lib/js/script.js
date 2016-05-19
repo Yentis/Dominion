@@ -5,7 +5,7 @@
      * Created by Renzie on 21/04/2016.
      */
     $(document).ready(function () {
-        $('#testbutton').click(function(){
+        /*$('#testbutton').click(function(){
             var speler1 = $('#speler1').val();
             var speler2 = $('#speler2').val();
             $.ajax({
@@ -16,7 +16,7 @@
                     window.location.href = "gamepagina.jsp?speler1=" + speler1 + "&speler2=" + speler2 + "";
                 }
             })
-        });
+        });*/
 
 
         console.log('derp');
