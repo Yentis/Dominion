@@ -4,22 +4,24 @@
 
 
 $(document).ready(function () {
-    $(".overwinningskaarten li img, .geldcurse li img, .actiekaarten li img").on("click" , zoomIn);
     showPlayerName();
     toonActieKaarten();
+    $(".overwinningskaarten li img, .geldcurse li img, #actiekaarten li img").on("click" , zoomIn);
 });
 
 
 var zoomIn = function () {
-    
+    if ($(".toonKaart li").has("img")){
+        $(".toonKaart li img").remove();
+    }
     $(this).clone().appendTo(".toonKaart li").click(function () {
-        remove(this);
+        $(this).remove();
     });
 };
 
 function showPlayerName(){
 
-    
+    $('#naamspeler').html(QueryString.speler1);
     
 }
 function showPlayerGegevens() {
@@ -29,7 +31,7 @@ function showPlayerGegevens() {
         data: {speler1:speler1, speler2:speler2},
         URL: "NaamServlet",
         success: function () {
-            $('acties').html(json.speler1.getA)
+            $('#acties').html()
         }
     });
     
@@ -42,10 +44,12 @@ function toonActieKaarten(){
         dataType:"json",
         url:"ActieKaartServlet",
         success: function(result){
-            console.log(result);
-            alert("Object.size: " + Object.size(result) + " size(): " + result.size() + " size: " + result.size + " length: " + result.length);
-            for(i=0;i<Object.size(result);i++)
-                $("#actiekaarten").html("<li><img src='lib/images/kaarten/actiekaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+            for(i=0;i<result.length/2;i++){
+                $("#actiekaarten").prepend("<li><img src='lib/images/kaarten/actiekaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+            }
+            for(i=result.length/2;i<result.length;i++){
+                $("#actiekaarten").append("<li><img src='lib/images/kaarten/actiekaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+            }
         }
     })
 }

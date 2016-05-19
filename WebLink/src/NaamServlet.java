@@ -23,7 +23,7 @@ public class NaamServlet extends HttpServlet {
 
         //Voeg spelers toe
         Spel spel = new Spel();
-        request.setAttribute("spel",spel);
+        request.getSession().setAttribute("spel", spel);
         Speler speler1 = new Speler(naamspeler1);
         Speler speler2 = new Speler(naamspeler2);
         spel.addSpeler(speler1);
@@ -41,7 +41,6 @@ public class NaamServlet extends HttpServlet {
         spel.starterDeck(spel, speler2);
         speler1.voegKaartToe(5, speler1.getDeck(), speler1.getHand());
         speler2.voegKaartToe(5, speler2.getDeck(), speler2.getHand());
-
     }
 
 

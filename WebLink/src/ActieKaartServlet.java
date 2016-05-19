@@ -23,21 +23,18 @@ public class ActieKaartServlet extends HttpServlet {
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
         Gson gson = new Gson();
-        //System.out.println(request.getAttribute("spel"));
-        //List<Kaart> afgedruktekaarten = new ArrayList<>();
-
-        //for(Kaart k : spel.getActieveld()){
-           // if(!afgedruktekaarten.contains(k)){
-               // out.print(spel.getActieveld().get(0).getNaam());
-        List<String> dieven = new ArrayList<>();
-        for(int i=0;i<10;i++){
-            dieven.add("Dief");
-        }
-        String json = gson.toJson(dieven);
+        Spel spel = (Spel)request.getSession().getAttribute("spel");
+        List<String> afgedruktekaarten = new ArrayList<>();
+        int i = 1;
+        for(Kaart k : spel.getActieveld()){
+           if(!afgedruktekaarten.contains(k.getNaam())){
+               afgedruktekaarten.add(k.getNaam());
+               System.out.println("Kaart " + i + ": " + k.getNaam() + "\n");
+               i++;
+          }
+       }
+        String json = gson.toJson(afgedruktekaarten);
         out.print(json);
-             //   afgedruktekaarten.add(k);
-          //  }
-       // }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

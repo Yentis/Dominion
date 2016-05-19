@@ -131,8 +131,8 @@ public class Spel {
     }
 
     public void vulActieKaartenOp(){
-        //100 actiekaarten op het veld
-        for(int i=0;i<100;i++){
+        //10 actiekaarten op het veld
+        while(actieveld.size()<99){
             Random rand = new Random();
             int value = rand.nextInt(kaarten.size());
             //Als het een actiekaart of tuin kaart is en het nog niet bestaat
