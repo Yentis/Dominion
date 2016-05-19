@@ -9,8 +9,18 @@ $(document).ready(function () {
     showPlayerGegevens();
     showActieKaarten();
     showHand();
+    $("#gooigeld").on("click", gooiGeld);
 });
 
+var gooigeld = function(){
+    $.ajax({
+        type:"POST",
+        url:"GooiGeldServlet",
+        success: function(result){
+            
+        }
+    })
+};
 
 var zoomIn = function () {
     console.log("hey");

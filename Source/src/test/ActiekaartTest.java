@@ -7,7 +7,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 /**
- * Created by niels & laurens ;)  on 18/05/2016.
+ * Created by niels  & laurens ;)  on 18/05/2016.
  */
 public class ActiekaartTest {
     private Speler niels;
@@ -25,29 +25,105 @@ public class ActiekaartTest {
     public void testhouthakker() throws Exception
     {
         int Startgeld = niels.getGeld();
-        niels.addGeld(2);
         int Startkoop = niels.getKoop();
-        niels.addKoop(1);
+        Actiekaart actiekaart = new Actiekaart();
+        actiekaart.houthakker(niels);
         assertEquals(niels.getGeld() -2,   Startgeld );
         assertEquals(niels.getKoop() -1, Startkoop);
     }
 
-/*
     @Test
-    public void testfestival() throws Exception
+    public void testsmidse() throws Exception
     {
-        int Startgeld = niels.getGeld();
-        niels.addGeld(2);
+        Spel spel = new Spel();
+        spel.maakKaarten();
+        spel.vulVeldOp();
+
+        spel.addSpeler(niels);
+        spel.starterDeck(spel, niels);
+
+        int Handvoorsmidse = niels.getHand().size();
+
+        Actiekaart actiekaart = new Actiekaart();
+        actiekaart.smederij(niels);
+
+        assertEquals(niels.getHand().size() -3, Handvoorsmidse);
+
+
+    }
+
+    @Test
+    public void testlaboratorium() throws  Exception
+    {
+        Spel spel = new Spel();
+        spel.maakKaarten();
+        spel.vulVeldOp();
+
+        spel.addSpeler(niels);
+        spel.starterDeck(spel, niels);
+
         int Startactie = niels.getActie();
-        niels.addActie(2);
-        int Startkaarten = niels.getHand().size();
-        niels.voegKaartToe(1, niels.getHand(), niels.getDeck());
-        assertEquals(niels.getGeld() -2, Startgeld);
-        assertEquals(niels.getActie() -2, Startactie);
-        assertEquals(niels.voegKaartToe(niels.getHand().size() -1, Startkaarten));
+        int handvoorlaboratorium = niels.getHand().size();
+
+        Actiekaart actiekaart = new Actiekaart();
+        actiekaart.laboratorium(niels);
+
+        assertEquals(niels.getActie() -1, Startactie);
+        assertEquals(niels.getHand().size() -2, handvoorlaboratorium);
+
+    }
 
 
-    }*/
+        @Test
+        public void testfestival() throws Exception
+        {
+            Spel spel = new Spel();
+            spel.maakKaarten();
+            spel.vulVeldOp();
+
+            spel.addSpeler(niels);
+            spel.starterDeck(spel, niels);
+
+            int Startgeld = niels.getGeld();
+            int Startactie = niels.getActie();
+            int Handvoorfestival = niels.getHand().size();
+            // Execute
+            Actiekaart actiekaart = new Actiekaart();
+            actiekaart.festival(niels);
+            //Check
+            assertEquals(niels.getGeld() -2, Startgeld);
+            assertEquals(niels.getActie() -2, Startactie);
+            assertEquals(niels.getHand().size() -1, Handvoorfestival);
+
+
+        }
+    @Test
+    public void Avonturiertest() throws Exception
+    {
+        Spel spel = new Spel();
+        spel.maakKaarten();
+        spel.vulVeldOp();
+
+        spel.addSpeler(niels);
+        spel.starterDeck(spel, niels);
+
+        int Handvooravonturier = niels.getHand().size();
+
+        Actiekaart actiekaart = new Actiekaart();
+        actiekaart.avonturier(niels);
+
+        assertEquals(niels.getHand().size() -2, Handvooravonturier);
+
+    }
+
+
+
+
+
+
+
+
+
     @Test
     public void RaadzaalTest() throws Exception {
         Spel spel = new Spel();

@@ -40,24 +40,12 @@ public class BeurtServlet extends HttpServlet {
     }
 
     public void beurt(Speler speler, Spel spel){
-        System.out.println("Het is " + speler.getNaam() + " zijn beurt.");
-
         Actiekaart acties = new Actiekaart();
         spel.setSpelerValues(speler);
         speler.checkHand();
         boolean beurt = true;
-        Scanner keyboard = new Scanner(System.in);
         while(beurt){
-            System.out.println("Acties: " + speler.getActie());
-            System.out.println("Koop: " + speler.getKoop());
-            System.out.println("Geld: " + speler.getGeld() + "\n");
-            System.out.println("Kaarten:\n");
-            for(Kaart k: speler.getHand()){
-                System.out.println(k.getNaam());
-            }
-            System.out.println("\n");
-            System.out.println("Kies een actie:");
-            System.out.println("Geldkaarten neerleggen | 0");
+            //toon kaarten
             System.out.println("Actiekaart spelen | 1");
             System.out.println("Kaart kopen | 2");
             System.out.println("Beurt beeindigen | 3");
