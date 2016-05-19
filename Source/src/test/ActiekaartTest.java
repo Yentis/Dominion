@@ -7,7 +7,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 /**
- * Created by niels 65% & laurens 45%;)  on 18/05/2016.
+ * Created by niels  & laurens ;)  on 18/05/2016.
  */
 public class ActiekaartTest {
     private Speler niels;
