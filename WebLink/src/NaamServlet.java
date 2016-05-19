@@ -28,6 +28,7 @@ public class NaamServlet extends HttpServlet {
         Speler speler2 = new Speler(naamspeler2);
         spel.addSpeler(speler1);
         spel.addSpeler(speler2);
+
 		
 		//Zet veld op
         try {
@@ -40,6 +41,7 @@ public class NaamServlet extends HttpServlet {
         spel.starterDeck(spel, speler2);
         speler1.voegKaartToe(5, speler1.getDeck(), speler1.getHand());
         speler2.voegKaartToe(5, speler2.getDeck(), speler2.getHand());
+
     }
 
 

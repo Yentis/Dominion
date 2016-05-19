@@ -14,6 +14,8 @@
                 url:"NaamServlet",
                 success: function(result){
                     window.location.href = "gamepagina.jsp?speler1=" + speler1 + "&speler2=" + speler2 + "";
+                    $('#naamspeler').html(QueryString.speler1);
+                    
                 }
             })
         });

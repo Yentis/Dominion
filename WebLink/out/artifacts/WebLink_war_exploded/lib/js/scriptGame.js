@@ -18,8 +18,23 @@ var zoomIn = function () {
 };
 
 function showPlayerName(){
-    $('#naamspeler').html(QueryString.speler1);
+
+    
+    
 }
+function showPlayerGegevens() {
+    var myVar = 
+    $.ajax({
+        type:"POST",
+        data: {speler1:speler1, speler2:speler2},
+        URL: "NaamServlet",
+        success: function () {
+            $('acties').html(json.speler1.getA)
+        }
+    });
+    
+}
+
 
 function toonActieKaarten(){
     $.ajax({
