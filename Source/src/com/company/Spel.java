@@ -34,10 +34,6 @@ public class Spel {
         return overwinningsveld;
     }
 
-    public List<Kaart> getActieveld() {
-        return actieveld;
-    }
-
     public List<Kaart> getAlleKaarten() {
         for(Kaart k : geldveld){
             alleKaarten.add(k);
@@ -58,7 +54,6 @@ public class Spel {
 
     //region Behaviour
     public void maakKaarten() throws SQLException {
-        DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
         Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/dominion", "root", "");
         Statement myStmt = myConn.createStatement();
         ResultSet myRs = myStmt.executeQuery("select * from kaart");
@@ -90,6 +85,12 @@ public class Spel {
         speler.setActie(1);
         speler.setKoop(1);
         speler.setGeld(0);
+    }
+
+    public void geefStartKaarten(Spel spel, Speler speler){
+        spel.starterDeck(spel, speler);
+        speler.vulHand();
+
     }
 
     public void starterDeck(Spel spel, Speler speler)
@@ -131,8 +132,8 @@ public class Spel {
     }
 
     public void vulActieKaartenOp(){
-        //10 actiekaarten op het veld
-        while(actieveld.size()<99){
+        //100 actiekaarten op het veld
+        for(int i=0;i<100;i++){
             Random rand = new Random();
             int value = rand.nextInt(kaarten.size());
             //Als het een actiekaart of tuin kaart is en het nog niet bestaat
@@ -211,51 +212,6 @@ public class Spel {
         }
 
         setStapelskaarten(k.getNr(), -1);
-    }
-
-    public boolean provinciesOp(){
-        for(Kaart k : overwinningsveld){
-            if(Objects.equals(k.getNaam(), "Provincie")){
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public boolean drieStapelsLeeg(){
-        int aantallegestapels = 0;
-        for(int i=1;i<stapelskaarten.size();i++){
-            if(stapelskaarten.get(i) == 1){
-                aantallegestapels++;
-            }
-        }
-        if(aantallegestapels < 3){
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public boolean spelGedaan(){
-        if(provinciesOp() || drieStapelsLeeg()){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public String winnaar(){
-        int hoogstescore = 0;
-        String winnaar = "";
-        for(Speler s : spelers){
-            s.berekenScore();
-            int score = s.getOverwinningspunten();
-            if(score > hoogstescore){
-                hoogstescore = score;
-                winnaar = s.getNaam();
-            }
-        }
-        return winnaar;
     }
     //endregion
 }
