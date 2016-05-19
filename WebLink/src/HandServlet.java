@@ -19,7 +19,7 @@ public class HandServlet extends HttpServlet {
         response.setContentType("application/json");
         Gson gson = new Gson();
         Speler speler1 = (Speler)request.getSession().getAttribute("speler1");
-        Spel spel = (Spel)request.getSession().getAttribute("spel");
+
         PrintWriter out = response.getWriter();
         List<String> Hand = new ArrayList<>();
 

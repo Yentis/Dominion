@@ -189,7 +189,6 @@ public class Spel {
                     default: aantalopstapel = 0;
                         break;
                 }
-
                 setStapelskaarten(kaarten.get(k).getNr(), 1);
                 for(int stapelopvullen = 0;stapelopvullen < aantalopstapel;stapelopvullen++){
                     geldveld.add(kaarten.get(k));

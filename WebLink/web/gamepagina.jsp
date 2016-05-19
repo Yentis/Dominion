@@ -81,12 +81,6 @@
 
     <ul class="hand">
         <li><p>Hand :</p></li>
-        <!--
-        <li><img src="lib/images/kaarten/copper.jpg" alt="copper" title="copper"></li>
-        <li><img src="lib/images/kaarten/copper.jpg" alt="copper" title="copper"></li>
-        <li><img src="lib/images/kaarten/copper.jpg" alt="copper" title="copper"></li>
-        <li><img src="lib/images/kaarten/estate.jpg" alt="estate" title="estate"></li>
-        <li><img src="lib/images/kaarten/copper.jpg" alt="copper" title="copper"></li>-->
     </ul>
     <ul class="toonKaart">
         <li></li>
