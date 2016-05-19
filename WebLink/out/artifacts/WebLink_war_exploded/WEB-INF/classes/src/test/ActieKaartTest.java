@@ -61,19 +61,14 @@ public class ActiekaartTest {
 
         int HandVoorRaadzaal = laurens.getHand().size();
         int HandVoorRaadzaalSpeler2 = niels.getHand().size();
+        int StartKoop = laurens.getKoop();
 
-        laurens.voegKaartToe(4, laurens.getDeck(), laurens.getHand());
-        for(Speler s : spel.getSpelers()){
-            if(!Objects.equals(s.getNaam(), laurens.getNaam())){
-                s.voegKaartToe(1, s.getDeck(), s.getHand());
-            }
-        }
+        Actiekaart actiekaart = new Actiekaart();
+        actiekaart.raadzaal(spel, laurens);
 
         int HandNaRaadzaal = laurens.getHand().size();
         int HandNaRaadzaalSpeler2 = niels.getHand().size();
 
-        int StartKoop = laurens.getKoop();
-        laurens.addKoop(1);
         int EindKoop = laurens.getKoop();
 
         //CHECK

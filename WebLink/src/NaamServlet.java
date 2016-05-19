@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
+
 /**
  * Created by Yentl-PC on 17/05/2016.
  */
@@ -25,11 +26,12 @@ public class NaamServlet extends HttpServlet {
         Spel spel = new Spel();
         request.getSession().setAttribute("spel", spel);
         Speler speler1 = new Speler(naamspeler1);
+        request.getSession().setAttribute("speler1",speler1);
         Speler speler2 = new Speler(naamspeler2);
         spel.addSpeler(speler1);
         spel.addSpeler(speler2);
 
-		
+
 		//Zet veld op
         try {
             spel.maakKaarten();
