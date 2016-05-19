@@ -1,3 +1,4 @@
+package test;
 import com.company.*;
 
 import static junit.framework.TestCase.assertTrue;
@@ -7,13 +8,65 @@ import org.junit.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Renzie on 9/05/2016.
- */
+
+
 public class SpelerTest {
+    private Speler laurens;
+
+    @Before
+    public void setUp(){
+        laurens = new Speler("laurens");
+    }
+    
+    
+    @Test
+    public void kanarieTest(){
+        System.out.println("Test");
+    }
+    
+    
+    @Test
+    public void GeldToevoegen() throws Exception {
+
+
+        int StartGeld = laurens.getGeld();
+        laurens.addGeld(50);
+        int EindGeld = laurens.getGeld();
+        assertEquals(StartGeld, EindGeld - 50, 0.01);
+
+    }
+
+    @Test
+    public void ActieToevoegen() throws Exception {
+
+        int StartActie = laurens.getActie();
+        laurens.addActie(2);
+        int EindActie = laurens.getActie();
+        assertEquals(StartActie, EindActie - 2, 0.01);
+    }
+
+    @Test
+    public void KoopToevoegen() throws Exception {
+
+        int StartKoop = laurens.getKoop();
+        laurens.addKoop(2);
+        int EindKoop = laurens.getKoop();
+        assertEquals(StartKoop, EindKoop - 2, 0.01);
+    }
+
+    @Test
+    public void OverwinningspuntenToevoegen() throws Exception {
+
+        int StartOP = laurens.getOverwinningspunten();
+        laurens.addOverwinningspunten(2);
+        int EindOP = laurens.getOverwinningspunten();
+        assertEquals(StartOP, EindOP - 2, 0.01);
+    }
+
+
     @Test
     public void testVoegKaartToe() throws Exception {
-        Speler speler = new Speler("test");
+
         int aantalkaarten = 1;
         int aantalkaartenmeerdere = 2;
         List<Kaart> startpunt = new ArrayList<>();
@@ -25,18 +78,15 @@ public class SpelerTest {
             bestemming.add(placeholder);
         }
 
-        speler.voegKaartToe(aantalkaarten, startpunt, bestemming);
+        laurens.voegKaartToe(aantalkaarten, startpunt, bestemming);
         assertTrue(bestemming.size() == 4);
         assertTrue(startpunt.size() == 2);
-        speler.voegKaartToe(aantalkaartenmeerdere, startpunt, bestemming);
+        laurens.voegKaartToe(aantalkaartenmeerdere, startpunt, bestemming);
         assertTrue(bestemming.size() == 6);
         assertTrue(startpunt.size() == 0);
     }
 
-    @Test
-    public void kanarieTest(){
-        System.out.println("ayy lmao");
-    }
+
     @Test
     public void testleegAflegstapelenVoegkaartToe() throws Exception {
         Spel spel = new Spel();
@@ -50,14 +100,8 @@ public class SpelerTest {
         }
         speler.leegAflegstapel();
         System.out.println("Aflegstapel na leging = " + speler.getAflegstapel().size());
+
     }
 
-    @Test
-    public void addGeld() throws Exception {
-        Spel spel = new Spel();
-        Speler speler = new Speler("derp");
-        System.out.println("Geld op veld gelegd: " + speler.getGeld());
-        speler.addGeld(10);
-        System.out.println("Geld op veld gelegd: " + speler.getGeld());
-    }
+
 }

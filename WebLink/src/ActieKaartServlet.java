@@ -22,6 +22,7 @@ public class ActieKaartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
+        Gson gson = new Gson();
         //System.out.println(request.getAttribute("spel"));
         //List<Kaart> afgedruktekaarten = new ArrayList<>();
 
@@ -32,7 +33,8 @@ public class ActieKaartServlet extends HttpServlet {
         for(int i=0;i<10;i++){
             dieven.add("Dief");
         }
-        out.print(dieven);
+        String json = gson.toJson(dieven);
+        out.print(json);
              //   afgedruktekaarten.add(k);
           //  }
        // }
