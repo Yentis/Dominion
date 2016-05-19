@@ -1,5 +1,6 @@
 import com.company.Kaart;
 import com.company.Spel;
+import com.company.Speler;
 import com.google.gson.Gson;
 import jdk.nashorn.internal.objects.NativeJSON;
 
@@ -13,6 +14,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Yentl-PC on 18/05/2016.
@@ -31,6 +33,7 @@ public class ActieKaartServlet extends HttpServlet {
                afgedruktekaarten.add(k.getNaam());
           }
        }
+
         String json = gson.toJson(afgedruktekaarten);
         out.print(json);
     }

@@ -18,12 +18,11 @@ public class HandServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
         Gson gson = new Gson();
-        Speler speler1 = (Speler)request.getSession().getAttribute("speler1");
-
+        Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
         PrintWriter out = response.getWriter();
         List<String> Hand = new ArrayList<>();
 
-        for(Kaart k : speler1.getHand()){
+        for(Kaart k : speler.getHand()){
             Hand.add(k.getNaam());
         }
         String json = gson.toJson(Hand);

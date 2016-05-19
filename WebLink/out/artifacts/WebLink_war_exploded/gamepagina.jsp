@@ -34,11 +34,9 @@
         <li><span id="linebreaker"> </span></li>
     </ul>
 
-
-
     <div id="buttons">
-        <input type="button" value="Gooi alle geldkaarten">
-        <input type="button" value="Eindig je beurt">
+        <input type="button" value="Gooi alle geldkaarten" id="gooigeld">
+        <input type="button" value="Eindig je beurt" id="eindigbeurt">
     </div>
     <div id="log">
         <h2>Een cursekaart werd toegevoegd aan je deck</h2>
@@ -47,19 +45,14 @@
     <div id="persoongegevens">
         <ul>
 
-            <li id="acties">|ACTIES:</li>
-            <li id="buys">|BUYS:</li>
-            <li id="geld">|GELD:</li>
+            <li >|ACTIES:<span id="acties"></span></li>
+            <li>|BUYS:<span id="buys"></span></li>
+            <li>|GELD:<span id="geld"></span></li>
         </ul>
 
     </div>
 
     <ul class="kaartOpVeld">
-        <li><img src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
     </ul>
 
 
