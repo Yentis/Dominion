@@ -1,151 +1,217 @@
 package com.company;
 
-import java.sql.SQLException;
 import java.util.*;
-import java.util.List;
+import java.sql.*;
 
-public class Main {
-    int teller = 0;
+/**
+ * Created by Yentl-PC on 24/03/2016.
+ */
+public class Spel {
+    //region Instance Variables
+    private List<Kaart> kaarten = new ArrayList<>();
+    private List<Kaart> actieveld = new ArrayList<>();
+    private List<Kaart> overwinningsveld = new ArrayList<>();
+    private List<Kaart> geldveld = new ArrayList<>();
+    private List<Speler> spelers = new ArrayList<>();
+    private List<Kaart> alleKaarten = new ArrayList<>();
+    private List<Integer> stapelskaarten = new ArrayList<>(Collections.nCopies(32, 0));
+    //endregion
 
-    public static void main(String[] args) {
-        try
-        {
-            Main obj = new Main ();
-            obj.run(args);
+    //region Properties
+    public List<Speler> getSpelers() {
+        return spelers;
+    }
+
+    public List<Integer> getStapelskaarten() {
+        return stapelskaarten;
+    }
+
+    public List<Kaart> getGeldveld() {
+        return geldveld;
+    }
+
+    public List<Kaart> getOverwinningsveld() {
+        return overwinningsveld;
+    }
+
+    public List<Kaart> getAlleKaarten() {
+        for(Kaart k : geldveld){
+            alleKaarten.add(k);
         }
-        catch (Exception e)
-        {
-            e.printStackTrace ();
+        for(Kaart k : overwinningsveld){
+            alleKaarten.add(k);
+        }
+        for(Kaart k : actieveld){
+            alleKaarten.add(k);
+        }
+        return alleKaarten;
+    }
+
+    public void setStapelskaarten(int kaart, int waarde) {
+        stapelskaarten.set(kaart, stapelskaarten.get(kaart) + waarde);
+    }
+    //endregion
+
+    //region Behaviour
+    public void maakKaarten() throws SQLException {
+        Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/dominion", "root", "");
+        Statement myStmt = myConn.createStatement();
+        ResultSet myRs = myStmt.executeQuery("select * from kaart");
+
+        int i = 0;
+        while (myRs.next()) {
+            kaarten.add(i, new Kaart(myRs.getInt("kaartnr")-1, myRs.getString("naam"), myRs.getInt("kost"), myRs.getString("type"), myRs.getString("omschrijving"), myRs.getInt("waarde")));
+            i++;
         }
     }
 
-    public void run (String[] args) throws Exception
+    public void addSpeler(Speler speler){
+        spelers.add(speler);
+    }
+
+    public void schudden(List<Kaart> deck)
     {
-        startGame();
+        Collections.shuffle(deck);
     }
 
-    public void startGame() throws SQLException {
-        //Initializeer toetsenbord
-        Scanner keyboard = new Scanner(System.in);
-        boolean exit = false;
-        while (!exit) {
-            System.out.println("Welkom bij Dominion\n");
-            System.out.println("Druk op ENTER om te starten");
-            String input = keyboard.nextLine();
+    public void voegKaartToe(int aantalKaarten, Kaart kaart, List<Kaart> bron, List<Kaart> bestemming){
+        for(int  i=0; i<aantalKaarten;i++){
+            bestemming.add(kaart);
+        }
+        bron.remove(kaart);
+    }
 
-            //Maak spel
-            if(input != null) {
-                Spel spel = new Spel();
-                System.out.println("Voer de naam van speler 1 in");
-                input = keyboard.nextLine();
-                Speler speler1 = new Speler(input);
-                spel.addSpeler(speler1);
-                System.out.println("Voer de naam van speler 2 in");
-                input = keyboard.nextLine();
-                Speler speler2 = new Speler(input);
-                spel.addSpeler(speler2);
-                spel.maakKaarten();
-                spel.vulVeldOp();
+    public void setSpelerValues(Speler speler){
+        speler.setActie(1);
+        speler.setKoop(1);
+        speler.setGeld(0);
+    }
 
-                //Geef startkaarten
-                spel.starterDeck(spel, speler1);
-                spel.starterDeck(spel, speler2);
-                speler1.vulHand();
-                speler2.vulHand();
+    public void geefStartKaarten(Spel spel, Speler speler){
+        spel.starterDeck(spel, speler);
+        speler.vulHand();
 
-                //Start beurt
-                while(!spel.spelGedaan()){
-                    if(teller%2 == 0){
-                        beurt(speler1, spel);
-                    } else if (teller%2 == 1){
-                        beurt(speler2, spel);
-                    }
-                    teller++;
+    }
+
+    public void starterDeck(Spel spel, Speler speler)
+    {
+        int aantalkaarten = 0;
+
+        voegKoperKaartenToe(aantalkaarten, speler);
+        voegLandgoedKaartenToe(spel, aantalkaarten, speler);
+
+        schudden(speler.getDeck());
+    }
+
+    public void voegKoperKaartenToe(int aantalkaarten, Speler speler){
+        for(int i=0;i<geldveld.size();i++){
+            if(Objects.equals(geldveld.get(i).getNaam(), "Koper") && aantalkaarten < 7){
+                speler.getDeck().add(geldveld.get(i));
+                setStapelskaarten(25, -1);
+                aantalkaarten++;
+                geldveld.remove(i);
+            }
+        }
+    }
+
+    public void voegLandgoedKaartenToe(Spel spel, int aantalkaarten, Speler speler){
+        for(int i=0;i<overwinningsveld.size();i++){
+            if(Objects.equals(overwinningsveld.get(i).getNaam(), "Landgoed") && aantalkaarten < 10){
+                speler.getDeck().add(overwinningsveld.get(i));
+                setStapelskaarten(28, -1);
+                aantalkaarten++;
+                overwinningsveld.remove(i);
+            }
+        }
+    }
+
+    public void vulVeldOp(){
+        vulActieKaartenOp();
+        vulOverwinningsKaartenOp();
+        vulGeldKaartenOp();
+    }
+
+    public void vulActieKaartenOp(){
+        //100 actiekaarten op het veld
+        for(int i=0;i<100;i++){
+            Random rand = new Random();
+            int value = rand.nextInt(kaarten.size());
+            //Als het een actiekaart of tuin kaart is en het nog niet bestaat
+            if((Objects.equals(kaarten.get(value).getType(), "Actie") || Objects.equals(kaarten.get(value).getType(), "Actie-Reactie") || Objects.equals(kaarten.get(value).getType(), "Actie-Aanval") || Objects.equals(kaarten.get(value).getNaam(), "Tuinen")) && actieveld.contains(kaarten.get(value)) == false){
+                setStapelskaarten(kaarten.get(value).getNr(), 1);
+                //10 exemplaren per actiekaart
+                for(int stapelopvullen=0;stapelopvullen<10;stapelopvullen++){
+                    actieveld.add(kaarten.get(value));
+                    setStapelskaarten(kaarten.get(value).getNr(), 1);
                 }
-                System.out.println("Game over");
-                System.out.println("De winnaar is " + spel.winnaar());
-            }
-            exit = true;
-        }
-        keyboard.close();
-    }
-
-    public void beurt(Speler speler, Spel spel){
-        System.out.println("Het is " + speler.getNaam() + " zijn beurt.");
-
-        Actiekaart acties = new Actiekaart();
-        spel.setSpelerValues(speler);
-        speler.checkHand();
-        boolean beurt = true;
-        Scanner keyboard = new Scanner(System.in);
-        while(beurt){
-            System.out.println("Acties: " + speler.getActie());
-            System.out.println("Koop: " + speler.getKoop());
-            System.out.println("Geld: " + speler.getGeld() + "\n");
-            System.out.println("Kaarten:\n");
-            for(Kaart k: speler.getHand()){
-                System.out.println(k.getNaam());
-            }
-            System.out.println("\n");
-            System.out.println("Kies een actie:");
-            System.out.println("Geldkaarten neerleggen | 0");
-            System.out.println("Actiekaart spelen | 1");
-            System.out.println("Kaart kopen | 2");
-            System.out.println("Beurt beeindigen | 3");
-            String input = keyboard.nextLine();
-            switch (input){
-                case "0":
-                    speler.plaatsGeldkaartenOpVeld();
-                    break;
-                case "1":
-                    if(speler.getActie() > 0){
-                        int i = 0;
-                        int j = 0;
-                        List<Kaart> actiekaarten = new ArrayList();
-                        System.out.println("Kies een actiekaart: \n");
-                        for(Kaart k: speler.getHand()){
-                            if(Objects.equals(k.getType(), "Actie") || Objects.equals(k.getType(), "Actie-Reactie") || Objects.equals(k.getType(), "Actie-Aanval")){
-                                System.out.println(k.getNaam() + " | " + i);
-                                actiekaarten.add(k);
-                            }
-                            j++;
-                        }
-                        input = keyboard.nextLine();
-                        Kaart tespelenkaart = actiekaarten.get(Integer.parseInt(input));
-                        spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
-                        acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel);
-                        speler.addActie(-1);
-                    } else {
-                        System.out.println("U heeft onvoldoende actiebeurten.");
-                    }
-                    break;
-                case "2":
-                    System.out.println(speler.getGeld());
-                    if(speler.getKoop() > 0){
-                        int i = 0;
-                        List<Kaart> koopopties = new ArrayList();
-                        for(Kaart k : spel.getAlleKaarten()){
-                            if (k.getKost() <= speler.getGeld() && !koopopties.contains(k)){
-                                koopopties.add(k);
-                                System.out.println(k.getNaam() + " - Kost: " + k.getKost() + "| Aantal nog beschikbaar: " + (spel.getStapelskaarten().get(k.getNr())-1) + " | " + i);
-                                i++;
-                            }
-                        }
-                        input = keyboard.nextLine();
-                        Kaart tekopenkaart = koopopties.get(Integer.parseInt(input));
-                        spel.koopKaart(tekopenkaart, speler.getAflegstapel());
-                        speler.addGeld(-tekopenkaart.getKost());
-                        System.out.println("Geld: " + speler.getGeld());
-                        speler.addKoop(-1);
-                    } else {
-                        System.out.println("U heeft onvoldoende koopbeurten.");
-                    }
-                    break;
-                case "3":
-                    speler.beëindigbeurt();
-                    beurt = false;
-                    break;
             }
         }
     }
+
+    public void vulOverwinningsKaartenOp(){
+        for(int j = 0;j<kaarten.size();j++){
+            //Overwinningskaart of Vloek kaart, geen Tuin
+            if((Objects.equals(kaarten.get(j).getType(), "Overwinning") || Objects.equals(kaarten.get(j).getType(), "Vloek")) && !Objects.equals(kaarten.get(j).getNaam(), "Tuinen")){
+                int aantalopstapel;
+                //Landgoed heeft 14 exemplaren
+                if(Objects.equals(kaarten.get(j).getNaam(), "Landgoed")){
+                    aantalopstapel = 14;
+                    //Vloek heeft 10 exemplaren
+                } else if (Objects.equals(kaarten.get(j).getType(), "Vloek")) {
+                    aantalopstapel = 10;
+                    //Alle andere hebben 8 exemplaren
+                } else {
+                    aantalopstapel = 8;
+                }
+
+                setStapelskaarten(kaarten.get(j).getNr(), 1);
+                for(int stapelopvullen = 0;stapelopvullen<aantalopstapel;stapelopvullen++){
+                    overwinningsveld.add(kaarten.get(j));
+                    setStapelskaarten(kaarten.get(j).getNr(), 1);
+                }
+            }
+        }
+    }
+
+    public void vulGeldKaartenOp(){
+        for(int k = 0;k<kaarten.size();k++){
+            if(Objects.equals(kaarten.get(k).getType(), "Geld")){
+                int aantalopstapel;
+                switch(kaarten.get(k).getNaam()) {
+                    case "Koper":
+                        aantalopstapel = 60;
+                        break;
+                    case "Zilver":
+                        aantalopstapel = 40;
+                        break;
+                    case "Goud":
+                        aantalopstapel = 30;
+                        break;
+                    default: aantalopstapel = 0;
+                        break;
+                }
+
+                setStapelskaarten(kaarten.get(k).getNr(), 1);
+                for(int stapelopvullen = 0;stapelopvullen < aantalopstapel;stapelopvullen++){
+                    geldveld.add(kaarten.get(k));
+                    setStapelskaarten(kaarten.get(k).getNr(), 1);
+                }
+            }
+        }
+    }
+
+    public void koopKaart(Kaart k, List<Kaart> aflegstapel){
+        aflegstapel.add(k);
+
+        if(actieveld.contains(k)){
+            actieveld.remove(k);
+        } else if (overwinningsveld.contains(k)){
+            overwinningsveld.remove(k);
+        } else if (geldveld.contains(k)) {
+            geldveld.remove(k);
+        }
+
+        setStapelskaarten(k.getNr(), -1);
+    }
+    //endregion
 }
