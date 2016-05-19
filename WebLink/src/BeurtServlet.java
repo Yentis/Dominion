@@ -25,14 +25,18 @@ public class BeurtServlet extends HttpServlet {
         Speler speler2 = (Speler)request.getSession().getAttribute("speler2");
         int teller = 0;
 
-        while(!spel.spelGedaan()){
+        //temp
+        spel.setSpelerValues(speler1);
+        request.getSession().setAttribute("huidigespeler", speler1);
+
+        /*while(!spel.spelGedaan()){
             if(teller%2 == 0){
                 beurt(speler1, spel, request);
             } else if (teller%2 == 1){
                 beurt(speler2, spel, request);
             }
             teller++;
-        }
+        }*/
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,7 +44,6 @@ public class BeurtServlet extends HttpServlet {
     }
 
     public void beurt(Speler speler, Spel spel, HttpServletRequest request){
-        Actiekaart acties = new Actiekaart();
         spel.setSpelerValues(speler);
         speler.checkHand();
         boolean beurt = (Boolean)request.getSession().getAttribute("beurt");
@@ -48,36 +51,7 @@ public class BeurtServlet extends HttpServlet {
             //toon kaarten
             request.getSession().setAttribute("huidigespeler", speler);
 
-            System.out.println("Actiekaart spelen | 1");
-            System.out.println("Kaart kopen | 2");
-            System.out.println("Beurt beeindigen | 3");
-            String input = keyboard.nextLine();
-            switch (input){
-                case "0":
-                    speler.plaatsGeldkaartenOpVeld();
-                    break;
-                case "1":
-                    if(speler.getActie() > 0){
-                        int i = 0;
-                        int j = 0;
-                        List<Kaart> actiekaarten = new ArrayList();
-                        System.out.println("Kies een actiekaart: \n");
-                        for(Kaart k: speler.getHand()){
-                            if(Objects.equals(k.getType(), "Actie") || Objects.equals(k.getType(), "Actie-Reactie") || Objects.equals(k.getType(), "Actie-Aanval")){
-                                System.out.println(k.getNaam() + " | " + i);
-                                actiekaarten.add(k);
-                            }
-                            j++;
-                        }
-                        input = keyboard.nextLine();
-                        Kaart tespelenkaart = actiekaarten.get(Integer.parseInt(input));
-                        spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
-                        acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel);
-                        speler.addActie(-1);
-                    } else {
-                        System.out.println("U heeft onvoldoende actiebeurten.");
-                    }
-                    break;
+            /*System.out.println("Kaart kopen | 2");
                 case "2":
                     System.out.println(speler.getGeld());
                     if(speler.getKoop() > 0){
@@ -99,12 +73,7 @@ public class BeurtServlet extends HttpServlet {
                     } else {
                         System.out.println("U heeft onvoldoende koopbeurten.");
                     }
-                    break;
-                case "3":
-                    speler.beëindigbeurt();
-                    beurt = false;
-                    break;
-            }
+                    break;*/
         }
     }
 }

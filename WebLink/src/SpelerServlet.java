@@ -20,13 +20,13 @@ public class SpelerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
         Gson gson = new Gson();
-        Speler speler1 = (Speler)request.getSession().getAttribute("speler1");
+        Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
         List<Integer> spelerwaarden = new ArrayList<>();
         PrintWriter out = response.getWriter();
 
-        spelerwaarden.add(speler1.getActie());
-        spelerwaarden.add(speler1.getKoop());
-        spelerwaarden.add(speler1.getGeld());
+        spelerwaarden.add(speler.getActie());
+        spelerwaarden.add(speler.getKoop());
+        spelerwaarden.add(speler.getGeld());
 
         String json = gson.toJson(spelerwaarden);
 

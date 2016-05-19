@@ -45,19 +45,14 @@
     <div id="persoongegevens">
         <ul>
 
-            <li id="acties">|ACTIES:</li>
-            <li id="buys">|BUYS:</li>
-            <li id="geld">|GELD:</li>
+            <li >|ACTIES:<span id="acties"></span></li>
+            <li>|BUYS:<span id="buys"></span></li>
+            <li>|GELD:<span id="geld"></span></li>
         </ul>
 
     </div>
 
     <ul class="kaartOpVeld">
-        <li><img src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
     </ul>
 
 

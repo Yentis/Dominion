@@ -5,10 +5,10 @@
 
 $(document).ready(function () {
     $(".actiekaarten, .overwinningskaarten, .geldcurse").on("click", "img", zoomIn);
+    beginBeurtServlet();
     showPlayerName();
     showPlayerGegevens();
     showActieKaarten();
-    beginBeurtServlet();
     showHand();
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
@@ -16,8 +16,18 @@ $(document).ready(function () {
 });
 
 var speelActieKaart = function(){
-    
-}
+    var kaart = this;
+    $.ajax({
+        type:"POST",
+        dataType:"json",
+        data: {kaart : kaart},
+        url:"ActieKaartSpelenServlet",
+        success: function(result){
+            $(".kaartOpVeld").append("<li class='"+result+"'><img src='lib/images/kaarten/" + result + ".jpg' title='" + result + "'/></li>");
+            $(".hand").remove("."+result+"");
+        }
+    })
+};
 
 function beginBeurtServlet(){
     $.ajax({
@@ -40,11 +50,12 @@ var gooiGeld = function(){
         url:"GooiGeldServlet",
         success: function(result){
             for(i=0;i<result.length;i++){
-                $(".kaartOpVeld").append("<li id='"+result[i]+"'><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
-                $(".hand").remove("#"+result[i]+"");
+                $(".kaartOpVeld").append("<li class='"+result[i]+"'><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+                $(".hand").remove("."+result[i]+"");
             }
         }
-    })
+    });
+    showPlayerGegevens();
 };
 
 var zoomIn = function () {
@@ -90,7 +101,7 @@ function showHand() {
         success: function (result) {
             for(i=0;i<result.length;i++){
                 console.log(result[i]);
-                $(".hand").append("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+                $(".hand").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
             }
         }
     })
@@ -102,9 +113,9 @@ function showPlayerGegevens() {
         dataType:"json",
         url:"SpelerServlet",
         success: function(result){
-            $("#acties").append(result[0]);
-            $("#buys").append(result[1]);
-            $("#geld").append(result[2]);
+            $("#acties").html(result[0]);
+            $("#buys").html(result[1]);
+            $("#geld").html(result[2]);
         }
     })
 }
