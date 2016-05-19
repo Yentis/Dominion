@@ -31,19 +31,7 @@
 
 
     <ul class="actiekaarten" id="actiekaarten">
-       <%-- <li><img src="lib/images/kaarten/actiekaarten/avonturier.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/bibliotheek.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/bureaucraat.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/dief.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/dorp.jpg" alt="avonturier" title="avonturier"/></li>--%>
-
         <li><span id="linebreaker"> </span></li>
-
-        <%--<li><img src="lib/images/kaarten/actiekaarten/feest.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/festival.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/geldverlener.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/gracht.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/houthakker.jpg" alt="avonturier" title="avonturier"/></li>--%>
     </ul>
 
 
