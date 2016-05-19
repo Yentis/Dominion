@@ -121,7 +121,7 @@ public class Main {
                     System.out.println(speler.getGeld());
                     if(speler.getKoop() > 0){
                         int i = 0;
-                        List<Kaart> koopopties = new ArrayList();
+                        List<Kaart> koopopties = new ArrayList<>();
                         for(Kaart k : spel.getAlleKaarten()){
                             if (k.getKost() <= speler.getGeld() && !koopopties.contains(k)){
                                 koopopties.add(k);

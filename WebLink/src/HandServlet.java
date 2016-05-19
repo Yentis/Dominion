@@ -21,9 +21,14 @@ public class HandServlet extends HttpServlet {
         Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
         PrintWriter out = response.getWriter();
         List<String> Hand = new ArrayList<>();
-
+        int i = 0;
         for(Kaart k : speler.getHand()){
+
             Hand.add(k.getNaam());
+            System.out.println("Hand: "+ k.getNaam() + i);
+        }
+        for(Kaart k : speler.getDeck()){
+            System.out.println("Deck: "+ k.getNaam() + i);
         }
         String json = gson.toJson(Hand);
 

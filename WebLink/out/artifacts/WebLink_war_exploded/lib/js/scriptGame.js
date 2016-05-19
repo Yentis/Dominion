@@ -30,6 +30,19 @@ var speelActieKaart = function(){
         }
     })
 };
+var showKoopOpties = function () {
+
+    $.ajax({
+        type:"POST",
+        dataType:"json",
+        url:"KoopServlet",
+        success: function (result) {
+            for (i = 0; result.length; i++){
+                $("." + result[i] +"").append("<span>derp</span>");
+            }
+        }
+    })
+};
 
 function beginBeurtServlet(){
     $.ajax({
@@ -59,6 +72,7 @@ var gooiGeld = function(){
     });
     showPlayerGegevens();
     showHand();
+    showKoopOpties();
 };
 
 var zoomIn = function () {
@@ -88,10 +102,10 @@ function showActieKaarten(){
         url:"ActieKaartServlet",
         success: function(result){
             for(i=0;i<result.length/2;i++){
-                $("#actiekaarten").prepend("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+                $("#actiekaarten").prepend("<li><img class='"+result[i]+"' src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
             for(i=result.length/2;i<result.length;i++){
-                $("#actiekaarten").append("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+                $("#actiekaarten").append("<li><img class='"+result[i]+"' src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
         }
     })
