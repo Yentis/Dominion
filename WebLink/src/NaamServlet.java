@@ -25,6 +25,7 @@ public class NaamServlet extends HttpServlet {
         Speler speler2 = new Speler(naamspeler2);
         spel.addSpeler(speler1);
         spel.addSpeler(speler2);
+
     }
 
 

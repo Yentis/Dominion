@@ -10,14 +10,30 @@ $(document).ready(function () {
 
 
 var zoomIn = function () {
+    
     $(this).clone().appendTo(".toonKaart li").click(function () {
         remove(this);
     });
 };
 
 function showPlayerName(){
-    $('#naamspeler').html(QueryString.speler1);
+
+    
+    
 }
+function showPlayerGegevens() {
+    var myVar = 
+    $.ajax({
+        type:"POST",
+        data: {speler1:speler1, speler2:speler2},
+        URL: "NaamServlet",
+        success: function () {
+            $('acties').html(json.speler1.getA)
+        }
+    });
+    
+}
+
 
 var QueryString = function () {
     // This function is anonymous, is executed immediately and

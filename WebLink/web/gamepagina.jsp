@@ -58,9 +58,10 @@
 
     <div id="persoongegevens">
         <ul>
-            <li>|ACTIES: 1</li>
-            <li>|BUYS: 2</li>
-            <li>|GELD: 3</li>
+
+            <li id="acties">|ACTIES:</li>
+            <li id="buys">|BUYS:</li>
+            <li id="geld">|GELD:</li>
         </ul>
 
     </div>
@@ -86,7 +87,7 @@
         <ul>
             <li><img src="lib/images/dank.png" id="dank" alt="dank" title="dank"></li>
 
-            <li id="naamspeler">${requestScope.get(speler1)}</li>
+            <li id="naamspeler"></li>
         </ul>
     </div>
 
@@ -103,6 +104,8 @@
     </ul>
 
 </div>
+
+
 
 <script type="text/javascript" src="lib/js/kaartGenereren.js"></script>
 <script type="text/javascript" src="lib/js/jquery-2.2.3.min.js"></script>
