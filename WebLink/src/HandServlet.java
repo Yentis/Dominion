@@ -1,3 +1,4 @@
+import com.company.*;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 /**
  * Created by Renzie on 19/05/2016.
  */
@@ -15,7 +17,10 @@ public class HandServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
         Gson gson = new Gson();
-
+        Speler speler1 = (Speler)request.getSession().getAttribute("speler1");
+        Spel spel = (Spel)request.getSession().getAttribute("spel");
+        speler1.
+        List<String>
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
