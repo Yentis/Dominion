@@ -54,7 +54,7 @@ public class Main {
                 speler2.voegKaartToe(5, speler2.getDeck(), speler2.getHand());
 
                 //Start beurt
-                while(!spelGedaan(spel)){
+                while(!spel.spelGedaan()){
                     if(teller%2 == 0){
                         beurt(speler1, spel);
                     } else if (teller%2 == 1){
@@ -62,6 +62,8 @@ public class Main {
                     }
                     teller++;
                 }
+                System.out.println("Game over");
+                System.out.println("De winnaar is " + spel.winnaar());
             }
             exit = true;
         }
@@ -162,39 +164,5 @@ public class Main {
                     break;
             }
         }
-    }
-
-    public boolean spelGedaan(Spel spel){
-        //provincie stapel leeg
-        for(Kaart k : spel.getOverwinningsveld()){
-            if(Objects.equals(k.getNaam(), "Provincie")){
-                return false;
-            }
-        }
-
-        //3 stapels leeg
-        int aantallegestapels = 0;
-        for(int i=1;i<spel.getStapelskaarten().size();i++){
-            if(spel.getStapelskaarten().get(i) == 1){
-                aantallegestapels++;
-            }
-        }
-        if(aantallegestapels < 3){
-            return false;
-        }
-
-        System.out.println("Game over");
-        int hoogstescore = 0;
-        String winnaar = "";
-        for(Speler s : spel.getSpelers()){
-            s.berekenScore();
-            int score = s.getOverwinningspunten();
-            if(score > hoogstescore){
-                hoogstescore = score;
-                winnaar = s.getNaam();
-            }
-        }
-        System.out.println("De winnaar is " + winnaar);
-        return true;
     }
 }

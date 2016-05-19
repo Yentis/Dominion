@@ -12,6 +12,7 @@
         <element id="directory" name="lib">
           <element id="library" level="module" name="JUnit4" module-name="Dominion" />
           <element id="library" level="project" name="mysql-connector-java-5.1.38-bin" />
+          <element id="library" level="project" name="gson-2.6.2" />
         </element>
       </element>
     </root>

@@ -34,6 +34,10 @@ public class Spel {
         return overwinningsveld;
     }
 
+    public List<Kaart> getActieveld() {
+        return actieveld;
+    }
+
     public List<Kaart> getAlleKaarten() {
         for(Kaart k : geldveld){
             alleKaarten.add(k);
@@ -207,6 +211,51 @@ public class Spel {
         }
 
         setStapelskaarten(k.getNr(), -1);
+    }
+
+    public boolean provinciesOp(){
+        for(Kaart k : overwinningsveld){
+            if(Objects.equals(k.getNaam(), "Provincie")){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean drieStapelsLeeg(){
+        int aantallegestapels = 0;
+        for(int i=1;i<stapelskaarten.size();i++){
+            if(stapelskaarten.get(i) == 1){
+                aantallegestapels++;
+            }
+        }
+        if(aantallegestapels < 3){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean spelGedaan(){
+        if(provinciesOp() || drieStapelsLeeg()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String winnaar(){
+        int hoogstescore = 0;
+        String winnaar = "";
+        for(Speler s : spelers){
+            s.berekenScore();
+            int score = s.getOverwinningspunten();
+            if(score > hoogstescore){
+                hoogstescore = score;
+                winnaar = s.getNaam();
+            }
+        }
+        return winnaar;
     }
     //endregion
 }

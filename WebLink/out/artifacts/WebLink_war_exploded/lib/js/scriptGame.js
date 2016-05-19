@@ -6,6 +6,7 @@
 $(document).ready(function () {
     $(".overwinningskaarten li img, .geldcurse li img, .actiekaarten li img").on("click" , zoomIn);
     showPlayerName();
+    toonActieKaarten();
 });
 
 
@@ -17,6 +18,24 @@ var zoomIn = function () {
 
 function showPlayerName(){
     $('#naamspeler').html(QueryString.speler1);
+}
+
+function toonActieKaarten(){
+    $.ajax({
+        type:"POST",
+        dataType:"json",
+        url:"ActieKaartServlet",
+        success: function(result){
+            var random = ["woord1", "woord2"];
+            alert(result);
+            alert(typeof random);
+            for(i=0;i<result.size;i++)
+                $("#actiekaarten").html("<li><img src='lib/images/kaarten/actiekaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+        },
+        error: function(e){
+            alert(JSON.stringify(e))
+        }
+    })
 }
 
 var QueryString = function () {
