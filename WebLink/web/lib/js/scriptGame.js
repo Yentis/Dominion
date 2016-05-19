@@ -9,6 +9,7 @@ $(document).ready(function () {
     showPlayerGegevens();
     showActieKaarten();
     beginBeurtServlet();
+    showHand();
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", speelActieKaart);
@@ -77,6 +78,19 @@ function showActieKaarten(){
             }
             for(i=result.length/2;i<result.length;i++){
                 $("#actiekaarten").append("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+            }
+        }
+    })
+}
+function showHand() {
+    $.ajax({
+        type:"POST",
+        dataType:"json",
+        url:"HandServlet",
+        success: function (result) {
+            for(i=0;i<result.length;i++){
+                console.log(result[i]);
+                $(".hand").append("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
             }
         }
     })
