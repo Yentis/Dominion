@@ -38,8 +38,8 @@ public class BuildServlet extends HttpServlet {
             e.printStackTrace();
         }
         spel.vulVeldOp();
-        spel.geefStartKaarten(spel, speler1);
-        spel.geefStartKaarten(spel, speler2);
+        spel.geefStartKaarten(speler1);
+        spel.geefStartKaarten(speler2);
 
         response.sendRedirect("gamepagina.jsp");
     }

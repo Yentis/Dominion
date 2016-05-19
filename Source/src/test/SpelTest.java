@@ -89,7 +89,7 @@ public class SpelTest {
         instance.vulVeldOp();
 
 
-        instance.starterDeck(instance, speler);
+        instance.starterDeck(speler);
         speler.getDeck().forEach(System.out::println);
 
 
