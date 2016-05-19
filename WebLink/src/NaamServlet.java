@@ -24,8 +24,9 @@ public class NaamServlet extends HttpServlet {
 
         //Voeg spelers toe
         Spel spel = new Spel();
-        request.setAttribute("spel",spel);
+        request.getSession().setAttribute("spel",spel);
         Speler speler1 = new Speler(naamspeler1);
+        request.getSession().setAttribute("speler1",speler1);
         Speler speler2 = new Speler(naamspeler2);
         spel.addSpeler(speler1);
         spel.addSpeler(speler2);
