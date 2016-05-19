@@ -135,4 +135,20 @@ public class Speler {
         }
     }
     //endregion
+
+    public void plaatsGeldkaartenOpVeld(){
+        List<Kaart> kaarten = new ArrayList<>();
+        for(int i=0;i<getHand().size();i++){
+            kaarten.add(getHand().get(i));
+        }
+        int aantalVerwijderd = 0;
+        for (int j = 0;j<kaarten.size();j++) {
+            Kaart k = kaarten.get(j);
+            if (k.getType().equals("Geld")) {
+                addGeld(k.getWaarde());
+                verwijderKaart(k, j-aantalVerwijderd);
+                aantalVerwijderd++;
+            }
+        }
+    }
 }

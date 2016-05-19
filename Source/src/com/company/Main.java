@@ -99,19 +99,7 @@ public class Main {
             String input = keyboard.nextLine();
             switch (input){
                 case "0":
-                    List<Kaart> kaarten = new ArrayList();
-                    for(int i=0;i<speler.getHand().size();i++){
-                        kaarten.add(speler.getHand().get(i));
-                    }
-                    int aantalVerwijderd = 0;
-                    for (int j = 0;j<kaarten.size();j++) {
-                        Kaart k = kaarten.get(j);
-                        if (k.getType().equals("Geld")) {
-                            speler.addGeld(k.getWaarde());
-                            speler.verwijderKaart(k, j-aantalVerwijderd);
-                            aantalVerwijderd++;
-                        }
-                    }
+                   speler.plaatsGeldkaartenOpVeld();
                     break;
                 case "1":
                     if(speler.getActie() > 0){
