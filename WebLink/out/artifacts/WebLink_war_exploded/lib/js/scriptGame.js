@@ -4,7 +4,8 @@
 
 
 $(document).ready(function () {
-    $(".actiekaarten, .overwinningskaarten, .geldcurse").on("click", "img", zoomIn);
+    $(".actiekaarten, .overwinningskaarten, .geldcurse, .kaartOpVeld").on("click", "img", zoomIn);
+
     beginBeurtServlet();
     showActieKaarten();
     showPlayerName();
@@ -63,15 +64,28 @@ function checkActiekaart(kaart){
     }
 }
 
-var showKoopOpties = function () {
+var koopKaart = function () {
+    var kaart = this.src;
+    kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
+    kaart = kaart.replace(".jpg","");
+    $.ajax({
+        type:"POST",
+        data: {kaart:kaart},
+        url:"KoopKaartServlet"
+        
+    })
+};
 
+
+var showKoopOpties = function () {
     $.ajax({
         type:"POST",
         dataType:"json",
         url:"KoopServlet",
         success: function (result) {
             for (i = 0; i<result.length; i++){
-                $("#" + result[i] +"").append("<span>derp</span>");
+                console.log(result[i]);
+                $("#" + result[i] +"").append('<input type="button" value="koop" class ="koopKaart">');
             }
         }
     })
@@ -146,10 +160,12 @@ function showActieKaarten(){
         url:"ActieKaartServlet",
         success: function(result){
             for(i=0;i<result.length/2;i++){
-                $("#actiekaarten").prepend("<li><img id='"+result[i]+"' src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+
+                $("#actiekaarten").prepend("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
             for(i=result.length/2;i<result.length;i++){
-                $("#actiekaarten").append("<li><img id='"+result[i]+"' src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+
+                $("#actiekaarten").append("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
         }
     })
