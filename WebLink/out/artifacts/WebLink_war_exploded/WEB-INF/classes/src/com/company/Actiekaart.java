@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class Actiekaart {
 
-    public void speelactiekaart(String naam, Speler speler, Spel spel) {
+    public void speelactiekaart(String naam, Speler speler, Spel spel, int truefalse) {
         switch (naam) {
             case "Heks":
                 heks(spel, speler);
@@ -25,7 +25,7 @@ public class Actiekaart {
                 gracht(speler);
                 break;
             case "Kanselier":
-                kanselier(speler);
+                kanselier(speler, truefalse);
                 break;
             case "Dorps":
                 dorps(speler);
@@ -61,7 +61,7 @@ public class Actiekaart {
                 dief(spel, speler);
                 break;
             case "Troonzaal":
-                troonzaal(spel, speler);
+                troonzaal(spel, speler, truefalse);
                 break;
             case "Raadzaal":
                 raadzaal(spel, speler);
@@ -211,11 +211,15 @@ public class Actiekaart {
         speler.voegKaartToe(2, speler.getDeck(), speler.getHand());
     }
 
-    public void kanselier(Speler speler) {
+    public void kanselier(Speler speler, int truefalse) {
+
         speler.addGeld(2);//+2 geld
         //je mag je deck in de aflegstapel gooien
+        if(truefalse == 1){
+            speler.voegKaartToe(speler.getDeck().size(), speler.getDeck(), speler.getAflegstapel());
+        }/*
         System.out.println("Wil je je deck in de aflegstapel gooien? J/N");
-        kaartAfleggen(speler, speler.getDeck().size());
+        kaartAfleggen(speler, speler.getDeck().size());*/
     }
 
     public void dorps(Speler speler) {
@@ -361,13 +365,13 @@ public class Actiekaart {
         }
     }
 
-    public void troonzaal(Spel spel, Speler speler) {
+    public void troonzaal(Spel spel, Speler speler, int truefalse) {
         //kies een actiekaart
         String naamvangekozenkaart = kiesKaartMetSoort("Actie", "type", speler.getHand()).getNaam();
 
         //effect gekozen actiekaart*2
-        speelactiekaart(naamvangekozenkaart, speler, spel);
-        speelactiekaart(naamvangekozenkaart, speler, spel);
+        speelactiekaart(naamvangekozenkaart, speler, spel, truefalse);
+        speelactiekaart(naamvangekozenkaart, speler, spel, truefalse);
 
     }
 

@@ -31,16 +31,20 @@ public class ActieKaartSpelenServlet extends HttpServlet {
             boolean kaartgespeeld = false;
 
             String kaartnaam = request.getParameter("kaart");
+            String janee = request.getParameter("janee");
+            System.out.println("janee: " + janee);
             for(Kaart k : spel.getActieveld()){
                 if(Objects.equals(kaartnaam, k.getNaam()) && !kaartgespeeld){
                     Kaart tespelenkaart = k;
                     spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
-                    acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel);
+                    acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel, Integer.parseInt(janee));
                     speler.addActie(-1);
                     kaartgespeeld = true;
                     out.print(kaartnaam);
                 }
             }
+        } else {
+            out.print("");
         }
     }
 
