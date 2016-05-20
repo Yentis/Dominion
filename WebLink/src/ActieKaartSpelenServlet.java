@@ -32,12 +32,21 @@ public class ActieKaartSpelenServlet extends HttpServlet {
 
             String kaartnaam = request.getParameter("kaart");
             String janee = request.getParameter("janee");
+            List<String> kaarten = new ArrayList<>();
+            String[] lijstkaarten = new String[0];
+            if(!Objects.equals(request.getParameter("lijstkaarten"), "")){
+                lijstkaarten = request.getParameterValues("lijstkaarten[]");
+            }
+            for(int i=0;i<lijstkaarten.length;i++){
+                kaarten.add(lijstkaarten[i]);
+            }
+
             System.out.println("janee: " + janee);
             for(Kaart k : spel.getActieveld()){
                 if(Objects.equals(kaartnaam, k.getNaam()) && !kaartgespeeld){
                     Kaart tespelenkaart = k;
                     spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
-                    acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel, Integer.parseInt(janee));
+                    acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel, Integer.parseInt(janee), kaarten);
                     speler.addActie(-1);
                     kaartgespeeld = true;
                     out.print(kaartnaam);
