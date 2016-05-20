@@ -10,6 +10,7 @@ $(document).ready(function () {
     showPlayerName();
     showPlayerGegevens();
     showHand();
+    showKoopOpties();
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", speelActieKaart);
@@ -19,19 +20,61 @@ var speelActieKaart = function(){
     var kaart = this.src;
     kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
     kaart = kaart.replace(".jpg","");
-
+    
     $.ajax({
         type:"POST",
-        data:{kaart:kaart},
-        url:"ActieKaartSpelenServlet",
+        url:"SpelerServlet",
         success: function(result){
-            alert(result);
-            $(".kaartOpVeld").append("<li class='"+result+"'><img src='lib/images/kaarten/" + result + ".jpg' title='" + result + "'/></li>");
-            $(".hand").remove("."+result+"");
+            console.log(result[0]);
+            if(result[0] == 0){
+                $("#log").html("Je hebt geen acties meer over.");
+            } else {
+                var janee = checkActiekaart(kaart);
+                console.log(janee);
+                $.ajax({
+                    type:"POST",
+                    data:{kaart:kaart, janee:janee},
+                    url:"ActieKaartSpelenServlet",
+                    success: function(result){
+                        $(".kaartOpVeld").append("<li class='"+result+"'><img src='lib/images/kaarten/" + result + ".jpg' title='" + result + "'/></li>");
+                        $(".hand").slice(1).remove("." + result + "");
+                    }
+                });
+            }
         }
     });
     showPlayerGegevens();
     showHand();
+};
+
+function checkActiekaart(kaart){
+    switch(kaart){
+        case "Kanselier":
+            var answer = window.confirm("Wil je je deck op de aflegstapel plaatsen?");
+            if(answer == true){
+                return 1;
+            } else {
+                return 0;
+            }
+            break;
+        default:
+            return 2;
+            break;
+    }
+}
+
+var showKoopOpties = function () {
+
+    $.ajax({
+        type:"POST",
+        dataType:"json",
+        url:"KoopServlet",
+        success: function (result) {
+            for (i = 0; i<result.length; i++){
+                $("#" + result[i] +"").append("<span>derp</span>");
+            }
+        }
+    })
 };
 
 function beginBeurtServlet(){
@@ -56,6 +99,7 @@ var eindigBeurt = function(){
 function clearVeld(){
     $(".kaartOpVeld").remove();
     $("#persoongegevens").after("<ul class='kaartOpVeld'></ul>")
+    $("#log").html("");
 }
 
 var gooiGeld = function(){
@@ -72,6 +116,7 @@ var gooiGeld = function(){
     });
     showPlayerGegevens();
     showHand();
+    showKoopOpties();
 };
 
 var zoomIn = function () {
@@ -101,10 +146,10 @@ function showActieKaarten(){
         url:"ActieKaartServlet",
         success: function(result){
             for(i=0;i<result.length/2;i++){
-                $("#actiekaarten").prepend("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+                $("#actiekaarten").prepend("<li><img id='"+result[i]+"' src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
             for(i=result.length/2;i<result.length;i++){
-                $("#actiekaarten").append("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+                $("#actiekaarten").append("<li><img id='"+result[i]+"' src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
         }
     })
@@ -116,8 +161,11 @@ function showHand() {
         url:"HandServlet",
         success: function (result) {
             $(".hand").html("<li class='" + result[0] + "'><img src='lib/images/kaarten/" + result[0] + ".jpg' title='" + "temp" + "'/></li>");
-            for(i=1;i<result.length;i++){
-                $(".hand").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+            console.log(result + " " + typeof result);
+            if(result != null){
+                for(i=1;i<result.length;i++){
+                    $(".hand").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+                }
             }
         }
     })

@@ -38,8 +38,8 @@
         <input type="button" value="Gooi alle geldkaarten" id="gooigeld">
         <input type="button" value="Eindig je beurt" id="eindigbeurt">
     </div>
-    <div id="log">
-        <h2>Een cursekaart werd toegevoegd aan je deck</h2>
+    <div>
+        <h2 id="log"></h2>
     </div>
 
     <div id="persoongegevens">

@@ -1,3 +1,4 @@
+import com.company.Kaart;
 import com.company.Spel;
 import com.company.Speler;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Objects;
 
 
 /**
