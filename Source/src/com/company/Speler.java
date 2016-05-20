@@ -3,6 +3,7 @@ package com.company;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -120,6 +121,7 @@ public class Speler {
         }
         aflegstapel.clear();
         voegKaartToe(5, deck, hand);
+        Collections.shuffle(deck);
     }
 
     public void berekenScore(){

@@ -22,9 +22,12 @@ public class HandServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         List<String> Hand = new ArrayList<>();
         int i = 0;
-        for(Kaart k : speler.getHand()){
-            Hand.add(k.getNaam());
-        }
+
+            for(Kaart k : speler.getHand()){
+                Hand.add(k.getNaam());
+            }
+
+
 
         String json = gson.toJson(Hand);
 

@@ -25,16 +25,20 @@ public class KoopKaartServlet extends HttpServlet {
 
         String kaartnaam = request.getParameter("kaart");
         boolean kaartGekocht = false;
+        if (speler.getKoop() > 0){
+            for(Kaart k : spel.getAlleKaarten()){
+                if(Objects.equals(kaartnaam,k.getNaam()) && !kaartGekocht){
+                    teKopenKaart = k;
+                    spel.koopKaart(teKopenKaart,speler.getAflegstapel());
+                    speler.addKoop(-1);
+                    kaartGekocht = true;
+                    speler.addGeld( - teKopenKaart.getKost());
+                    out.print(kaartnaam);
 
-        for(Kaart k : spel.getAlleKaarten()){
-            if(Objects.equals(kaartnaam,k.getNaam()) && !kaartGekocht){
-                teKopenKaart = k;
-                spel.koopKaart(teKopenKaart,speler.getAflegstapel());
-                speler.addKoop(-1);
-                kaartGekocht = true;
-                out.print(kaartnaam);
+                }
             }
         }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

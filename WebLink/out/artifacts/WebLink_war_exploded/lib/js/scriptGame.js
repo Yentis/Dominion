@@ -4,7 +4,8 @@
 
 
 $(document).ready(function () {
-    $(".actiekaarten, .overwinningskaarten, .geldcurse").on("click", "img", zoomIn);
+    $(".actiekaarten, .overwinningskaarten, .geldcurse, .kaartOpVeld").on("click", "img", zoomIn);
+
     beginBeurtServlet();
     showActieKaarten();
     showPlayerName();
@@ -14,7 +15,7 @@ $(document).ready(function () {
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", speelActieKaart);
-    $("ul li .koopKaart").on("click", koopKaart);
+    //$("ul li .koopKaart").on("click", koopKaart);
 });
 
 var speelActieKaart = function(){
@@ -65,7 +66,7 @@ function checkActiekaart(kaart){
 }
 
 var koopKaart = function () {
-   
+    console.log(this);
     console.log("koopkaart connected");
 
     var kaart = this.id;
@@ -76,7 +77,7 @@ var koopKaart = function () {
         data:{kaart:kaart},
         url:"KoopKaartServlet",
         success: function (result) {
-            console.log("kaart"+ result + " is gekocht");
+            console.log("kaart "+ result + " is gekocht");
         }
     });
     showPlayerGegevens();
@@ -90,20 +91,21 @@ var showKoopOpties = function () {
         type:"POST",
         dataType:"json",
         url:"KoopServlet",
-        success: function (result) {
+        success: function(result) {
             for (i = 0; i<result.length; i++){
                 $("#" + result[i] +"").append('<input type="button" value="koop" class ="koopKaart">').click(koopKaart);
             }
         }
     });
-    showPlayerGegevens()
+    showPlayerGegevens();
 };
 
 function beginBeurtServlet(){
     $.ajax({
         type:"POST",
         url:"BeurtServlet"
-    })
+    });
+    showKoopOpties();
 }
 
 var eindigBeurt = function(){
@@ -184,12 +186,14 @@ function showHand() {
         dataType:"json",
         url:"HandServlet",
         success: function (result) {
-            $(".hand").html("<li class='" + result[0] + "'><img src='lib/images/kaarten/" + result[0] + ".jpg' title='" + "temp" + "'/></li>");
-            console.log(result + " " + typeof result);
-            if(result != null){
-                for(i=1;i<result.length;i++){
-                    $(".hand").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
-                }
+
+                $(".hand").html("<li class='" + result[0] + "'><img src='lib/images/kaarten/" + result[0] + ".jpg' title='" + "temp" + "'/></li>");
+                console.log(result + " " + typeof result);
+                if(result != 0){
+                    for(i=1;i<result.length;i++){
+                        $(".hand").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
+                    }
+                
             }
         }
     })
