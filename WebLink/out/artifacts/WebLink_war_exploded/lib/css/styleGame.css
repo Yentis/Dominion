@@ -151,7 +151,7 @@ body {
 
 }
 
-#buttons input[type=button] .hide{
+#buttons input[type=button].hide{
     display:none;
 }
 

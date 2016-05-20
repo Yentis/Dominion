@@ -100,6 +100,7 @@ public class Spel {
         aantalkaarten = voegKoperKaartenToe(aantalkaarten, speler);
         voegLandgoedKaartenToe(aantalkaarten, speler);
 
+
         schudden(speler.getDeck());
     }
 
