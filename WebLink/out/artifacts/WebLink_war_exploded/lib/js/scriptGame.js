@@ -48,7 +48,22 @@ var speelActieKaart = function(){
     showHand();
 };
 
-<<<<<<< HEAD
+function checkActiekaart(kaart){
+    switch(kaart){
+        case "Kanselier":
+            var answer = window.confirm("Wil je je deck op de aflegstapel plaatsen?");
+            if(answer == true){
+                return 1;
+            } else {
+                return 0;
+            }
+            break;
+        default:
+            return 2;
+            break;
+    }
+}
+
 var koopKaart = function () {
    
     console.log("koopkaart connected");
@@ -71,37 +86,13 @@ var koopKaart = function () {
 
 var showKoopOpties = function () {
     $(".koopKaart").remove();
-=======
-function checkActiekaart(kaart){
-    switch(kaart){
-        case "Kanselier":
-            var answer = window.confirm("Wil je je deck op de aflegstapel plaatsen?");
-            if(answer == true){
-                return 1;
-            } else {
-                return 0;
-            }
-            break;
-        default:
-            return 2;
-            break;
-    }
-}
-
-var showKoopOpties = function () {
-
->>>>>>> dc95cb21a2c27ad3911343beca405db4ade943f1
     $.ajax({
         type:"POST",
         dataType:"json",
         url:"KoopServlet",
         success: function (result) {
             for (i = 0; i<result.length; i++){
-<<<<<<< HEAD
                 $("#" + result[i] +"").append('<input type="button" value="koop" class ="koopKaart">').click(koopKaart);
-=======
-                $("#" + result[i] +"").append("<span>derp</span>");
->>>>>>> dc95cb21a2c27ad3911343beca405db4ade943f1
             }
         }
     });
@@ -177,19 +168,12 @@ function showActieKaarten(){
         url:"ActieKaartServlet",
         success: function(result){
             for(i=0;i<result.length/2;i++){
-<<<<<<< HEAD
 
                 $("#actiekaarten").prepend("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
             for(i=result.length/2;i<result.length;i++){
 
                 $("#actiekaarten").append("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
-=======
-                $("#actiekaarten").prepend("<li><img id='"+result[i]+"' src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
-            }
-            for(i=result.length/2;i<result.length;i++){
-                $("#actiekaarten").append("<li><img id='"+result[i]+"' src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
->>>>>>> dc95cb21a2c27ad3911343beca405db4ade943f1
             }
         }
     })
