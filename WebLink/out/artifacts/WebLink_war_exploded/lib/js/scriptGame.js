@@ -6,11 +6,10 @@
 $(document).ready(function () {
     $(".actiekaarten, .overwinningskaarten, .geldcurse").on("click", "img", zoomIn);
     beginBeurtServlet();
+    showActieKaarten();
     showPlayerName();
     showPlayerGegevens();
-    showActieKaarten();
     showHand();
-    showKoopOpties();
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", speelActieKaart);
@@ -34,6 +33,7 @@ var speelActieKaart = function(){
     showPlayerGegevens();
     showHand();
 };
+<<<<<<< HEAD
 var showKoopOpties = function () {
     $.ajax({
         type:"POST",
@@ -47,6 +47,8 @@ var showKoopOpties = function () {
         }
     })
 };
+=======
+>>>>>>> 698653038a818dbaf0444b704e85567c55cc6621
 
 function beginBeurtServlet(){
     $.ajax({
@@ -60,9 +62,17 @@ var eindigBeurt = function(){
         type:"POST",
         url:"EindeBeurtServlet"
     });
+    clearVeld();
+    beginBeurtServlet();
+    showPlayerName();
     showPlayerGegevens();
     showHand();
 };
+
+function clearVeld(){
+    $(".kaartOpVeld").remove();
+    $("#persoongegevens").after("<ul class='kaartOpVeld'></ul>")
+}
 
 var gooiGeld = function(){
     $.ajax({
@@ -78,7 +88,6 @@ var gooiGeld = function(){
     });
     showPlayerGegevens();
     showHand();
-    showKoopOpties();
 };
 
 var zoomIn = function () {
@@ -108,12 +117,19 @@ function showActieKaarten(){
         url:"ActieKaartServlet",
         success: function(result){
             for(i=0;i<result.length/2;i++){
+<<<<<<< HEAD
 
                 $("#actiekaarten").prepend("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
             for(i=result.length/2;i<result.length;i++){
 
                 $("#actiekaarten").append("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+=======
+                $("#actiekaarten").prepend("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+            }
+            for(i=result.length/2;i<result.length;i++){
+                $("#actiekaarten").append("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+>>>>>>> 698653038a818dbaf0444b704e85567c55cc6621
             }
         }
     })
