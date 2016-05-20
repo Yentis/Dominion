@@ -4,8 +4,9 @@
 
 
 $(document).ready(function () {
+    gekozenkaarten = [];
+    masterkaart = "";
     $(".actiekaarten, .overwinningskaarten, .geldcurse, .kaartOpVeld").on("click", "img", zoomIn);
-
     beginBeurtServlet();
     showActieKaarten();
     showPlayerName();
@@ -14,15 +15,19 @@ $(document).ready(function () {
     showKoopOpties();
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
-    $(".hand").on("click", "img", speelActieKaart);
+    if($("#ok").hasClass("hide")){
+        $(".hand").on("click", "img", checkActiekaart);
+    } else {
+        $(".hand").on("click", "img", voegKaartToe);
+    }
+    $("#ok").on("click", function(){
+        speelActieKaart(masterkaart, 2, gekozenkaarten)
+        $("#ok").addClass("hide");
+    });
     $("ul li .koopKaart").on("click", koopKaart);
 });
 
-var speelActieKaart = function(){
-    var kaart = this.src;
-    kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
-    kaart = kaart.replace(".jpg","");
-    
+var speelActieKaart = function(kaart, janee, lijstkaarten){
     $.ajax({
         type:"POST",
         url:"SpelerServlet",
@@ -31,11 +36,9 @@ var speelActieKaart = function(){
             if(result[0] == 0){
                 $("#log").html("Je hebt geen acties meer over.");
             } else {
-                var janee = checkActiekaart(kaart);
-                console.log(janee);
                 $.ajax({
                     type:"POST",
-                    data:{kaart:kaart, janee:janee},
+                    data:{kaart:kaart, janee:janee, lijstkaarten:lijstkaarten},
                     url:"ActieKaartSpelenServlet",
                     success: function(result){
                         $(".kaartOpVeld").append("<li class='"+result+"'><img src='lib/images/kaarten/" + result + ".jpg' title='" + result + "'/></li>");
@@ -49,20 +52,36 @@ var speelActieKaart = function(){
     showHand();
 };
 
-function checkActiekaart(kaart){
+function checkActiekaart(){
+    var kaart = this.src;
+    kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
+    kaart = kaart.replace(".jpg","");
+    
     switch(kaart){
         case "Kanselier":
             var answer = window.confirm("Wil je je deck op de aflegstapel plaatsen?");
             if(answer == true){
-                return 1;
+                speelActieKaart(kaart, 1, "");
             } else {
-                return 0;
+                speelActieKaart(kaart, 0, "");
             }
             break;
+        case "Kelder":
+            $("#log").html("Kies de kaarten die je wilt afleggen");
+            masterkaart = "Kelder";
+            $("#ok").removeClass("hide");
+            break;
         default:
-            return 2;
+            speelActieKaart(kaart, 2, "");
             break;
     }
+}
+
+function voegKaartToe(){
+    var kaart = this.src;
+    kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
+    kaart = kaart.replace(".jpg","");
+    gekozenkaarten.push(kaart);
 }
 
 var koopKaart = function () {

@@ -150,6 +150,11 @@ body {
     display: inline;
 
 }
+
+#buttons input[type=button] .hide{
+    display:none;
+}
+
 .hand li img{
     width: 13%;
     display:inline;
@@ -187,7 +192,6 @@ body {
     display: block;
     margin-bottom: 5%;
     transition: 1s;
-
 }
 
 #buttons input[type = button]:hover{
@@ -264,8 +268,4 @@ body {
     top:47%;
     bottom: 40%;
 
-}
-
-.hide{
-    display:none;
 }

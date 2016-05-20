@@ -10,13 +10,13 @@ import java.util.Scanner;
  */
 public class Actiekaart {
 
-    public void speelactiekaart(String naam, Speler speler, Spel spel, int truefalse) {
+    public void speelactiekaart(String naam, Speler speler, Spel spel, int truefalse, List<String> kaarten) {
         switch (naam) {
             case "Heks":
                 heks(spel, speler);
                 break;
             case "Kelder":
-                kelder(spel, speler);
+                kelder(spel, speler, kaarten);
                 break;
             case "Kerk":
                 kerk(spel, speler);
@@ -61,7 +61,7 @@ public class Actiekaart {
                 dief(spel, speler);
                 break;
             case "Troonzaal":
-                troonzaal(spel, speler, truefalse);
+                troonzaal(spel, speler, truefalse, kaarten);
                 break;
             case "Raadzaal":
                 raadzaal(spel, speler);
@@ -178,18 +178,32 @@ public class Actiekaart {
         }
     }
 
-    public void kelder(Spel spel, Speler speler) {
+    public void kelder(Spel spel, Speler speler, List<String> kaarten) {
         //+1 actie
         speler.addActie(1);
         //selecteer de kaarten die je wilt afleggen
-        String input = "";
         int aantalkaarten = 0;
+        boolean selected = false;
+
+        for(String s : kaarten){
+            for(Kaart k : spel.getAlleKaarten()){
+                if(Objects.equals(k.getNaam(), s) && !selected){
+                    spel.voegKaartToe(1, k, speler.getHand(), speler.getAflegstapel());
+                    aantalkaarten++;
+                    selected = true;
+                }
+            }
+            selected = false;
+        }
+
+
+        /*String input = "";
 
         System.out.println("Kies de kaarten die je wilt afleggen, typ 'OK' om door te gaan: \n");
         while (!Objects.equals(input, "OK")) {
             spel.voegKaartToe(1, kiesKaart(speler, input), speler.getHand(), speler.getAflegstapel());
             aantalkaarten++;
-        }
+        }*/
         //trek x nieuwe kaarten
         speler.voegKaartToe(aantalkaarten, speler.getDeck(), speler.getHand());
     }
@@ -365,13 +379,13 @@ public class Actiekaart {
         }
     }
 
-    public void troonzaal(Spel spel, Speler speler, int truefalse) {
+    public void troonzaal(Spel spel, Speler speler, int truefalse, List<String> kaarten) {
         //kies een actiekaart
         String naamvangekozenkaart = kiesKaartMetSoort("Actie", "type", speler.getHand()).getNaam();
 
         //effect gekozen actiekaart*2
-        speelactiekaart(naamvangekozenkaart, speler, spel, truefalse);
-        speelactiekaart(naamvangekozenkaart, speler, spel, truefalse);
+        speelactiekaart(naamvangekozenkaart, speler, spel, truefalse, kaarten);
+        speelactiekaart(naamvangekozenkaart, speler, spel, truefalse, kaarten);
 
     }
 

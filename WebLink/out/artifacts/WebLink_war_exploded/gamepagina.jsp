@@ -37,6 +37,7 @@
     <div id="buttons">
         <input type="button" value="Gooi alle geldkaarten" id="gooigeld">
         <input type="button" value="Eindig je beurt" id="eindigbeurt">
+        <input type="button" value="OK" id="ok" class="hide">
     </div>
     <div>
         <h2 id="log"></h2>
