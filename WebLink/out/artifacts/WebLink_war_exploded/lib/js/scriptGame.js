@@ -6,9 +6,9 @@
 $(document).ready(function () {
     $(".actiekaarten, .overwinningskaarten, .geldcurse").on("click", "img", zoomIn);
     beginBeurtServlet();
+    showActieKaarten();
     showPlayerName();
     showPlayerGegevens();
-    showActieKaarten();
     showHand();
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
@@ -45,10 +45,18 @@ var eindigBeurt = function(){
     $.ajax({
         type:"POST",
         url:"EindeBeurtServlet"
-    })
+    });
+    clearVeld();
+    beginBeurtServlet();
+    showPlayerName();
     showPlayerGegevens();
     showHand();
 };
+
+function clearVeld(){
+    $(".kaartOpVeld").remove();
+    $("#persoongegevens").after("<ul class='kaartOpVeld'></ul>")
+}
 
 var gooiGeld = function(){
     $.ajax({

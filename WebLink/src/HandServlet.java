@@ -25,6 +25,7 @@ public class HandServlet extends HttpServlet {
         for(Kaart k : speler.getHand()){
             Hand.add(k.getNaam());
         }
+
         String json = gson.toJson(Hand);
 
         out.print(json);
