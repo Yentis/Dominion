@@ -4,14 +4,9 @@
 
 
 $(document).ready(function () {
-<<<<<<< HEAD
-    $(".actiekaarten, .overwinningskaarten, .geldcurse, .kaartOpVeld").on("click", "img", zoomIn);
-
-=======
     gekozenkaarten = [];
     masterkaart = "";
     $(".actiekaarten, .overwinningskaarten, .geldcurse, .kaartOpVeld").on("click", "img", zoomIn);
->>>>>>> b5ba3f67a9e04fd720ac86fa9ab9e24a65fcadd7
     beginBeurtServlet();
     showActieKaarten();
     showPlayerName();
@@ -20,21 +15,18 @@ $(document).ready(function () {
     showKoopOpties();
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
-<<<<<<< HEAD
     $(".hand").on("click", "img", speelActieKaart);
-    //$("ul li .koopKaart").on("click", koopKaart);
-=======
     if($("#ok").hasClass("hide")){
         $(".hand").on("click", "img", checkActiekaart);
     } else {
         $(".hand").on("click", "img", voegKaartToe);
     }
     $("#ok").on("click", function(){
-        speelActieKaart(masterkaart, 2, gekozenkaarten)
+        speelActieKaart(masterkaart, 2, gekozenkaarten);
         $("#ok").addClass("hide");
     });
     $("ul li .koopKaart").on("click", koopKaart);
->>>>>>> b5ba3f67a9e04fd720ac86fa9ab9e24a65fcadd7
+
 });
 
 var speelActieKaart = function(kaart, janee, lijstkaarten){

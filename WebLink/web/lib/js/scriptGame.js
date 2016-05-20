@@ -15,10 +15,7 @@ $(document).ready(function () {
     showKoopOpties();
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
-
     $(".hand").on("click", "img", speelActieKaart);
-
-
     if($("#ok").hasClass("hide")){
         $(".hand").on("click", "img", checkActiekaart);
     } else {
