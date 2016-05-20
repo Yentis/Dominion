@@ -18,39 +18,25 @@
 
 
     <ul class="overwinningskaarten">
-        <li><img src="lib/images/kaarten/overwinningskaarten/provincePS.jpg" alt="province" title="province"/></li>
-        <li><img src="lib/images/kaarten/overwinningskaarten/duchyPS.jpg" alt="duchy" title="duchy::"/></li>
-        <li><img src="lib/images/kaarten/overwinningskaarten/estatePS.jpg" alt="estate" title="estate"/></li>
+        <li><img id="Provincie" src="lib/images/kaarten/ProvinciePS.jpg" alt="province" title="province"/></li>
+        <li><img id="Hertogdom" src="lib/images/kaarten/HertogdomPS.jpg" alt="duchy" title="duchy::"/></li>
+        <li><img id="Landgoed" src="lib/images/kaarten/LandgoedPS.jpg" alt="estate" title="estate"/></li>
     </ul>
 
 
     <ul class="stapel">
-        <li><img src="lib/images/kaarten/actiekaarten/dief.jpg" alt="avonturier" title="avonturier"/></li>
+        <li><img src="lib/images/kaarten/Dief.jpg" alt="avonturier" title="avonturier"/></li>
         <li><img src="lib/images/kaarten/achterkant.jpg" alt="avonturier" title="avonturier"/></li>
     </ul>
 
 
-    <ul class="actiekaarten">
-        <li><img src="lib/images/kaarten/actiekaarten/avonturier.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/bibliotheek.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/bureaucraat.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/dief.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/dorp.jpg" alt="avonturier" title="avonturier"/></li>
-
+    <ul class="actiekaarten" id="actiekaarten">
         <li><span id="linebreaker"> </span></li>
-
-        <li><img src="lib/images/kaarten/actiekaarten/feest.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/festival.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/geldverlener.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/gracht.jpg" alt="avonturier" title="avonturier"/></li>
-        <li><img src="lib/images/kaarten/actiekaarten/houthakker.jpg" alt="avonturier" title="avonturier"/></li>
     </ul>
 
-
-
     <div id="buttons">
-        <input type="button" value="Gooi alle geldkaarten">
-        <input type="button" value="Eindig je beurt">
+        <input type="button" value="Gooi alle geldkaarten" id="gooigeld">
+        <input type="button" value="Eindig je beurt" id="eindigbeurt">
     </div>
     <div id="log">
         <h2>Een cursekaart werd toegevoegd aan je deck</h2>
@@ -58,28 +44,23 @@
 
     <div id="persoongegevens">
         <ul>
-            <li>|ACTIES: 1</li>
-            <li>|BUYS: 2</li>
-            <li>|GELD: 3</li>
+
+            <li >|ACTIES:<span id="acties"></span></li>
+            <li>|BUYS:<span id="buys"></span></li>
+            <li>|GELD:<span id="geld"></span></li>
         </ul>
 
     </div>
 
     <ul class="kaartOpVeld">
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-
     </ul>
 
 
     <ul class="geldcurse">
-        <li><img src="lib/images/kaarten/geldkaarten/gold.jpg" alt="gold" title="gold"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/silver.jpg" alt="silver" title="silver"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
-        <li><img src="lib/images/kaarten/overwinningskaarten/curse.jpg" alt="curse" title="curse"></li>
+        <li><img id="Goud" src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
+        <li><img id="Zilver" src="lib/images/kaarten/Zilver.jpg" alt="silver" title="silver"></li>
+        <li><img id="Koper" src="lib/images/kaarten/Koper.jpg" alt="copper" title="copper"></li>
+        <li><img id="Vloek" src="lib/images/kaarten/Vloek.jpg" alt="curse" title="curse"></li>
     </ul>
 
 
@@ -87,23 +68,20 @@
         <ul>
             <li><img src="lib/images/dank.png" id="dank" alt="dank" title="dank"></li>
 
-            <li>Speler 1</li>
+            <li id="naamspeler"></li>
         </ul>
     </div>
 
     <ul class="hand">
         <li><p>Hand :</p></li>
-        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
-        <li><img src="lib/images/kaarten/overwinningskaarten/estate.jpg" alt="estate" title="estate"></li>
-        <li><img src="lib/images/kaarten/geldkaarten/copper.jpg" alt="copper" title="copper"></li>
     </ul>
     <ul class="toonKaart">
         <li></li>
     </ul>
 
 </div>
+
+
 
 
 <script type="text/javascript" src="lib/js/jquery-2.2.3.min.js"></script>

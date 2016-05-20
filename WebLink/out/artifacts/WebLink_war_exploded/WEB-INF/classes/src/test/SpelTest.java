@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package test;
 
 import com.company.*;
 import org.junit.*;
@@ -90,7 +89,7 @@ public class SpelTest {
         instance.vulVeldOp();
 
 
-        instance.starterDeck(instance, speler);
+        instance.starterDeck(speler);
         speler.getDeck().forEach(System.out::println);
 
 

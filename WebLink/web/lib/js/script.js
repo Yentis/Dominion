@@ -5,8 +5,6 @@
      * Created by Renzie on 21/04/2016.
      */
     $(document).ready(function () {
-
-        console.log('derp');
         $("#spelregelsKnop").on("click",toonSpelRegels);
         $("#spelen").on("click",toonNaamGeving);
         $("#vorige").on("click",toonStartpagina);
@@ -88,4 +86,3 @@
         return false;
 
     }
-

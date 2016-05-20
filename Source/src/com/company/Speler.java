@@ -1,5 +1,6 @@
 package com.company;
 
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +81,39 @@ public class Speler {
     //endregion
 
     //region Behaviour
+    public void beëindigbeurt(){
+        while(getHand().size()>0)
+            voegKaartToe(1, getHand(), getAflegstapel());
+    }
+
+    public void plaatsGeldkaartenOpVeld(){
+        List<Kaart> kaarten = new ArrayList();
+        for(int i=0;i<getHand().size();i++){
+            kaarten.add(getHand().get(i));
+        }
+        int aantalVerwijderd = 0;
+        for (int j = 0;j<kaarten.size();j++) {
+            Kaart k = kaarten.get(j);
+            if (k.getType().equals("Geld")) {
+                addGeld(k.getWaarde());
+                verwijderKaart(k, j-aantalVerwijderd);
+                aantalVerwijderd++;
+            }
+        }
+    }
+
+    public void checkHand(){
+        if(getDeck().size() == 0){
+            leegAflegstapel();
+        } else if (getHand().size()==0) {
+            vulHand();
+        }
+    }
+
+    public void vulHand(){
+        voegKaartToe(5, getDeck(), getHand());
+    }
+
     public void leegAflegstapel(){
         for(Kaart k : aflegstapel){
             deck.add(k);
@@ -134,4 +168,5 @@ public class Speler {
         }
     }
     //endregion
+
 }

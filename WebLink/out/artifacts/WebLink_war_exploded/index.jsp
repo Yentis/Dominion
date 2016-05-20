@@ -35,7 +35,7 @@
   <input type="button" class="groteKnop" value="Aflsuiten">
 </form>
 
-<form action="NaamServlet" method="post" class="hide" id="naamgeving">
+<form action="BuildServlet" method="post" class="hide" id="naamgeving">
   <input type="button" id="vorige" value="<< vorige">
   <h3>Kies uw naam</h3>
 
@@ -50,8 +50,8 @@
     <!--<input type="submit" id="speelSpel" class="startp2" value="Spelen" name="jaknop">-->
     <input type="submit" value="Beginnen">
   </div>
+  <span id="result"></span>
 </form>
-<input type="button" class="groteKnop" value="Aflsuiten">
 
 <script type="text/javascript" src="lib/js/jquery-2.2.3.min.js"></script>
 <script type="text/javascript" src="lib/js/script.js"></script>

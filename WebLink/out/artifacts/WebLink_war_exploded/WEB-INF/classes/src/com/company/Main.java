@@ -48,13 +48,11 @@ public class Main {
                 spel.vulVeldOp();
 
                 //Geef startkaarten
-                spel.starterDeck(spel, speler1);
-                spel.starterDeck(spel, speler2);
-                speler1.voegKaartToe(5, speler1.getDeck(), speler1.getHand());
-                speler2.voegKaartToe(5, speler2.getDeck(), speler2.getHand());
+                spel.geefStartKaarten(speler1);
+                spel.geefStartKaarten(speler2);
 
                 //Start beurt
-                while(!spelGedaan(spel)){
+                while(!spel.spelGedaan()){
                     if(teller%2 == 0){
                         beurt(speler1, spel);
                     } else if (teller%2 == 1){
@@ -62,6 +60,8 @@ public class Main {
                     }
                     teller++;
                 }
+                System.out.println("Game over");
+                System.out.println("De winnaar is " + spel.winnaar());
             }
             exit = true;
         }
@@ -73,11 +73,7 @@ public class Main {
 
         Actiekaart acties = new Actiekaart();
         spel.setSpelerValues(speler);
-        if(speler.getDeck().size() == 0){
-            speler.leegAflegstapel();
-        } else if (speler.getHand().size()==0) {
-            speler.voegKaartToe(5, speler.getDeck(), speler.getHand());
-        }
+        speler.checkHand();
         boolean beurt = true;
         Scanner keyboard = new Scanner(System.in);
         while(beurt){
@@ -97,19 +93,7 @@ public class Main {
             String input = keyboard.nextLine();
             switch (input){
                 case "0":
-                    List<Kaart> kaarten = new ArrayList();
-                    for(int i=0;i<speler.getHand().size();i++){
-                        kaarten.add(speler.getHand().get(i));
-                    }
-                    int aantalVerwijderd = 0;
-                    for (int j = 0;j<kaarten.size();j++) {
-                        Kaart k = kaarten.get(j);
-                        if (k.getType().equals("Geld")) {
-                            speler.addGeld(k.getWaarde());
-                            speler.verwijderKaart(k, j-aantalVerwijderd);
-                            aantalVerwijderd++;
-                        }
-                    }
+                    speler.plaatsGeldkaartenOpVeld();
                     break;
                 case "1":
                     if(speler.getActie() > 0){
@@ -137,7 +121,7 @@ public class Main {
                     System.out.println(speler.getGeld());
                     if(speler.getKoop() > 0){
                         int i = 0;
-                        List<Kaart> koopopties = new ArrayList();
+                        List<Kaart> koopopties = new ArrayList<>();
                         for(Kaart k : spel.getAlleKaarten()){
                             if (k.getKost() <= speler.getGeld() && !koopopties.contains(k)){
                                 koopopties.add(k);
@@ -156,45 +140,10 @@ public class Main {
                     }
                     break;
                 case "3":
-                    while(speler.getHand().size()>0)
-                    speler.voegKaartToe(1, speler.getHand(), speler.getAflegstapel());
+                    speler.beëindigbeurt();
                     beurt = false;
                     break;
             }
         }
-    }
-
-    public boolean spelGedaan(Spel spel){
-        //provincie stapel leeg
-        for(Kaart k : spel.getOverwinningsveld()){
-            if(Objects.equals(k.getNaam(), "Provincie")){
-                return false;
-            }
-        }
-
-        //3 stapels leeg
-        int aantallegestapels = 0;
-        for(int i=1;i<spel.getStapelskaarten().size();i++){
-            if(spel.getStapelskaarten().get(i) == 1){
-                aantallegestapels++;
-            }
-        }
-        if(aantallegestapels < 3){
-            return false;
-        }
-
-        System.out.println("Game over");
-        int hoogstescore = 0;
-        String winnaar = "";
-        for(Speler s : spel.getSpelers()){
-            s.berekenScore();
-            int score = s.getOverwinningspunten();
-            if(score > hoogstescore){
-                hoogstescore = score;
-                winnaar = s.getNaam();
-            }
-        }
-        System.out.println("De winnaar is " + winnaar);
-        return true;
     }
 }
