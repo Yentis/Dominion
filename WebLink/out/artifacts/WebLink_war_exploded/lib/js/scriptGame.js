@@ -10,9 +10,11 @@ $(document).ready(function () {
     showPlayerName();
     showPlayerGegevens();
     showHand();
+    showKoopOpties();
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", speelActieKaart);
+    $("ul li .koopKaart").on("click", koopKaart);
 });
 
 var speelActieKaart = function(){
@@ -33,22 +35,41 @@ var speelActieKaart = function(){
     showPlayerGegevens();
     showHand();
 };
-<<<<<<< HEAD
+
+var koopKaart = function () {
+   
+    console.log("koopkaart connected");
+
+    var kaart = this.id;
+    console.log(kaart + " var kek");
+
+    $.ajax({
+        type:"POST",
+        data:{kaart:kaart},
+        url:"KoopKaartServlet",
+        success: function (result) {
+            console.log("kaart"+ result + " is gekocht");
+        }
+    });
+    showPlayerGegevens();
+    showKoopOpties();
+};
+
+
 var showKoopOpties = function () {
+    $(".koopKaart").remove();
     $.ajax({
         type:"POST",
         dataType:"json",
         url:"KoopServlet",
         success: function (result) {
             for (i = 0; i<result.length; i++){
-                console.log(result[i]);
-                $("#" + result[i] +"").append('<input type="button" value="koop" class ="koopKaart">');
+                $("#" + result[i] +"").append('<input type="button" value="koop" class ="koopKaart">').click(koopKaart);
             }
         }
-    })
+    });
+    showPlayerGegevens()
 };
-=======
->>>>>>> 698653038a818dbaf0444b704e85567c55cc6621
 
 function beginBeurtServlet(){
     $.ajax({
@@ -88,6 +109,7 @@ var gooiGeld = function(){
     });
     showPlayerGegevens();
     showHand();
+    showKoopOpties();
 };
 
 var zoomIn = function () {
@@ -117,19 +139,12 @@ function showActieKaarten(){
         url:"ActieKaartServlet",
         success: function(result){
             for(i=0;i<result.length/2;i++){
-<<<<<<< HEAD
 
                 $("#actiekaarten").prepend("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
             for(i=result.length/2;i<result.length;i++){
 
                 $("#actiekaarten").append("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
-=======
-                $("#actiekaarten").prepend("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
-            }
-            for(i=result.length/2;i<result.length;i++){
-                $("#actiekaarten").append("<li><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
->>>>>>> 698653038a818dbaf0444b704e85567c55cc6621
             }
         }
     })
@@ -150,10 +165,10 @@ function showHand() {
 
 function showPlayerGegevens() {
     $.ajax({
-        type:"POST",
-        dataType:"json",
-        url:"SpelerServlet",
-        success: function(result){
+        type: "POST",
+        dataType: "json",
+        url: "SpelerServlet",
+        success: function (result) {
             $("#acties").html(result[0]);
             $("#buys").html(result[1]);
             $("#geld").html(result[2]);

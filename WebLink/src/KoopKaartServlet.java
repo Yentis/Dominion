@@ -30,15 +30,11 @@ public class KoopKaartServlet extends HttpServlet {
             if(Objects.equals(kaartnaam,k.getNaam()) && !kaartGekocht){
                 teKopenKaart = k;
                 spel.koopKaart(teKopenKaart,speler.getAflegstapel());
+                speler.addKoop(-1);
                 kaartGekocht = true;
                 out.print(kaartnaam);
             }
         }
-
-
-
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -14,6 +14,7 @@ $(document).ready(function () {
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", speelActieKaart);
+    $("ul li .koopKaart").on("click", koopKaart);
 });
 
 var speelActieKaart = function(){
@@ -36,31 +37,38 @@ var speelActieKaart = function(){
 };
 
 var koopKaart = function () {
-    var kaart = this.src;
-    kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
-    kaart = kaart.replace(".jpg","");
+   
+    console.log("koopkaart connected");
+
+    var kaart = this.id;
+    console.log(kaart + " var kek");
+
     $.ajax({
         type:"POST",
-        data: {kaart:kaart},
-        url:"KoopKaartServlet"
-        
-    })
-    
+        data:{kaart:kaart},
+        url:"KoopKaartServlet",
+        success: function (result) {
+            console.log("kaart"+ result + " is gekocht");
+        }
+    });
+    showPlayerGegevens();
+    showKoopOpties();
 };
 
 
 var showKoopOpties = function () {
+    $(".koopKaart").remove();
     $.ajax({
         type:"POST",
         dataType:"json",
         url:"KoopServlet",
         success: function (result) {
             for (i = 0; i<result.length; i++){
-                console.log(result[i]);
-                $("#" + result[i] +"").append('<input type="button" value="koop" class ="koopKaart">');
+                $("#" + result[i] +"").append('<input type="button" value="koop" class ="koopKaart">').click(koopKaart);
             }
         }
-    })
+    });
+    showPlayerGegevens()
 };
 
 function beginBeurtServlet(){
@@ -157,10 +165,10 @@ function showHand() {
 
 function showPlayerGegevens() {
     $.ajax({
-        type:"POST",
-        dataType:"json",
-        url:"SpelerServlet",
-        success: function(result){
+        type: "POST",
+        dataType: "json",
+        url: "SpelerServlet",
+        success: function (result) {
             $("#acties").html(result[0]);
             $("#buys").html(result[1]);
             $("#geld").html(result[2]);
