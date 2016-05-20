@@ -6,9 +6,9 @@
 $(document).ready(function () {
     $(".actiekaarten, .overwinningskaarten, .geldcurse").on("click", "img", zoomIn);
     beginBeurtServlet();
+    showActieKaarten();
     showPlayerName();
     showPlayerGegevens();
-    showActieKaarten();
     showHand();
     showKoopOpties();
     $("#gooigeld").on("click", gooiGeld);
@@ -35,14 +35,14 @@ var speelActieKaart = function(){
     showHand();
 };
 var showKoopOpties = function () {
-
     $.ajax({
         type:"POST",
         dataType:"json",
         url:"KoopServlet",
         success: function (result) {
             for (i = 0; i<result.length; i++){
-                $("#" + result[i] +"").append("<span>derp</span>");
+                console.log(result[i]);
+                $("#" + result[i] +"").append('<input type="button" value="koop" class ="koopKaart">');
             }
         }
     })
@@ -60,9 +60,17 @@ var eindigBeurt = function(){
         type:"POST",
         url:"EindeBeurtServlet"
     });
+    clearVeld();
+    beginBeurtServlet();
+    showPlayerName();
     showPlayerGegevens();
     showHand();
 };
+
+function clearVeld(){
+    $(".kaartOpVeld").remove();
+    $("#persoongegevens").after("<ul class='kaartOpVeld'></ul>")
+}
 
 var gooiGeld = function(){
     $.ajax({
@@ -108,10 +116,12 @@ function showActieKaarten(){
         url:"ActieKaartServlet",
         success: function(result){
             for(i=0;i<result.length/2;i++){
-                $("#actiekaarten").prepend("<li><img id='"+result[i]+"' src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+
+                $("#actiekaarten").prepend("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
             for(i=result.length/2;i<result.length;i++){
-                $("#actiekaarten").append("<li><img id='"+result[i]+"' src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+
+                $("#actiekaarten").append("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
             }
         }
     })

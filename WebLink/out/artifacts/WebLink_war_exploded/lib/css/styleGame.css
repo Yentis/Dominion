@@ -9,6 +9,7 @@
 body {
     background-attachment: fixed ;
     background-image: url("../images/background.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
     font-family: 'runescape';
     color: white;
@@ -201,7 +202,15 @@ body {
     left: 80%;
 }
 
-
+.koopKaart{
+    position: absolute;
+    margin-left: -5%;
+    margin-top: 21%;
+    width:5%;
+    height:5%;
+    z-index: 5;
+    background-color: aqua;
+}
 
 /*veldkaarten*/
 
