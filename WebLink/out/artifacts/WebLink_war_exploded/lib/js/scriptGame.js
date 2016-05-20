@@ -15,15 +15,20 @@ $(document).ready(function () {
     showKoopOpties();
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
-    $(".hand").on("click", "img", speelActieKaart);
-    if($("#ok").hasClass("hide")){
-        $(".hand").on("click", "img", checkActiekaart);
-    } else {
-        $(".hand").on("click", "img", voegKaartToe);
-    }
+    $(".hand").on("click", "img", function(){
+        var kaart = this;
+        if($("#ok").hasClass("hide")) {
+            console.log("yes");
+            checkActiekaart(kaart);
+        } else {
+            console.log("no");
+            voegKaartToe(kaart);
+        }
+    });
     $("#ok").on("click", function(){
         speelActieKaart(masterkaart, 2, gekozenkaarten);
         $("#ok").addClass("hide");
+        $("#log").html("");
     });
     $("ul li .koopKaart").on("click", koopKaart);
 
@@ -34,7 +39,6 @@ var speelActieKaart = function(kaart, janee, lijstkaarten){
         type:"POST",
         url:"SpelerServlet",
         success: function(result){
-            console.log(result[0]);
             if(result[0] == 0){
                 $("#log").html("Je hebt geen acties meer over.");
             } else {
@@ -43,21 +47,22 @@ var speelActieKaart = function(kaart, janee, lijstkaarten){
                     data:{kaart:kaart, janee:janee, lijstkaarten:lijstkaarten},
                     url:"ActieKaartSpelenServlet",
                     success: function(result){
-                        $(".kaartOpVeld").append("<li class='"+result+"'><img src='lib/images/kaarten/" + result + ".jpg' title='" + result + "'/></li>");
+                        $(".kaartOpVeld").append("<li class='"+result+"'><img src='lib/images/kaarten/" + result + ".png' title='" + result + "'/></li>");
                         $(".hand").slice(1).remove("." + result + "");
+                        showPlayerGegevens();
+                        showHand();
                     }
                 });
             }
         }
     });
-    showPlayerGegevens();
-    showHand();
 };
 
-function checkActiekaart(){
-    var kaart = this.src;
+function checkActiekaart(kaart){
+    kaart = kaart.src;
+    console.log(kaart);
     kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
-    kaart = kaart.replace(".jpg","");
+    kaart = kaart.replace(".png","");
     
     switch(kaart){
         case "Kanselier":
@@ -72,6 +77,7 @@ function checkActiekaart(){
             $("#log").html("Kies de kaarten die je wilt afleggen");
             masterkaart = "Kelder";
             $("#ok").removeClass("hide");
+            $(".hand ." + kaart + ":first").hide();
             break;
         default:
             speelActieKaart(kaart, 2, "");
@@ -79,10 +85,12 @@ function checkActiekaart(){
     }
 }
 
-function voegKaartToe(){
-    var kaart = this.src;
+function voegKaartToe(kaart){
+    kaart = kaart.src;
     kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
-    kaart = kaart.replace(".jpg","");
+    kaart = kaart.replace(".png","");
+    $(".kaartOpVeld").append("<li class='"+kaart+"'><img src='lib/images/kaarten/" + kaart + ".png' title='" + kaart + "'/></li>");
+    $(".hand ." + kaart + ":first").remove();
     gekozenkaarten.push(kaart);
 }
 
@@ -154,7 +162,7 @@ var gooiGeld = function(){
         url:"GooiGeldServlet",
         success: function(result){
             for(i=0;i<result.length;i++){
-                $(".kaartOpVeld").append("<li class='"+result[i]+"'><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+                $(".kaartOpVeld").append("<li class='"+result[i]+"'><img src='lib/images/kaarten/" + result[i] + ".png' title='" + result[i] + "'/></li>");
                 $(".hand").remove("."+result[i]+"");
             }
         }
@@ -192,11 +200,11 @@ function showActieKaarten(){
         success: function(result){
             for(i=0;i<result.length/2;i++){
 
-                $("#actiekaarten").prepend("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+                $("#actiekaarten").prepend("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".png' title='" + result[i] + "'/></li>");
             }
             for(i=result.length/2;i<result.length;i++){
 
-                $("#actiekaarten").append("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + result[i] + "'/></li>");
+                $("#actiekaarten").append("<li id=" +result[i] +"><img src='lib/images/kaarten/" + result[i] + ".png' title='" + result[i] + "'/></li>");
             }
         }
     })
@@ -207,15 +215,10 @@ function showHand() {
         dataType:"json",
         url:"HandServlet",
         success: function (result) {
-
-                $(".hand").html("<li class='" + result[0] + "'><img src='lib/images/kaarten/" + result[0] + ".jpg' title='" + "temp" + "'/></li>");
-                console.log(result + " " + typeof result);
-                if(result != 0){
-                    for(i=1;i<result.length;i++){
-                        $(".hand").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".jpg' title='" + "temp" + "'/></li>");
-                    }
-                
-            }
+            $(".hand").html("<li class='" + result[0] + "'><img src='lib/images/kaarten/" + result[0] + ".png' title='" + "temp" + "'/></li>");
+                for(i=1;i<result.length;i++){
+                    $(".hand").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".png' title='" + "temp" + "'/></li>");
+                }
         }
     })
 }
