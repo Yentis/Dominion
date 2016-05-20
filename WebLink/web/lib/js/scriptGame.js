@@ -4,7 +4,8 @@
 
 
 $(document).ready(function () {
-    $(".actiekaarten, .overwinningskaarten, .geldcurse").on("click", "img", zoomIn);
+    $(".actiekaarten, .overwinningskaarten, .geldcurse, .kaartOpVeld").on("click", "img", zoomIn);
+
     beginBeurtServlet();
     showActieKaarten();
     showPlayerName();
