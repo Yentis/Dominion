@@ -91,12 +91,10 @@ public class Spel {
         speler.setGeld(0);
     }
 
-<<<<<<< HEAD
-    public void starterDeck(Spel spel, Speler speler) {
-=======
+
     public void starterDeck(Speler speler)
     {
->>>>>>> 9e958b33fcd381eee865adf5dc705d08a7a7ae8a
+
         int aantalkaarten = 0;
 
         aantalkaarten = voegKoperKaartenToe(aantalkaarten, speler);
@@ -105,15 +103,11 @@ public class Spel {
         schudden(speler.getDeck());
     }
 
-<<<<<<< HEAD
-    public void voegKoperKaartenToe(int aantalkaarten, Speler speler) {
-        for (int i = 0; i < geldveld.size(); i++) {
-            if (Objects.equals(geldveld.get(i).getNaam(), "Koper") && aantalkaarten < 7) {
-=======
+
     public int voegKoperKaartenToe(int aantalkaarten, Speler speler){
         for(int i=0;i<geldveld.size();i++){
             if(Objects.equals(geldveld.get(i).getNaam(), "Koper") && aantalkaarten < 7){
->>>>>>> 9e958b33fcd381eee865adf5dc705d08a7a7ae8a
+
                 speler.getDeck().add(geldveld.get(i));
                 setStapelskaarten(25, -1);
                 aantalkaarten++;
@@ -123,15 +117,10 @@ public class Spel {
         return aantalkaarten;
     }
 
-<<<<<<< HEAD
-    public void voegLandgoedKaartenToe(Spel spel, int aantalkaarten, Speler speler) {
-        for (int i = 0; i < overwinningsveld.size(); i++) {
-            if (Objects.equals(overwinningsveld.get(i).getNaam(), "Landgoed") && aantalkaarten < 10) {
-=======
+
     public void voegLandgoedKaartenToe(int aantalkaarten, Speler speler){
         for(int i=0;i<overwinningsveld.size();i++){
             if(Objects.equals(overwinningsveld.get(i).getNaam(), "Landgoed") && aantalkaarten < 10){
->>>>>>> 9e958b33fcd381eee865adf5dc705d08a7a7ae8a
                 speler.getDeck().add(overwinningsveld.get(i));
                 setStapelskaarten(28, -1);
                 aantalkaarten++;
@@ -286,13 +275,9 @@ public class Spel {
         return winnaar;
     }
 
-<<<<<<< HEAD
-    public void geefStartKaarten(Spel spel, Speler speler) {
-        spel.starterDeck(spel, speler);
-=======
+
     public void geefStartKaarten(Speler speler){
         starterDeck(speler);
->>>>>>> 9e958b33fcd381eee865adf5dc705d08a7a7ae8a
         speler.vulHand();
     }
 

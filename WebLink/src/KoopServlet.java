@@ -27,7 +27,7 @@ public class KoopServlet extends HttpServlet {
         List<String> koopopties = new ArrayList<>();
         if (speler.getKoop() > 0) {
             for (Kaart k : spel.getAlleKaarten()) {
-                if (k.getKost() <= speler.getGeld() && !koopopties.contains(k)) {
+                if (k.getKost() <= speler.getGeld() && !koopopties.contains(k.getNaam())) {
                     koopopties.add(k.getNaam());
                 }
             }

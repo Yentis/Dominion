@@ -18,9 +18,9 @@
 
 
     <ul class="overwinningskaarten">
-        <li><img class="Provincie" src="lib/images/kaarten/ProvinciePS.jpg" alt="province" title="province"/></li>
-        <li><img class="Hertogdom" src="lib/images/kaarten/HertogdomPS.jpg" alt="duchy" title="duchy::"/></li>
-        <li><img class="Landgoed" src="lib/images/kaarten/LandgoedPS.jpg" alt="estate" title="estate"/></li>
+        <li><img id="Provincie" src="lib/images/kaarten/ProvinciePS.jpg" alt="province" title="province"/></li>
+        <li><img id="Hertogdom" src="lib/images/kaarten/HertogdomPS.jpg" alt="duchy" title="duchy::"/></li>
+        <li><img id="Landgoed" src="lib/images/kaarten/LandgoedPS.jpg" alt="estate" title="estate"/></li>
     </ul>
 
 
@@ -57,10 +57,10 @@
 
 
     <ul class="geldcurse">
-        <li><img class="Goud" src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
-        <li><img class="Zilver" src="lib/images/kaarten/Zilver.jpg" alt="silver" title="silver"></li>
-        <li><img class="Koper" src="lib/images/kaarten/Koper.jpg" alt="copper" title="copper"></li>
-        <li><img class="Vloek" src="lib/images/kaarten/Vloek.jpg" alt="curse" title="curse"></li>
+        <li><img id="Goud" src="lib/images/kaarten/Goud.jpg" alt="gold" title="gold"></li>
+        <li><img id="Zilver" src="lib/images/kaarten/Zilver.jpg" alt="silver" title="silver"></li>
+        <li><img id="Koper" src="lib/images/kaarten/Koper.jpg" alt="copper" title="copper"></li>
+        <li><img id="Vloek" src="lib/images/kaarten/Vloek.jpg" alt="curse" title="curse"></li>
     </ul>
 
 
