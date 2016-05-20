@@ -34,6 +34,21 @@ var speelActieKaart = function(){
     showPlayerGegevens();
     showHand();
 };
+
+var koopKaart = function () {
+    var kaart = this.src;
+    kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
+    kaart = kaart.replace(".jpg","");
+    $.ajax({
+        type:"POST",
+        data: {kaart:kaart},
+        url:"KoopKaartServlet"
+        
+    })
+    
+};
+
+
 var showKoopOpties = function () {
     $.ajax({
         type:"POST",
