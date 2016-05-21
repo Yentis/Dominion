@@ -44,11 +44,19 @@ var speelActieKaart = function(kaart, janee, lijstkaarten){
             } else {
                 $.ajax({
                     type:"POST",
+                    dataType:"json",
                     data:{kaart:kaart, janee:janee, lijstkaarten:lijstkaarten},
                     url:"ActieKaartSpelenServlet",
                     success: function(result){
-                        $(".kaartOpVeld").append("<li class='"+result+"'><img src='lib/images/kaarten/" + result + ".png' title='" + result + "'/></li>");
-                        $(".hand").slice(1).remove("." + result + "");
+                        console.log("Kaart: " + result[0]);
+                        console.log("Result: " + result[1]);
+                        $(".kaartOpVeld").append("<li class='"+result[0]+"'><img src='lib/images/kaarten/" + result[0] + ".png' title='" + result[0] + "'/></li>");
+                        $(".hand").slice(1).remove("." + result[0] + "");
+                        if(result[1] > 0){
+                            $("#log").html("Kies een kaart om te kopen");
+                            wijzigGegevens(0,1,parseInt(result[1]));
+                            showKoopOpties();
+                        }
                         showPlayerGegevens();
                         showHand();
                     }
@@ -57,6 +65,14 @@ var speelActieKaart = function(kaart, janee, lijstkaarten){
         }
     });
 };
+
+function wijzigGegevens(acties, buys, geld){
+    $.ajax({
+        type:"POST",
+        data:{acties:acties, buys:buys, geld:geld},
+        url:"WijzigGegevensServlet"
+    });
+}
 
 function checkActiekaart(kaart){
     gekozenkaarten = [];
@@ -80,6 +96,14 @@ function checkActiekaart(kaart){
             break;
         case "Kerk":
             $("#log").html("Kies de kaarten die je wilt wegsmijten");
+            setMasterkaartenToonOk(kaart);
+            break;
+        case "Geldverlener":
+            $("#log").html("Kies een koperkaart om weg te smijten");
+            setMasterkaartenToonOk(kaart);
+            break;
+        case "Ombouwen":
+            $("#log").html("Kies een kaart om weg te smijten");
             setMasterkaartenToonOk(kaart);
             break;
         default:
