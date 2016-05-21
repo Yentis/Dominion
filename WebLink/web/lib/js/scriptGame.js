@@ -59,10 +59,11 @@ var speelActieKaart = function(kaart, janee, lijstkaarten){
 };
 
 function checkActiekaart(kaart){
+    gekozenkaarten = [];
     kaart = kaart.src;
-    console.log(kaart);
     kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
     kaart = kaart.replace(".png","");
+    console.log(kaart);
     
     switch(kaart){
         case "Kanselier":
@@ -75,14 +76,22 @@ function checkActiekaart(kaart){
             break;
         case "Kelder":
             $("#log").html("Kies de kaarten die je wilt afleggen");
-            masterkaart = "Kelder";
-            $("#ok").removeClass("hide");
-            $(".hand ." + kaart + ":first").hide();
+            setMasterkaartenToonOk(kaart);
+            break;
+        case "Kerk":
+            $("#log").html("Kies de kaarten die je wilt wegsmijten");
+            setMasterkaartenToonOk(kaart);
             break;
         default:
             speelActieKaart(kaart, 2, "");
             break;
     }
+}
+
+function setMasterkaartenToonOk(kaart){
+    masterkaart = kaart;
+    $("#ok").removeClass("hide");
+    $(".hand ." + kaart + ":first").hide();
 }
 
 function voegKaartToe(kaart){
@@ -164,12 +173,12 @@ var gooiGeld = function(){
             for(i=0;i<result.length;i++){
                 $(".kaartOpVeld").append("<li class='"+result[i]+"'><img src='lib/images/kaarten/" + result[i] + ".png' title='" + result[i] + "'/></li>");
                 $(".hand").remove("."+result[i]+"");
+                showPlayerGegevens();
+                showHand();
+                showKoopOpties();
             }
         }
     });
-    showPlayerGegevens();
-    showHand();
-    showKoopOpties();
 };
 
 var zoomIn = function () {

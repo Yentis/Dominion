@@ -19,7 +19,7 @@ public class Actiekaart {
                 kelder(spel, speler, kaarten);
                 break;
             case "Kerk":
-                kerk(spel, speler);
+                kerk(spel, speler, kaarten);
                 break;
             case "Gracht":
                 gracht(speler);
@@ -46,7 +46,7 @@ public class Actiekaart {
                 schutterij(spel, speler);
                 break;
             case "Geldverlener":
-                geldverlener(spel, speler);
+                geldverlener(spel, speler, kaarten);
                 break;
             case "Ombouwen":
                 ombouwen(spel,speler);
@@ -88,6 +88,24 @@ public class Actiekaart {
                 tuinen(speler);
                 break;
         }
+    }
+
+    public int overloopKaartLijst(Spel spel, Speler speler, List<String> kaarten, int maxwaarde, List<Kaart> bestemming){
+        boolean selected = false;
+        int aantalkaarten = 0;
+
+        for(String s : kaarten){
+            for(Kaart k : spel.getAlleKaarten()){
+                if(Objects.equals(k.getNaam(), s) && !selected && aantalkaarten < maxwaarde){
+                    spel.voegKaartToe(1, k, speler.getHand(), bestemming);
+                    aantalkaarten++;
+                    selected = true;
+                }
+            }
+            selected = false;
+        }
+
+        return aantalkaarten;
     }
 
     public Kaart kiesKaart(Speler speler, String input){
@@ -182,20 +200,8 @@ public class Actiekaart {
         //+1 actie
         speler.addActie(1);
         //selecteer de kaarten die je wilt afleggen
-        int aantalkaarten = 0;
-        boolean selected = false;
-
-        for(String s : kaarten){
-            for(Kaart k : spel.getAlleKaarten()){
-                if(Objects.equals(k.getNaam(), s) && !selected){
-                    spel.voegKaartToe(1, k, speler.getHand(), speler.getAflegstapel());
-                    aantalkaarten++;
-                    selected = true;
-                }
-            }
-            selected = false;
-        }
-
+        //trek x nieuwe kaarten
+        speler.voegKaartToe(overloopKaartLijst(spel, speler, kaarten, 7, speler.getAflegstapel()), speler.getDeck(), speler.getHand());
 
         /*String input = "";
 
@@ -204,20 +210,20 @@ public class Actiekaart {
             spel.voegKaartToe(1, kiesKaart(speler, input), speler.getHand(), speler.getAflegstapel());
             aantalkaarten++;
         }*/
-        //trek x nieuwe kaarten
-        speler.voegKaartToe(aantalkaarten, speler.getDeck(), speler.getHand());
     }
 
-    public void kerk(Spel spel, Speler speler) {
+    public void kerk(Spel spel, Speler speler, List<String> kaarten) {
         //plaats tot 4 kaarten in de vuilbak
-        int aantalkaarten = 0;
+        overloopKaartLijst(spel, speler, kaarten, 4, speler.getVuilbak());
+
+        /*
         String input = "";
 
         System.out.println("Kies max 4 kaarten die je wilt wegsmijten, typ 'OK' om door te gaan: ");
         while (!Objects.equals(input, "OK") || aantalkaarten<4) {
             spel.voegKaartToe(1, kiesKaart(speler, input), speler.getHand(), speler.getVuilbak());
             aantalkaarten++;
-        }
+        }*/
     }
 
     public void gracht(Speler speler) {
@@ -310,9 +316,17 @@ public class Actiekaart {
         }
     }
 
-    public void geldverlener(Spel spel, Speler speler) {
+    public void geldverlener(Spel spel, Speler speler, List<String> kaarten) {
         //thrash koper
         //krijg +3 geld
+        if(Objects.equals(kaarten.get(0), "Koper")){
+            overloopKaartLijst(spel, speler, kaarten, 1, speler.getVuilbak());
+            speler.addGeld(3);
+        } else {
+            geldverlener(spel, speler, kaarten);
+        }
+
+        /*
         String input = "";
         System.out.println("Kies de koperkaart die je wilt verwijderen: \n");
         Kaart teVerwijderenKaart = kiesKaart(speler, input);
@@ -323,7 +337,7 @@ public class Actiekaart {
         } else {
             System.out.println("Dit is geen koperkaart, probeer opnieuw.");
             geldverlener(spel, speler);
-        }
+        }*/
     }
 
     public void ombouwen(Spel spel, Speler speler) {
