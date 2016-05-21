@@ -39,8 +39,7 @@ public class Actiekaart {
                 bureaucraat(spel, speler);
                 break;
             case "Feest":
-                feest(spel, speler);
-                break;
+                return feest(spel, speler);
             case "Schutterij":
                 schutterij(spel, speler);
                 break;
@@ -292,13 +291,16 @@ public class Actiekaart {
         }
     }
 
-    public void feest(Spel spel, Speler speler) {
+    public int feest(Spel spel, Speler speler) {
         //deze kaart naar trash
         spel.voegKaartToe(1, duidSpecifiekeKaartAan("Feest", spel), speler.getHand(), speler.getVuilbak());
 
         //neem kaart die max 5 geld kost
+        return 5;
+
+        /*
         System.out.println("Kies een kaart met een kost van maximum 5: \n");
-        kiesKaartMetSoort("5", "kost", spel.getAlleKaarten());
+        kiesKaartMetSoort("5", "kost", spel.getAlleKaarten());*/
     }
 
     public void schutterij(Spel spel, Speler speler) {
@@ -310,7 +312,7 @@ public class Actiekaart {
                 while (s.getHand().size() > 3) {
                     String input = "";
 
-                    System.out.println("Kies de kaarten die je wilt verwijderen: \n");
+                    System.out.println("Kies de kaarten die je wilt afleggen: \n");
                     spel.voegKaartToe(1, kiesKaart(speler, input), s.getHand(), s.getAflegstapel());
                 }
             }
