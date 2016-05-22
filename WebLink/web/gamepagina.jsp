@@ -33,17 +33,13 @@
     <ul class="actiekaarten" id="actiekaarten">
         <li><span id="linebreaker"> </span></li>
     </ul>
-
     <div id="buttons">
         <input type="button" value="Gooi alle geldkaarten" id="gooigeld">
         <input type="button" value="Eindig je beurt" id="eindigbeurt">
-<<<<<<< HEAD
-        <form method="post" action="StoppenServlet">
+      <form method="post" action="StoppenServlet">
         <input type="submit" value="Stoppen" id="stoppen">
-</form>
-=======
+      </form>
         <input type="button" value="OK" id="ok" class="hide">
->>>>>>> 0122aaab71f0ece76dd04415df24c9dbe085610b
     </div>
     <div>
         <h2 id="log"></h2>
