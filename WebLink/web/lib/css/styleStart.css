@@ -4,7 +4,7 @@ body{
     font-family: 'timesplitters';
     font-weight: lighter;
     font-style: italic;
-    color: orange;
+    color: deepskyblue;
     background-attachment: fixed;
 }
 
@@ -16,8 +16,9 @@ h1{
     font-weight: lighter;
     /*text-shadow: 0 0 20px rgb(254,252,201) , 10px -10px 30px rgb(254,236,133) , -20px -20px 40px rgb(255,174,52) , 20px -40px 50px rgb(236,118,12) , -20px -60px 60px rgb(205,70,6) , 0 -80px 70px rgb(151,55,22) , 10px -90px 80px rgb(69,27,14) 4;*/
     font-style: italic;
-    text-shadow: 5px 5px 50px chocolate;
+    text-shadow: 5px 5px 50px blue;
     margin-top: -100px;
+    margin-bottom: 50px;
 }
 h2{
     font-size:5rem;
@@ -25,7 +26,7 @@ h2{
     margin-right: 30px;
     display: inline-block;
     float: right;
-    text-shadow: 5px 5px 50px chocolate;
+    text-shadow: 5px 5px 50px blue;
     margin-top: -15px;
 }
 h3{
@@ -33,7 +34,7 @@ h3{
     margin-top: 50px;
     font-weight: lighter;
     font-style: italic;
-    text-shadow: 5px 5px 50px chocolate;
+    text-shadow: 5px 5px 50px blue;
 }
 ul li{
     font-size: 2.3rem;
@@ -69,14 +70,14 @@ p{
 
 input, a{
     text-decoration: none;
-    color: chocolate;
+    color: deepskyblue;
     margin-bottom: 20px;
     background-color: transparent;
     padding-left: 180px;
-    padding-right: 100px;
+    padding-right: 180px;
     padding-top: 55px;
     padding-bottom: 55px;
-    box-shadow: 0 0 50px chocolate;
+    box-shadow: 0 0 50px blue;
     font-family: 'timesplitters';
     font-size: 5rem;
     display: block;
@@ -87,7 +88,7 @@ input, a{
 
 input[type="text"]{
     height:30px;
-    width:30%;
+    width:50%;
 }
 
 .groteKnop{
@@ -168,7 +169,7 @@ input[type="text"]{
 .scoretitel{
     display: block;
     margin-top: 30px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 .veld{
     display: inline;
@@ -176,8 +177,8 @@ input[type="text"]{
 
 input:hover, a:hover{
 
-    background-color: orange;
-    color: saddlebrown;
+    background-color: lightgray;
+    color: darkblue;
     transition:0.5s;
 }
 
@@ -186,35 +187,35 @@ input:hover, a:hover{
     display:none;
     background-size: 100%;
     background-repeat: no-repeat;
-    color: chocolate;
+    color: deepskyblue;
 
 }
 
 #toggleMuziek.mute:hover{
-    background-image: url(../images/2000px-Simple_Musicmetstreep2.png);
+    background-image: url(../images/music-note-blue-histreep.png);
 }
 
 
 #toggleMuziek.mute{
-    background-image: url(../images/Simple_Musicmetstreep.png);
+    background-image: url(../images/blue-music-note-clipart-musical-note-228x300strrep.png);
 
 }
 #toggleMuziek{
     background-position: center;
     background-size: 75%;
     background-repeat: no-repeat;
-    background-image: url(../images/2000px-Simple_Music.png);
+    background-image: url(../images/blue-music-note-clipart-musical-note-228x300.png);
 
 }
 #toggleMuziek:hover{
-    background-image: url(../images/2000px-Simple_Music2.png);
+    background-image: url(../images/music-note-blue-hi.png);
 }
 
 label{
     font-size: 3rem;
     font-weight: lighter;
     font-style: italic;
-    text-shadow: 5px 5px 50px chocolate;
+    text-shadow: 5px 5px 50px deepskyblue;
     margin-right: 10px;
     margin-left: 20px;
 
@@ -245,8 +246,8 @@ audio{
     margin-right: auto;
 }
 #sluitSpelregels:hover{
-    color: sandybrown;
-    background-color: crimson;
+    color: darkblue;
+    background-color: lightgray;
 }
 #endgame .startp2{
     display: inline-block;
@@ -256,7 +257,7 @@ audio{
 
 @font-face {
     font-family: 'timesplitters';
-    src: url('../fonts/Beyond%20Wonderland/Beyond%20Wonderland.ttf');
+    src: url('../fonts/Beyond Wonderland.ttf');
     font-weight: normal;
     font-style: normal;
 

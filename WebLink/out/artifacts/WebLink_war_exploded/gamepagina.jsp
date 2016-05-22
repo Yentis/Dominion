@@ -37,6 +37,9 @@
     <div id="buttons">
         <input type="button" value="Gooi alle geldkaarten" id="gooigeld">
         <input type="button" value="Eindig je beurt" id="eindigbeurt">
+        <form method="post" action="StoppenServlet">
+        <input type="submit" value="Stoppen" id="stoppen">
+</form>
     </div>
     <div id="log">
         <h2>Een cursekaart werd toegevoegd aan je deck</h2>
@@ -62,6 +65,14 @@
         <li><img id="Koper" src="lib/images/kaarten/Koper.jpg" alt="copper" title="copper"></li>
         <li><img id="Vloek" src="lib/images/kaarten/Vloek.jpg" alt="curse" title="curse"></li>
     </ul>
+
+    <div id="logg">
+        <img id="logicon" src="lib/images/firewood_logs_T.png" alt="log" title="log">
+    </div>
+
+    <div id="trash">
+        <img id="trashkaart" src="lib/images/kaarten/Dominion-Trash%20Card.jpg" alt="trash" title="trash">
+    </div>
 
 
     <div id="speler">

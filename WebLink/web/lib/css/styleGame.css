@@ -175,13 +175,15 @@ body {
 
 }
 
-#buttons input[type = button]{
+#buttons input[type = button], #buttons form #stoppen{
     width: 100%;
-    background-color: #4CAF50;
-    border: none;
-    color: white;
+    background-color: darkgoldenrod;
+    border: solid;
+    color: black;
     padding: 10% 8%;
-    border-radius: 3%;
+    border-radius: 40%;
+    font-family: timesplitters;
+    font-weight: bold;
     font-size: 1vw;
     display: block;
     margin-bottom: 5%;
@@ -189,9 +191,9 @@ body {
 
 }
 
-#buttons input[type = button]:hover{
-    background-color: yellowgreen;
-    color:black;
+#buttons input[type = button]:hover,#buttons form #stoppen:hover{
+    background-color: lightgray;
+    color:darkgoldenrod;
     width: 120%;
     transition: 1s;
 }
@@ -200,7 +202,36 @@ body {
     position: absolute;
     left: 80%;
 }
+#stoppen{
+    margin-top: 120%;
 
+}
+#trash{
+    width: 6%;
+
+}
+#trashkaart{
+    position: absolute;
+    width: 6%;
+    left: 94%;
+    right: -25%;
+    top: 78%;
+
+}
+#logicon:hover{
+    background-color: red;
+}
+#logg{
+    width:6%;
+}
+#logicon{
+    position: absolute;
+    width: 6%;
+    left: 94%;
+    right: -25%;
+    top:70%;
+    border-radius: 10%;
+}
 
 
 /*veldkaarten*/

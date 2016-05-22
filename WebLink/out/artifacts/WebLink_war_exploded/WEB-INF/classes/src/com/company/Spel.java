@@ -218,17 +218,7 @@ public class Spel {
         setStapelskaarten(k.getNr(), -1);
     }
 
-    public void mogelijkTeKopenKaarten(Spel spel, Speler speler) {
-        if (speler.getKoop() > 0) {
-            List<Kaart> koopopties = new ArrayList<>();
-            for (Kaart k : spel.getAlleKaarten()) {
-                if (k.getKost() <= speler.getGeld() && !koopopties.contains(k)) {
-                    koopopties.add(k);
 
-                }
-            }
-        }
-    }
 
     public boolean provinciesOp() {
         for (Kaart k : overwinningsveld) {
