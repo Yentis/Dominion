@@ -34,7 +34,7 @@ public class Actiekaart {
                 houthakker(speler);
                 break;
             case "Werkplaats":
-                return werkplaats(spel,speler);
+                return werkplaats();
             case "Bureaucraat":
                 bureaucraat(spel, speler);
                 break;
@@ -76,7 +76,7 @@ public class Actiekaart {
                 markt(speler);
                 break;
             case "Mijn":
-                mijn(spel, speler);
+                mijn(spel, speler, kaarten);
                 break;
             case "Avonturier":
                 avonturier(speler);
@@ -250,7 +250,7 @@ public class Actiekaart {
         speler.addGeld(2);
     }
 
-    public int werkplaats(Spel spel, Speler speler) {
+    public int werkplaats() {
         //neem een kaart met <=4 kost
         return 4;
         /*
@@ -467,8 +467,15 @@ public class Actiekaart {
         speler.addActie(1);
     }
 
-    public void mijn(Spel spel, Speler speler) {
+    public void mijn(Spel spel, Speler speler, List<String> kaarten) {
         //thrash een geldkaart en geef de geldkaart met 1 waarde meer
+        for(Kaart k : spel.getAlleKaarten()){
+            if(Objects.equals(kaarten.get(0), k.getNaam()) && Objects.equals(k.getType(), "Geld")){
+                overloopKaartLijst(spel, speler, kaarten, 1, speler.getVuilbak());
+            }
+        }
+
+
         String input = "";
         Scanner keyboard = new Scanner(System.in);
 
