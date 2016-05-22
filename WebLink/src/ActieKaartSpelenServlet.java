@@ -34,26 +34,43 @@ public class ActieKaartSpelenServlet extends HttpServlet {
 
             String kaartnaam = request.getParameter("kaart");
             String janee = request.getParameter("janee");
+            Boolean speciaal = Boolean.parseBoolean(request.getParameter("speciaal"));
             List<String> kaarten = new ArrayList<>();
             String[] lijstkaarten = new String[0];
+            int result = 0;
+            List<String> afteprintenkaarten = new ArrayList<>();
             if(!Objects.equals(request.getParameter("lijstkaarten"), "")){
                 lijstkaarten = request.getParameterValues("lijstkaarten[]");
             }
             for(int i=0;i<lijstkaarten.length;i++){
                 kaarten.add(lijstkaarten[i]);
+                System.out.println("Kaart " + i + ": " + kaarten.get(i));
             }
 
             System.out.println("janee: " + janee);
             for(Kaart k : spel.getActieveld()){
                 if(Objects.equals(kaartnaam, k.getNaam()) && !kaartgespeeld){
                     Kaart tespelenkaart = k;
-                    spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
-                    int result = acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel, Integer.parseInt(janee), kaarten);
-                    speler.addActie(-1);
+                    if(speciaal){
+                        System.out.println("speciaal");
+                        afteprintenkaarten = acties.speelactiekaartspecial(kaartnaam, spel, speler, kaarten);
+                        if(afteprintenkaarten.size() == 0){
+                            spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
+                            speler.addActie(-1);
+                        }
+                    } else {
+                        spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
+                        result = acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel, Integer.parseInt(janee), kaarten);
+                        speler.addActie(-1);
+                    }
+                    String[] array = afteprintenkaarten.toArray(new String[0]);
+
+
                     kaartgespeeld = true;
-                    List<String> results = new ArrayList<>();
+                    List<Object> results = new ArrayList<>();
                     results.add(kaartnaam);
-                    results.add(Integer.toString(result));
+                    results.add(result);
+                    results.add(array);
                     String json = gson.toJson(results);
                     out.print(json);
                 }

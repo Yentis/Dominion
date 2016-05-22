@@ -54,9 +54,6 @@ public class Actiekaart {
             case "Spion":
                 spion(spel, speler);
                 break;
-            case "Dief":
-                dief(spel, speler);
-                break;
             case "Troonzaal":
                 troonzaal(spel, speler, truefalse, kaarten);
                 break;
@@ -88,6 +85,15 @@ public class Actiekaart {
         return 0;
     }
 
+    public List<String> speelactiekaartspecial(String naam, Spel spel, Speler speler, List<String> kaarten){
+        List<String> emptylist = new ArrayList<>();
+        switch(naam){
+            case "Dief":
+                return dief(spel, speler, kaarten);
+        }
+        return emptylist;
+    }
+
     public int overloopKaartLijst(Spel spel, Speler speler, List<String> kaarten, int maxwaarde, List<Kaart> bestemming){
         boolean selected = false;
         int aantalkaarten = 0;
@@ -106,7 +112,7 @@ public class Actiekaart {
         return aantalkaarten;
     }
 
-    public Kaart kiesKaart(Speler speler, String input){
+    /*public Kaart kiesKaart(Speler speler, String input){
         Scanner keyboard = new Scanner(System.in);
         int i = 0;
         for (Kaart k : speler.getHand()) {
@@ -116,7 +122,7 @@ public class Actiekaart {
         input = keyboard.nextLine();
         Kaart gekozenkaart = speler.getHand().get(Integer.parseInt(input));
         return gekozenkaart;
-    }
+    }*/
 
     public boolean heeftReactiekaart(Speler s){
         for(Kaart k : s.getHand()){
@@ -309,12 +315,15 @@ public class Actiekaart {
         //leg kaarten af tot alle spelers 3 kaarten over heeft
         for (Speler s : spel.getSpelers()) {
             if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
-                while (s.getHand().size() > 3) {
+
+                /*while (s.getHand().size() > 3) {
+
+
                     String input = "";
 
                     System.out.println("Kies de kaarten die je wilt afleggen: \n");
                     spel.voegKaartToe(1, kiesKaart(speler, input), s.getHand(), s.getAflegstapel());
-                }
+                }*/
             }
         }
     }
@@ -384,25 +393,31 @@ public class Actiekaart {
         }
     }
 
-    public void dief(Spel spel, Speler speler) {
+    public List<String> dief(Spel spel, Speler speler, List<String> kaarten) {
 
         /*Each other player reveals the top 2 cards of his deck.
         If they revealed any Treasure cards, they trash one of them that you choose.
         You may gain any or all of these trashed cards.
         They discard the other revealed cards.*/
+        List<String> testelenkaarten = new ArrayList<>();
 
         for (Speler s : spel.getSpelers()) {
             if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
                 for(int i =0;i<2;i++){
                     Kaart k = s.getDeck().get(i);
                     System.out.println(k.getNaam());
-                    if (Objects.equals(k.getType(), "Geld")){
+                    if (Objects.equals(k.getType(), "Geld") && !kaarten.contains(k.getNaam()) && kaarten.size() == 0){
+                        testelenkaarten.add(k.getNaam());
+                        /*
                         System.out.println("Wil je deze kaart stelen en op je aflegstapel plaatsen? J/N\n");
-                        kaartAfleggen(speler, 1);
+                        kaartAfleggen(speler, 1);*/
+                    } else if (Objects.equals(k.getType(), "Geld") && kaarten.contains(k.getNaam())){
+                        spel.voegKaartToe(1, k, s.getDeck(), speler.getAflegstapel());
                     }
                 }
             }
         }
+        return testelenkaarten;
     }
 
     public void troonzaal(Spel spel, Speler speler, int truefalse, List<String> kaarten) {
