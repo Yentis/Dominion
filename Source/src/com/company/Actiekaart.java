@@ -456,8 +456,26 @@ public class Actiekaart {
         speler.addActie(1);
     }
 
-    public List<String> bibliotheek(Speler speler, List<String> kaarten) {
-        System.out.println("first check");
+    public List<String> bibliotheek(Speler speler, List<String> kaarten, Spel spel) {
+        Kaart[] Array = new Kaart[ 7 - speler.getHand().size()];
+        int aantalKaartenInArray = 0;
+        while (aantalKaartenInArray < Array.length){
+            for(int i = 0; i<Array.length ; i++){
+                Array[i] = speler.getDeck().get(i);
+                if (Array[i].getType().contains("Actie")){
+                    spel.voegKaartToe(1,Array[i],speler.getDeck(),speler.getAflegstapel());  //wait i still need to edit this
+                }
+                else{
+                    aantalKaartenInArray++;
+                }
+            }
+
+
+        }
+
+
+
+        /*System.out.println("first check");
         List<String> techeckenactiekaarten = new ArrayList<>();
         int counter = 0;
 
@@ -474,7 +492,7 @@ public class Actiekaart {
                 int newhandsize = speler.getHand().size();
                 if(oldhandsize == newhandsize){
                     speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
-                }*/
+                }
             } else if (!kaarten.contains(speler.getDeck().get(0).getType()) && kaarten.size() > 0) {
                 System.out.println("third check 2");
                 speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
@@ -484,7 +502,7 @@ public class Actiekaart {
                 counter++;
             }
         }
-        return techeckenactiekaarten;
+        return techeckenactiekaarten;*/
     }
 
     public void markt(Speler speler) {

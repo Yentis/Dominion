@@ -70,6 +70,12 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     speelActieKaart(kaart, 2, tereturnen, true);
                                     break;
                                 case "Bibliotheek":
+                                    for (i=0; i<7; i++){
+                                        $.ajax({
+                                            
+                                        })
+                                    }
+                                    /*
                                     for(i=0;i<result[2].length;i++){
                                         huidigekaart = result[2][i];
                                         var answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
@@ -77,7 +83,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                             tereturnen.push(huidigekaart);
                                         }
                                     }
-                                    speelActieKaart(kaart, 2, tereturnen, true);
+                                    speelActieKaart(kaart, 2, tereturnen, true);*/
                                     break;
                             }
                         }
