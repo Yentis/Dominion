@@ -70,7 +70,6 @@ public class Main {
 
     public void beurt(Speler speler, Spel spel){
         System.out.println("Het is " + speler.getNaam() + " zijn beurt.");
-
         Actiekaart acties = new Actiekaart();
         spel.setSpelerValues(speler);
         speler.checkHand();
