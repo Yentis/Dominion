@@ -152,7 +152,6 @@ var showKoopOpties = function () {
             $(".koopKaart").on("click",koopKaart);
         }
     });
-   
 };
 
 function beginBeurtServlet(){
