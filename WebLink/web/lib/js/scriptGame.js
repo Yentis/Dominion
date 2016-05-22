@@ -12,7 +12,6 @@ $(document).ready(function () {
     showPlayerName();
     showPlayerGegevens();
     showHand();
-    showKoopOpties();
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", function(){
@@ -30,8 +29,6 @@ $(document).ready(function () {
         $("#ok").addClass("hide");
         $("#log").html("");
     });
-    $("ul li .koopKaart").on("click", koopKaart);
-
 });
 
 var speelActieKaart = function(kaart, janee, lijstkaarten){
@@ -95,22 +92,16 @@ function voegKaartToe(kaart){
 }
 
 var koopKaart = function () {
-    console.log(this);
-    console.log("koopkaart connected");
-
-    var kaart = this.id;
-    console.log(kaart + " var kek");
-
-    $.ajax({
-        type:"POST",
-        data:{kaart:kaart},
-        url:"KoopKaartServlet",
-        success: function (result) {
-            console.log("kaart "+ result + " is gekocht");
-        }
-    });
-    showPlayerGegevens();
-    showKoopOpties();
+        var kaart = $(this).parent().attr("id");
+        $.ajax({
+            type:"POST",
+            data:{kaart:kaart},
+            url:"KoopKaartServlet",
+            success: function () {
+                showKoopOpties();
+                showPlayerGegevens();
+            }
+        });
 };
 
 
@@ -121,12 +112,14 @@ var showKoopOpties = function () {
         dataType:"json",
         url:"KoopServlet",
         success: function(result) {
+            console.log(result);
             for (i = 0; i<result.length; i++){
-                $("#" + result[i] +"").append('<input type="button" value="koop" class ="koopKaart">').click(koopKaart);
+                $("#" + result[i]).append('<input type="button" value="koop" class="koopKaart">');
             }
+            $(".koopKaart").on("click",koopKaart);
         }
     });
-    showPlayerGegevens();
+   
 };
 
 function beginBeurtServlet(){
@@ -164,12 +157,12 @@ var gooiGeld = function(){
             for(i=0;i<result.length;i++){
                 $(".kaartOpVeld").append("<li class='"+result[i]+"'><img src='lib/images/kaarten/" + result[i] + ".png' title='" + result[i] + "'/></li>");
                 $(".hand").remove("."+result[i]+"");
+                showPlayerGegevens();
+                showHand();
+                showKoopOpties();
             }
         }
     });
-    showPlayerGegevens();
-    showHand();
-    showKoopOpties();
 };
 
 var zoomIn = function () {
