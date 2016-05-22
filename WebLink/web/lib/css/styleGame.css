@@ -221,8 +221,6 @@ body {
     left: 94%;
     right: -25%;
     top: 78%;
-
-<<<<<<< HEAD
 }
 #logicon:hover{
     background-color: red;
@@ -239,7 +237,6 @@ body {
     border-radius: 10%;
 }
 
-=======
 .koopKaart{
     position: absolute;
     margin-left: -5%;
@@ -249,7 +246,6 @@ body {
     z-index: 5;
     background-color: aqua;
 }
->>>>>>> 0122aaab71f0ece76dd04415df24c9dbe085610b
 
 /*veldkaarten*/
 
