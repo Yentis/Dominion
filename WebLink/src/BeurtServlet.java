@@ -36,10 +36,10 @@ public class BeurtServlet extends HttpServlet {
 
         request.getSession().setAttribute("teller", teller);
         Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
-        spel.setSpelerValues(speler);
         speler.checkHand();
+        spel.setSpelerValues(speler);
 
-
+        /*
        boolean added = false;
         for(Kaart k : spel.getActieveld()){
             if(Objects.equals(k.getNaam(), "Mijn") && !added){
@@ -47,7 +47,7 @@ public class BeurtServlet extends HttpServlet {
                 added = true;
             }
         }
-
+*/
 
         for(int i=0;i<speler.getDeck().size();i++){
             System.out.println(i + ": " + speler.getDeck().get(i).getNaam());
