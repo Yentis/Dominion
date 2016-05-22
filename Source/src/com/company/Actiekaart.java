@@ -66,9 +66,6 @@ public class Actiekaart {
             case "Laboratorium":
                 laboratorium(speler);
                 break;
-            case "Bibliotheek":
-                bibliotheek(speler);
-                break;
             case "Markt":
                 markt(speler);
                 break;
@@ -90,6 +87,8 @@ public class Actiekaart {
         switch(naam){
             case "Dief":
                 return dief(spel, speler, kaarten);
+            case "Bibliotheek":
+                return bibliotheek(speler, kaarten);
         }
         return emptylist;
     }
@@ -457,20 +456,35 @@ public class Actiekaart {
         speler.addActie(1);
     }
 
-    public void bibliotheek(Speler speler) {
-        while (speler.getHand().size() < 7) {
-            if(Objects.equals(speler.getDeck().get(0).getType(), "Actie") || Objects.equals(speler.getDeck().get(0).getType(), "Actie-Reactie") || Objects.equals(speler.getDeck().get(0).getType(), "Actie-Aanval")){
+    public List<String> bibliotheek(Speler speler, List<String> kaarten) {
+        System.out.println("first check");
+        List<String> techeckenactiekaarten = new ArrayList<>();
+        int counter = 0;
+
+        while(counter<7 && speler.getHand().size()<7){
+            System.out.println("second check");
+            if((Objects.equals(speler.getDeck().get(0).getType(), "Actie") || Objects.equals(speler.getDeck().get(0).getType(), "Actie-Reactie") || Objects.equals(speler.getDeck().get(0).getType(), "Actie-Aanval")) && kaarten.size() == 0){
+                System.out.println("third check");
+                techeckenactiekaarten.add(speler.getDeck().get(0).getNaam());
+                counter++;
+                /*
                 System.out.println("Wil je " + speler.getDeck().get(0).getNaam() + " aan de kant leggen? J/N");
                 int oldhandsize = speler.getHand().size();
                 kaartAfleggen(speler, 1);
                 int newhandsize = speler.getHand().size();
                 if(oldhandsize == newhandsize){
                     speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
-                }
-            } else {
+                }*/
+            } else if (!kaarten.contains(speler.getDeck().get(0).getType()) && kaarten.size() > 0) {
+                System.out.println("third check 2");
                 speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
+                counter++;
+            } else {
+                System.out.println("third check 3");
+                counter++;
             }
         }
+        return techeckenactiekaarten;
     }
 
     public void markt(Speler speler) {

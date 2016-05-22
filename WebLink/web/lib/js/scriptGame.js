@@ -56,17 +56,30 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                             showKoopOpties();
                         }
                         if(typeof result[2][0] !== "undefined"){
-                            var testelen = [];
+                            var tereturnen = [];
                             var huidigekaart = "";
-                            for(i=0;i<result[2].length;i++){
-                                huidigekaart = result[2][i];
-                                var answer = window.confirm("Wil je " + huidigekaart + " stelen?");
-                                if(answer == true){
-                                    testelen.push(huidigekaart);
-                                }
+                            switch(result[2][0]){
+                                case "Dief":
+                                    for(i=0;i<result[2].length;i++){
+                                        huidigekaart = result[2][i];
+                                        var answer = window.confirm("Wil je " + huidigekaart + " stelen?");
+                                        if(answer == true){
+                                            tereturnen.push(huidigekaart);
+                                        }
+                                    }
+                                    speelActieKaart(kaart, 2, tereturnen, true);
+                                    break;
+                                case "Bibliotheek":
+                                    for(i=0;i<result[2].length;i++){
+                                        huidigekaart = result[2][i];
+                                        var answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
+                                        if(answer == true){
+                                            tereturnen.push(huidigekaart);
+                                        }
+                                    }
+                                    speelActieKaart(kaart, 2, tereturnen, true);
+                                    break;
                             }
-                            console.log("testelen: " + testelen);
-                            speelActieKaart(kaart, 2, testelen, true);
                         }
                         showPlayerGegevens();
                         showHand();
@@ -122,6 +135,7 @@ function checkActiekaart(kaart){
             setMasterkaartenToonOk(kaart);
             break;
         case "Dief":
+        case "Bibliotheek":
             speelActieKaart(kaart, 2, "", true);
             break;
         default:
