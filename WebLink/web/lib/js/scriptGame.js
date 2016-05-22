@@ -103,6 +103,10 @@ function checkActiekaart(kaart){
             $("#log").html("Kies een kaart om weg te smijten");
             setMasterkaartenToonOk(kaart);
             break;
+        case "Mijn":
+            $("#log").html("Kies een geldkaart om weg te smijten");
+            setMasterkaartenToonOk(kaart);
+            break;
         default:
             speelActieKaart(kaart, 2, "");
             break;

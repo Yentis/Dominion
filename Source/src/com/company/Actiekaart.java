@@ -469,13 +469,42 @@ public class Actiekaart {
 
     public void mijn(Spel spel, Speler speler, List<String> kaarten) {
         //thrash een geldkaart en geef de geldkaart met 1 waarde meer
-        for(Kaart k : spel.getAlleKaarten()){
-            if(Objects.equals(kaarten.get(0), k.getNaam()) && Objects.equals(k.getType(), "Geld")){
+        int kost = 0;
+        boolean done = false;
+        for(Kaart k : spel.getGeldveld()){
+            if(Objects.equals(kaarten.get(0), k.getNaam()) && Objects.equals(k.getType(), "Geld") && !done){
                 overloopKaartLijst(spel, speler, kaarten, 1, speler.getVuilbak());
+                kost = k.getKost();
+                done = true;
             }
         }
+        done = false;
+        switch(kost){
+            case 0:
+                for(int i = 0;i<spel.getGeldveld().size();i++){
+                    if(Objects.equals(spel.getGeldveld().get(i).getNaam(), "Zilver") && !done){
+                        spel.koopKaart(spel.getGeldveld().get(i), speler.getHand());
+                        done = true;
+                        i++;
+                    }
+                }
+                System.out.println("second check");
+                break;
+            case 3:
+            case 6:
+                for(int i = 0;i<spel.getGeldveld().size();i++){
+                    if(Objects.equals(spel.getGeldveld().get(i).getNaam(), "Goud") && !done){
+                        spel.koopKaart(spel.getGeldveld().get(i), speler.getHand());
+                        done = true;
+                        i++;
+                    }
+                }
+                break;
+            default:
+                break;
+        }
 
-
+        /*
         String input = "";
         Scanner keyboard = new Scanner(System.in);
 
@@ -492,7 +521,7 @@ public class Actiekaart {
             tekopenkaart = kiesKaartMetSoort(kaartkost + "3", "kost", speler.getHand());
         }
 
-        spel.koopKaart(tekopenkaart, speler.getHand());
+        spel.koopKaart(tekopenkaart, speler.getHand());*/
     }
 
     public void avonturier(Speler speler) {
