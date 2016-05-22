@@ -111,7 +111,8 @@ public class Main {
                         input = keyboard.nextLine();
                         Kaart tespelenkaart = actiekaarten.get(Integer.parseInt(input));
                         spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
-                        acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel);
+                        List<String> kaarten = new ArrayList<>();
+                        acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel, 1, kaarten);
                         speler.addActie(-1);
                     } else {
                         System.out.println("U heeft onvoldoende actiebeurten.");

@@ -1,3 +1,4 @@
+import com.company.Kaart;
 import com.company.Spel;
 import com.company.Speler;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Objects;
 
 
 /**
@@ -28,6 +30,7 @@ public class BuildServlet extends HttpServlet {
         Speler speler1 = new Speler(naamspeler1);
         request.getSession().setAttribute("speler1",speler1);
         Speler speler2 = new Speler(naamspeler2);
+        request.getSession().setAttribute("speler2",speler2);
         spel.addSpeler(speler1);
         spel.addSpeler(speler2);
 

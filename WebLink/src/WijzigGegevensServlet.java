@@ -8,15 +8,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by Yentl-PC on 19/05/2016.
+ * Created by Yentl-PC on 21/05/2016.
  */
-@WebServlet(name = "EindeBeurtServlet", urlPatterns = {"/EindeBeurtServlet"})
-public class EindeBeurtServlet extends HttpServlet {
+@WebServlet(name = "WijzigGegevensServlet", urlPatterns = {"/WijzigGegevensServlet"})
+public class WijzigGegevensServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Integer teller = (Integer)request.getSession().getAttribute("teller");
+        int acties = Integer.parseInt(request.getParameter("acties"));
+        int buys = Integer.parseInt(request.getParameter("buys"));
+        int geld = Integer.parseInt(request.getParameter("geld"));
         Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
-        speler.beëindigbeurt();
-        request.getSession().setAttribute("teller", teller+1);
+
+        speler.addActie(acties);
+        speler.addGeld(geld);
+        speler.addKoop(buys);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

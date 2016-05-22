@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -21,8 +22,9 @@ import java.util.Objects;
 @WebServlet(name = "ActieKaartSpelenServlet", urlPatterns = {"/ActieKaartSpelenServlet"})
 public class ActieKaartSpelenServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/plain");
+        response.setContentType("application/json");
         PrintWriter out = response.getWriter();
+        Gson gson = new Gson();
         Spel spel = (Spel)request.getSession().getAttribute("spel");
         Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
         Actiekaart acties = new Actiekaart();
@@ -31,16 +33,33 @@ public class ActieKaartSpelenServlet extends HttpServlet {
             boolean kaartgespeeld = false;
 
             String kaartnaam = request.getParameter("kaart");
+            String janee = request.getParameter("janee");
+            List<String> kaarten = new ArrayList<>();
+            String[] lijstkaarten = new String[0];
+            if(!Objects.equals(request.getParameter("lijstkaarten"), "")){
+                lijstkaarten = request.getParameterValues("lijstkaarten[]");
+            }
+            for(int i=0;i<lijstkaarten.length;i++){
+                kaarten.add(lijstkaarten[i]);
+            }
+
+            System.out.println("janee: " + janee);
             for(Kaart k : spel.getActieveld()){
                 if(Objects.equals(kaartnaam, k.getNaam()) && !kaartgespeeld){
                     Kaart tespelenkaart = k;
                     spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
-                    acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel);
+                    int result = acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel, Integer.parseInt(janee), kaarten);
                     speler.addActie(-1);
                     kaartgespeeld = true;
-                    out.print(kaartnaam);
+                    List<String> results = new ArrayList<>();
+                    results.add(kaartnaam);
+                    results.add(Integer.toString(result));
+                    String json = gson.toJson(results);
+                    out.print(json);
                 }
             }
+        } else {
+            out.print("");
         }
     }
 
