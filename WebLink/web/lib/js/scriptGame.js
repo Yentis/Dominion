@@ -25,13 +25,14 @@ $(document).ready(function () {
         }
     });
     $("#ok").on("click", function(){
-        speelActieKaart(masterkaart, 2, gekozenkaarten);
+        speelActieKaart(masterkaart, 2, gekozenkaarten, false);
         $("#ok").addClass("hide");
         $("#log").html("");
     });
 });
 
-var speelActieKaart = function(kaart, janee, lijstkaarten){
+var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
+    console.log("Speciaal? " + speciaal);
     $.ajax({
         type:"POST",
         url:"SpelerServlet",
@@ -42,17 +43,49 @@ var speelActieKaart = function(kaart, janee, lijstkaarten){
                 $.ajax({
                     type:"POST",
                     dataType:"json",
-                    data:{kaart:kaart, janee:janee, lijstkaarten:lijstkaarten},
+                    data:{kaart:kaart, janee:janee, lijstkaarten:lijstkaarten, speciaal:speciaal},
                     url:"ActieKaartSpelenServlet",
                     success: function(result){
                         console.log("Kaart: " + result[0]);
-                        console.log("Result: " + result[1]);
                         $(".kaartOpVeld").append("<li class='"+result[0]+"'><img src='lib/images/kaarten/" + result[0] + ".png' title='" + result[0] + "'/></li>");
                         $(".hand").slice(1).remove("." + result[0] + "");
+                        
                         if(result[1] > 0){
                             $("#log").html("Kies een kaart om te kopen");
                             wijzigGegevens(0,1,parseInt(result[1]));
                             showKoopOpties();
+                        }
+                        if(typeof result[2][0] !== "undefined"){
+                            var tereturnen = [];
+                            var huidigekaart = "";
+                            switch(result[2][0]){
+                                case "Dief":
+                                    for(i=0;i<result[2].length;i++){
+                                        huidigekaart = result[2][i];
+                                        var answer = window.confirm("Wil je " + huidigekaart + " stelen?");
+                                        if(answer == true){
+                                            tereturnen.push(huidigekaart);
+                                        }
+                                    }
+                                    speelActieKaart(kaart, 2, tereturnen, true);
+                                    break;
+                                case "Bibliotheek":
+                                    for (i=0; i<7; i++){
+                                        $.ajax({
+                                            
+                                        })
+                                    }
+                                    /*
+                                    for(i=0;i<result[2].length;i++){
+                                        huidigekaart = result[2][i];
+                                        var answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
+                                        if(answer == true){
+                                            tereturnen.push(huidigekaart);
+                                        }
+                                    }
+                                    speelActieKaart(kaart, 2, tereturnen, true);*/
+                                    break;
+                            }
                         }
                         showPlayerGegevens();
                         showHand();
@@ -82,9 +115,9 @@ function checkActiekaart(kaart){
         case "Kanselier":
             var answer = window.confirm("Wil je je deck op de aflegstapel plaatsen?");
             if(answer == true){
-                speelActieKaart(kaart, 1, "");
+                speelActieKaart(kaart, 1, "", false);
             } else {
-                speelActieKaart(kaart, 0, "");
+                speelActieKaart(kaart, 0, "", false);
             }
             break;
         case "Kelder":
@@ -103,8 +136,16 @@ function checkActiekaart(kaart){
             $("#log").html("Kies een kaart om weg te smijten");
             setMasterkaartenToonOk(kaart);
             break;
+        case "Mijn":
+            $("#log").html("Kies een geldkaart om weg te smijten");
+            setMasterkaartenToonOk(kaart);
+            break;
+        case "Dief":
+        case "Bibliotheek":
+            speelActieKaart(kaart, 2, "", true);
+            break;
         default:
-            speelActieKaart(kaart, 2, "");
+            speelActieKaart(kaart, 2, "", false);
             break;
     }
 }
@@ -155,7 +196,6 @@ var showKoopOpties = function () {
             $(".koopKaart").on("click",koopKaart);
         }
     });
-   
 };
 
 function beginBeurtServlet(){

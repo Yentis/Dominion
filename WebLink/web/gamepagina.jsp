@@ -33,11 +33,13 @@
     <ul class="actiekaarten" id="actiekaarten">
         <li><span id="linebreaker"> </span></li>
     </ul>
-
     <div id="buttons">
         <input type="button" value="Gooi alle geldkaarten" id="gooigeld">
         <input type="button" value="Eindig je beurt" id="eindigbeurt">
         <input type="button" value="OK" id="ok" class="hide">
+      <form method="post" action="StoppenServlet">
+        <input type="submit" value="Stoppen" id="stoppen">
+      </form>
     </div>
     <div>
         <h2 id="log"></h2>
@@ -63,6 +65,14 @@
         <li id="Koper"><img  src="lib/images/kaarten/Koper.png" alt="copper" title="copper"></li>
         <li id="Vloek"><img  src="lib/images/kaarten/Vloek.png" alt="curse" title="curse"></li>
     </ul>
+
+    <div id="logg">
+        <img id="logicon" src="lib/images/firewood_logs_T.png" alt="log" title="log">
+    </div>
+
+    <div id="trash">
+        <img id="trashkaart" src="lib/images/kaarten/Dominion-Trash%20Card.jpg" alt="trash" title="trash">
+    </div>
 
 
     <div id="speler">
