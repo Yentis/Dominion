@@ -12,6 +12,7 @@ $(document).ready(function () {
     showPlayerName();
     showPlayerGegevens();
     showHand();
+    //showKoopAantal()
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", function(){
@@ -178,6 +179,7 @@ var koopKaart = function () {
 
         });
     showTopAflegstapel();
+
 };
 
 
@@ -196,6 +198,8 @@ var showKoopOpties = function () {
         }
     });
 };
+
+
 
 function beginBeurtServlet(){
     $.ajax({
@@ -279,6 +283,26 @@ function showActieKaarten(){
     })
     
 }
+/*
+var showKoopAantal = function () {
+    $.ajax({
+        type:"POST",
+        dataTYpe:"json",
+        url:"AantalActiekaartenServlet",
+        success: function(result){
+            for(i=0;i<result.length/2;i++){
+
+                $(".actiekaarten li").first().prepend("<h2>" +result[i]+"</h2>");
+            }
+            for(i=result.length/2;i<result.length;i++){
+
+                $("#" + result[i]).append('<h2>result[i]</h2>');
+            }
+        }
+    })
+};
+*/
+
 function showHand() {
     $.ajax({
         type:"POST",
