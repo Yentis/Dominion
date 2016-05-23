@@ -460,24 +460,21 @@ public class Actiekaart {
         Kaart[] Array = new Kaart[ 7 - speler.getHand().size()];
         int aantalKaartenInArray = 0;
         ArrayList<String> actieKaarten = new ArrayList<>();
-
         while (aantalKaartenInArray < Array.length){
             for(int i = 0; i<Array.length ; i++){
-                Array[i] = speler.getDeck().get(i);
                 if (Array[i] == null){
                     Array[i] = speler.getDeck().get(i);
-                }
-                if (Array[i].getType().contains("Actie")){
-                    actieKaarten.add(Array[i].getNaam());  //wait i still need to edit this
-                }
-                else{
+                    if (Array[i].getType().contains("Actie")){
+                        actieKaarten.add(Array[i].getNaam());
+                }}
+                else {//if Array[i] != null
                     aantalKaartenInArray++;
                 }
             }
         }
         speler.voegKaartToe(Array.length,speler.getDeck(),speler.getHand());
         return actieKaarten;
-
+    }
 
         /*System.out.println("first check");
         List<String> techeckenactiekaarten = new ArrayList<>();
@@ -510,7 +507,7 @@ public class Actiekaart {
 
         return techeckenactiekaarten;*/
 
-    }
+
 
 
 

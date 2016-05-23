@@ -72,19 +72,20 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                 case "Bibliotheek":
                                     for (i=0; i<7; i++){
                                         $.ajax({
-                                            
-                                        })
-                                    }
-                                    /*
-                                    for(i=0;i<result[2].length;i++){
-                                        huidigekaart = result[2][i];
-                                        var answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
-                                        if(answer == true){
-                                            tereturnen.push(huidigekaart);
+                                            for(i = 0; i<result[2].length; i++){
+                                                huidigekaart = result[2][i];
+                                                var answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
+                                                if(answer == true){
+                                                    tereturnen.push(huidigekaart);
+                                                }
+                                                else{
+                                                
+                                                }
                                         }
-                                    }
-                                    speelActieKaart(kaart, 2, tereturnen, true);*/
-                                    break;
+                                        speelActieKaart(kaart, 2, tereturnen, true);
+                                        break;
+                                    })
+                                    };
                             }
                         }
                         showPlayerGegevens();
@@ -221,7 +222,7 @@ var eindigBeurt = function(){
 
 function clearVeld(){
     $(".kaartOpVeld").remove();
-    $("#persoongegevens").after("<ul class='kaartOpVeld'></ul>")
+    $("#persoongegevens").after("<ul class='kaartOpVeld'></ul>");
     $("#log").html("");
 }
 
