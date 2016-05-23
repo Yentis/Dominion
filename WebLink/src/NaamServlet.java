@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 /**
  * Created by Yentl-PC on 19/05/2016.
@@ -17,6 +18,10 @@ public class NaamServlet extends HttpServlet {
         Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
         PrintWriter out = response.getWriter();
         out.print(speler.getNaam());
+
+
+
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

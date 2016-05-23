@@ -87,8 +87,8 @@ public class Actiekaart {
         switch(naam){
             case "Dief":
                 return dief(spel, speler, kaarten);
-            case "Bibliotheek":
-                return bibliotheek(speler, kaarten);
+            /*case "Bibliotheek":
+                return bibliotheek(speler, kaarten);*/
         }
         return emptylist;
     }
@@ -456,14 +456,19 @@ public class Actiekaart {
         speler.addActie(1);
     }
 
-    public List<String> bibliotheek(Speler speler, List<String> kaarten, Spel spel) {
+    public List<Kaart> bibliotheek(Speler speler, List<String> kaarten, Spel spel) {
         Kaart[] Array = new Kaart[ 7 - speler.getHand().size()];
         int aantalKaartenInArray = 0;
+        ArrayList<Kaart> actieKaarten = new ArrayList<>();
+
         while (aantalKaartenInArray < Array.length){
             for(int i = 0; i<Array.length ; i++){
                 Array[i] = speler.getDeck().get(i);
+                if (Array[i] == null){
+                    Array[i] = speler.getDeck().get(i);
+                }
                 if (Array[i].getType().contains("Actie")){
-                    spel.voegKaartToe(1,Array[i],speler.getDeck(),speler.getAflegstapel());  //wait i still need to edit this
+                    actieKaarten.add(Array[i]);  //wait i still need to edit this
                 }
                 else{
                     aantalKaartenInArray++;
@@ -471,8 +476,10 @@ public class Actiekaart {
             }
 
 
-        }
 
+        }
+        speler.voegKaartToe(Array.length,speler.getDeck(),speler.getHand());
+        return actieKaarten;
 
 
         /*System.out.println("first check");
@@ -502,7 +509,9 @@ public class Actiekaart {
                 counter++;
             }
         }
+
         return techeckenactiekaarten;*/
+
     }
 
     public void markt(Speler speler) {
