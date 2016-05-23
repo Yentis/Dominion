@@ -76,6 +76,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                         tereturnen.push(huidigekaart);
                                     }
                                     speelActieKaart(kaart, 2, tereturnen, true);
+                                    break;
                                 }
                         }
                         showKoopOpties();
@@ -196,7 +197,7 @@ function beginBeurtServlet(){
         url:"BeurtServlet"
     });
     showKoopOpties();
-    showTopAflegstapel();
+
 }
 
 var eindigBeurt = function(){
@@ -206,6 +207,7 @@ var eindigBeurt = function(){
     });
     clearVeld();
     beginBeurtServlet();
+    showTopAflegstapel();
     showPlayerName();
     showPlayerGegevens();
     showHand();
@@ -316,13 +318,19 @@ function showTopAflegstapel() {
         type: "POST",
         url: "AflegstapelServlet",
         success: function (result) {
-            $("#top").attr("src", "lib/images/kaarten/" + result + ".png");
-            $("#top").attr("alt", result);
-            $("#top").attr("title", result);
+            if (!result){
+                $("#top").attr("src", "lib/images/kaarten/undefined.png");
+                $("#top").attr("alt", "undefined");
+                $("#top").attr("title", "undefined");
+            }
+            else{
+                $("#top").attr("src", "lib/images/kaarten/" + result + ".png");
+                $("#top").attr("alt", result);
+                $("#top").attr("title", result);
+            }
+
         }
     });
-
-
 }
 function showSpelerNaamScorePagina() {
     $.ajax({
@@ -333,7 +341,6 @@ function showSpelerNaamScorePagina() {
             for(i=0;i<result.length;i++){
                 $("#spelers").append ("<li>" + result[i] + "</li>");
             }
-
         }
     })
 
