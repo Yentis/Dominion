@@ -12,6 +12,7 @@ $(document).ready(function () {
     showPlayerName();
     showPlayerGegevens();
     showHand();
+    //showKoopAantal()
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", function(){
@@ -55,14 +56,16 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                             wijzigGegevens(0,1,parseInt(result[1]));
                             showKoopOpties();
                         }
+                        showHand();
                         if(typeof result[2][0] !== "undefined"){
                             var tereturnen = [];
                             var huidigekaart = "";
+                            var answer;
                             switch(kaart){
                                 case "Dief":
                                     for(i=0;i<result[2].length;i++){
                                         huidigekaart = result[2][i];
-                                        var answer = window.confirm("Wil je " + huidigekaart + " stelen?");
+                                        answer = window.confirm("Wil je " + huidigekaart + " stelen?");
                                         if(answer == true){
                                             tereturnen.push(huidigekaart);
                                         }
@@ -70,12 +73,19 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     speelActieKaart(kaart, 2, tereturnen, true);
                                     break;
                                 case "Bibliotheek":
-                                    huidigekaart = result[2][0];
-                                    var answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
-                                    if(answer == false){
-                                        tereturnen.push(huidigekaart);
+                                    console.log("Hand size: " + $(".hand li").length);
+                                    if($(".hand li").length < 7){
+                                        huidigekaart = result[2][0];
+                                        answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
+                                        if(answer == false){
+                                            tereturnen.push(huidigekaart);
+                                        }
+                                        console.log("Kaart is: " + kaart + " terug te sturen: " + tereturnen);
+                                        speelActieKaart(kaart, 2, tereturnen, true);
                                     }
+
                                     speelActieKaart(kaart, 2, tereturnen, true);
+
                                     break;
                                 }
                         }
@@ -172,6 +182,7 @@ var koopKaart = function () {
 
         });
     showTopAflegstapel();
+
 };
 
 
@@ -190,6 +201,8 @@ var showKoopOpties = function () {
         }
     });
 };
+
+
 
 function beginBeurtServlet(){
     $.ajax({
@@ -274,6 +287,26 @@ function showActieKaarten(){
     })
     
 }
+/*
+var showKoopAantal = function () {
+    $.ajax({
+        type:"POST",
+        dataTYpe:"json",
+        url:"AantalActiekaartenServlet",
+        success: function(result){
+            for(i=0;i<result.length/2;i++){
+
+                $(".actiekaarten li").first().prepend("<h2>" +result[i]+"</h2>");
+            }
+            for(i=result.length/2;i<result.length;i++){
+
+                $("#" + result[i]).append('<h2>result[i]</h2>');
+            }
+        }
+    })
+};
+*/
+
 function showHand() {
     $.ajax({
         type:"POST",
