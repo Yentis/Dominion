@@ -28,7 +28,7 @@ $(document).ready(function () {
         speelActieKaart(masterkaart, 2, gekozenkaarten, false);
         $("#ok").addClass("hide");
         $("#log").html("");
-    });
+    });showScorebord(); showSpelerNaamScorePagina();
 });
 
 var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
@@ -274,6 +274,7 @@ function showActieKaarten(){
             }
         }
     })
+    
 }
 function showHand() {
     $.ajax({
@@ -298,6 +299,35 @@ function showPlayerGegevens() {
             $("#acties").html(result[0]);
             $("#buys").html(result[1]);
             $("#geld").html(result[2]);
+        }
+    })
+}
+function showScorebord() {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "EindeGameServlet",
+        success: function (result) {
+            for(i=0;i<result.length;i++){
+                $("#score").append ("<li>" + result[i] + "</li>");
+            }
+
+
+
+        }
+    })
+    
+}
+function showSpelerNaamScorePagina() {
+    $.ajax({
+        type : "POST",
+        dataType: "json",
+        url: "SpelerNaamWeergevenServlet",
+        success: function (result) {
+            for(i=0;i<result.length;i++){
+                $("#spelers").append ("<li>" + result[i] + "</li>");
+            }
+            
         }
     })
 }

@@ -82,7 +82,7 @@ public class Actiekaart {
         return 0;
     }
 
-    public List<String> speelactiekaartspecial(String naam, Spel spel, Speler speler, List<String> kaarten){
+    /*public List<String> speelactiekaartspecial(String naam, Spel spel, Speler speler, List<String> kaarten){
         List<String> emptylist = new ArrayList<>();
         switch(naam){
             case "Dief":
@@ -91,7 +91,7 @@ public class Actiekaart {
                 return bibliotheek(speler, kaarten);
         }
         return emptylist;
-    }
+    }*/
 
     public int overloopKaartLijst(Spel spel, Speler speler, List<String> kaarten, int maxwaarde, List<Kaart> bestemming){
         boolean selected = false;
@@ -502,8 +502,8 @@ public class Actiekaart {
                 counter++;
             }
         }
-        return techeckenactiekaarten;*/
-    }
+        return techeckenactiekaarten;
+    }*/
 
     public void markt(Speler speler) {
         //+1 kaart
