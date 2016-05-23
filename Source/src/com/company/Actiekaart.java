@@ -87,8 +87,8 @@ public class Actiekaart {
         switch(naam){
             case "Dief":
                 return dief(spel, speler, kaarten);
-            /*case "Bibliotheek":
-                return bibliotheek(speler, kaarten);*/
+            case "Bibliotheek":
+                return bibliotheek(speler, kaarten,spel);
         }
         return emptylist;
     }
@@ -111,7 +111,7 @@ public class Actiekaart {
         return aantalkaarten;
     }
 
-    /*public Kaart kiesKaart(Speler speler, String input){
+    public Kaart kiesKaart(Speler speler, String input){
         Scanner keyboard = new Scanner(System.in);
         int i = 0;
         for (Kaart k : speler.getHand()) {
@@ -121,7 +121,7 @@ public class Actiekaart {
         input = keyboard.nextLine();
         Kaart gekozenkaart = speler.getHand().get(Integer.parseInt(input));
         return gekozenkaart;
-    }*/
+    }
 
     public boolean heeftReactiekaart(Speler s){
         for(Kaart k : s.getHand()){
@@ -456,10 +456,10 @@ public class Actiekaart {
         speler.addActie(1);
     }
 
-    public List<Kaart> bibliotheek(Speler speler, List<String> kaarten, Spel spel) {
+    public List<String> bibliotheek(Speler speler, List<String> kaarten, Spel spel) {
         Kaart[] Array = new Kaart[ 7 - speler.getHand().size()];
         int aantalKaartenInArray = 0;
-        ArrayList<Kaart> actieKaarten = new ArrayList<>();
+        ArrayList<String> actieKaarten = new ArrayList<>();
 
         while (aantalKaartenInArray < Array.length){
             for(int i = 0; i<Array.length ; i++){
@@ -468,15 +468,12 @@ public class Actiekaart {
                     Array[i] = speler.getDeck().get(i);
                 }
                 if (Array[i].getType().contains("Actie")){
-                    actieKaarten.add(Array[i]);  //wait i still need to edit this
+                    actieKaarten.add(Array[i].getNaam());  //wait i still need to edit this
                 }
                 else{
                     aantalKaartenInArray++;
                 }
             }
-
-
-
         }
         speler.voegKaartToe(Array.length,speler.getDeck(),speler.getHand());
         return actieKaarten;
@@ -510,9 +507,13 @@ public class Actiekaart {
             }
         }
 
+
         return techeckenactiekaarten;*/
 
     }
+
+
+
 
     public void markt(Speler speler) {
         //+1 kaart

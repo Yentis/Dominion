@@ -28,7 +28,7 @@ $(document).ready(function () {
         speelActieKaart(masterkaart, 2, gekozenkaarten, false);
         $("#ok").addClass("hide");
         $("#log").html("");
-    });
+    });showScorebord(); showSpelerNaamScorePagina();
 });
 
 var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
@@ -174,8 +174,11 @@ var koopKaart = function () {
             success: function () {
                 showKoopOpties();
                 showPlayerGegevens();
+
             }
+
         });
+    showTopAflegstapel();
 };
 
 
@@ -201,6 +204,7 @@ function beginBeurtServlet(){
         url:"BeurtServlet"
     });
     showKoopOpties();
+    showTopAflegstapel();
 }
 
 var eindigBeurt = function(){
@@ -274,6 +278,7 @@ function showActieKaarten(){
             }
         }
     })
+    
 }
 function showHand() {
     $.ajax({
@@ -300,4 +305,44 @@ function showPlayerGegevens() {
             $("#geld").html(result[2]);
         }
     })
+}
+
+function showScorebord() {
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "EindeGameServlet",
+        success: function (result) {
+            for (i = 0; i < result.length; i++) {
+                $("#score").append("<li>" + result[i] + "</li>");
+            }
+        }
+    });
+}
+function showTopAflegstapel() {
+    $.ajax({
+        type: "POST",
+        url: "AflegstapelServlet",
+        success: function (result) {
+            $("#top").attr("src", "lib/images/kaarten/" + result + ".png");
+            $("#top").attr("alt", result);
+            $("#top").attr("title", result);
+        }
+    });
+
+
+}
+function showSpelerNaamScorePagina() {
+    $.ajax({
+        type : "POST",
+        dataType: "json",
+        url: "SpelerNaamWeergevenServlet",
+        success: function (result) {
+            for(i=0;i<result.length;i++){
+                $("#spelers").append ("<li>" + result[i] + "</li>");
+            }
+
+        }
+    })
+
 }

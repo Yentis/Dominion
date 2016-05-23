@@ -15,20 +15,12 @@
 </head>
 <body>
 <h1 class="scoretitel">Game over</h1>
-<ul>
-    <li class="veld">Spelers</li>
-    <li class="veld">Province</li>
-    <li class="veld">Duchy</li>
-    <li class="veld">Estate</li>
-    <li class="veld">Vloek</li>
-    <li class="veld">Tuin</li>
+<ul id="score">
+
     <li class="veld">Punten</li>
 </ul>
-<ul>
-    <li>Renzie</li>
-    <li>Yentl</li>
-    <li>Laurens</li>
-    <li>Niels</li>
+<ul id="spelers">
+    <li class="veld">Spelers</li>
 </ul>
 
 
@@ -44,5 +36,7 @@
 
 
 </form>
+<script type="text/javascript" src="lib/js/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="lib/js/scriptGame.js"></script>
 </body>
 </html>
