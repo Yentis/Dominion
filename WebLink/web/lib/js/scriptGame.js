@@ -174,8 +174,11 @@ var koopKaart = function () {
             success: function () {
                 showKoopOpties();
                 showPlayerGegevens();
+
             }
+
         });
+    showTopAflegstapel();
 };
 
 
@@ -201,6 +204,7 @@ function beginBeurtServlet(){
         url:"BeurtServlet"
     });
     showKoopOpties();
+    showTopAflegstapel();
 }
 
 var eindigBeurt = function(){
@@ -302,6 +306,7 @@ function showPlayerGegevens() {
         }
     })
 }
+
 function showScorebord() {
     $.ajax({
         type: "POST",
@@ -313,9 +318,17 @@ function showScorebord() {
             }
 
 
-
+function showTopAflegstapel() {
+    $.ajax({
+        type: "POST",
+        url: "AflegstapelServlet",
+        success: function (result) {
+            $("#top").attr("src", "lib/images/kaarten/" + result + ".png");
+            $("#top").attr("alt", result);
+            $("#top").attr("title", result);
         }
     })
+
     
 }
 function showSpelerNaamScorePagina() {
@@ -330,4 +343,5 @@ function showSpelerNaamScorePagina() {
             
         }
     })
+
 }
