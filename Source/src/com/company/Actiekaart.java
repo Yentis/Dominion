@@ -88,7 +88,7 @@ public class Actiekaart {
             case "Dief":
                 return dief(spel, speler, kaarten);
             case "Bibliotheek":
-                return bibliotheek(speler, kaarten,spel);
+                return bibliotheek(speler, kaarten);
         }
         return emptylist;
     }
@@ -456,28 +456,47 @@ public class Actiekaart {
         speler.addActie(1);
     }
 
-    public List<String> bibliotheek(Speler speler, List<String> kaarten, Spel spel) {
-        Kaart[] Array = new Kaart[ 7 - speler.getHand().size()];
-        int aantalKaartenInArray = 0;
-        ArrayList<String> actieKaarten = new ArrayList<>();
+    public List<String> bibliotheek(Speler speler, List<String> kaarten) {
+        System.out.println("I'm in bibliotheek");
+        int counter = 0;
+        List<String> kaart = new ArrayList<>();
+        List<Integer> indexes = new ArrayList<>();
+        boolean done = false;
 
-        while (aantalKaartenInArray < Array.length){
-            for(int i = 0; i<Array.length ; i++){
-                Array[i] = speler.getDeck().get(i);
-                if (Array[i] == null){
-                    Array[i] = speler.getDeck().get(i);
-                }
-                if (Array[i].getType().contains("Actie")){
-                    actieKaarten.add(Array[i].getNaam());  //wait i still need to edit this
-                }
-                else{
-                    aantalKaartenInArray++;
+        if(kaarten.size()>0){
+            for(int i=0;i<speler.getDeck().size();i++){
+                Kaart e = speler.getDeck().get(i);
+                if(Objects.equals(e.getNaam(), kaarten.get(0)) && !done){
+                    speler.getHand().add(e);
+                    speler.getDeck().remove(i);
+                    done = true;
                 }
             }
         }
-        speler.voegKaartToe(Array.length,speler.getDeck(),speler.getHand());
-        return actieKaarten;
 
+        System.out.println("Hand size: " + speler.getHand().size());
+        while(speler.getHand().size() <= 7){
+            System.out.println("Hand size next: " + speler.getHand().size());
+            Kaart k = speler.getDeck().get(counter);
+            if(k.getType().contains("Actie")){
+                kaart.add(k.getNaam());
+                for(int i : indexes){
+                    speler.getDeck().remove(i);
+                }
+                System.out.println("Kaart: " + kaart);
+                return kaart;
+            } else {
+                speler.getHand().add(k);
+                indexes.add(counter);
+                counter++;
+            }
+        }
+
+        for(int i : indexes){
+            speler.getDeck().remove(i);
+        }
+        return kaart;
+    }
 
         /*System.out.println("first check");
         List<String> techeckenactiekaarten = new ArrayList<>();
@@ -510,7 +529,7 @@ public class Actiekaart {
 
         return techeckenactiekaarten;*/
 
-    }
+
 
 
 

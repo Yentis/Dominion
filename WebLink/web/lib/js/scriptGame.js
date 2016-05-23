@@ -59,7 +59,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                         if(typeof result[2][0] !== "undefined"){
                             var tereturnen = [];
                             var huidigekaart = "";
-                            switch(result[2][0]){
+                            switch(kaart){
                                 case "Dief":
                                     for(i=0;i<result[2].length;i++){
                                         huidigekaart = result[2][i];
@@ -71,23 +71,15 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     speelActieKaart(kaart, 2, tereturnen, true);
                                     break;
                                 case "Bibliotheek":
-                                    for (i=0; i<7; i++){
-                                        $.ajax({
-                                            
-                                        })
+                                    huidigekaart = result[2][0];
+                                    var answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
+                                    if(answer == false){
+                                        tereturnen.push(huidigekaart);
                                     }
-                                    /*
-                                    for(i=0;i<result[2].length;i++){
-                                        huidigekaart = result[2][i];
-                                        var answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
-                                        if(answer == true){
-                                            tereturnen.push(huidigekaart);
-                                        }
-                                    }
-                                    speelActieKaart(kaart, 2, tereturnen, true);*/
-                                    break;
-                            }
+                                    speelActieKaart(kaart, 2, tereturnen, true);
+                                }
                         }
+                        showKoopOpties();
                         showPlayerGegevens();
                         showHand();
                     }
@@ -225,7 +217,7 @@ var eindigBeurt = function(){
 
 function clearVeld(){
     $(".kaartOpVeld").remove();
-    $("#persoongegevens").after("<ul class='kaartOpVeld'></ul>")
+    $("#persoongegevens").after("<ul class='kaartOpVeld'></ul>");
     $("#log").html("");
 }
 
