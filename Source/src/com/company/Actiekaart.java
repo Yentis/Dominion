@@ -457,23 +457,39 @@ public class Actiekaart {
     }
 
     public List<String> bibliotheek(Speler speler, List<String> kaarten, Spel spel) {
-        Kaart[] Array = new Kaart[ 7 - speler.getHand().size()];
-        int aantalKaartenInArray = 0;
-        ArrayList<String> actieKaarten = new ArrayList<>();
-        while (aantalKaartenInArray < Array.length){
-            for(int i = 0; i<Array.length ; i++){
-                if (Array[i] == null){
-                    Array[i] = speler.getDeck().get(i);
-                    if (Array[i].getType().contains("Actie")){
-                        actieKaarten.add(Array[i].getNaam());
-                }}
-                else {//if Array[i] != null
-                    aantalKaartenInArray++;
+        int counter = 0;
+        List<String> kaart = new ArrayList<>();
+        List<Integer> indexes = new ArrayList<>();
+
+        if(kaarten.size()>0){
+            for(int i=0;i<speler.getDeck().size();i++){
+                Kaart e = speler.getDeck().get(i);
+                if(Objects.equals(e.getNaam(), kaarten.get(0))){
+                    speler.getHand().add(e);
+                    speler.getDeck().remove(i);
                 }
             }
         }
-        speler.voegKaartToe(Array.length,speler.getDeck(),speler.getHand());
-        return actieKaarten;
+
+        while(speler.getHand().size() <7){
+            Kaart k = speler.getDeck().get(counter);
+            if(k.getType().contains("Actie")){
+                kaart.add(k.getNaam());
+                for(int i : indexes){
+                    speler.getDeck().remove(i);
+                }
+                return kaart;
+            } else {
+                speler.getHand().add(k);
+                indexes.add(counter);
+                counter++;
+            }
+        }
+
+        for(int i : indexes){
+            speler.getDeck().remove(i);
+        }
+        return kaart;
     }
 
         /*System.out.println("first check");
