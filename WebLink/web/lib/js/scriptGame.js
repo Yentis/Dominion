@@ -58,7 +58,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                         if(typeof result[2][0] !== "undefined"){
                             var tereturnen = [];
                             var huidigekaart = "";
-                            switch(result[2][0]){
+                            switch(kaart){
                                 case "Dief":
                                     for(i=0;i<result[2].length;i++){
                                         huidigekaart = result[2][i];
@@ -70,14 +70,15 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     speelActieKaart(kaart, 2, tereturnen, true);
                                     break;
                                 case "Bibliotheek":
-                                    huidigekaart = result[2][i];
+                                    huidigekaart = result[2][0];
                                     var answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
-                                    if(answer == true){
-                                        tereturnen = huidigekaart;
+                                    if(answer == false){
+                                        tereturnen.push(huidigekaart);
                                     }
                                     speelActieKaart(kaart, 2, tereturnen, true);
                                 }
                         }
+                        showKoopOpties();
                         showPlayerGegevens();
                         showHand();
                     }
