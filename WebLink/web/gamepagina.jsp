@@ -25,7 +25,7 @@
 
 
     <ul class="stapel">
-        <li><img src="lib/images/kaarten/Dief.png" alt="avonturier" title="avonturier"/></li>
+        <li><img src="lib/images/kaarten/undefined.png" id="top" alt="avonturier" title="avonturier"/></li>
         <li><img src="lib/images/kaarten/achterkant.png" alt="avonturier" title="avonturier"/></li>
     </ul>
 
