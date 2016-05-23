@@ -70,23 +70,26 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     speelActieKaart(kaart, 2, tereturnen, true);
                                     break;
                                 case "Bibliotheek":
-                                    for (i=0; i<7; i++){
+                                    var aantalKaartenInHand = $(".hand").size();
+                                    for (i=0; i<7 - aantalKaartenInHand; i++){
                                         $.ajax({
-                                            for(i = 0; i<result[2].length; i++){
+                                            type:"POST",
+                                            url:"ActieKaartSpelenServlet",
+                                            success: function (result) {
                                                 huidigekaart = result[2][i];
                                                 var answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
                                                 if(answer == true){
                                                     tereturnen.push(huidigekaart);
+                                                    i--;
                                                 }
                                                 else{
-                                                
-                                                }
-                                        }
-                                        speelActieKaart(kaart, 2, tereturnen, true);
+                                                    
+                                                } 
+                                            }
+                                        });
+                                            speelActieKaart(kaart, 2, tereturnen, true);
                                         break;
-                                    })
-                                    };
-                            }
+                                    }
                         }
                         showPlayerGegevens();
                         showHand();
