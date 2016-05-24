@@ -38,7 +38,7 @@ public class ActieKaartSpelenServlet extends HttpServlet {
             List<String> kaarten = new ArrayList<>();
             String[] lijstkaarten = new String[0];
             String[] array = new String[0];
-            int result = 0;
+            String result = "";
             List<String> afteprintenkaarten = new ArrayList<>();
             if(!Objects.equals(request.getParameter("lijstkaarten"), "")){
                 lijstkaarten = request.getParameterValues("lijstkaarten[]");
@@ -51,7 +51,7 @@ public class ActieKaartSpelenServlet extends HttpServlet {
             System.out.println("janee: " + janee);
             for(Kaart k : spel.getActieveld()){
                 System.out.println("third check");
-                if(Objects.equals(kaartnaam, k.getNaam()) && !kaartgespeeld){
+                if(kaartnaam.contains(k.getNaam()) && !kaartgespeeld){
                     System.out.println("fourth check");
                     Kaart tespelenkaart = k;
                     if(speciaal){

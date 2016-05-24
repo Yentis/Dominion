@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Actiekaart {
 
-    public int speelactiekaart(String naam, Speler speler, Spel spel, int truefalse, List<String> kaarten) {
+    public String speelactiekaart(String naam, Speler speler, Spel spel, int truefalse, List<String> kaarten) {
         System.out.println("in speelactiekaart");
         switch (naam) {
             case "Heks":
@@ -38,9 +38,6 @@ public class Actiekaart {
                 break;
             case "Werkplaats":
                 return werkplaats();
-            case "Bureaucraat":
-                bureaucraat(spel, speler);
-                break;
             case "Feest":
                 return feest(spel, speler);
             case "Schutterij":
@@ -80,11 +77,8 @@ public class Actiekaart {
             case "Avonturier":
                 avonturier(speler);
                 break;
-            case "Tuinen":
-                tuinen(speler);
-                break;
         }
-        return 0;
+        return "0";
     }
 
     public List<String> speelactiekaartspecial(String naam, Spel spel, Speler speler, List<String> kaarten, int janee){
@@ -94,6 +88,10 @@ public class Actiekaart {
                 return dief(spel, speler, kaarten);
             case "Bibliotheek":
                 return bibliotheek(speler, kaarten, janee);
+            case "Bureaucraat":
+                return bureaucraat();
+            case "Bureaucraat2":
+                return bureaucraatContinued(spel, speler);
         }
         return emptylist;
     }
@@ -271,59 +269,66 @@ public class Actiekaart {
         speler.addGeld(2);
     }
 
-    public int werkplaats() {
+    public String werkplaats() {
         //neem een kaart met <=4 kost
-        return 4;
+        return "4";
         /*
         System.out.println("Kies een kaart met een kost van maximum 4: \n");
         spel.koopKaart(kiesKaartMetSoort("4", "kost", spel.getAlleKaarten()), speler.getAflegstapel());*/
     }
 
-    public void bureaucraat(Spel spel, Speler speler) {
+    //todo
+    public List<String> bureaucraat() {
         //+1 actiekaart, plaats deze op je deck
-        System.out.println("Kies een actiekaart: ");
-        kiesKaartMetSoort("Actie", "type", spel.getAlleKaarten());
+        List<String> actieveld = new ArrayList<>();
+        actieveld.add("actieveld");
+        return actieveld;
+    }
 
+    public List<String> bureaucraatContinued(Spel spel, Speler speler){
         //elke andere speler toont een overwinningskaart en plaatst het op zijn deck (of toont een hand zonder overwinningskaarten)
-        List<Kaart> koopopties = new ArrayList();
+        List<String> kaarten = new ArrayList();
         int i = 0;
-        String input = "";
-        Scanner keyboard = new Scanner(System.in);
 
         for (Speler s : spel.getSpelers()) {
             if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
                 System.out.println(s.getNaam() + "\n");
-                i = 0;
-                for (Kaart k : s.getHand()){
+                List<Kaart> handspeler = new ArrayList<>();
+                System.out.println("speler size: " + s.getHand().size());
+                for(Kaart k : s.getHand()){
+                    handspeler.add(k);
+                }
+
+                for (Kaart k : handspeler){
                     if (Objects.equals(k.getType(), "Overwinning")){
-                        System.out.println(k.getNaam() + "|" + i);
+                        kaarten.add(k.getNaam());
+                        spel.voegKaartToe(1, k, s.getHand(), s.getDeck());
                         i++;
                     }
                 }
-                input = keyboard.nextLine();
-                Kaart teVerplaatsenKaart = koopopties.get(Integer.parseInt(input));
-                spel.voegKaartToe(1, teVerplaatsenKaart, s.getHand(), s.getDeck());
                 if(i == 0){
                     for(Kaart k2 : s.getHand()){
-                        System.out.println(k2.getNaam());
+                        kaarten.add(k2.getNaam());
                     }
                 }
             }
         }
+        return kaarten;
     }
 
-    public int feest(Spel spel, Speler speler) {
+    public String feest(Spel spel, Speler speler) {
         //deze kaart naar trash
         spel.voegKaartToe(1, duidSpecifiekeKaartAan("Feest", spel), speler.getHand(), speler.getVuilbak());
 
         //neem kaart die max 5 geld kost
-        return 5;
+        return "5";
 
         /*
         System.out.println("Kies een kaart met een kost van maximum 5: \n");
         kiesKaartMetSoort("5", "kost", spel.getAlleKaarten());*/
     }
 
+    //todo
     public void schutterij(Spel spel, Speler speler) {
         //+2Geld
         speler.addGeld(2);
@@ -365,7 +370,7 @@ public class Actiekaart {
         }*/
     }
 
-    public int ombouwen(Spel spel, Speler speler, List<String> kaarten) {
+    public String ombouwen(Spel spel, Speler speler, List<String> kaarten) {
         //select kaart -> thrash
         overloopKaartLijst(spel, speler, kaarten, 1, speler.getVuilbak());
 
@@ -383,7 +388,8 @@ public class Actiekaart {
                 trashkaartwaarde = k.getKost();
             }
         }
-        return trashkaartwaarde + 2;
+        trashkaartwaarde = trashkaartwaarde + 2;
+        return Integer.toString(trashkaartwaarde);
 
         //System.out.println("Kies de kaart die je wilt nemen: \n");
         //kiesKaartMetSoort(trashkaartwaarde + "2", "kost", spel.getAlleKaarten());
@@ -394,6 +400,7 @@ public class Actiekaart {
         speler.voegKaartToe(3, speler.getDeck(), speler.getHand());
     }
 
+    //todo
     public void spion(Spel spel, Speler speler) {
         //+1 kaart
         checkDeck(speler, 1);
@@ -437,6 +444,7 @@ public class Actiekaart {
         return testelenkaarten;
     }
 
+    //todo
     public void troonzaal(Spel spel, Speler speler, int truefalse, List<String> kaarten) {
         //kies een actiekaart
         String naamvangekozenkaart = kiesKaartMetSoort("Actie", "type", speler.getHand()).getNaam();
@@ -587,12 +595,5 @@ public class Actiekaart {
                 i++;
             }
         }
-    }
-
-    public void tuinen(Speler speler){
-        //+1 overwinningspunten voor elke 10 kaarten
-        int aantalkaarten = speler.getDeck().size()+speler.getAflegstapel().size()+speler.getHand().size();
-        aantalkaarten = aantalkaarten/10;
-        speler.addOverwinningspunten(aantalkaarten);
     }
 }

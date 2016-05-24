@@ -21,24 +21,32 @@ public class KoopKaartServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         Spel spel = (Spel)request.getSession().getAttribute("spel");
         Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
+        Boolean speciaal = Boolean.parseBoolean(request.getParameter("speciaal"));
         Kaart teKopenKaart = new Kaart();
 
         String kaartnaam = request.getParameter("kaart");
         boolean kaartGekocht = false;
-        if (speler.getKoop() > 0){
+        if (speler.getKoop() > 0 && !speciaal){
             for(Kaart k : spel.getAlleKaarten()){
                 if(Objects.equals(kaartnaam,k.getNaam()) && !kaartGekocht){
                     teKopenKaart = k;
-                    spel.koopKaart(teKopenKaart,speler.getAflegstapel());
-                    speler.addKoop(-1);
                     kaartGekocht = true;
-                    speler.addGeld( - teKopenKaart.getKost());
-                    out.print(kaartnaam);
-
                 }
             }
+            speler.addKoop(-1);
+            speler.addGeld(-teKopenKaart.getKost());
+            spel.koopKaart(teKopenKaart,speler.getAflegstapel());
+            out.print(kaartnaam);
+        } else if(speciaal){
+            for(Kaart k : spel.getAlleKaarten()){
+                if(Objects.equals(kaartnaam,k.getNaam()) && !kaartGekocht){
+                    teKopenKaart = k;
+                    kaartGekocht = true;
+                }
+            }
+            spel.koopKaart(teKopenKaart,speler.getAflegstapel());
+            out.print(kaartnaam);
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
