@@ -50,9 +50,6 @@ public class Actiekaart {
                 smederij(speler);
                 System.out.println("Smederij after");
                 break;
-            case "Spion":
-                spion(spel, speler);
-                break;
             case "Troonzaal":
                 troonzaal(spel, speler, truefalse, kaarten);
                 break;
@@ -90,7 +87,8 @@ public class Actiekaart {
                 return schutterij(spel, speler, kaarten);
             case "Bureaucraat":
                 return bureaucraat(spel, speler);
-
+            case "Spion":
+                return spion(spel, speler, janee, kaarten);
         }
         return emptylist;
     }
@@ -415,22 +413,43 @@ public class Actiekaart {
         speler.voegKaartToe(3, speler.getDeck(), speler.getHand());
     }
 
-    //todo
-    public List<String> spion(Spel spel, Speler speler) {
-        //+1 kaart
-        checkDeck(speler, 1);
-        speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
-        //+1 actie
-        speler.addActie(1);
-        //elke speler bekijkt de bovenste kaart van zijn deck en de speler kan beslissen of het naar de aflegstapel gaat
+    public List<String> spion(Spel spel, Speler speler, int janee, List<String> kaarten) {
         List<String> kaart = new ArrayList<>();
 
-        for (Speler s : spel.getSpelers()) {
-            if (!heeftReactiekaart(s) || Objects.equals(s.getNaam(), speler.getNaam())) {
-                Kaart k = s.getDeck().get(0);
-                kaart.add(s.getNaam());
-                kaart.add(k.getNaam());
+        if(janee != 0){
+            //+1 kaart
+            checkDeck(speler, 1);
+            speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
+            //+1 actie
+            speler.addActie(1);
+            //elke speler bekijkt de bovenste kaart van zijn deck en de speler kan beslissen of het naar de aflegstapel gaat
+
+            for (Speler s : spel.getSpelers()) {
+                if (!heeftReactiekaart(s) || Objects.equals(s.getNaam(), speler.getNaam())) {
+                    checkDeck(s, 1);
+                    Kaart k = s.getDeck().get(0);
+                    kaart.add(s.getNaam());
+                    kaart.add(k.getNaam());
+                }
             }
+        } else {
+            Speler vijand = new Speler("placeholder");
+            for(Speler s : spel.getSpelers()){
+                if(!Objects.equals(s.getNaam(), speler.getNaam())){
+                    vijand = s;
+                }
+            }
+            Speler huidig = new Speler("placeholder");
+            for(String s : kaarten){
+                if(Objects.equals(s, "jezelf")){
+                    huidig = speler;
+                } else if(Objects.equals(s, "de vijand")){
+                    huidig = vijand;
+                } else {
+                    huidig.voegKaartToe(1, huidig.getDeck(), huidig.getAflegstapel());
+                }
+            }
+
         }
         /*
         System.out.println(speler.getNaam() + ", wil je " + k.getNaam() + " van " + s.getNaam() + " wegleggen? J/N");
