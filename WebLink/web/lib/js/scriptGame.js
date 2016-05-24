@@ -98,7 +98,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     $(".toonKaart").empty();
                                     $(".toonKaart").prepend("<h2>Kaarten van je vijand</h2>");
                                     for (i = 0; i<result[2].length; i++){
-                                        $(".toonKaart").append("<li class='"+result[2][i]+"'><img src='lib/images/kaarten/" + result[2][i] + ".png' title='" + result[2][i] + "'/></li>");
+                                        $("#toonSpecialeKaarten").append("<li class='"+result[2][i]+"'><img src='lib/images/kaarten/" + result[2][i] + ".png' title='" + result[2][i] + "'/></li>");
                                     }
                                     $(".kaartOpVeld").append("<li class='"+"Bureaucraat"+"'><img src='lib/images/kaarten/" + "Bureaucraat" + ".png' title='" + "Bureaucraat" + "'/></li>");
                                     $(".hand").slice(1).remove("." + "Bureaucraat" + "");
