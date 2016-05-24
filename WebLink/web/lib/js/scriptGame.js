@@ -85,6 +85,18 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     console.log("Kaart is: " + kaart + " terug te sturen: " + tereturnen + " janee: " + janee);
                                     speelActieKaart(kaart, janee, tereturnen, true);
                                     break;
+
+                                case "Schutterij":
+                                    console.log("verbonden aan shitterij");
+
+                                    console.log(result[2]);
+                                    for (i = 0; result[2].length; i++){
+                                        /*huidigekaart = result[2][0];
+                                        $(".toonKaart").append("<li class='"+huidigekaart+"'><img src='lib/images/kaarten/" + huidigekaart + ".png' title='" + huidigekaart + "'/></li>")*/
+                                        console.log("dus er zou iets mis moeten zijn met de loop")
+                                    }
+                                    
+
                                 case "Bureaucraat":
                                     $("#log").html("Kies een kaart om te kopen");
                                     showSpecializedKoopOpties(result[2][0], kaart);
@@ -95,7 +107,6 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     for (i = 0; i<result[2].length; i++){
                                         $(".toonKaart").append("<li class='"+result[2][i]+"'><img src='lib/images/kaarten/" + result[2][i] + ".png' title='" + result[2][i] + "'/></li>");
                                     }
-                                    $(".kaartOpVeld").append("<li class='"+result[0]+"'><img src='lib/images/kaarten/" + result[0] + ".png' title='" + result[0] + "'/></li>");
                                     break;
                                 }
                         } else {
@@ -155,6 +166,9 @@ function checkActiekaart(kaart){
         case "Bibliotheek":
         case "Bureaucraat":
             speelActieKaart(kaart, 2, "", true);
+            break;
+        case "Schutterij":
+            speelActieKaart(kaart,2,"",true);
             break;
         default:
             speelActieKaart(kaart, 2, "", false);
@@ -217,7 +231,7 @@ var showKoopOpties = function () {
         url:"KoopServlet",
         success: function(result) {
             for (i = 0; i<result.length; i++){
-                $("#" + result[i]).append('<input type="button"   class="koopKaart">');
+                $("#" + result[i]).append('<input type="button" class="koopKaart">');
             }
             $(".koopKaart").on("click",koopKaart);
         }
@@ -384,7 +398,7 @@ function showTopAflegstapel() {
         type: "POST",
         url: "AflegstapelServlet",
         success: function (result) {
-            if (!result){
+            if (result == ""){
                 $("#top").attr("src", "lib/images/kaarten/undefined.png");
                 $("#top").attr("alt", "undefined");
                 $("#top").attr("title", "undefined");

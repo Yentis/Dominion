@@ -18,21 +18,20 @@ import java.util.ArrayList;
 @WebServlet(name = "AantalActiekaartenServlet", urlPatterns = {"/AantalActiekaartenServlet"})
 public class AantalActiekaartenServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
         response.setContentType("application/json");
         Gson gson = new Gson();
         Spel spel = (Spel)request.getSession().getAttribute("spel");
-
+        PrintWriter out = response.getWriter();
 
 
 
         ArrayList<Integer> list = new ArrayList<>();
-        spel.getStapelskaarten();
+
 
         for(Kaart k : spel.getAlleKaarten()){
             list.add(spel.getStapelskaarten().get(k.getNr()));
         }
-        System.out.println(list);
+
         String json = gson.toJson(list);
         out.print(json);
 

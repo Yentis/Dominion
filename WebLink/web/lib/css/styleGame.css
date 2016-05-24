@@ -253,7 +253,7 @@ body {
     background-repeat: no-repeat;
     background-color: aqua;
     border-radius: 30%;
-    transition: 0.8s;
+
 }
 .koopKaart:hover{
     background-image: url("../images/buy-xxl.png");
