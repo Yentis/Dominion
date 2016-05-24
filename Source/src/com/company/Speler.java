@@ -107,6 +107,7 @@ public class Speler {
         if(getDeck().size() < 5){
             voegKaartToe(deck.size(), deck, hand);
             leegAflegstapel();
+            vulHand();
         } else if (hand.size()==0) {
             vulHand();
         }
@@ -120,7 +121,6 @@ public class Speler {
         }
         aflegstapel.clear();
         Collections.shuffle(deck);
-        vulHand();
     }
 
     public void berekenScore(){

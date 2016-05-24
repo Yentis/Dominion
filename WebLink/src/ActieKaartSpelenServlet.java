@@ -28,7 +28,7 @@ public class ActieKaartSpelenServlet extends HttpServlet {
         Spel spel = (Spel)request.getSession().getAttribute("spel");
         Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
         Actiekaart acties = new Actiekaart();
-
+        System.out.println("first check");
         if(speler.getActie() > 0){
             boolean kaartgespeeld = false;
 
@@ -37,6 +37,7 @@ public class ActieKaartSpelenServlet extends HttpServlet {
             Boolean speciaal = Boolean.parseBoolean(request.getParameter("speciaal"));
             List<String> kaarten = new ArrayList<>();
             String[] lijstkaarten = new String[0];
+            String[] array = new String[0];
             int result = 0;
             List<String> afteprintenkaarten = new ArrayList<>();
             if(!Objects.equals(request.getParameter("lijstkaarten"), "")){
@@ -46,32 +47,42 @@ public class ActieKaartSpelenServlet extends HttpServlet {
                 kaarten.add(lijstkaarten[i]);
                 System.out.println("Kaart " + i + ": " + kaarten.get(i));
             }
-
+            System.out.println("second check");
             System.out.println("janee: " + janee);
             for(Kaart k : spel.getActieveld()){
+                System.out.println("third check");
                 if(Objects.equals(kaartnaam, k.getNaam()) && !kaartgespeeld){
+                    System.out.println("fourth check");
                     Kaart tespelenkaart = k;
                     if(speciaal){
                         System.out.println("speciaal");
-                        afteprintenkaarten = acties.speelactiekaartspecial(kaartnaam, spel, speler, kaarten);
+                        afteprintenkaarten = acties.speelactiekaartspecial(kaartnaam, spel, speler, kaarten, Integer.parseInt(janee));
                         if(afteprintenkaarten.size() == 0){
+                            System.out.println("fourth check 2");
                             spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
                             speler.addActie(-1);
                         }
+                        array = afteprintenkaarten.toArray(new String[0]);
                     } else {
+                        System.out.println("fifth check");
                         spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
+                        System.out.println("sixth check");
+                        System.out.println("result: " +result);
+                        System.out.println("tespelenkaart: " + tespelenkaart.getNaam());
                         result = acties.speelactiekaart(tespelenkaart.getNaam(), speler, spel, Integer.parseInt(janee), kaarten);
+                        System.out.println("result 2: " +result);
+                        System.out.println("seventh check");
                         speler.addActie(-1);
+                        System.out.println("eighth check");
                     }
-                    String[] array = afteprintenkaarten.toArray(new String[0]);
-
-
-                    kaartgespeeld = true;
+                    System.out.println("ninth check");
                     List<Object> results = new ArrayList<>();
                     results.add(kaartnaam);
                     results.add(result);
                     results.add(array);
+                    kaartgespeeld = true;
                     String json = gson.toJson(results);
+                    System.out.println("tenth check");
                     out.print(json);
                 }
             }

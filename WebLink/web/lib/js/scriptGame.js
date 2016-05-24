@@ -73,16 +73,17 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     speelActieKaart(kaart, 2, tereturnen, true);
                                     break;
                                 case "Bibliotheek":
-                                    console.log("Hand size: " + $(".hand li").length);
-                                    if($(".hand li").length < 7){
-                                        huidigekaart = result[2][0];
-                                        answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
-                                        if(answer == false){
-                                            tereturnen.push(huidigekaart);
-                                        }
-                                        console.log("Kaart is: " + kaart + " terug te sturen: " + tereturnen);
-                                        speelActieKaart(kaart, 2, tereturnen, true);
+                                    var janee = 2;
+                                    huidigekaart = result[2][0];
+                                    answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
+                                    if(answer == false){
+                                        tereturnen.push(huidigekaart);
+                                    } else {
+                                        tereturnen = "";
+                                        janee = 0;
                                     }
+                                    console.log("Kaart is: " + kaart + " terug te sturen: " + tereturnen + " janee: " + janee);
+                                    speelActieKaart(kaart, janee, tereturnen, true);
                                     break;
                                 }
                         }
