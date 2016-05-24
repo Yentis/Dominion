@@ -49,11 +49,6 @@ public class BeurtServlet extends HttpServlet {
                 added = true;
             }
         }*/
-
-
-        for(int i=0;i<speler.getDeck().size();i++){
-            System.out.println(i + ": " + speler.getDeck().get(i).getNaam());
-        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
