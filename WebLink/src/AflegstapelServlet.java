@@ -14,9 +14,15 @@ import java.io.PrintWriter;
 @WebServlet(name = "AflegstapelServlet", urlPatterns = {"/AflegstapelServlet"})
 public class AflegstapelServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String topAflegstapel = new String();
         Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
-        String topAflegstapel = speler.getAflegstapel().get(speler.getAflegstapel().size()-1).getNaam();
+        if (speler.getAflegstapel().size() == 0){
+            topAflegstapel = "";
+        }
+        else{
+            topAflegstapel = speler.getAflegstapel().get(speler.getAflegstapel().size()-1).getNaam();
+        }
+
         PrintWriter out = response.getWriter();
         out.print(topAflegstapel);
 
