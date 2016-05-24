@@ -90,9 +90,11 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
 
                                     console.log(result[2]);
                                     for (i = 0; result[2].length; i++){
-                                        /*huidigekaart = result[2][0];
-                                        $(".toonKaart").append("<li class='"+huidigekaart+"'><img src='lib/images/kaarten/" + huidigekaart + ".png' title='" + huidigekaart + "'/></li>")*/
-                                        console.log("dus er zou iets mis moeten zijn met de loop")
+                                        if (result[2].length > 3){
+                                             $("#toonSpecialeKaarten").append("<li class='"+huidigekaart+"'><img src='lib/images/kaarten/" + huidigekaart + ".png' title='" + huidigekaart + "'/></li>");
+                                            console.log("dus er zou iets mis moeten zijn met de loop")
+                                        }
+
                                     }
                                     break;
                                 case "Bureaucraat":

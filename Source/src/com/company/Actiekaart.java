@@ -84,7 +84,7 @@ public class Actiekaart {
                 return bibliotheek(speler, kaarten, janee);
 
             case "Schutterij":
-                return schutterij(spel, speler, kaarten);
+                return schutterij(spel, speler);
             case "Bureaucraat":
                 return bureaucraat(spel, speler);
             case "Spion":
@@ -274,9 +274,10 @@ public class Actiekaart {
         spel.koopKaart(kiesKaartMetSoort("4", "kost", spel.getAlleKaarten()), speler.getAflegstapel());*/
     }
 
-    public List<String> bureaucraat(Spel spel, Speler speler){
+    public List<String> bureaucraat(Spel spel, Speler speler) {
         //krijg een zilver kaart
         boolean done = false;
+
         Kaart kaart = new Kaart();
         for(Kaart k : spel.getGeldveld()){
             if(Objects.equals(k.getNaam(), "Zilver") && !done){
@@ -294,19 +295,20 @@ public class Actiekaart {
             if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
 
                 List<Kaart> handspeler = new ArrayList<>();
+
                 for(Kaart k : s.getHand()){
                     handspeler.add(k);
                 }
 
-                for (Kaart k : handspeler){
-                    if (Objects.equals(k.getType(), "Overwinning")){
+                for (Kaart k : handspeler) {
+                    if (Objects.equals(k.getType(), "Overwinning")) {
                         kaarten.add(k.getNaam());
                         spel.voegKaartToe(1, k, s.getHand(), s.getDeck());
                         i++;
                     }
                 }
-                if(i == 0){
-                    for(Kaart k2 : s.getHand()){
+                if (i == 0) {
+                    for (Kaart k2 : s.getHand()) {
                         kaarten.add(k2.getNaam());
                     }
                 }
@@ -328,22 +330,23 @@ public class Actiekaart {
     }
 
 
-    public List<String> schutterij(Spel spel, Speler speler, List<String> kaarten) {
+    public List<String> schutterij(Spel spel, Speler speler) {
 
         //+2Geld
         speler.addGeld(2);
         //leg kaarten af tot alle spelers 3 kaarten over heeft
-        List<String> hand = new ArrayList<>();
+        List<String> kaarten = new ArrayList<>();
         for (Speler s : spel.getSpelers()) {
             if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
 
-                    for (Kaart k : speler.getHand()) {
-                        hand.add(k.getNaam());
-
-                    }
-
+                List<Kaart> handspeler = new ArrayList<>();
+                System.out.println("speler size: " + s.getHand().size());
+                for (Kaart k : s.getHand()) {
+                    kaarten.add(k.getNaam());
+                }
             }
-            System.out.println(hand);
+        }
+
 
 
 
@@ -356,8 +359,8 @@ public class Actiekaart {
                     System.out.println("Kies de kaarten die je wilt afleggen: \n");
                     spel.voegKaartToe(1, kiesKaart(speler, input), s.getHand(), s.getAflegstapel());
                 }*/
-        }
-        return hand;
+
+        return kaarten;
     }
 
 
