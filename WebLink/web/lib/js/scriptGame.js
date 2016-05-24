@@ -95,13 +95,11 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                         console.log("dus er zou iets mis moeten zijn met de loop")
                                     }
                                 case "Bureaucraat":
-                                    $(".toonKaart").empty();
-                                    $(".toonKaart").prepend("<h2>Kaarten van je vijand</h2>");
                                     for (i = 0; i<result[2].length; i++){
                                         $("#toonSpecialeKaarten").append("<li class='"+result[2][i]+"'><img src='lib/images/kaarten/" + result[2][i] + ".png' title='" + result[2][i] + "'/></li>");
                                     }
-                                    $(".kaartOpVeld").append("<li class='"+"Bureaucraat"+"'><img src='lib/images/kaarten/" + "Bureaucraat" + ".png' title='" + "Bureaucraat" + "'/></li>");
-                                    $(".hand").slice(1).remove("." + "Bureaucraat" + "");
+                                    $(".kaartOpVeld").append("<li class='"+"Bureaucraat"+"'><img src='lib/images/kaarten/" + kaart + ".png' title='" + kaart + "'/></li>");
+                                    $(".hand").slice(1).remove("." + kaart + "");
                                     break;
                                 case "Spion":
                                     var janee = 2;
@@ -134,7 +132,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                         if(result[1] != "0" && result[1] != ""){
                             $("#log").html("Kies een kaart om te kopen");
                             console.log("results: " + result[1]);
-                            showSpecializedKoopOpties(result[1], kaart);
+                            showSpecializedKoopOpties(result[1]);
                         }
                         showPlayerGegevens();
                         showHand();
@@ -223,7 +221,7 @@ var koopKaart = function () {
     });
 };
 
-function specializedKoopKaart(kaart, starter){
+function specializedKoopKaart(kaart){
     var gekozenkaart = $(kaart).parent().attr("id");
     $.ajax({
         type: "POST",
@@ -233,9 +231,6 @@ function specializedKoopKaart(kaart, starter){
             showKoopOpties();
             showPlayerGegevens();
             showTopAflegstapel();
-            if(starter == "Bureaucraat"){
-                speelActieKaart("Bureaucraat2", 2, "", true);
-            }
         }
     });
 };
@@ -256,7 +251,7 @@ var showKoopOpties = function () {
     });
 };
 
-function showSpecializedKoopOpties(limits, starter){
+function showSpecializedKoopOpties(limits){
     $(".koopKaart").remove();
     $.ajax({
         type:"POST",
@@ -269,7 +264,7 @@ function showSpecializedKoopOpties(limits, starter){
             }
             $(".koopKaart").on("click",function(){
                 
-                specializedKoopKaart(this, starter);
+                specializedKoopKaart(this);
             });
         }
     });
