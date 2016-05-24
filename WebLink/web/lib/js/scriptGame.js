@@ -215,7 +215,7 @@ var showKoopOpties = function () {
         url:"KoopServlet",
         success: function(result) {
             for (i = 0; i<result.length; i++){
-                $("#" + result[i]).append('<input type="button" value="koop" class="koopKaart">');
+                $("#" + result[i]).append('<input type="button"   class="koopKaart">');
             }
             $(".koopKaart").on("click",koopKaart);
         }
