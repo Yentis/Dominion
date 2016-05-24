@@ -95,7 +95,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                             console.log("dus er zou iets mis moeten zijn met de loop")
                                         }
 
-                                    
+                                    break;
                                 case "Bureaucraat":
                                     for (i = 0; i<result[2].length; i++){
                                         $("#toonSpecialeKaarten").append("<li class='"+result[2][i]+"'><img src='lib/images/kaarten/" + result[2][i] + ".png' title='" + result[2][i] + "'/></li>");
@@ -108,23 +108,21 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     var naam = "";
                                     for(i = 0;i<result[2].length;i++){
                                         huidigekaart = result[2][i];
-                                        if(huidigekaart == $("#naamspeler").innerHTML){
+                                        if ((i % 2) == 0 && huidigekaart == $("#naamspeler").html()){
                                             naam = "jezelf";
+                                        } else if ((i % 2) == 0){
+                                            naam = "de vijand";
                                         } else {
                                             answer = window.confirm("Wil je " + huidigekaart + " wegleggen van " + naam + "?");
                                             if(answer == true){
+                                                tereturnen.push(naam);
                                                 tereturnen.push(huidigekaart);
-                                            } else {
-                                                tereturnen = "";
                                             }
-                                            naam = "de vijand";
                                         }
-
                                     }
 
                                     console.log("Kaart is: " + kaart + " terug te sturen: " + tereturnen + " janee: " + janee);
-                                    speelActieKaart(kaart, janee, tereturnen, true);
-                                    break;
+                                    speelActieKaart(kaart, 0, tereturnen, true);
                                     break;
                                 }
                         } else {
