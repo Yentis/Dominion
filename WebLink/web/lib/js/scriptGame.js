@@ -14,7 +14,7 @@ $(document).ready(function () {
     showHand();
     //showKoopAantal();
     $(".toonKaart").on("click", function(){
-        $(".toonKaart li").remove();
+        $(".toonKaart").empty();
     })
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
@@ -56,8 +56,6 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                         for(i=0;i<result[2].length;i++){
                             console.log("Return: " + result[2][i]);
                         }
-                        $(".kaartOpVeld").append("<li class='"+result[0]+"'><img src='lib/images/kaarten/" + result[0] + ".png' title='" + result[0] + "'/></li>");
-                        $(".hand").slice(1).remove("." + result[0] + "");
                         if(typeof result[2][0] !== "undefined"){
                             var tereturnen = [];
                             var huidigekaart = "";
@@ -103,14 +101,18 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     showSpecializedKoopOpties(result[2][0], kaart);
                                     break;
                                 case "Bureaucraat2":
-                                    $("#log").html("Kaarten van je vijand:");
-                                    $(".toonKaart li").remove();
+                                    $(".toonKaart").empty();
+                                    $(".toonKaart").prepend("<h2>Kaarten van je vijand</h2>");
                                     for (i = 0; i<result[2].length; i++){
                                         $("#toonSpecialeKaarten").append("<li class='"+result[2][i]+"'><img src='lib/images/kaarten/" + result[2][i] + ".png' title='" + result[2][i] + "'/></li>");
                                     }
-
+                                    $(".kaartOpVeld").append("<li class='"+"Bureaucraat"+"'><img src='lib/images/kaarten/" + "Bureaucraat" + ".png' title='" + "Bureaucraat" + "'/></li>");
+                                    $(".hand").slice(1).remove("." + "Bureaucraat" + "");
                                     break;
                                 }
+                        } else {
+                            $(".kaartOpVeld").append("<li class='"+result[0]+"'><img src='lib/images/kaarten/" + result[0] + ".png' title='" + result[0] + "'/></li>");
+                            $(".hand").slice(1).remove("." + result[0] + "");
                         }
                         if(result[1] != "0" && result[1] != ""){
                             $("#log").html("Kies een kaart om te kopen");
@@ -247,7 +249,7 @@ function showSpecializedKoopOpties(limits, starter){
         url:"KoopServlet",
         success: function(result) {
             for (i = 0; i<result.length; i++){
-                $("#" + result[i]).append('<input type="button" value="koop" class="koopKaart">');
+                $("#" + result[i]).append('<input type="button" class="koopKaart">');
             }
             $(".koopKaart").on("click",function(){
                 

@@ -41,19 +41,14 @@ public class BeurtServlet extends HttpServlet {
         }
         spel.setSpelerValues(speler);
 
-
+		/*
        boolean added = false;
         for(Kaart k : spel.getActieveld()){
             if(Objects.equals(k.getNaam(), "Schutterij") && !added){
                 speler.getHand().add(k);
                 added = true;
             }
-        }
-
-
-        for(int i=0;i<speler.getDeck().size();i++){
-            System.out.println(i + ": " + speler.getDeck().get(i).getNaam());
-        }
+        }*/
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

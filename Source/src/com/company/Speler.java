@@ -83,8 +83,8 @@ public class Speler {
 
     //region Behaviour
     public void beëindigbeurt(){
-        while(getHand().size()>0)
-            voegKaartToe(1, getHand(), getAflegstapel());
+        while(hand.size()>0)
+            voegKaartToe(1, hand, aflegstapel);
     }
 
     public void plaatsGeldkaartenOpVeld(){
@@ -105,15 +105,16 @@ public class Speler {
 
     public void checkHand(){
         if(getDeck().size() < 5){
-            voegKaartToe(deck.size(), deck, hand);
             leegAflegstapel();
-            vulHand();
-        } else if (hand.size()==0) {
+        }
+        if (hand.size()==0) {
             vulHand();
         }
     }
 
-    public void vulHand(){voegKaartToe(5-hand.size(), deck, hand);}
+    public void vulHand(){
+        System.out.println("Hand size: " +hand.size());
+        voegKaartToe(5-hand.size(), deck, hand);}
 
     public void leegAflegstapel(){
         for(Kaart k : aflegstapel){
