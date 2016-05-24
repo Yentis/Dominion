@@ -348,7 +348,8 @@ public class Actiekaart {
                 }
             }
         }
-
+        System.out.println(kaarten);
+        return kaarten;
 
 
 
@@ -362,7 +363,7 @@ public class Actiekaart {
                     spel.voegKaartToe(1, kiesKaart(speler, input), s.getHand(), s.getAflegstapel());
                 }*/
 
-        return kaarten;
+
     }
 
 
