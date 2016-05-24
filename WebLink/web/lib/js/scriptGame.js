@@ -12,7 +12,7 @@ $(document).ready(function () {
     showPlayerName();
     showPlayerGegevens();
     showHand();
-    //showKoopAantal()
+    showKoopAantal();
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", function(){
@@ -41,6 +41,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
             if(result[0] == 0){
                 $("#log").html("Je hebt geen acties meer over.");
             } else {
+                
                 $.ajax({
                     type:"POST",
                     dataType:"json",
@@ -56,7 +57,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                             wijzigGegevens(0,1,parseInt(result[1]));
                             showKoopOpties();
                         }
-                        showHand();
+
                         if(typeof result[2][0] !== "undefined"){
                             var tereturnen = [];
                             var huidigekaart = "";
@@ -191,7 +192,6 @@ var showKoopOpties = function () {
         dataType:"json",
         url:"KoopServlet",
         success: function(result) {
-            console.log(result);
             for (i = 0; i<result.length; i++){
                 $("#" + result[i]).append('<input type="button" value="koop" class="koopKaart">');
             }
@@ -208,7 +208,7 @@ function beginBeurtServlet(){
         url:"BeurtServlet"
     });
     showKoopOpties();
-    showTopAflegstapel();
+
 }
 
 var eindigBeurt = function(){
@@ -218,6 +218,7 @@ var eindigBeurt = function(){
     });
     clearVeld();
     beginBeurtServlet();
+    showTopAflegstapel();
     showPlayerName();
     showPlayerGegevens();
     showHand();
@@ -284,25 +285,20 @@ function showActieKaarten(){
     })
     
 }
-/*
+
 var showKoopAantal = function () {
     $.ajax({
         type:"POST",
         dataTYpe:"json",
         url:"AantalActiekaartenServlet",
         success: function(result){
-            for(i=0;i<result.length/2;i++){
-
-                $(".actiekaarten li").first().prepend("<h2>" +result[i]+"</h2>");
-            }
-            for(i=result.length/2;i<result.length;i++){
-
-                $("#" + result[i]).append('<h2>result[i]</h2>');
+            for(i=0;i<result.length;i++){
+                $("#" + result[i]).prepend("<h2>" +result[i]+"</h2>");
             }
         }
     })
 };
-*/
+
 
 function showHand() {
     $.ajax({
@@ -348,13 +344,19 @@ function showTopAflegstapel() {
         type: "POST",
         url: "AflegstapelServlet",
         success: function (result) {
-            $("#top").attr("src", "lib/images/kaarten/" + result + ".png");
-            $("#top").attr("alt", result);
-            $("#top").attr("title", result);
+            if (!result){
+                $("#top").attr("src", "lib/images/kaarten/undefined.png");
+                $("#top").attr("alt", "undefined");
+                $("#top").attr("title", "undefined");
+            }
+            else{
+                $("#top").attr("src", "lib/images/kaarten/" + result + ".png");
+                $("#top").attr("alt", result);
+                $("#top").attr("title", result);
+            }
+
         }
     });
-
-
 }
 function showSpelerNaamScorePagina() {
     $.ajax({
@@ -365,7 +367,6 @@ function showSpelerNaamScorePagina() {
             for(i=0;i<result.length;i++){
                 $("#spelers").append ("<li>" + result[i] + "</li>");
             }
-
         }
     })
 
