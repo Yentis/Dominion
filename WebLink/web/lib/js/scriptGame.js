@@ -106,7 +106,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     $("#log").html("Kaarten van je vijand:");
                                     $(".toonKaart li").remove();
                                     for (i = 0; i<result[2].length; i++){
-                                        $(".toonKaart").append("<li class='"+result[2][i]+"'><img src='lib/images/kaarten/" + result[2][i] + ".png' title='" + result[2][i] + "'/></li>");
+                                        $("#toonSpecialeKaarten").append("<li class='"+result[2][i]+"'><img src='lib/images/kaarten/" + result[2][i] + ".png' title='" + result[2][i] + "'/></li>");
                                     }
 
                                     break;

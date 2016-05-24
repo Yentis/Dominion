@@ -25,6 +25,23 @@ body {
 .toonKaart li{
     width: 10%;
     display:inline;
+
+}
+
+
+#toonSpecialeKaarten{
+    position:absolute;
+    width: 50%;
+    bottom:45%;
+    left:50%;
+
+}
+#toonSpecialeKaarten li{
+    width:10%;
+    display: inline;
+}
+#toonSpecialeKaarten li img{
+    width: 10%;
 }
 
 /*overwinningskaarten*/

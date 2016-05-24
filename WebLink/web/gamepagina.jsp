@@ -37,9 +37,9 @@
         <input type="button" value="Gooi alle geldkaarten" id="gooigeld">
         <input type="button" value="Eindig je beurt" id="eindigbeurt">
         <input type="button" value="OK" id="ok" class="hide">
-      <form method="post" action="StoppenServlet">
-        <input type="submit" value="Stoppen" id="stoppen">
-      </form>
+        <form method="post" action="StoppenServlet">
+            <input type="submit" value="Stoppen" id="stoppen">
+        </form>
     </div>
     <div>
         <h2 id="log"></h2>
@@ -48,7 +48,7 @@
     <div id="persoongegevens">
         <ul>
 
-            <li >|ACTIES:<span id="acties"></span></li>
+            <li>|ACTIES:<span id="acties"></span></li>
             <li>|BUYS:<span id="buys"></span></li>
             <li>|GELD:<span id="geld"></span></li>
         </ul>
@@ -61,9 +61,9 @@
 
     <ul class="geldcurse">
         <li id="Goud"><img src="lib/images/kaarten/Goud.png" alt="gold" title="gold"></li>
-        <li id="Zilver"><img  src="lib/images/kaarten/Zilver.png" alt="silver" title="silver"></li>
-        <li id="Koper"><img  src="lib/images/kaarten/Koper.png" alt="copper" title="copper"></li>
-        <li id="Vloek"><img  src="lib/images/kaarten/Vloek.png" alt="curse" title="curse"></li>
+        <li id="Zilver"><img src="lib/images/kaarten/Zilver.png" alt="silver" title="silver"></li>
+        <li id="Koper"><img src="lib/images/kaarten/Koper.png" alt="copper" title="copper"></li>
+        <li id="Vloek"><img src="lib/images/kaarten/Vloek.png" alt="curse" title="curse"></li>
     </ul>
 
     <div id="logg">
@@ -89,10 +89,10 @@
     <ul class="toonKaart">
         <li></li>
     </ul>
+    <ul id="toonSpecialeKaarten">
 
+    </ul>
 </div>
-
-
 
 
 <script type="text/javascript" src="lib/js/jquery-2.2.3.min.js"></script>
