@@ -1,3 +1,4 @@
+import com.company.Kaart;
 import com.company.Spel;
 import com.company.Speler;
 import com.google.gson.Gson;
@@ -20,14 +21,18 @@ public class AantalActiekaartenServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         response.setContentType("application/json");
         Gson gson = new Gson();
-        //Spel spel = (Spel)request.getSession().getAttribute("spel");
-        //Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
+        Spel spel = (Spel)request.getSession().getAttribute("spel");
 
 
 
-        ArrayList<Integer[]> list = new ArrayList<>();
-        list.add(new Integer[]{10, 10, 10, 10, 10, 10, 10, 10, 10, 10});
 
+        ArrayList<Integer> list = new ArrayList<>();
+        spel.getStapelskaarten();
+
+        for(Kaart k : spel.getAlleKaarten()){
+            list.add(spel.getStapelskaarten().get(k.getNr()));
+        }
+        System.out.println(list);
         String json = gson.toJson(list);
         out.print(json);
 

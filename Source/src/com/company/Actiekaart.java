@@ -1,5 +1,7 @@
 package com.company;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -11,6 +13,7 @@ import java.util.Scanner;
 public class Actiekaart {
 
     public int speelactiekaart(String naam, Speler speler, Spel spel, int truefalse, List<String> kaarten) {
+        System.out.println("in speelactiekaart");
         switch (naam) {
             case "Heks":
                 heks(spel, speler);
@@ -49,7 +52,9 @@ public class Actiekaart {
             case "Ombouwen":
                 return ombouwen(spel,speler, kaarten);
             case "Smederij":
+                System.out.println("Smederij pre");
                 smederij(speler);
+                System.out.println("Smederij after");
                 break;
             case "Spion":
                 spion(spel, speler);
@@ -82,15 +87,21 @@ public class Actiekaart {
         return 0;
     }
 
-    public List<String> speelactiekaartspecial(String naam, Spel spel, Speler speler, List<String> kaarten){
+    public List<String> speelactiekaartspecial(String naam, Spel spel, Speler speler, List<String> kaarten, int janee){
         List<String> emptylist = new ArrayList<>();
         switch(naam){
             case "Dief":
                 return dief(spel, speler, kaarten);
             case "Bibliotheek":
-                return bibliotheek(speler, kaarten);
+                return bibliotheek(speler, kaarten, janee);
         }
         return emptylist;
+    }
+
+    public void checkDeck(Speler speler, int aantal){
+        if(speler.getDeck().size() < aantal){
+            speler.leegAflegstapel();
+        }
     }
 
     public int overloopKaartLijst(Spel spel, Speler speler, List<String> kaarten, int maxwaarde, List<Kaart> bestemming){
@@ -191,6 +202,7 @@ public class Actiekaart {
     }
 
     public void heks(Spel spel, Speler speler) {
+        checkDeck(speler, 2);
         speler.voegKaartToe(2, speler.getDeck(), speler.getHand()); //+2 kaarten
         for (Speler s : spel.getSpelers()) { //geef de andere spelers een vloekkaart
             if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
@@ -204,7 +216,9 @@ public class Actiekaart {
         speler.addActie(1);
         //selecteer de kaarten die je wilt afleggen
         //trek x nieuwe kaarten
-        speler.voegKaartToe(overloopKaartLijst(spel, speler, kaarten, 7, speler.getAflegstapel()), speler.getDeck(), speler.getHand());
+        int aantalkaarten = overloopKaartLijst(spel, speler, kaarten, 7, speler.getAflegstapel());
+        checkDeck(speler, aantalkaarten);
+        speler.voegKaartToe(aantalkaarten, speler.getDeck(), speler.getHand());
 
         /*String input = "";
 
@@ -231,6 +245,7 @@ public class Actiekaart {
 
     public void gracht(Speler speler) {
         //trek 2 kaarten
+        checkDeck(speler, 2);
         speler.voegKaartToe(2, speler.getDeck(), speler.getHand());
     }
 
@@ -246,6 +261,7 @@ public class Actiekaart {
     }
 
     public void dorps(Speler speler) {
+        checkDeck(speler, 1);
         speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
         speler.addActie(2);
     }
@@ -374,11 +390,13 @@ public class Actiekaart {
     }
 
     public void smederij(Speler speler) {
+        checkDeck(speler, 3);
         speler.voegKaartToe(3, speler.getDeck(), speler.getHand());
     }
 
     public void spion(Spel spel, Speler speler) {
         //+1 kaart
+        checkDeck(speler, 1);
         speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
         //+1 actie
         speler.addActie(1);
@@ -431,6 +449,7 @@ public class Actiekaart {
 
     public void raadzaal(Spel spel, Speler speler) {
         //+4 kaarten
+        checkDeck(speler, 4);
         speler.voegKaartToe(4, speler.getDeck(), speler.getHand());
         //+1 koop
         speler.addKoop(1);
@@ -445,97 +464,51 @@ public class Actiekaart {
     public void festival(Speler speler) {
         //+2 acties +1 kaart +2geld
         speler.addActie(2);
+        checkDeck(speler, 1);
         speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
         speler.addGeld(2);
     }
 
     public void laboratorium(Speler speler) {
         //+2 kaarten
+        checkDeck(speler, 2);
         speler.voegKaartToe(2, speler.getDeck(), speler.getHand());
         //+1actie
         speler.addActie(1);
     }
 
-    public List<String> bibliotheek(Speler speler, List<String> kaarten) {
-        System.out.println("I'm in bibliotheek");
-        int counter = 0;
+    public List<String> bibliotheek(Speler speler, List<String> kaarten, int janee) {
         List<String> kaart = new ArrayList<>();
-        List<Integer> indexes = new ArrayList<>();
         boolean done = false;
 
         if(kaarten.size()>0){
-            for(int i=0;i<speler.getDeck().size();i++){
-                Kaart e = speler.getDeck().get(i);
-                if(Objects.equals(e.getNaam(), kaarten.get(0)) && !done){
-                    speler.getHand().add(e);
-                    speler.getDeck().remove(i);
-                    done = true;
-                }
-            }
+            checkDeck(speler, 1);
+            speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
         }
 
-        System.out.println("Hand size: " + speler.getHand().size());
+        if(janee != 0){
+            done = true;
+        }
+
         while(speler.getHand().size() <= 7){
-            System.out.println("Hand size next: " + speler.getHand().size());
-            Kaart k = speler.getDeck().get(counter);
-            if(k.getType().contains("Actie")){
+            checkDeck(speler, 1);
+            Kaart k = speler.getDeck().get(0);
+            if(k.getType().contains("Actie") && done){
                 kaart.add(k.getNaam());
-                for(int i : indexes){
-                    speler.getDeck().remove(i);
-                }
-                System.out.println("Kaart: " + kaart);
                 return kaart;
+            } else if (janee == 0 && !done){
+                speler.voegKaartToe(1, speler.getDeck(), speler.getAflegstapel());
+                done = true;
             } else {
-                speler.getHand().add(k);
-                indexes.add(counter);
-                counter++;
+                speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
             }
-        }
-
-        for(int i : indexes){
-            speler.getDeck().remove(i);
         }
         return kaart;
     }
 
-        /*System.out.println("first check");
-        List<String> techeckenactiekaarten = new ArrayList<>();
-        int counter = 0;
-
-        while(counter<7 && speler.getHand().size()<7){
-            System.out.println("second check");
-            if((Objects.equals(speler.getDeck().get(0).getType(), "Actie") || Objects.equals(speler.getDeck().get(0).getType(), "Actie-Reactie") || Objects.equals(speler.getDeck().get(0).getType(), "Actie-Aanval")) && kaarten.size() == 0){
-                System.out.println("third check");
-                techeckenactiekaarten.add(speler.getDeck().get(0).getNaam());
-                counter++;
-                /*
-                System.out.println("Wil je " + speler.getDeck().get(0).getNaam() + " aan de kant leggen? J/N");
-                int oldhandsize = speler.getHand().size();
-                kaartAfleggen(speler, 1);
-                int newhandsize = speler.getHand().size();
-                if(oldhandsize == newhandsize){
-                    speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
-                }
-            } else if (!kaarten.contains(speler.getDeck().get(0).getType()) && kaarten.size() > 0) {
-                System.out.println("third check 2");
-                speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
-                counter++;
-            } else {
-                System.out.println("third check 3");
-                counter++;
-            }
-        }
-
-
-        return techeckenactiekaarten;*/
-
-
-
-
-
-
     public void markt(Speler speler) {
         //+1 kaart
+        checkDeck(speler, 1);
         speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
         //+1geld +1 koop +1actie
         speler.addGeld(1);
@@ -605,6 +578,7 @@ public class Actiekaart {
         int maxGeldKaarten = 2;
         int i = 0;
         while (i < maxGeldKaarten) {
+            checkDeck(speler, 1);
             Kaart bovenliggendeKaart = speler.getDeck().get(0);
             if (!Objects.equals(bovenliggendeKaart.getType(), "Geld")) {
                 speler.voegKaartToe(1, speler.getDeck(), speler.getAflegstapel());
