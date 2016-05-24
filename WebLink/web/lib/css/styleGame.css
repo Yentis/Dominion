@@ -14,14 +14,17 @@ body {
     font-family: 'runescape';
     color: white;
 }
-
-
-.toonKaart li img{
+.toonKaart{
     position:absolute;
+    width: 50%;
     top:10%;
     left:35%;
-    width: 20%;
     z-index:10;
+}
+
+.toonKaart li{
+    width: 10%;
+    display:inline;
 }
 
 /*overwinningskaarten*/
@@ -292,6 +295,7 @@ body {
     width:50%;
 
 }
+
 
 .kaartOpVeld li img{
     width:10%; margin-left: auto;

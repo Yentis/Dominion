@@ -148,26 +148,6 @@ public class ActiekaartTest {
 
     }
 
-
-    @Test
-    public void TuinenTest() throws Exception {
-        Spel spel = new Spel();
-        spel.maakKaarten();
-        spel.vulVeldOp();
-        spel.addSpeler(laurens);
-        spel.geefStartKaarten(laurens);
-
-        int StartOverwinningspunten = laurens.getOverwinningspunten();
-        System.out.println(StartOverwinningspunten);
-
-        Actiekaart actiekaart = new Actiekaart();
-        actiekaart.tuinen(laurens);
-
-        int EindOverwinningspunten = laurens.getOverwinningspunten();
-        assertEquals(StartOverwinningspunten, EindOverwinningspunten - 1);
-
-    }
-
     /*@Test
     public void SchutterijTest() throws Exception {
         Spel spel = new Spel();

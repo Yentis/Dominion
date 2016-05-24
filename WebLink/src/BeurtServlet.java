@@ -36,7 +36,9 @@ public class BeurtServlet extends HttpServlet {
 
         request.getSession().setAttribute("teller", teller);
         Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
-        speler.checkHand();
+        for(Speler s : spel.getSpelers()){
+            s.checkHand();
+        }
         spel.setSpelerValues(speler);
 
 

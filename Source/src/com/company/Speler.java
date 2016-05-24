@@ -125,20 +125,25 @@ public class Speler {
 
     public void berekenScore(){
         int score = 0;
+        int aantalkaarten = deck.size()+aflegstapel.size()+hand.size();
+        aantalkaarten = aantalkaarten/10;
+
         for(Kaart k : aflegstapel){
-            score += overwinningswaardeToevoegen(k);
+            score += overwinningswaardeToevoegen(k, aantalkaarten);
         }
         for(Kaart k : deck){
-            score += overwinningswaardeToevoegen(k);
+            score += overwinningswaardeToevoegen(k, aantalkaarten);
         }
         for(Kaart k : hand){
-            score += overwinningswaardeToevoegen(k);
+            score += overwinningswaardeToevoegen(k, aantalkaarten);
         }
         overwinningspunten=score;
     }
 
-    public int overwinningswaardeToevoegen(Kaart k){
-        if(Objects.equals(k.getType(), "Overwinning") || Objects.equals(k.getType(), "Vloek")){
+    public int overwinningswaardeToevoegen(Kaart k, int aantalkaarten){
+        if(Objects.equals(k.getNaam(), "Tuinen")){
+            return aantalkaarten;
+        } else if(Objects.equals(k.getType(), "Overwinning") || Objects.equals(k.getType(), "Vloek")){
             return k.getWaarde();
         }
         return 0;

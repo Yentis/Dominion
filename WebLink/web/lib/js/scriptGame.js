@@ -12,7 +12,10 @@ $(document).ready(function () {
     showPlayerName();
     showPlayerGegevens();
     showHand();
-    showKoopAantal();
+    //showKoopAantal();
+    $(".toonKaart").on("click", function(){
+        $(".toonKaart li").remove();
+    })
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", function(){
@@ -34,6 +37,7 @@ $(document).ready(function () {
 
 var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
     console.log("Speciaal? " + speciaal);
+    console.log("Actual kaart: " + kaart);
     $.ajax({
         type:"POST",
         url:"SpelerServlet",
@@ -41,7 +45,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
             if(result[0] == 0){
                 $("#log").html("Je hebt geen acties meer over.");
             } else {
-                
+                console.log("start ajax");
                 $.ajax({
                     type:"POST",
                     dataType:"json",
@@ -49,15 +53,11 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                     url:"ActieKaartSpelenServlet",
                     success: function(result){
                         console.log("Kaart: " + result[0]);
+                        for(i=0;i<result[2].length;i++){
+                            console.log("Return: " + result[2][i]);
+                        }
                         $(".kaartOpVeld").append("<li class='"+result[0]+"'><img src='lib/images/kaarten/" + result[0] + ".png' title='" + result[0] + "'/></li>");
                         $(".hand").slice(1).remove("." + result[0] + "");
-                        
-                        if(result[1] > 0){
-                            $("#log").html("Kies een kaart om te kopen");
-                            wijzigGegevens(0,1,parseInt(result[1]));
-                            showKoopOpties();
-                        }
-
                         if(typeof result[2][0] !== "undefined"){
                             var tereturnen = [];
                             var huidigekaart = "";
@@ -86,6 +86,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     console.log("Kaart is: " + kaart + " terug te sturen: " + tereturnen + " janee: " + janee);
                                     speelActieKaart(kaart, janee, tereturnen, true);
                                     break;
+
                                 case "Schutterij":
                                     console.log("verbonden aan shitterij");
 
@@ -96,10 +97,26 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                         console.log("dus er zou iets mis moeten zijn met de loop")
                                     }
                                     
+
+                                case "Bureaucraat":
+                                    $("#log").html("Kies een kaart om te kopen");
+                                    showSpecializedKoopOpties(result[2][0], kaart);
+                                    break;
+                                case "Bureaucraat2":
+                                    $("#log").html("Kaarten van je vijand:");
+                                    $(".toonKaart li").remove();
+                                    for (i = 0; i<result[2].length; i++){
+                                        $(".toonKaart").append("<li class='"+result[2][i]+"'><img src='lib/images/kaarten/" + result[2][i] + ".png' title='" + result[2][i] + "'/></li>");
+                                    }
+
                                     break;
                                 }
                         }
-                        showKoopOpties();
+                        if(result[1] != "0" && result[1] != ""){
+                            $("#log").html("Kies een kaart om te kopen");
+                            console.log("results: " + result[1]);
+                            showSpecializedKoopOpties(result[1], kaart);
+                        }
                         showPlayerGegevens();
                         showHand();
                     }
@@ -108,14 +125,6 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
         }
     });
 };
-
-function wijzigGegevens(acties, buys, geld){
-    $.ajax({
-        type:"POST",
-        data:{acties:acties, buys:buys, geld:geld},
-        url:"WijzigGegevensServlet"
-    });
-}
 
 function checkActiekaart(kaart){
     gekozenkaarten = [];
@@ -155,6 +164,7 @@ function checkActiekaart(kaart){
             break;
         case "Dief":
         case "Bibliotheek":
+        case "Bureaucraat":
             speelActieKaart(kaart, 2, "", true);
             break;
         case "Schutterij":
@@ -182,27 +192,41 @@ function voegKaartToe(kaart){
 }
 
 var koopKaart = function () {
-        var kaart = $(this).parent().attr("id");
-        $.ajax({
-            type:"POST",
-            data:{kaart:kaart},
-            url:"KoopKaartServlet",
-            success: function () {
-                showKoopOpties();
-                showPlayerGegevens();
-
-            }
-
-        });
-    showTopAflegstapel();
-
+    var kaart = $(this).parent().attr("id");
+    $.ajax({
+        type:"POST",
+        data:{kaart:kaart, speciaal:false},
+        url:"KoopKaartServlet",
+        success: function () {
+            showKoopOpties();
+            showPlayerGegevens();
+            showTopAflegstapel();
+        }
+    });
 };
 
+function specializedKoopKaart(kaart, starter){
+    var gekozenkaart = $(kaart).parent().attr("id");
+    $.ajax({
+        type: "POST",
+        data: {kaart: gekozenkaart, speciaal: true},
+        url: "KoopKaartServlet",
+        success: function () {
+            showKoopOpties();
+            showPlayerGegevens();
+            showTopAflegstapel();
+            if(starter == "Bureaucraat"){
+                speelActieKaart("Bureaucraat2", 2, "", true);
+            }
+        }
+    });
+};
 
 var showKoopOpties = function () {
     $(".koopKaart").remove();
     $.ajax({
         type:"POST",
+        data:{speciaal:false, limits:""},
         dataType:"json",
         url:"KoopServlet",
         success: function(result) {
@@ -214,7 +238,24 @@ var showKoopOpties = function () {
     });
 };
 
-
+function showSpecializedKoopOpties(limits, starter){
+    $(".koopKaart").remove();
+    $.ajax({
+        type:"POST",
+        data:{speciaal:true, limits:limits},
+        dataType:"json",
+        url:"KoopServlet",
+        success: function(result) {
+            for (i = 0; i<result.length; i++){
+                $("#" + result[i]).append('<input type="button" value="koop" class="koopKaart">');
+            }
+            $(".koopKaart").on("click",function(){
+                
+                specializedKoopKaart(this, starter);
+            });
+        }
+    });
+}
 
 function beginBeurtServlet(){
     $.ajax({
@@ -263,12 +304,11 @@ var gooiGeld = function(){
 
 var zoomIn = function () {
     console.log("hey");
-    if ($(".toonKaart li").has("img")) {
-        $(".toonKaart li img").remove();
+    if ($(".toonKaart").has("li")) {
+        $(".toonKaart li").remove();
     }
-    $(this).clone().appendTo(".toonKaart li").click(function () {
-        $(this).remove();
-    });
+    $(".toonKaart").append("<li></li>");
+    $(this).clone().appendTo(".toonKaart li");
 };
 
 function showPlayerName() {
@@ -299,7 +339,7 @@ function showActieKaarten(){
     })
     
 }
-
+/*
 var showKoopAantal = function () {
     $.ajax({
         type:"POST",
@@ -312,7 +352,7 @@ var showKoopAantal = function () {
         }
     })
 };
-
+*/
 
 function showHand() {
     $.ajax({
