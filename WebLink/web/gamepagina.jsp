@@ -71,7 +71,7 @@
     </div>
 
     <div id="trash">
-        <img id="trashkaart" src="lib/images/kaarten/Dominion-Trash%20Card.jpg" alt="trash" title="trash">
+        <img id="trashkaart" src="lib/images/Dominion-Trash%20Card.jpg" alt="trash" title="trash">
     </div>
 
 
