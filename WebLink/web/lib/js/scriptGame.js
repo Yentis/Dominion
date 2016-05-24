@@ -94,13 +94,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                         $(".toonKaart").append("<li class='"+huidigekaart+"'><img src='lib/images/kaarten/" + huidigekaart + ".png' title='" + huidigekaart + "'/></li>")*/
                                         console.log("dus er zou iets mis moeten zijn met de loop")
                                     }
-                                    
-
                                 case "Bureaucraat":
-                                    $("#log").html("Kies een kaart om te kopen");
-                                    showSpecializedKoopOpties(result[2][0], kaart);
-                                    break;
-                                case "Bureaucraat2":
                                     $(".toonKaart").empty();
                                     $(".toonKaart").prepend("<h2>Kaarten van je vijand</h2>");
                                     for (i = 0; i<result[2].length; i++){
@@ -108,6 +102,29 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     }
                                     $(".kaartOpVeld").append("<li class='"+"Bureaucraat"+"'><img src='lib/images/kaarten/" + "Bureaucraat" + ".png' title='" + "Bureaucraat" + "'/></li>");
                                     $(".hand").slice(1).remove("." + "Bureaucraat" + "");
+                                    break;
+                                case "Spion":
+                                    var janee = 2;
+                                    var naam = "";
+                                    for(i = 0;i<result[2].length;i++){
+                                        huidigekaart = result[2][i];
+                                        if(huidigekaart == $("#naamspeler").innerHTML){
+                                            naam = "jezelf";
+                                        } else {
+                                            answer = window.confirm("Wil je " + huidigekaart + " wegleggen van " + naam + "?");
+                                            if(answer == true){
+                                                tereturnen.push(huidigekaart);
+                                            } else {
+                                                tereturnen = "";
+                                            }
+                                            naam = "de vijand";
+                                        }
+
+                                    }
+
+                                    console.log("Kaart is: " + kaart + " terug te sturen: " + tereturnen + " janee: " + janee);
+                                    speelActieKaart(kaart, janee, tereturnen, true);
+                                    break;
                                     break;
                                 }
                         } else {
@@ -167,10 +184,9 @@ function checkActiekaart(kaart){
         case "Dief":
         case "Bibliotheek":
         case "Bureaucraat":
-            speelActieKaart(kaart, 2, "", true);
-            break;
         case "Schutterij":
-            speelActieKaart(kaart,2,"",true);
+        case "Spion":
+            speelActieKaart(kaart, 2, "", true);
             break;
         default:
             speelActieKaart(kaart, 2, "", false);

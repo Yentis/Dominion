@@ -88,11 +88,8 @@ public class Actiekaart {
 
             case "Schutterij":
                 return schutterij(spel, speler, kaarten);
-
             case "Bureaucraat":
-                return bureaucraat();
-            case "Bureaucraat2":
-                return bureaucraatContinued(spel, speler);
+                return bureaucraat(spel, speler);
 
         }
         return emptylist;
@@ -279,15 +276,16 @@ public class Actiekaart {
         spel.koopKaart(kiesKaartMetSoort("4", "kost", spel.getAlleKaarten()), speler.getAflegstapel());*/
     }
 
-    //todo
-    public List<String> bureaucraat() {
-        //+1 actiekaart, plaats deze op je deck
-        List<String> actieveld = new ArrayList<>();
-        actieveld.add("actieveld");
-        return actieveld;
-    }
+    public List<String> bureaucraat(Spel spel, Speler speler){
+        //krijg een zilver kaart
+        boolean done = false;
+        for(Kaart k : spel.getGeldveld()){
+            if(Objects.equals(k.getNaam(), "Zilver") && !done){
+                spel.koopKaart(k, speler.getDeck());
+                done = true;
+            }
+        }
 
-    public List<String> bureaucraatContinued(Spel spel, Speler speler){
         //elke andere speler toont een overwinningskaart en plaatst het op zijn deck (of toont een hand zonder overwinningskaarten)
         List<String> kaarten = new ArrayList();
         int i = 0;
@@ -418,20 +416,26 @@ public class Actiekaart {
     }
 
     //todo
-    public void spion(Spel spel, Speler speler) {
+    public List<String> spion(Spel spel, Speler speler) {
         //+1 kaart
         checkDeck(speler, 1);
         speler.voegKaartToe(1, speler.getDeck(), speler.getHand());
         //+1 actie
         speler.addActie(1);
         //elke speler bekijkt de bovenste kaart van zijn deck en de speler kan beslissen of het naar de aflegstapel gaat
+        List<String> kaart = new ArrayList<>();
+
         for (Speler s : spel.getSpelers()) {
             if (!heeftReactiekaart(s) || Objects.equals(s.getNaam(), speler.getNaam())) {
                 Kaart k = s.getDeck().get(0);
-                System.out.println(speler.getNaam() + ", wil je " + k.getNaam() + " van " + s.getNaam() + " wegleggen? J/N");
-                kaartAfleggen(speler, 1);
+                kaart.add(s.getNaam());
+                kaart.add(k.getNaam());
             }
         }
+        /*
+        System.out.println(speler.getNaam() + ", wil je " + k.getNaam() + " van " + s.getNaam() + " wegleggen? J/N");
+        kaartAfleggen(speler, 1);*/
+        return kaart;
     }
 
     public List<String> dief(Spel spel, Speler speler, List<String> kaarten) {
@@ -612,12 +616,5 @@ public class Actiekaart {
                 i++;
             }
         }
-    }
-
-    public void tuinen(Speler speler) {
-        //+1 overwinningspunten voor elke 10 kaarten
-        int aantalkaarten = speler.getDeck().size() + speler.getAflegstapel().size() + speler.getHand().size();
-        aantalkaarten = aantalkaarten / 10;
-        speler.addOverwinningspunten(aantalkaarten);
     }
 }
