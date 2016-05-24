@@ -1,5 +1,7 @@
 package com.company;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -464,6 +466,7 @@ public class Actiekaart {
         boolean done = false;
 
         if(kaarten.size()>0){
+
             for(int i=0;i<speler.getDeck().size();i++){
                 Kaart e = speler.getDeck().get(i);
                 if(Objects.equals(e.getNaam(), kaarten.get(0)) && !done){
@@ -478,23 +481,32 @@ public class Actiekaart {
         while(speler.getHand().size() <= 7){
             System.out.println("Hand size next: " + speler.getHand().size());
             Kaart k = speler.getDeck().get(counter);
+            System.out.println("counter " + counter);
+            System.out.println("volgende Kaart "+ speler.getDeck().get(counter+1).getNaam());
+
             if(k.getType().contains("Actie")){
                 kaart.add(k.getNaam());
                 for(int i : indexes){
-                    speler.getDeck().remove(i);
+                    for(Kaart j : speler.getDeck()){
+                        System.out.println("Deck : " +j.getNaam());
+                    }
+                    speler.getDeck().remove(indexes.get(i));
                 }
                 System.out.println("Kaart: " + kaart);
                 return kaart;
             } else {
                 speler.getHand().add(k);
+
                 indexes.add(counter);
                 counter++;
-            }
+            }System.out.println(indexes);
         }
 
         for(int i : indexes){
             speler.getDeck().remove(i);
         }
+        System.out.println("gegooid in de aflegstapel denk ik " + speler.getAflegstapel().get(speler.getAflegstapel().size()-1).getNaam());
+
         return kaart;
     }
 
