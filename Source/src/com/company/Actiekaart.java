@@ -279,12 +279,15 @@ public class Actiekaart {
     public List<String> bureaucraat(Spel spel, Speler speler) {
         //krijg een zilver kaart
         boolean done = false;
-        for (Kaart k : spel.getGeldveld()) {
-            if (Objects.equals(k.getNaam(), "Zilver") && !done) {
-                spel.koopKaart(k, speler.getDeck());
+
+        Kaart kaart = new Kaart();
+        for(Kaart k : spel.getGeldveld()){
+            if(Objects.equals(k.getNaam(), "Zilver") && !done){
+                kaart = k;
                 done = true;
             }
         }
+        spel.koopKaart(kaart, speler.getDeck());
 
         //elke andere speler toont een overwinningskaart en plaatst het op zijn deck (of toont een hand zonder overwinningskaarten)
         List<String> kaarten = new ArrayList();
@@ -292,11 +295,10 @@ public class Actiekaart {
 
         for (Speler s : spel.getSpelers()) {
             if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
-                System.out.println(s.getNaam() + "\n");
 
                 List<Kaart> handspeler = new ArrayList<>();
-                System.out.println("speler size: " + s.getHand().size());
-                for (Kaart k : s.getHand()) {
+
+                for(Kaart k : s.getHand()){
                     handspeler.add(k);
                 }
 
