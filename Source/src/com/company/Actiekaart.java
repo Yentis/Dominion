@@ -329,8 +329,6 @@ public class Actiekaart {
 
 
     public List<String> schutterij(Spel spel, Speler speler) {
-        System.out.println("in schutterij");
-
         //+2Geld
         speler.addGeld(2);
         //leg kaarten af tot alle spelers 3 kaarten over heeft
@@ -340,10 +338,6 @@ public class Actiekaart {
         List<String> kaarten = new ArrayList<>();
         for (Speler s : spel.getSpelers()) {
             if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
-                /*List<Kaart> handspeler = new ArrayList<>();
-                for (Kaart k : speler.getHand()){
-                    handspeler.add(k);
-                }*/
                 if (s.getHand().size()>3){
                     System.out.println("speler size: " + s.getHand().size());
                     for (Kaart k2 : s.getHand()) {
@@ -352,49 +346,10 @@ public class Actiekaart {
                 }
                 System.out.println(kaarten);
                 overloopKaartLijst(spel, s, kaarten , s.getHand().size()-3, s.getAflegstapel());
-
-
-                /*else{
-                    for (Kaart k2 : s.getHand()){
-                        kaarten.remove(k2);
-                    }
-                }*/
-
             }
         }
         System.out.println("Kaarten van de enemy: " + kaarten);
         return kaarten;
-        /*for (String s : kaarten) {
-            for (Kaart k : spel.getAlleKaarten()) {
-                if (!Objects.equals(k.getNaam(), s) && !selected && aantalkaarten < speler.getHand().size()-3) {
-                    System.out.println("enemy speler hand :" + speler.getHand());
-                    spel.voegKaartToe(1, k, speler.getHand(), speler.getAflegstapel());
-                    aantalkaarten++;
-                    legeArray.add(k.getNaam());
-                    selected = true;
-                }
-            }
-            selected = false;
-        }
-        System.out.println(legeArray);
-        return legeArray;*/
-
-
-
-
-
-
-
-                /*while (s.getHand().size() > 3) {
-
-
-                    String input = "";
-
-                    System.out.println("Kies de kaarten die je wilt afleggen: \n");
-                    spel.voegKaartToe(1, kiesKaart(speler, input), s.getHand(), s.getAflegstapel());
-                }*/
-
-
     }
 
 

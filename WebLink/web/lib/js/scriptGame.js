@@ -8,7 +8,7 @@ $(document).ready(function () {
     masterkaart = "";
     $(".actiekaarten, .overwinningskaarten, .geldcurse, .kaartOpVeld").on("click", "img", zoomIn);
     $(".toonKaart").on("click", function(){$(this).empty();});
-    $("#toonSpecialeKaarten").on("click", function(){$(this).empty();});
+
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", legKaartenWeg);
@@ -134,18 +134,18 @@ function bibliotheekBehaviour(result, huidigekaart, answer, tereturnen, kaart){
 
 function schutterijBehaviour(result, kaart){
     var i = 0;
-    $(".kaartOpVeld").append("<li class='" + kaart + "'><img src='lib/images/kaarten/" + kaart + ".png' title='" + kaart + "'/></li>")
+    $(".kaartOpVeld").append("<li class='" + kaart + "'><img src='lib/images/kaarten/" + kaart + ".png' title='" + kaart + "'/></li>");
     $(".hand ." + kaart + ":first").remove();
     while (i < result.length) {
         if (result.length > 3) {
             $("#toonSpecialeKaarten").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".png' title='" + result[i] + "'/></li>");
             i++;
         }
-        $("#log").html("Kies de kaarten die de tegenstander wilt afleggen");
     }
+    $("#log").html("Kies de kaarten die de tegenstander wilt afleggen");
     $("#toonSpecialeKaarten").on("click", "img", function () {
         if ($("#toonSpecialeKaarten li").size() > 4) {
-            $(this).parent().remove();
+           $(this).parent().remove();
         }else if ($("#toonSpecialeKaarten li").size() < 5) {
             $("#toonSpecialeKaarten li").empty();
         }
@@ -160,6 +160,7 @@ function bureaucraatBehaviour(result, kaart){
     }
     $(".kaartOpVeld").append("<li class='" + kaart + "'><img src='lib/images/kaarten/" + kaart + ".png' title='" + kaart + "'/></li>");
     $(".hand").slice(1).remove("." + kaart + "");
+    $("#toonSpecialeKaarten").on("click", function(){$(this).empty();});
 }
 
 function spionBehaviour(result, huidigekaart, answer, tereturnen, kaart){
@@ -228,7 +229,7 @@ function checkActiekaart(kaart){
         case "Bureaucraat":
         case "Schutterij":
             speelActieKaart(kaart, 2, "", true);
-            
+
             break;
         case "Spion":
             speelActieKaart(kaart, 2, "", true);
@@ -281,7 +282,7 @@ function specializedKoopKaart(kaart) {
             showTopAflegstapel();
         }
     });
-};
+}
 
 var showKoopOpties = function () {
     $(".koopKaart").remove();
