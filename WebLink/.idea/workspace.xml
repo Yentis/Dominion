@@ -85,7 +85,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scriptGame.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="scriptGame.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/lib/js/scriptGame.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -137,21 +137,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gamepagina.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/gamepagina.jsp">
+      <file leaf-file-name="ActieKaartSpelenServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ActieKaartSpelenServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="38" column="59" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
+            <state relative-caret-position="255">
+              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActieKaartSpelenServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ActieKaartSpelenServlet.java">
+      <file leaf-file-name="ActiekaartTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../Source/src/test/ActiekaartTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+            <state relative-caret-position="327">
+              <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -195,7 +195,6 @@
         <option value="$PROJECT_DIR$/../Source/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/KoopServlet.java" />
         <option value="$PROJECT_DIR$/src/KoopKaartServlet.java" />
-        <option value="$PROJECT_DIR$/../Source/src/test/ActiekaartTest.java" />
         <option value="$PROJECT_DIR$/src/AflegstapelServlet.java" />
         <option value="$PROJECT_DIR$/../Source/src/com/company/Speler.java" />
         <option value="$PROJECT_DIR$/src/ActieKaartSpelenServlet.java" />
@@ -208,6 +207,7 @@
         <option value="$PROJECT_DIR$/src/EindeGameServlet.java" />
         <option value="$PROJECT_DIR$/src/BeurtServlet.java" />
         <option value="$PROJECT_DIR$/web/lib/js/scriptGame.js" />
+        <option value="$PROJECT_DIR$/../Source/src/test/ActiekaartTest.java" />
       </list>
     </option>
   </component>
@@ -461,7 +461,7 @@
       <recent name="C:\Users\Yentl-PC\Downloads\WebLink\web\WEB-INF\com" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.0.M6">
+  <component name="RunManager" selected="JUnit.test in Dominion">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -499,6 +499,32 @@
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="test in Dominion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Dominion" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -991,15 +1017,17 @@
         </option>
       </method>
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 9.0.0.M6" />
       <item index="1" class="java.lang.String" itemvalue="Application.Main" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.SpelTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.test in Dominion" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.SpelTest" />
+      <list size="3">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.test in Dominion" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.SpelTest" />
       </list>
     </recent_temporary>
   </component>
@@ -1043,7 +1071,7 @@
       <workItem from="1463928574180" duration="10990000" />
       <workItem from="1464021895234" duration="37851000" />
       <workItem from="1464184086364" duration="1715000" />
-      <workItem from="1464191593454" duration="17573000" />
+      <workItem from="1464191593454" duration="17730000" />
     </task>
     <servers />
   </component>
@@ -1051,9 +1079,15 @@
     <history-entry file="SpelTest - 2016.05.17 at 13h 06m 22s.xml">
       <configuration name="SpelTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="test_in_Dominion - 2016.05.25 at 23h 24m 56s.xml">
+      <configuration name="test in Dominion" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="test_in_Dominion - 2016.05.25 at 23h 26m 01s.xml">
+      <configuration name="test in Dominion" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159799000" />
+    <option name="totallyTimeSpent" value="159956000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1069,7 +1103,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32608697" sideWeight="0.44427082" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32608697" sideWeight="0.44427082" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1257,14 +1291,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Source/src/test/ActiekaartTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="148" column="5" selection-start-line="148" selection-start-column="5" selection-end-line="148" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/SpelerServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1350,14 +1376,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActieKaartSpelenServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1464,6 +1482,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="364" column="69" selection-start-line="364" selection-start-column="69" selection-end-line="364" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActieKaartSpelenServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Source/src/test/ActiekaartTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
           <folding />
         </state>
       </provider>

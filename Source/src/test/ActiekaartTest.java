@@ -83,14 +83,14 @@ public class ActiekaartTest {
 
         int Startgeld = niels.getGeld();
         int Startactie = niels.getActie();
-        int Handvoorfestival = niels.getHand().size();
+        int Startbuy = niels.getKoop();
         // Execute
         Actiekaart actiekaart = new Actiekaart();
         actiekaart.festival(niels);
         //Check
         assertEquals(niels.getGeld() -2, Startgeld);
         assertEquals(niels.getActie() -2, Startactie);
-        assertEquals(niels.getHand().size() -1, Handvoorfestival);
+        assertEquals(niels.getKoop() -1, Startbuy);
 
 
     }
