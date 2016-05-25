@@ -86,6 +86,10 @@
     <ul class="hand">
         <li><p>Hand :</p></li>
     </ul>
+
+    <div id="handicon">
+        <img src="lib/images/Hands-Hand-icon.png.png" alt="handicon" title="handicon">
+    </div>
     <ul class="toonKaart">
         <li></li>
     </ul>
