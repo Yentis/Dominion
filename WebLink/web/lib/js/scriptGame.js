@@ -53,6 +53,7 @@ $(document).ready(function () {
         $("#ok").addClass("hide");
         $("#log").empty();
     });showScorebord(); showSpelerNaamScorePagina();
+
 });
 
 var legKaartenWeg = function () {
@@ -131,7 +132,8 @@ var speelActieKaart = function (kaart, janee, lijstkaarten, speciaal) {
                                     }$("#toonSpecialeKaarten").on("click", "img", function () {
                                         if ($("#toonSpecialeKaarten li").size() > 4) {
                                             $(this).parent().remove();
-                                        }else if ($("#toonSpecialeKaarten li").size() < 5) {
+                                        }
+                                        else if ($("#toonSpecialeKaarten li").size() < 4) {
                                             $("#toonSpecialeKaarten li").empty();
                                         }
                                     });
