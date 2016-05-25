@@ -356,7 +356,7 @@ public class Actiekaart {
     public void geldverlener(Spel spel, Speler speler, List<String> kaarten) {
         //thrash koper
         //krijg +3 geld
-        if (Objects.equals(kaarten.get(0), "Koper")) {
+        if (Objects.equals(kaarten.get(0), "Koper")){
             overloopKaartLijst(spel, speler, kaarten, 1, speler.getVuilbak());
             speler.addGeld(3);
         }

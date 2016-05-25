@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Laurens Visser
@@ -22,17 +23,32 @@ public class AantalActiekaartenServlet extends HttpServlet {
         Gson gson = new Gson();
         Spel spel = (Spel)request.getSession().getAttribute("spel");
         PrintWriter out = response.getWriter();
-
-
-
-        ArrayList<Integer> list = new ArrayList<>();
-
-
+        List<Integer> kaartnr = new ArrayList<>();
+        List<Integer> aantalKaarten = new ArrayList<>();
+        List<String> kaartnaam = new ArrayList<>();
+        List<Object> results = new ArrayList<>();
         for(Kaart k : spel.getAlleKaarten()){
-            list.add(spel.getStapelskaarten().get(k.getNr()));
+            if (!kaartnr.contains(k.getNr())){
+                kaartnr.add(k.getNr());
+            }
         }
-
-        String json = gson.toJson(list);
+        System.out.println(kaartnr);
+        for(Kaart k : spel.getAlleKaarten()){
+            if (!kaartnaam.contains(k.getNaam())){
+                kaartnaam.add(k.getNaam());
+            }
+        }
+        System.out.println(kaartnaam);
+        System.out.println(spel.getStapelskaarten());
+        for(int i : kaartnr){
+            if (spel.getStapelskaarten().get(i) != 0){
+                aantalKaarten.add(spel.getStapelskaarten().get(i)-1);
+            }
+        }
+        System.out.println(aantalKaarten);
+        results.add(kaartnaam);
+        results.add(aantalKaarten);
+        String json = gson.toJson(results);
         out.print(json);
 
     }
