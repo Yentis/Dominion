@@ -48,9 +48,9 @@
     <div id="persoongegevens">
         <ul>
 
-            <li>|ACTIES:<span id="acties"></span></li>
-            <li>|BUYS:<span id="buys"></span></li>
-            <li>|GELD:<span id="geld"></span></li>
+            <li>Acties: <span id="acties"></span></li>
+            <li>Buys: <span id="buys"></span></li>
+            <li>Geld: <span id="geld"></span></li>
         </ul>
 
     </div>
