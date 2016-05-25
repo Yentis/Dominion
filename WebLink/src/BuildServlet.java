@@ -43,6 +43,13 @@ public class BuildServlet extends HttpServlet {
         spel.vulVeldOp();
         spel.geefStartKaarten(speler1);
         spel.geefStartKaarten(speler2);
+        boolean added = false;
+        for(Kaart k : spel.getActieveld()){
+            if(Objects.equals(k.getNaam(), "Troonzaal") && !added){
+                speler1.getHand().add(k);
+                added = true;
+            }
+        }
 
         response.sendRedirect("gamepagina.jsp");
     }
