@@ -40,9 +40,8 @@ public class BeurtServlet extends HttpServlet {
             s.checkHand();
         }
         spel.setSpelerValues(speler);
-
 /*
-       boolean added = false;
+        boolean added = false;
         for(Kaart k : spel.getActieveld()){
             if(Objects.equals(k.getNaam(), "Troonzaal") && !added){
                 speler.getHand().add(k);
