@@ -25,8 +25,8 @@ public class EindeGameServlet extends HttpServlet {
         Spel spel = (Spel)request.getSession().getAttribute("spel");
         Speler speler1 = (Speler)request.getSession().getAttribute("speler1");
         Speler speler2 = (Speler)request.getSession().getAttribute("speler2");
-        ArrayList<Integer> Overwinningspunten = new ArrayList<Integer>();
-        if (spel.spelGedaan() == true){
+        ArrayList<Integer> Overwinningspunten = new ArrayList<>();
+        if (spel.spelGedaan()){
             Overwinningspunten.add(speler1.getOverwinningspunten());
             Overwinningspunten.add(speler2.getOverwinningspunten());
             String punten = request.getParameter("overwinningspunten");

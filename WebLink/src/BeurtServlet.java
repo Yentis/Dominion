@@ -24,6 +24,7 @@ public class BeurtServlet extends HttpServlet {
         Speler speler1 = (Speler)request.getSession().getAttribute("speler1");
         Speler speler2 = (Speler)request.getSession().getAttribute("speler2");
         Integer teller = (Integer)request.getSession().getAttribute("teller");
+
         if(teller == null){
             teller = 0;
         }
@@ -40,14 +41,6 @@ public class BeurtServlet extends HttpServlet {
             s.checkHand();
         }
         spel.setSpelerValues(speler);
-/*
-        boolean added = false;
-        for(Kaart k : spel.getActieveld()){
-            if(Objects.equals(k.getNaam(), "Troonzaal") && !added){
-                speler.getHand().add(k);
-                added = true;
-            }
-        }*/
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
