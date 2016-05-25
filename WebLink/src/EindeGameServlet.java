@@ -27,17 +27,14 @@ public class EindeGameServlet extends HttpServlet {
         Speler speler2 = (Speler)request.getSession().getAttribute("speler2");
         ArrayList<Integer> Overwinningspunten = new ArrayList<Integer>();
         if (spel.spelGedaan() == true){
-
             Overwinningspunten.add(speler1.getOverwinningspunten());
             Overwinningspunten.add(speler2.getOverwinningspunten());
             String punten = request.getParameter("overwinningspunten");
             response.sendRedirect("scorepagina.jsp");
-
         }
         String json = gson.toJson(Overwinningspunten);
         out.print(json);
     }
-
 }
 
 
