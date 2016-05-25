@@ -49,7 +49,7 @@
         <ul>
 
             <li>Acties: <span id="acties"></span></li>
-            <li>Buys: <span id="buys"></span></li>
+            <li>Kopen: <span id="buys"></span></li>
             <li>Geld: <span id="geld"></span></li>
         </ul>
 

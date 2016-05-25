@@ -505,6 +505,7 @@ public class Actiekaart {
         for (Speler s : spel.getSpelers()) {
             if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
                 for (int i = 0; i < 2; i++) {
+                    checkDeck(s, 2);
                     Kaart k = s.getDeck().get(i);
                     System.out.println(k.getNaam());
                     if (Objects.equals(k.getType(), "Geld") && !kaarten.contains(k.getNaam()) && kaarten.size() == 0) {
