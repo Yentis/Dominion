@@ -362,7 +362,7 @@ var eindigBeurt = function () {
     beginBeurtServlet();
     showTopAflegstapel();
     showPlayerName();
-    $("#log").html("Het is aan " + $("#naamspeler").html());
+    $("#log").html("Het is " + $("#naamspeler").html() + " zijn beurt");
     showPlayerGegevens();
     showHand();
 };
