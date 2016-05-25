@@ -16,14 +16,20 @@
 <body>
 <h1 class="scoretitel">Game over</h1>
 <ul id="score">
-
+    <li class="veld">Spelers</li>
     <li class="veld">Punten</li>
+
+
+
 </ul>
 <ul id="spelers">
-    <li class="veld">Spelers</li>
+    <li ></li>
 </ul>
 
+<ul id="punten">
 
+
+</ul>
 
 <form>
     <!--<input type="button" class="scorebutt" value="Opnieuw spelen">-->

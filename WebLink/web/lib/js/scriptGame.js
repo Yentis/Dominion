@@ -416,7 +416,7 @@ function showScorebord() {
         url: "EindeGameServlet",
         success: function (result) {
             for (i = 0; i < result.length; i++) {
-                $("#score").append("<li>" + result[i] + "</li>");
+                $("#punten").append("<li>" + result[i] + "</li>");
             }
         }
     });
@@ -450,6 +450,6 @@ function showSpelerNaamScorePagina() {
                 $("#spelers").append ("<li>" + result[i] + "</li>");
             }
         }
-    })
+    });
 
 }
