@@ -13,6 +13,10 @@ body {
     background-repeat: no-repeat;
     font-family: 'runescape';
     color: white;
+    font-weight:bold;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-size:3vw;
+
 }
 .toonKaart{
     position:absolute;
@@ -102,17 +106,19 @@ body {
 #speler{
 
     position: absolute;
-    left: 10%;
-    bottom: 10%;
+    font-size:2vw;
+    left: 7%;
+    bottom: 1%;
 }
 #dank{
 
-    width: 5%;
+    width: 10%;
+    height: 10%;
 }
 
 #speler li{
 
-    font-size: 1vw;
+    font-size: 2vw;
     display: block;
 }
 
@@ -161,7 +167,7 @@ body {
 .hand{
     position: absolute;
     bottom: 0;
-    left: 25%;
+    left: 30%;
     right: 20%;
 
 }
@@ -184,20 +190,20 @@ body {
 
 #persoongegevens{
     position: absolute;
-    top: 5%;
-    left:10%;
+    top: 45%;
+    left:0.5%;
     font-size: 42px;
-    border: 3px;
-    border-color: #D2139B;
+
 
 }
 
 #persoongegevens ul{
-    color:blue;
+
     font-size: 2vw;
     position: relative;
-    left: 10%;
-    font-family: 'runescape';
+    top:10%;
+
+
 
 }
 
@@ -330,7 +336,7 @@ body {
     background-color: darkgreen;
     padding: 10px;
     width: 5%;
-    bottom:10%;
+    bottom:1%;
     left:0.5%;
 
 
@@ -354,5 +360,6 @@ body {
     right: 30%;
     top:47%;
     bottom: 40%;
+
 
 }
