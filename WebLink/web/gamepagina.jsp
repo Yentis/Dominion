@@ -49,7 +49,7 @@
         <ul>
 
             <li>Acties: <span id="acties"></span></li>
-            <li>Buys: <span id="buys"></span></li>
+            <li>Kopen: <span id="buys"></span></li>
             <li>Geld: <span id="geld"></span></li>
         </ul>
 
@@ -86,6 +86,10 @@
     <ul class="hand">
         <li><p>Hand :</p></li>
     </ul>
+
+    <div id="handicon">
+        <img src="lib/images/Hands-Hand-icon.png.png" alt="handicon" title="handicon">
+    </div>
     <ul class="toonKaart">
         <li></li>
     </ul>
