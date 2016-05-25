@@ -75,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styleStart.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="styleStart.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/lib/css/styleStart.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="193" column="9" selection-start-line="193" selection-start-column="1" selection-end-line="193" selection-end-column="9" />
+            <state relative-caret-position="472">
+              <caret line="271" column="1" selection-start-line="271" selection-start-column="1" selection-end-line="271" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -147,16 +147,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ActiekaartTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../Source/src/test/ActiekaartTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -208,6 +198,7 @@
         <option value="$PROJECT_DIR$/src/BeurtServlet.java" />
         <option value="$PROJECT_DIR$/web/lib/js/scriptGame.js" />
         <option value="$PROJECT_DIR$/../Source/src/test/ActiekaartTest.java" />
+        <option value="$PROJECT_DIR$/web/lib/css/styleStart.css" />
       </list>
     </option>
   </component>
@@ -461,7 +452,7 @@
       <recent name="C:\Users\Yentl-PC\Downloads\WebLink\web\WEB-INF\com" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.test in Dominion">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.0.M6">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1071,7 +1062,7 @@
       <workItem from="1463928574180" duration="10990000" />
       <workItem from="1464021895234" duration="37851000" />
       <workItem from="1464184086364" duration="1715000" />
-      <workItem from="1464191593454" duration="17730000" />
+      <workItem from="1464191593454" duration="17905000" />
     </task>
     <servers />
   </component>
@@ -1087,7 +1078,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159956000" />
+    <option name="totallyTimeSpent" value="160131000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1103,7 +1094,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32608697" sideWeight="0.44427082" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32608697" sideWeight="0.44427082" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1462,14 +1453,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/lib/css/styleStart.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="193" column="9" selection-start-line="193" selection-start-column="1" selection-end-line="193" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BeurtServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1486,6 +1469,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../Source/src/test/ActiekaartTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81">
+          <caret line="95" column="5" selection-start-line="95" selection-start-column="5" selection-end-line="95" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ActieKaartSpelenServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1494,10 +1485,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Source/src/test/ActiekaartTest.java">
+    <entry file="file://$PROJECT_DIR$/web/lib/css/styleStart.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="89" column="15" selection-start-line="89" selection-start-column="15" selection-end-line="89" selection-end-column="15" />
+        <state relative-caret-position="472">
+          <caret line="271" column="1" selection-start-line="271" selection-start-column="1" selection-end-line="271" selection-end-column="1" />
           <folding />
         </state>
       </provider>
