@@ -153,18 +153,18 @@ function bibliotheekBehaviour(result, huidigekaart, answer, tereturnen, kaart){
 
 function schutterijBehaviour(result, kaart){
     var i = 0;
-    $(".kaartOpVeld").append("<li class='" + kaart + "'><img src='lib/images/kaarten/" + kaart + ".png' title='" + kaart + "'/></li>")
+    $(".kaartOpVeld").append("<li class='" + kaart + "'><img src='lib/images/kaarten/" + kaart + ".png' title='" + kaart + "'/></li>");
     $(".hand ." + kaart + ":first").remove();
     while (i < result.length) {
         if (result.length > 3) {
             $("#toonSpecialeKaarten").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".png' title='" + result[i] + "'/></li>");
             i++;
         }
-        $("#log").html("Kies de kaarten die de tegenstander wilt afleggen");
     }
+    $("#log").html("Kies de kaarten die de tegenstander wilt afleggen");
     $("#toonSpecialeKaarten").on("click", "img", function () {
         if ($("#toonSpecialeKaarten li").size() > 4) {
-            $(this).parent().remove();
+           $(this).parent().remove();
         }else if ($("#toonSpecialeKaarten li").size() < 5) {
             $("#toonSpecialeKaarten li").empty();
         }
@@ -179,6 +179,7 @@ function bureaucraatBehaviour(result, kaart){
     }
     $(".kaartOpVeld").append("<li class='" + kaart + "'><img src='lib/images/kaarten/" + kaart + ".png' title='" + kaart + "'/></li>");
     $(".hand").slice(1).remove("." + kaart + "");
+    $("#toonSpecialeKaarten").on("click", function(){$(this).empty();});
 }
 
 function spionBehaviour(result, huidigekaart, answer, tereturnen, kaart){
@@ -303,7 +304,7 @@ function specializedKoopKaart(kaart) {
             }
         }
     });
-};
+}
 
 var showKoopOpties = function () {
     $(".koopKaart").remove();
@@ -470,7 +471,7 @@ function showScorebord() {
         url: "EindeGameServlet",
         success: function (result) {
             for (i = 0; i < result.length; i++) {
-                $("#score").append("<li>" + result[i] + "</li>");
+                $("#punten").append("<li>" + result[i] + "</li>");
             }
         }
     });
@@ -504,6 +505,6 @@ function showSpelerNaamScorePagina() {
                 $("#spelers").append("<li>" + result[i] + "</li>");
             }
         }
-    })
+    });
 
 }

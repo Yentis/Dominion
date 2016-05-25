@@ -240,8 +240,6 @@ public class Actiekaart {
     }
 
     public List<String> schutterij(Spel spel, Speler speler) {
-        System.out.println("in schutterij");
-
         //+2Geld
         speler.addGeld(2);
         //leg kaarten af tot alle spelers 3 kaarten over heeft
