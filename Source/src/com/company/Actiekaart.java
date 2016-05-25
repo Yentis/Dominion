@@ -495,6 +495,7 @@ public class Actiekaart {
             message.add("Kiesiets");
             return message;
         } else if(kaarten.size() == 1) {
+            boolean done = false;
             System.out.println("kaarten size is 1: " + kaarten.get(0));
             //effect gekozen actiekaart*2
             switch(kaarten.get(0)){
@@ -506,6 +507,13 @@ public class Actiekaart {
                 case "Troonzaal":
                     return speelactiekaartspecial(kaarten.get(0), spel, speler, message, 2);
                 default:
+                    for(int i=0;i<speler.getHand().size();i++){
+                        Kaart k = speler.getHand().get(i);
+                        if(Objects.equals(k.getNaam(), kaarten.get(0)) && !done){
+                            spel.voegKaartToe(1, k, speler.getHand(), speler.getAflegstapel());
+                            done = true;
+                        }
+                    }
                     System.out.println("first run");
                     speelactiekaart(kaarten.get(0), speler, spel, 2, message);
                     System.out.println("second run");
