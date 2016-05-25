@@ -24,15 +24,15 @@ $(document).ready(function () {
 });
 
 var confirmActieKaart = function (){
+    $("#ok").addClass("hide");
+    $("#log").empty();
     if(masterkaart == "Troonzaal"){
         troonzaalBehaviour();
-    } else if(troonzaal) {
-        troonzaalBehaviour2();
+    } else if (troonzaal){
+        speelActieKaart(masterkaart, 2, gekozenkaarten, false, false);
     } else {
         speelActieKaart(masterkaart, 2, gekozenkaarten, false, true);
     }
-    $("#ok").addClass("hide");
-    $("#log").empty();
 };
 
 var legKaartenWeg = function () {
@@ -208,7 +208,6 @@ function checkActiekaart(kaart, gebruikacties){
         kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/", "");
         kaart = kaart.replace(".png", "");
     }
-    console.log(kaart);
 
     switch (kaart) {
         case "Kanselier":
@@ -261,9 +260,7 @@ function checkActiekaart(kaart, gebruikacties){
 function setMasterkaartenToonOk(kaart) {
     masterkaart = kaart;
     $("#ok").removeClass("hide");
-    console.log("oh");
     $(".hand ." + kaart + ":first").hide();
-    console.log("hi");
 }
 
 function voegKaartToe(kaart) {
