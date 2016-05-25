@@ -50,7 +50,7 @@ public class ActieKaartSpelenServlet extends HttpServlet {
                     Kaart tespelenkaart = k;
                     if(speciaal){
                         afteprintenkaarten = acties.speelactiekaartspecial(kaartnaam, spel, speler, kaarten, Integer.parseInt(janee));
-                        if(afteprintenkaarten.size() == 0 || Objects.equals(kaartnaam, "Bureaucraat")){
+                        if(afteprintenkaarten.size() == 0 || Objects.equals(kaartnaam, "Bureaucraat") || Objects.equals(kaartnaam, "Schutterij")){
                             spel.voegKaartToe(1, tespelenkaart, speler.getHand(), speler.getAflegstapel());
                             speler.addActie(-1);
                         }

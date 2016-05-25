@@ -16,8 +16,10 @@
 <body>
 <h1 class="scoretitel">Game over</h1>
 <ul id="score">
+
     <li class="veld">Spelers</li>
     <li class="veld">Punten</li>
+
 
 
 

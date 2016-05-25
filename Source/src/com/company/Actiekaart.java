@@ -329,23 +329,58 @@ public class Actiekaart {
 
 
     public List<String> schutterij(Spel spel, Speler speler) {
+        System.out.println("in schutterij");
 
         //+2Geld
         speler.addGeld(2);
         //leg kaarten af tot alle spelers 3 kaarten over heeft
+        List<String> legeArray = new ArrayList<>();
+        boolean selected = false;
+
         List<String> kaarten = new ArrayList<>();
         for (Speler s : spel.getSpelers()) {
             if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
-
-                List<Kaart> handspeler = new ArrayList<>();
-                System.out.println("speler size: " + s.getHand().size());
-                for (Kaart k : s.getHand()) {
-                    kaarten.add(k.getNaam());
+                /*List<Kaart> handspeler = new ArrayList<>();
+                for (Kaart k : speler.getHand()){
+                    handspeler.add(k);
+                }*/
+                if (s.getHand().size()>3){
+                    System.out.println("speler size: " + s.getHand().size());
+                    for (Kaart k2 : s.getHand()) {
+                        kaarten.add(k2.getNaam());
+                    }
                 }
+                System.out.println(kaarten);
+                overloopKaartLijst(spel, s, kaarten , s.getHand().size()-3, s.getAflegstapel());
+
+
+                /*else{
+                    for (Kaart k2 : s.getHand()){
+                        kaarten.remove(k2);
+                    }
+                }*/
+
             }
         }
-        System.out.println(kaarten);
+        System.out.println("Kaarten van de enemy: " + kaarten);
         return kaarten;
+        /*for (String s : kaarten) {
+            for (Kaart k : spel.getAlleKaarten()) {
+                if (!Objects.equals(k.getNaam(), s) && !selected && aantalkaarten < speler.getHand().size()-3) {
+                    System.out.println("enemy speler hand :" + speler.getHand());
+                    spel.voegKaartToe(1, k, speler.getHand(), speler.getAflegstapel());
+                    aantalkaarten++;
+                    legeArray.add(k.getNaam());
+                    selected = true;
+                }
+            }
+            selected = false;
+        }
+        System.out.println(legeArray);
+        return legeArray;*/
+
+
+
 
 
 
@@ -470,6 +505,7 @@ public class Actiekaart {
         for (Speler s : spel.getSpelers()) {
             if (!Objects.equals(s.getNaam(), speler.getNaam()) && !heeftReactiekaart(s)) {
                 for (int i = 0; i < 2; i++) {
+                    checkDeck(s, 2);
                     Kaart k = s.getDeck().get(i);
                     System.out.println(k.getNaam());
                     if (Objects.equals(k.getType(), "Geld") && !kaarten.contains(k.getNaam()) && kaarten.size() == 0) {
