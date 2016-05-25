@@ -192,23 +192,23 @@ input:hover, a:hover{
 }
 
 #toggleMuziek.mute:hover{
-    background-image: url(../images/music-note-blue-histreep.png);
+    background-image: url(../images/mute-2-xxl.png);
 }
 
 
 #toggleMuziek.mute{
-    background-image: url(../images/blue-music-note-clipart-musical-note-228x300strrep.png);
+    background-image: url(../images/mute-2-xxl.png);
 
 }
 #toggleMuziek{
     background-position: center;
     background-size: 75%;
     background-repeat: no-repeat;
-    background-image: url(../images/blue-music-note-clipart-musical-note-228x300.png);
+    background-image: url(../images/volume-up-4-xxl.png);
 
 }
 #toggleMuziek:hover{
-    background-image: url(../images/music-note-blue-hi.png);
+    background-image: url(../images/volume-up-4-xxl.png);
 }
 
 label{
