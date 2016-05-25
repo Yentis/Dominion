@@ -41,6 +41,11 @@ body {
     width: 10%;
 }
 
+.actiekaarten li p, .geldcurse li p, .overwinningskaarten li p{
+    position: absolute;
+    z-index: 5;
+    display: inline;
+}
 /*overwinningskaarten*/
 
 .overwinningskaarten{
