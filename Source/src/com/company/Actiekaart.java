@@ -13,7 +13,6 @@ import java.util.Scanner;
 public class Actiekaart {
 
     public String speelactiekaart(String naam, Speler speler, Spel spel, int truefalse, List<String> kaarten) {
-        System.out.println("in speelactiekaart");
         switch (naam) {
             case "Heks":
                 heks(spel, speler);
@@ -49,9 +48,6 @@ public class Actiekaart {
                 System.out.println("Smederij pre");
                 smederij(speler);
                 System.out.println("Smederij after");
-                break;
-            case "Troonzaal":
-                troonzaal(spel, speler, truefalse, kaarten);
                 break;
             case "Raadzaal":
                 raadzaal(spel, speler);
@@ -89,6 +85,8 @@ public class Actiekaart {
                 return bureaucraat(spel, speler);
             case "Spion":
                 return spion(spel, speler, janee, kaarten);
+            case "Troonzaal":
+                return troonzaal(spel, speler, kaarten);
         }
         return emptylist;
     }
@@ -488,14 +486,33 @@ public class Actiekaart {
     }
 
     //todo
-    public void troonzaal(Spel spel, Speler speler, int truefalse, List<String> kaarten) {
+    public List<String> troonzaal(Spel spel, Speler speler, List<String> kaarten) {
         //kies een actiekaart
-        String naamvangekozenkaart = kiesKaartMetSoort("Actie", "type", speler.getHand()).getNaam();
-
-        //effect gekozen actiekaart*2
-        speelactiekaart(naamvangekozenkaart, speler, spel, truefalse, kaarten);
-        speelactiekaart(naamvangekozenkaart, speler, spel, truefalse, kaarten);
-
+        System.out.println("kaarten size: " + kaarten.size());
+        List<String> message = new ArrayList<>();
+        if(kaarten.size() == 0){
+            message.add("Kiesiets");
+            return message;
+        } else if(kaarten.size() == 1) {
+            System.out.println("kaarten size is 1: " + kaarten.get(0));
+            //effect gekozen actiekaart*2
+            switch(kaarten.get(0)){
+                case "Dief":
+                case "Bibliotheek":
+                case "Schutterij":
+                case "Bureaucraat":
+                case "Spion":
+                case "Troonzaal":
+                    return speelactiekaartspecial(kaarten.get(0), spel, speler, message, 2);
+                default:
+                    System.out.println("first run");
+                    speelactiekaart(kaarten.get(0), speler, spel, 2, message);
+                    System.out.println("second run");
+                    speelactiekaart(kaarten.get(0), speler, spel, 2, message);
+                    break;
+            }
+        }
+        return message;
     }
 
     public void raadzaal(Spel spel, Speler speler) {

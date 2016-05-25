@@ -13,9 +13,12 @@ $(document).ready(function () {
     showPlayerGegevens();
     showHand();
     //showKoopAantal();
+    $("#toonSpecialeKaarten").on("click", function(){
+        $(this).empty();
+    });
     $(".toonKaart").on("click", function(){
-        $(".toonKaart").empty();
-    })
+        $(this).empty();
+    });
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
     $(".hand").on("click", "img", function(){
@@ -29,9 +32,13 @@ $(document).ready(function () {
         }
     });
     $("#ok").on("click", function(){
-        speelActieKaart(masterkaart, 2, gekozenkaarten, false);
+        if(masterkaart == "Troonzaal"){
+            speelActieKaart(masterkaart, 2, gekozenkaarten, true);
+        } else {
+            speelActieKaart(masterkaart, 2, gekozenkaarten, false);
+        }
         $("#ok").addClass("hide");
-        $("#log").html("");
+        $("#log").empty();
     });showScorebord(); showSpelerNaamScorePagina();
 });
 
@@ -98,6 +105,8 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     }
                                     break;
                                 case "Bureaucraat":
+                                    $("#toonspecialekaarten").empty();
+                                    $("#toonSpecialeKaarten").append("<h2>Kaarten van je vijand: </h2>");
                                     for (i = 0; i<result[2].length; i++){
                                         $("#toonSpecialeKaarten").append("<li class='"+result[2][i]+"'><img src='lib/images/kaarten/" + result[2][i] + ".png' title='" + result[2][i] + "'/></li>");
                                     }
@@ -121,7 +130,6 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                             }
                                         }
                                     }
-
                                     console.log("Kaart is: " + kaart + " terug te sturen: " + tereturnen + " janee: " + janee);
                                     speelActieKaart(kaart, 0, tereturnen, true);
                                     break;
@@ -145,6 +153,7 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
 };
 
 function checkActiekaart(kaart){
+    console.log("whoa");
     gekozenkaarten = [];
     kaart = kaart.src;
     kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/","");
@@ -178,6 +187,10 @@ function checkActiekaart(kaart){
             break;
         case "Mijn":
             $("#log").html("Kies een geldkaart om weg te smijten");
+            setMasterkaartenToonOk(kaart);
+            break;
+        case "Troonzaal":
+            $("#log").html("Kies een actiekaart om tweemaal te spelen");
             setMasterkaartenToonOk(kaart);
             break;
         case "Dief":
