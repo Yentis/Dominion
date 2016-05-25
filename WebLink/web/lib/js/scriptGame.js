@@ -96,13 +96,12 @@ var speelActieKaart = function(kaart, janee, lijstkaarten, speciaal){
                                     console.log("verbonden aan shitterij");
 
                                     console.log(result[2]);
-                                    for (i = 0; result[2].length; i++){
+                                    
                                         if (result[2].length > 3){
                                              $("#toonSpecialeKaarten").append("<li class='"+huidigekaart+"'><img src='lib/images/kaarten/" + huidigekaart + ".png' title='" + huidigekaart + "'/></li>");
                                             console.log("dus er zou iets mis moeten zijn met de loop")
                                         }
 
-                                    }
                                     break;
                                 case "Bureaucraat":
                                     $("#toonspecialekaarten").empty();
@@ -197,6 +196,8 @@ function checkActiekaart(kaart){
         case "Bibliotheek":
         case "Bureaucraat":
         case "Schutterij":
+            $("#log").html("Kies de kaarten die je wilt afleggen");
+            break;
         case "Spion":
             speelActieKaart(kaart, 2, "", true);
             break;
