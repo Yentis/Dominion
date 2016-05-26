@@ -51,11 +51,7 @@ function checkAantalActies() {
         type: "POST",
         url: "SpelerServlet",
         success: function (result) {
-            if (result[0] == 0) {
-                return false;
-            } else {
-                return true;
-            }
+            return result[0] != 0;
         }
     });
 }
@@ -109,7 +105,6 @@ var speelActieKaart = function (kaart, janee, lijstkaarten, speciaal, gebruikact
                 }
                 showPlayerGegevens();
                 showHand();
-                
             }
         });
     }
@@ -167,10 +162,10 @@ function schutterijBehaviour(result, kaart) {
     }
     $("#log").html("Kies de kaarten die de tegenstander wilt afleggen");
     $("#toonSpecialeKaarten").on("click", "img", function () {
-        if ($("#toonSpecialeKaarten li").size() > 4) {
+        if ($(this).find("li").size() > 4) {
             $(this).parent().remove();
-        } else if ($("#toonSpecialeKaarten li").size() < 5) {
-            $("#toonSpecialeKaarten li").empty();
+        } else if ($(this).find("li").size() < 5) {
+            $(this).empty();
         }
     });
 }
@@ -347,24 +342,26 @@ function showSpecializedKoopOpties(limits) {
 function beginBeurtServlet() {
     $.ajax({
         type: "POST",
-        url: "BeurtServlet"
+        url: "BeurtServlet",
+        success: function(){
+            showKoopOpties();
+        }
     });
-    showKoopOpties();
-
 }
 
 var eindigBeurt = function () {
     $.ajax({
         type: "POST",
-        url: "EindeBeurtServlet"
+        url: "EindeBeurtServlet",
+        success: function(){
+            clearVeld();
+            beginBeurtServlet();
+            showTopAflegstapel();
+            showPlayerName();
+            showPlayerGegevens();
+            showHand();
+        }
     });
-    clearVeld();
-    beginBeurtServlet();
-    showTopAflegstapel();
-    showPlayerName();
-    $("#log").html("Het is " + $("#naamspeler").html() + " zijn beurt");
-    showPlayerGegevens();
-    showHand();
 };
 
 function clearVeld() {
@@ -405,6 +402,7 @@ function showPlayerName() {
         url: "NaamServlet",
         success: function (result) {
             $("#naamspeler").html(result);
+            $("#log").html("Het is " + $("#naamspeler").html() + " zijn beurt");
         }
     })
 }

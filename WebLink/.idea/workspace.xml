@@ -26,38 +26,10 @@
       <file leaf-file-name="Actiekaart.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Actiekaart.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1221">
-              <caret line="390" column="0" selection-start-line="390" selection-start-column="0" selection-end-line="390" selection-end-column="0" />
+            <state relative-caret-position="7182">
+              <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#speelactiekaart#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#speelactiekaartspecial#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#checkDeck#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#overloopKaartLijst#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#heeftReactiekaart#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#duidSpecifiekeKaartAan#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#heks#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#kelder#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#kerk#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#gracht#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#kanselier#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#dorps#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#houthakker#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#werkplaats#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#bureaucraat#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#feest#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#schutterij#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#geldverlener#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#ombouwen#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#smederij#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#spion#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#dief#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#festival#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#laboratorium#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#bibliotheek#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#markt#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#mijn#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#avonturier#0;class#Actiekaart#0" expanded="false" />
+                <marker date="1464257479595" expanded="true" signature="17210:17216" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -66,30 +38,34 @@
       <file leaf-file-name="styleGame.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/lib/css/styleGame.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="196" column="6" selection-start-line="196" selection-start-column="4" selection-end-line="196" selection-end-column="6" />
-              <folding>
-                <marker date="1464210081135" expanded="true" signature="4892:4895" placeholder="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styleStart.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/lib/css/styleStart.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="271" column="1" selection-start-line="271" selection-start-column="1" selection-end-line="271" selection-end-column="1" />
+            <state relative-caret-position="4332">
+              <caret line="228" column="6" selection-start-line="228" selection-start-column="6" selection-end-line="228" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scriptGame.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="styleStart.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/lib/css/styleStart.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="776">
+              <caret line="271" column="1" selection-start-line="271" selection-start-column="1" selection-end-line="271" selection-end-column="1" />
+              <folding>
+                <marker date="1464257479648" expanded="true" signature="3192:3216" ph="{...}" />
+                <marker date="1464257479648" expanded="true" signature="4126:4148" ph="{...}" />
+                <marker date="1464257479648" expanded="true" signature="4160:4183" ph="{...}" />
+                <marker date="1464257479648" expanded="true" signature="4206:4256" ph="{...}" />
+                <marker date="1464257479648" expanded="true" signature="4354:4385" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scriptGame.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/lib/js/scriptGame.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="364" column="69" selection-start-line="364" selection-start-column="69" selection-end-line="364" selection-end-column="69" />
+            <state relative-caret-position="1235">
+              <caret line="260" column="40" selection-start-line="260" selection-start-column="40" selection-end-line="260" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -98,31 +74,11 @@
       <file leaf-file-name="Spel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Spel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="168" column="38" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
+            <state relative-caret-position="317">
+              <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
               <folding>
-                <marker date="1464210906075" expanded="true" signature="1825:1844" placeholder="select * fro... kaart" />
+                <marker date="1463770918356" expanded="true" signature="1825:1844" ph="select * fro... kaart" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BeurtServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BeurtServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EindeGameServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EindeGameServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="26" column="78" selection-start-line="26" selection-start-column="78" selection-end-line="26" selection-end-column="78" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -130,8 +86,8 @@
       <file leaf-file-name="BuildServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BuildServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+            <state relative-caret-position="268">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -140,9 +96,12 @@
       <file leaf-file-name="ActieKaartSpelenServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ActieKaartSpelenServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-              <folding />
+            <state relative-caret-position="418">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+              <folding>
+                <marker date="1464257479616" expanded="false" signature="7:422" ph="..." />
+                <marker date="1464257479616" expanded="true" signature="3169:3263" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -191,14 +150,14 @@
         <option value="$PROJECT_DIR$/../Source/src/com/company/Actiekaart.java" />
         <option value="$PROJECT_DIR$/web/lib/css/styleGame.css" />
         <option value="$PROJECT_DIR$/web/gamepagina.jsp" />
-        <option value="$PROJECT_DIR$/src/BuildServlet.java" />
         <option value="$PROJECT_DIR$/../Source/src/com/company/Spel.java" />
         <option value="$PROJECT_DIR$/../Source/src/com/company/Spel.java" />
         <option value="$PROJECT_DIR$/src/EindeGameServlet.java" />
-        <option value="$PROJECT_DIR$/src/BeurtServlet.java" />
-        <option value="$PROJECT_DIR$/web/lib/js/scriptGame.js" />
         <option value="$PROJECT_DIR$/../Source/src/test/ActiekaartTest.java" />
         <option value="$PROJECT_DIR$/web/lib/css/styleStart.css" />
+        <option value="$PROJECT_DIR$/src/BuildServlet.java" />
+        <option value="$PROJECT_DIR$/web/lib/js/scriptGame.js" />
+        <option value="$PROJECT_DIR$/src/BeurtServlet.java" />
       </list>
     </option>
   </component>
@@ -253,7 +212,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -429,7 +388,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1063,6 +1022,7 @@
       <workItem from="1464021895234" duration="37851000" />
       <workItem from="1464184086364" duration="1715000" />
       <workItem from="1464191593454" duration="17905000" />
+      <workItem from="1464257504318" duration="1433000" />
     </task>
     <servers />
   </component>
@@ -1078,11 +1038,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160131000" />
+    <option name="totallyTimeSpent" value="161564000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1094,7 +1054,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32608697" sideWeight="0.44427082" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3255814" sideWeight="0.44427082" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1171,14 +1131,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/scorepagina.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="50" selection-start-line="36" selection-start-column="50" selection-end-line="36" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Source/src/com/company/company.iml" />
     <entry file="file://$PROJECT_DIR$/src/company/Kaart.java" />
     <entry file="file://$PROJECT_DIR$/src/company/Main.java" />
@@ -1252,13 +1204,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/poepservlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/poepservlet.java" />
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1367,7 +1313,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1379,50 +1324,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Spel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="168" column="38" selection-start-line="168" selection-start-column="38" selection-end-line="168" selection-end-column="38" />
-          <folding>
-            <marker date="1464210906075" expanded="true" signature="1825:1844" placeholder="select * fro... kaart" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Actiekaart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1221">
-          <caret line="390" column="0" selection-start-line="390" selection-start-column="0" selection-end-line="390" selection-end-column="0" />
+        <state relative-caret-position="7182">
+          <caret line="378" column="0" selection-start-line="378" selection-start-column="0" selection-end-line="378" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#speelactiekaart#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#speelactiekaartspecial#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#checkDeck#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#overloopKaartLijst#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#heeftReactiekaart#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#duidSpecifiekeKaartAan#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#heks#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#kelder#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#kerk#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#gracht#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#kanselier#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#dorps#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#houthakker#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#werkplaats#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#bureaucraat#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#feest#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#schutterij#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#geldverlener#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#ombouwen#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#smederij#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#spion#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#dief#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#festival#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#laboratorium#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#bibliotheek#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#markt#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#mijn#0;class#Actiekaart#0" expanded="false" />
-            <element signature="method#avonturier#0;class#Actiekaart#0" expanded="false" />
+            <marker date="1464257479595" expanded="true" signature="17210:17216" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1435,36 +1342,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/BuildServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="30" column="55" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/lib/css/styleGame.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="196" column="6" selection-start-line="196" selection-start-column="4" selection-end-line="196" selection-end-column="6" />
-          <folding>
-            <marker date="1464210081135" expanded="true" signature="4892:4895" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BeurtServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/lib/js/scriptGame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="364" column="69" selection-start-line="364" selection-start-column="69" selection-end-line="364" selection-end-column="69" />
+        <state relative-caret-position="4332">
+          <caret line="228" column="6" selection-start-line="228" selection-start-column="6" selection-end-line="228" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1479,16 +1360,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ActieKaartSpelenServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-          <folding />
+        <state relative-caret-position="418">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <marker date="1464257479616" expanded="false" signature="7:422" ph="..." />
+            <marker date="1464257479616" expanded="true" signature="3169:3263" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/lib/css/styleStart.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
+        <state relative-caret-position="776">
           <caret line="271" column="1" selection-start-line="271" selection-start-column="1" selection-end-line="271" selection-end-column="1" />
+          <folding>
+            <marker date="1464257479648" expanded="true" signature="3192:3216" ph="{...}" />
+            <marker date="1464257479648" expanded="true" signature="4126:4148" ph="{...}" />
+            <marker date="1464257479648" expanded="true" signature="4160:4183" ph="{...}" />
+            <marker date="1464257479648" expanded="true" signature="4206:4256" ph="{...}" />
+            <marker date="1464257479648" expanded="true" signature="4354:4385" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BuildServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/function/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BeurtServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Spel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding>
+            <marker date="1463770918356" expanded="true" signature="1825:1844" ph="select * fro... kaart" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/lib/js/scriptGame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1235">
+          <caret line="260" column="40" selection-start-line="260" selection-start-column="40" selection-end-line="260" selection-end-column="40" />
           <folding />
         </state>
       </provider>
