@@ -32,7 +32,7 @@ public class SpelerTest {
         int StartGeld = laurens.getGeld();
         laurens.addGeld(50);
         int EindGeld = laurens.getGeld();
-        assertEquals(StartGeld, EindGeld - 50, 0.01);
+        assertEquals(StartGeld, EindGeld - 50);
 
     }
 
@@ -42,7 +42,7 @@ public class SpelerTest {
         int StartActie = laurens.getActie();
         laurens.addActie(2);
         int EindActie = laurens.getActie();
-        assertEquals(StartActie, EindActie - 2, 0.01);
+        assertEquals(StartActie, EindActie - 2);
     }
 
     @Test
@@ -51,7 +51,7 @@ public class SpelerTest {
         int StartKoop = laurens.getKoop();
         laurens.addKoop(2);
         int EindKoop = laurens.getKoop();
-        assertEquals(StartKoop, EindKoop - 2, 0.01);
+        assertEquals(StartKoop, EindKoop - 2);
     }
 
     @Test
@@ -60,7 +60,7 @@ public class SpelerTest {
         int StartOP = laurens.getOverwinningspunten();
         laurens.addOverwinningspunten(2);
         int EindOP = laurens.getOverwinningspunten();
-        assertEquals(StartOP, EindOP - 2, 0.01);
+        assertEquals(StartOP, EindOP - 2);
     }
 
 

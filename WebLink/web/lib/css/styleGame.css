@@ -175,11 +175,10 @@ body {
 
 }
 
-#handicon{
+#handicon img{
     position: absolute;
     bottom: 0;
-    left: 25%;
-
+    left: 20%;
 }
 #buttons input[type=button].hide{
     display:none;

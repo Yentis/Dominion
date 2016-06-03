@@ -38,7 +38,7 @@ public class ActieKaartSpelenServlet extends HttpServlet {
             List<String> kaarten = new ArrayList<>();
             String[] lijstkaarten = new String[0];
             String[] array = new String[0];
-            String result = "";
+            int result = 0;
             List<String> afteprintenkaarten;
             if(!Objects.equals(request.getParameter("lijstkaarten"), "")){
                 lijstkaarten = request.getParameterValues("lijstkaarten[]");

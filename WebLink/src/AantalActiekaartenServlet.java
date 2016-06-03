@@ -32,20 +32,16 @@ public class AantalActiekaartenServlet extends HttpServlet {
                 kaartnr.add(k.getNr());
             }
         }
-        System.out.println(kaartnr);
         for(Kaart k : spel.getAlleKaarten()){
             if (!kaartnaam.contains(k.getNaam())){
                 kaartnaam.add(k.getNaam());
             }
         }
-        System.out.println(kaartnaam);
-        System.out.println(spel.getStapelskaarten());
         for(int i : kaartnr){
             if (spel.getStapelskaarten().get(i) != 0){
                 aantalKaarten.add(spel.getStapelskaarten().get(i)-1);
             }
         }
-        System.out.println(aantalKaarten);
         results.add(kaartnaam);
         results.add(aantalKaarten);
         String json = gson.toJson(results);

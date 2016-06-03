@@ -8,8 +8,6 @@ $(document).ready(function () {
     masterkaart = "";
     troonzaal = false;
     $(".actiekaarten, .overwinningskaarten, .geldcurse, .kaartOpVeld").on("click", "img", zoomIn);
-
-
     $(".toonKaart").on("click", function(){$(this).empty();});
     $("#gooigeld").on("click", gooiGeld);
     $("#eindigbeurt").on("click", eindigBeurt);
@@ -60,16 +58,13 @@ var speelActieKaart = function (kaart, janee, lijstkaarten, speciaal, gebruikact
     if(checkAantalActies() == false){
         $("#log").html("Je hebt geen acties meer over.");
     } else {
-        console.log("Gebruik actie?: " + gebruikactie);
         $.ajax({
             type: "POST",
             dataType: "json",
             data: {kaart: kaart, janee: janee, lijstkaarten: lijstkaarten, speciaal: speciaal, gebruikactie:gebruikactie},
             url: "ActieKaartSpelenServlet",
             success: function (result) {
-                console.log("Kaart: " + result[0]);
                 for (i = 0; i < result[2].length; i++) {
-                    console.log("Return: " + result[2][i]);
                 }
                 if (typeof result[2][0] !== "undefined") {
                     var tereturnen = [];
@@ -96,9 +91,8 @@ var speelActieKaart = function (kaart, janee, lijstkaarten, speciaal, gebruikact
                     $(".kaartOpVeld").append("<li class='" + result[0] + "'><img src='lib/images/kaarten/" + result[0] + ".png' title='" + result[0] + "'/></li>");
                     $(".hand").slice(1).remove("." + result[0] + "");
                 }
-                if (result[1] != "0" && result[1] != "") {
+                if (result[1] != "0") {
                     $("#log").html("Kies een kaart om te kopen");
-                    console.log("results: " + result[1]);
                     showSpecializedKoopOpties(result[1]);
                 } else if (troonzaal) {
                     troonzaalBehaviour2();
@@ -162,10 +156,10 @@ function schutterijBehaviour(result, kaart) {
     }
     $("#log").html("Kies de kaarten die de tegenstander wilt afleggen");
     $("#toonSpecialeKaarten").on("click", "img", function () {
-        if ($(this).find("li").size() > 4) {
+        if ($("#toonSpecialeKaarten li").size() > 4) {
             $(this).parent().remove();
-        } else if ($(this).find("li").size() < 5) {
-            $(this).empty();
+        } else if ($("#toonSpecialeKaarten li").size() < 5) {
+            $("#toonSpecialeKaarten li").remove();
         }
     });
 }
@@ -284,6 +278,7 @@ var koopKaart = function () {
             showPlayerGegevens();
             showTopAflegstapel();
             showKoopAantal();
+            checkGameStatus();
         }
     });
 };
@@ -301,7 +296,16 @@ function specializedKoopKaart(kaart) {
             if(troonzaal){
                 troonzaalBehaviour2();
             }
+            checkGameStatus();
         }
+    });
+}
+
+function checkGameStatus(){
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "EindeGameServlet"
     });
 }
 
@@ -388,7 +392,6 @@ var gooiGeld = function () {
 };
 
 var zoomIn = function () {
-    console.log("hey");
     if ($(".toonKaart").has("li")) {
         $(".toonKaart li").remove();
     }

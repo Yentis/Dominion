@@ -13,18 +13,8 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "StoppenServlet", urlPatterns = {"/StoppenServlet"})
 public class StoppenServlet extends HttpServlet {
-
-
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       /* RequestDispatcher rd = request.getRequestDispatcher("Buildservlet");
-        rd.forward(request,response);*/
         response.setContentType("text/plain");
-        response.sendRedirect("index.jsp");
-
+        response.sendRedirect("scorepagina.jsp");
     }
-
-
-
-
 }

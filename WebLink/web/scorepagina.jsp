@@ -20,23 +20,18 @@
     <li class="veld">Spelers</li>
     <li class="veld">Punten</li>
 
-
-
-
 </ul>
 <ul id="spelers">
-    <li ></li>
+    <li></li>
 </ul>
 
 <ul id="punten">
-
-
 </ul>
 
 <form>
     <!--<input type="button" class="scorebutt" value="Opnieuw spelen">-->
     <div id="endgame">
-        <a class="startp2 scorebutt"  href="gamepagina.jsp">Opnieuw spelen</a>
+        <a class="startp2 scorebutt"  href="gamepagina.jsp">Verder spelen</a>
         <a class="startp2 scorebutt" href="index.jsp">Doorgaan</a>
     </div>
     <!-- <input type="button" class="scorebutt" value="Doorgaan">-->

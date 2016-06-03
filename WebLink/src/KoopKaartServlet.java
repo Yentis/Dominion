@@ -22,34 +22,34 @@ public class KoopKaartServlet extends HttpServlet {
         Spel spel = (Spel)request.getSession().getAttribute("spel");
         Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
         Boolean speciaal = Boolean.parseBoolean(request.getParameter("speciaal"));
-        Kaart teKopenKaart = new Kaart();
 
         String kaartnaam = request.getParameter("kaart");
-        boolean kaartGekocht = false;
         if (speler.getKoop() > 0 && !speciaal){
-            for(Kaart k : spel.getAlleKaarten()){
-                if(Objects.equals(kaartnaam,k.getNaam()) && !kaartGekocht){
-                    teKopenKaart = k;
-                    kaartGekocht = true;
-                }
-            }
             speler.addKoop(-1);
-            speler.addGeld(-teKopenKaart.getKost());
-            spel.koopKaart(teKopenKaart,speler.getAflegstapel());
-            out.print(kaartnaam);
+            speler.addGeld(-koopKaart(spel, speler, kaartnaam).getKost());
         } else if(speciaal){
-            for(Kaart k : spel.getAlleKaarten()){
-                if(Objects.equals(kaartnaam,k.getNaam()) && !kaartGekocht){
-                    teKopenKaart = k;
-                    kaartGekocht = true;
-                }
-            }
-            spel.koopKaart(teKopenKaart,speler.getAflegstapel());
-            out.print(kaartnaam);
+            koopKaart(spel, speler, kaartnaam);
         }
+
+        out.print(kaartnaam);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    }
+
+    private Kaart koopKaart(Spel spel, Speler speler, String kaartnaam){
+        boolean kaartGekocht = false;
+        Kaart teKopenKaart = new Kaart();
+
+        for(Kaart k : spel.getAlleKaarten()){
+            if(Objects.equals(kaartnaam,k.getNaam()) && !kaartGekocht){
+                teKopenKaart = k;
+                kaartGekocht = true;
+            }
+        }
+
+        spel.koopKaart(teKopenKaart,speler.getAflegstapel());
+        return teKopenKaart;
     }
 }

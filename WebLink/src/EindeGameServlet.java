@@ -19,21 +19,12 @@ import java.util.ArrayList;
 @WebServlet(name = "EindeGameServlet", urlPatterns = {"/EindeGameServlet"})
 public class EindeGameServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("application/json");
-        PrintWriter out = response.getWriter();
-        Gson gson = new Gson();
+        response.setContentType("text/plain");
         Spel spel = (Spel)request.getSession().getAttribute("spel");
-        Speler speler1 = (Speler)request.getSession().getAttribute("speler1");
-        Speler speler2 = (Speler)request.getSession().getAttribute("speler2");
-        ArrayList<Integer> Overwinningspunten = new ArrayList<>();
         if (spel.spelGedaan()){
-            Overwinningspunten.add(speler1.getOverwinningspunten());
-            Overwinningspunten.add(speler2.getOverwinningspunten());
-            String punten = request.getParameter("overwinningspunten");
-            response.sendRedirect("scorepagina.jsp");
+            System.out.println("spel is gedaan");
+            response.sendRedirect("gamepagina.jsp");
         }
-        String json = gson.toJson(Overwinningspunten);
-        out.print(json);
     }
 }
 

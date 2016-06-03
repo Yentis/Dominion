@@ -18,10 +18,6 @@ public class NaamServlet extends HttpServlet {
         Speler speler = (Speler)request.getSession().getAttribute("huidigespeler");
         PrintWriter out = response.getWriter();
         out.print(speler.getNaam());
-
-
-
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

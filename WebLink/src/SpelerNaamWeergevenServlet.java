@@ -26,15 +26,7 @@ public class SpelerNaamWeergevenServlet extends HttpServlet {
         spelers.add(speler1.getNaam());
         spelers.add(speler2.getNaam());
 
-
-
         String json = gson.toJson(spelers);
         out.print(json);
-
-
-
-
     }
-
-
 }

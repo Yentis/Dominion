@@ -30,10 +30,6 @@ public class Spel {
         return geldveld;
     }
 
-    public List<Kaart> getOverwinningsveld() {
-        return overwinningsveld;
-    }
-
     public List<Kaart> getActieveld() {
         return actieveld;
     }
@@ -51,7 +47,7 @@ public class Spel {
         return alleKaarten;
     }
 
-    public void setStapelskaarten(int kaart, int waarde) {
+    private void setStapelskaarten(int kaart, int waarde) {
         stapelskaarten.set(kaart, stapelskaarten.get(kaart) + waarde);
     }
     //endregion
@@ -59,7 +55,7 @@ public class Spel {
     //region Behaviour
     public void maakKaarten() throws SQLException {
         DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-        Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/dominion", "root", "");
+        Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/dominion", "root", "|NX!hhCq*VpweFw6\"Af0Tme%6l=Iae2U");
         Statement myStmt = myConn.createStatement();
         ResultSet myRs = myStmt.executeQuery("select * from kaart");
 
@@ -74,7 +70,7 @@ public class Spel {
         spelers.add(speler);
     }
 
-    public void schudden(List<Kaart> deck) {
+    private void schudden(List<Kaart> deck) {
         Collections.shuffle(deck);
     }
 
@@ -91,21 +87,16 @@ public class Spel {
         speler.setGeld(0);
     }
 
-
-    public void starterDeck(Speler speler)
-    {
-
+    public void starterDeck(Speler speler) {
         int aantalkaarten = 0;
 
         aantalkaarten = voegKoperKaartenToe(aantalkaarten, speler);
         voegLandgoedKaartenToe(aantalkaarten, speler);
 
-
         schudden(speler.getDeck());
     }
 
-
-    public int voegKoperKaartenToe(int aantalkaarten, Speler speler){
+    private int voegKoperKaartenToe(int aantalkaarten, Speler speler){
         for(int i=0;i<geldveld.size();i++){
             if(Objects.equals(geldveld.get(i).getNaam(), "Koper") && aantalkaarten < 7){
 
@@ -118,8 +109,7 @@ public class Spel {
         return aantalkaarten;
     }
 
-
-    public void voegLandgoedKaartenToe(int aantalkaarten, Speler speler){
+    private void voegLandgoedKaartenToe(int aantalkaarten, Speler speler){
         for(int i=0;i<overwinningsveld.size();i++){
             if(Objects.equals(overwinningsveld.get(i).getNaam(), "Landgoed") && aantalkaarten < 10){
                 speler.getDeck().add(overwinningsveld.get(i));
@@ -136,53 +126,54 @@ public class Spel {
         vulGeldKaartenOp();
     }
 
-    public void vulActieKaartenOp() {
+    private void stapelsOpvullen(int value, List<Kaart> bestemming, int aantalopstapel){
+        setStapelskaarten(kaarten.get(value).getNr(), 1);
+        for (int stapelopvullen = 0; stapelopvullen < aantalopstapel; stapelopvullen++) {
+            bestemming.add(kaarten.get(value));
+            setStapelskaarten(kaarten.get(value).getNr(), 1);
+        }
+    }
+
+    private void vulActieKaartenOp() {
         //10 actiekaarten op het veld
         while (actieveld.size() < 99) {
             Random rand = new Random();
             int value = rand.nextInt(kaarten.size());
             //Als het een actiekaart of tuin kaart is en het nog niet bestaat
-            if ((Objects.equals(kaarten.get(value).getType(), "Actie") || Objects.equals(kaarten.get(value).getType(), "Actie-Reactie") || Objects.equals(kaarten.get(value).getType(), "Actie-Aanval") || Objects.equals(kaarten.get(value).getNaam(), "Tuinen")) && actieveld.contains(kaarten.get(value)) == false) {
-                setStapelskaarten(kaarten.get(value).getNr(), 1);
+            if ((kaarten.get(value).getType().contains("Actie") || Objects.equals(kaarten.get(value).getNaam(), "Tuinen")) && actieveld.contains(kaarten.get(value)) == false) {
                 //10 exemplaren per actiekaart
-                for (int stapelopvullen = 0; stapelopvullen < 10; stapelopvullen++) {
-                    actieveld.add(kaarten.get(value));
-                    setStapelskaarten(kaarten.get(value).getNr(), 1);
-                }
+                stapelsOpvullen(value, actieveld, 10);
             }
         }
     }
 
-    public void vulOverwinningsKaartenOp() {
-        for (int j = 0; j < kaarten.size(); j++) {
+    private void vulOverwinningsKaartenOp() {
+        for (int i = 0; i < kaarten.size(); i++) {
             //Overwinningskaart of Vloek kaart, geen Tuin
-            if ((Objects.equals(kaarten.get(j).getType(), "Overwinning") || Objects.equals(kaarten.get(j).getType(), "Vloek")) && !Objects.equals(kaarten.get(j).getNaam(), "Tuinen")) {
+            if ((Objects.equals(kaarten.get(i).getType(), "Overwinning") || Objects.equals(kaarten.get(i).getType(), "Vloek")) && !Objects.equals(kaarten.get(i).getNaam(), "Tuinen")) {
                 int aantalopstapel;
                 //Landgoed heeft 14 exemplaren
-                if (Objects.equals(kaarten.get(j).getNaam(), "Landgoed")) {
-                    aantalopstapel = 14;
-                    //Vloek heeft 10 exemplaren
-                } else if (Objects.equals(kaarten.get(j).getType(), "Vloek")) {
-                    aantalopstapel = 10;
-                    //Alle andere hebben 8 exemplaren
-                } else {
-                    aantalopstapel = 8;
+                switch(kaarten.get(i).getNaam()){
+                    case "Landgoed":
+                        aantalopstapel = 14;
+                        break;
+                    case "Vloek":
+                        aantalopstapel = 10;
+                        break;
+                    default:
+                        aantalopstapel = 2;
+                        break;
                 }
-
-                setStapelskaarten(kaarten.get(j).getNr(), 1);
-                for (int stapelopvullen = 0; stapelopvullen < aantalopstapel; stapelopvullen++) {
-                    overwinningsveld.add(kaarten.get(j));
-                    setStapelskaarten(kaarten.get(j).getNr(), 1);
-                }
+                stapelsOpvullen(i, overwinningsveld, aantalopstapel);
             }
         }
     }
 
-    public void vulGeldKaartenOp() {
-        for (int k = 0; k < kaarten.size(); k++) {
-            if (Objects.equals(kaarten.get(k).getType(), "Geld")) {
+    private void vulGeldKaartenOp() {
+        for (int i = 0; i < kaarten.size(); i++) {
+            if (Objects.equals(kaarten.get(i).getType(), "Geld")) {
                 int aantalopstapel;
-                switch (kaarten.get(k).getNaam()) {
+                switch (kaarten.get(i).getNaam()) {
                     case "Koper":
                         aantalopstapel = 60;
                         break;
@@ -196,11 +187,7 @@ public class Spel {
                         aantalopstapel = 0;
                         break;
                 }
-                setStapelskaarten(kaarten.get(k).getNr(), 1);
-                for (int stapelopvullen = 0; stapelopvullen < aantalopstapel; stapelopvullen++) {
-                    geldveld.add(kaarten.get(k));
-                    setStapelskaarten(kaarten.get(k).getNr(), 1);
-                }
+                stapelsOpvullen(i, geldveld, aantalopstapel);
             }
         }
     }
@@ -219,37 +206,30 @@ public class Spel {
         setStapelskaarten(k.getNr(), -1);
     }
 
+    public boolean spelGedaan() {
+        return provinciesOp() || drieStapelsLeeg();
+    }
 
-
-    public boolean provinciesOp() {
+    private boolean provinciesOp() {
+        System.out.println("provincie check start");
         for (Kaart k : overwinningsveld) {
             if (Objects.equals(k.getNaam(), "Provincie")) {
+                System.out.println("provincie detected");
+                System.out.println("provincie check over");
                 return false;
             }
         }
         return true;
     }
 
-    public boolean drieStapelsLeeg() {
+    private boolean drieStapelsLeeg() {
         int aantallegestapels = 0;
         for (int i = 1; i < stapelskaarten.size(); i++) {
             if (stapelskaarten.get(i) == 1) {
                 aantallegestapels++;
             }
         }
-        if (aantallegestapels < 3) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public boolean spelGedaan() {
-        if (provinciesOp() || drieStapelsLeeg()) {
-            return true;
-        } else {
-            return false;
-        }
+        return aantallegestapels >= 3;
     }
 
     public String winnaar() {
@@ -266,12 +246,9 @@ public class Spel {
         return winnaar;
     }
 
-
     public void geefStartKaarten(Speler speler){
         starterDeck(speler);
         speler.vulHand();
     }
-
-
     //endregion
 }

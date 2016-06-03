@@ -29,38 +29,33 @@ public class KoopServlet extends HttpServlet {
         String limits = request.getParameter("limits");
         int max;
         List<String> koopopties = new ArrayList<>();
+
         if (speler.getKoop() > 0 && !speciaal) {
-            System.out.println("super check 4");
-            for (Kaart k : spel.getAlleKaarten()) {
-                if (k.getKost() <= speler.getGeld() && !koopopties.contains(k.getNaam())) {
-                    koopopties.add(k.getNaam());
-                }
+            max = speler.getGeld();
+            koopopties = koopoptiesToevoegen(spel, max);
+            for(String k : koopopties){
+                System.out.println("Koopopties: " + k);
             }
         } else if (speciaal){
-            System.out.println("super check 5");
-            List<Kaart> destination;
-            switch(limits){
-                case "actieveld":
-                    destination = spel.getActieveld();
-                    max = 8;
-                    break;
-                default:
-                    destination = spel.getAlleKaarten();
-                    max = Integer.parseInt(limits);
-                    break;
-            }
-
-            for (Kaart k : destination) {
-                if (k.getKost() <= max && !koopopties.contains(k.getNaam())) {
-                    koopopties.add(k.getNaam());
-                }
-            }
+            max = Integer.parseInt(limits);
+            koopopties = koopoptiesToevoegen(spel, max);
         }
+
         String json = gson.toJson(koopopties);
         out.print(json);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    }
+
+    private List<String> koopoptiesToevoegen(Spel spel, int max){
+        List<String> koopopties = new ArrayList<>();
+        for (Kaart k : spel.getAlleKaarten()) {
+            if (k.getKost() <= max && !koopopties.contains(k.getNaam())) {
+                koopopties.add(k.getNaam());
+            }
+        }
+        return koopopties;
     }
 }
