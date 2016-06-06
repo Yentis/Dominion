@@ -55,7 +55,7 @@ public class Spel {
     //region Behaviour
     public void maakKaarten() throws SQLException {
         DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-        Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/dominion", "root", "|NX!hhCq*VpweFw6\"Af0Tme%6l=Iae2U");
+        Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost/dominion", "root", "");
         Statement myStmt = myConn.createStatement();
         ResultSet myRs = myStmt.executeQuery("select * from kaart");
 
@@ -161,7 +161,7 @@ public class Spel {
                         aantalopstapel = 10;
                         break;
                     default:
-                        aantalopstapel = 2;
+                        aantalopstapel = 8;
                         break;
                 }
                 stapelsOpvullen(i, overwinningsveld, aantalopstapel);
