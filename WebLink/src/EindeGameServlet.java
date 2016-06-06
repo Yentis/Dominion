@@ -21,9 +21,10 @@ public class EindeGameServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/plain");
         Spel spel = (Spel)request.getSession().getAttribute("spel");
+        PrintWriter out = response.getWriter();
         if (spel.spelGedaan()){
             System.out.println("spel is gedaan");
-            response.sendRedirect("gamepagina.jsp");
+            out.print("scorepagina.jsp");
         }
     }
 }

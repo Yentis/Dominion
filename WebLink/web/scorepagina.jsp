@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="lib/css/styleStart.css"/>
 </head>
 <body>
-<h1 class="scoretitel">Game over</h1>
+<h1 class="scoretitel">Scorebord</h1>
 <ul id="score">
 
     <li class="veld">Spelers</li>
@@ -22,24 +22,18 @@
 
 </ul>
 <ul id="spelers">
-    <li></li>
 </ul>
 
 <ul id="punten">
 </ul>
 
 <form>
-    <!--<input type="button" class="scorebutt" value="Opnieuw spelen">-->
     <div id="endgame">
-        <a class="startp2 scorebutt"  href="gamepagina.jsp">Verder spelen</a>
+        <a id="restartspel" class="startp2 scorebutt">Opnieuw spelen</a>
         <a class="startp2 scorebutt" href="index.jsp">Doorgaan</a>
     </div>
-    <!-- <input type="button" class="scorebutt" value="Doorgaan">-->
-
-
-
 </form>
 <script type="text/javascript" src="lib/js/jquery-2.2.3.min.js"></script>
-<script type="text/javascript" src="lib/js/scriptGame.js"></script>
+<script type="text/javascript" src="lib/js/scriptScore.js"></script>
 </body>
 </html>

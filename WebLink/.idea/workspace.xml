@@ -23,89 +23,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Actiekaart.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Actiekaart.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="858">
-              <caret line="192" column="22" selection-start-line="192" selection-start-column="22" selection-end-line="192" selection-end-column="22" />
-              <folding>
-                <element signature="method#checkDeck#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#overloopKaartLijst#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#heeftReactiekaart#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#duidSpecifiekeKaartAan#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#heks#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#kelder#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#kerk#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#gracht#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#kanselier#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#dorps#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#houthakker#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#werkplaats#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#feest#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#schutterij#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#geldverlener#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#ombouwen#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#smederij#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#spion#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#dief#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#troonzaal#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#raadzaal#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#festival#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#laboratorium#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#bibliotheek#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#markt#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#mijn#0;class#Actiekaart#0" expanded="false" />
-                <element signature="method#avonturier#0;class#Actiekaart#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="scriptGame.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="scriptGame.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/lib/js/scriptGame.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-105">
-              <caret line="280" column="30" selection-start-line="280" selection-start-column="30" selection-end-line="280" selection-end-column="30" />
+            <state relative-caret-position="-802">
+              <caret line="471" column="20" selection-start-line="471" selection-start-column="20" selection-end-line="471" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EindeGameServlet.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/EindeGameServlet.java">
+      <file leaf-file-name="ActieKaartSpelenServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ActieKaartSpelenServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styleGame.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/lib/css/styleGame.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4726">
-              <caret line="278" column="33" selection-start-line="278" selection-start-column="33" selection-end-line="278" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gamepagina.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/gamepagina.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="30" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KoopKaartServlet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/KoopKaartServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+            <state relative-caret-position="357">
+              <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -114,8 +46,8 @@
       <file leaf-file-name="BuildServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/BuildServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+            <state relative-caret-position="541">
+              <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,8 +58,8 @@
       <file leaf-file-name="KoopServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/KoopServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
+            <state relative-caret-position="467">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -136,8 +68,28 @@
       <file leaf-file-name="scorepagina.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/scorepagina.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/index.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScoreBerekeningsServlet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ScoreBerekeningsServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -146,19 +98,11 @@
       <file leaf-file-name="Spel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Spel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="213" column="52" selection-start-line="213" selection-start-column="52" selection-end-line="213" selection-end-column="52" />
+            <state relative-caret-position="249">
+              <caret line="163" column="43" selection-start-line="163" selection-start-column="43" selection-end-line="163" selection-end-column="43" />
               <folding>
                 <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
-                <element signature="e#888#889#0" expanded="true" />
-                <element signature="e#920#921#0" expanded="true" />
-                <element signature="e#2111#2112#0" expanded="true" />
-                <element signature="e#2146#2147#0" expanded="true" />
-                <element signature="e#2193#2194#0" expanded="true" />
-                <element signature="e#2234#2235#0" expanded="true" />
-                <element signature="e#6950#6951#0" expanded="true" />
-                <element signature="e#7008#7009#0" expanded="true" />
-                <marker date="1464978411710" expanded="true" signature="1772:1791" placeholder="select * fro... kaart" />
+                <marker date="1465235921776" expanded="true" signature="1772:1791" placeholder="select * fro... kaart" />
               </folding>
             </state>
           </provider>
@@ -171,6 +115,7 @@
       <list>
         <option value="Jsp File" />
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -213,13 +158,16 @@
         <option value="$PROJECT_DIR$/src/SpelerNaamWeergevenServlet.java" />
         <option value="$PROJECT_DIR$/src/StoppenServlet.java" />
         <option value="$PROJECT_DIR$/src/BeurtServlet.java" />
-        <option value="$PROJECT_DIR$/web/scorepagina.jsp" />
         <option value="$PROJECT_DIR$/src/KoopServlet.java" />
         <option value="$PROJECT_DIR$/src/KoopKaartServlet.java" />
+        <option value="$PROJECT_DIR$/src/EindeGameServlet.java" />
+        <option value="$PROJECT_DIR$/web/lib/js/scriptGame.js.bak" />
+        <option value="$PROJECT_DIR$/web/scorepagina.jsp" />
+        <option value="$PROJECT_DIR$/web/lib/js/scriptScore.js" />
+        <option value="$PROJECT_DIR$/src/ScoreBerekeningsServlet.java" />
         <option value="$PROJECT_DIR$/../Source/src/com/company/Spel.java" />
         <option value="$PROJECT_DIR$/../Source/src/com/company/Spel.java" />
         <option value="$PROJECT_DIR$/web/lib/js/scriptGame.js" />
-        <option value="$PROJECT_DIR$/src/EindeGameServlet.java" />
       </list>
     </option>
   </component>
@@ -398,7 +346,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -573,8 +523,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1215,6 +1163,7 @@
       <workItem from="1464891407405" duration="72000" />
       <workItem from="1464975725881" duration="52000" />
       <workItem from="1464976655283" duration="2272000" />
+      <workItem from="1465232017460" duration="6622000" />
     </task>
     <servers />
   </component>
@@ -1245,7 +1194,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="177911000" />
+    <option name="totallyTimeSpent" value="184533000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1265,8 +1214,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12447917" sideWeight="0.6630265" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14322917" sideWeight="0.3369735" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12447917" sideWeight="0.655058" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12447917" sideWeight="0.34494194" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1338,15 +1287,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/company/Speler.java" />
-    <entry file="file://$PROJECT_DIR$/src/company/Spel.java" />
-    <entry file="file://$PROJECT_DIR$/../Source/src/test/SpelTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="66" column="9" selection-start-line="66" selection-start-column="9" selection-end-line="66" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Source/Dominion.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1378,14 +1318,6 @@
     <entry file="file://$PROJECT_DIR$/src/AjaxController.java" />
     <entry file="file://$PROJECT_DIR$/src/GeldServlet.java" />
     <entry file="file://$PROJECT_DIR$/web/lib/js/kaartGenereren.js" />
-    <entry file="file://$PROJECT_DIR$/web/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/lib/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
@@ -1494,13 +1426,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SpelerNaamWeergevenServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/WijzigGegevensServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1529,25 +1454,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ActieKaartSpelenServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/BeurtServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/scorepagina.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1569,7 +1479,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Actiekaart.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
+        <state relative-caret-position="1921">
           <caret line="192" column="22" selection-start-line="192" selection-start-column="22" selection-end-line="192" selection-end-column="22" />
           <folding>
             <element signature="method#checkDeck#0;class#Actiekaart#0" expanded="false" />
@@ -1603,63 +1513,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/lib/js/scriptGame.js">
+    <entry file="file://$PROJECT_DIR$/src/SpelerNaamWeergevenServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-105">
-          <caret line="280" column="30" selection-start-line="280" selection-start-column="30" selection-end-line="280" selection-end-column="30" />
+        <state relative-caret-position="272">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/KoopKaartServlet.java">
+    <entry file="file://$PROJECT_DIR$/web/lib/js/scriptGame.js.bak">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+        <state relative-caret-position="487">
+          <caret line="494" column="1" selection-start-line="494" selection-start-column="1" selection-end-line="494" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KoopServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Spel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="213" column="52" selection-start-line="213" selection-start-column="52" selection-end-line="213" selection-end-column="52" />
-          <folding>
-            <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#920#921#0" expanded="true" />
-            <element signature="e#2111#2112#0" expanded="true" />
-            <element signature="e#2146#2147#0" expanded="true" />
-            <element signature="e#2193#2194#0" expanded="true" />
-            <element signature="e#2234#2235#0" expanded="true" />
-            <element signature="e#6950#6951#0" expanded="true" />
-            <element signature="e#7008#7009#0" expanded="true" />
-            <marker date="1464978411710" expanded="true" signature="1772:1791" placeholder="select * fro... kaart" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BuildServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EindeGameServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KoopServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="43" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BuildServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="541">
+          <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/scorepagina.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/lib/js/scriptScore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="47" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="38" column="53" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ScoreBerekeningsServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Source/src/com/company/Spel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="163" column="43" selection-start-line="163" selection-start-column="43" selection-end-line="163" selection-end-column="43" />
+          <folding>
+            <element signature="n#!!doc;n#kaarten#0;n#Spel#0" expanded="false" />
+            <marker date="1465235921776" expanded="true" signature="1772:1791" placeholder="select * fro... kaart" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KoopKaartServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ActieKaartSpelenServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="64" column="36" selection-start-line="64" selection-start-column="36" selection-end-line="64" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/lib/js/scriptGame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-802">
+          <caret line="471" column="20" selection-start-line="471" selection-start-column="20" selection-end-line="471" selection-end-column="20" />
           <folding />
         </state>
       </provider>

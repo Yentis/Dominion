@@ -161,7 +161,7 @@ public class Spel {
                         aantalopstapel = 10;
                         break;
                     default:
-                        aantalopstapel = 2;
+                        aantalopstapel = 8;
                         break;
                 }
                 stapelsOpvullen(i, overwinningsveld, aantalopstapel);

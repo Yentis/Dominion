@@ -1,12 +1,11 @@
-/**
- * Created by Renzie on 12/05/2016.
- */
-
+"use strict";
+var gekozenkaarten = [];
+var masterkaart = "";
+var troonzaalmode = false;
+var troonzaalkaart;
+var troonzaalkaartkeuze;
 
 $(document).ready(function () {
-    gekozenkaarten = [];
-    masterkaart = "";
-    troonzaal = false;
     $(".actiekaarten, .overwinningskaarten, .geldcurse, .kaartOpVeld").on("click", "img", zoomIn);
     $(".toonKaart").on("click", function(){$(this).empty();});
     $("#gooigeld").on("click", gooiGeld);
@@ -18,8 +17,6 @@ $(document).ready(function () {
     showPlayerName();
     showPlayerGegevens();
     showHand();
-    showScorebord();
-    showSpelerNaamScorePagina();
     showKoopAantal();
 });
 
@@ -28,10 +25,8 @@ var confirmActieKaart = function (){
     $("#log").empty();
     if(masterkaart == "Troonzaal"){
         troonzaalBehaviour();
-    } else if (troonzaal){
-        speelActieKaart(masterkaart, 2, gekozenkaarten, false, false);
     } else {
-        speelActieKaart(masterkaart, 2, gekozenkaarten, false, true);
+        speelActieKaart(masterkaart, 2, gekozenkaarten, false, !troonzaalmode);
     }
 };
 
@@ -64,39 +59,8 @@ var speelActieKaart = function (kaart, janee, lijstkaarten, speciaal, gebruikact
             data: {kaart: kaart, janee: janee, lijstkaarten: lijstkaarten, speciaal: speciaal, gebruikactie:gebruikactie},
             url: "ActieKaartSpelenServlet",
             success: function (result) {
-                for (i = 0; i < result[2].length; i++) {
-                }
-                if (typeof result[2][0] !== "undefined") {
-                    var tereturnen = [];
-                    var huidigekaart = "";
-                    var answer;
-                    switch (kaart) {
-                        case "Dief":
-                            diefBehaviour(result[2], huidigekaart, answer, tereturnen, kaart);
-                            break;
-                        case "Bibliotheek":
-                            bibliotheekBehaviour(result[2], huidigekaart, answer, tereturnen, kaart);
-                            break;
-                        case "Schutterij":
-                            schutterijBehaviour(result[2], kaart);
-                            break;
-                        case "Bureaucraat":
-                            bureaucraatBehaviour(result[2], kaart);
-                            break;
-                        case "Spion":
-                            spionBehaviour(result[2], huidigekaart, answer, tereturnen, kaart);
-                            break;
-                    }
-                } else {
-                    $(".kaartOpVeld").append("<li class='" + result[0] + "'><img src='lib/images/kaarten/" + result[0] + ".png' title='" + result[0] + "'/></li>");
-                    $(".hand").slice(1).remove("." + result[0] + "");
-                }
-                if (result[1] != "0") {
-                    $("#log").html("Kies een kaart om te kopen");
-                    showSpecializedKoopOpties(result[1]);
-                } else if (troonzaal) {
-                    troonzaalBehaviour2();
-                }
+                specialeKaartCheck(result);
+                normaleKaartCheck(result);
                 showPlayerGegevens();
                 showHand();
             }
@@ -104,23 +68,66 @@ var speelActieKaart = function (kaart, janee, lijstkaarten, speciaal, gebruikact
     }
 };
 
+function normaleKaartCheck(result){
+    if (result[1] != "0") {
+        $("#log").html("Kies een kaart om te kopen");
+        showSpecializedKoopOpties(result[1]);
+    } else if (troonzaalmode) {
+        troonzaalBehaviour2();
+    }
+}
+
+function specialeKaartCheck(result){
+    if (typeof result[2][0] !== "undefined") {
+        var tereturnen = [];
+        var huidigekaart = "";
+        var answer;
+        
+        switch (kaart) {
+            case "Dief":
+                diefBehaviour(result[2], huidigekaart, answer, tereturnen, kaart);
+                break;
+            case "Bibliotheek":
+                bibliotheekBehaviour(result[2], huidigekaart, answer, tereturnen, kaart);
+                break;
+            case "Schutterij":
+                schutterijBehaviour(result[2], kaart);
+                break;
+            case "Bureaucraat":
+                bureaucraatBehaviour(result[2], kaart);
+                break;
+            case "Spion":
+                spionBehaviour(result[2], huidigekaart, answer, tereturnen, kaart);
+                break;
+        }
+    } else {
+        $(".kaartOpVeld").append("<li class='" + result[0] 
+            + "'><img src='lib/images/kaarten/" + result[0] 
+            + ".png' title='" + result[0] + "'/></li>");
+        $(".hand")
+            .slice(1)
+            .remove("." + result[0] + "");
+    }
+}
 
 function troonzaalBehaviour(){
     $(".kaartOpVeld").empty();
-    troonzaal = true;
+    
+    troonzaalmode = true;
     troonzaalkaart = masterkaart;
     troonzaalkaartkeuze = gekozenkaarten;
+    
     checkActiekaart(troonzaalkaartkeuze[0], false);
 }
 
 function troonzaalBehaviour2(){
     checkActiekaart(troonzaalkaartkeuze[0], false);
     speelActieKaart(troonzaalkaart, 2, troonzaalkaartkeuze, true, true);
-    troonzaal = false;
+    
+    troonzaalmode = false;
 }
 
 function diefBehaviour(result, huidigekaart, answer, tereturnen, kaart){
-
     for (i = 0; i < result.length; i++) {
         huidigekaart = result[i];
         answer = window.confirm("Wil je " + huidigekaart + " stelen van de vijand?");
@@ -133,6 +140,7 @@ function diefBehaviour(result, huidigekaart, answer, tereturnen, kaart){
 
 function bibliotheekBehaviour(result, huidigekaart, answer, tereturnen, kaart) {
     var janee = 2;
+    
     huidigekaart = result[0];
     answer = window.confirm("Wil je " + huidigekaart + " aan de kant leggen?");
     if (answer == false) {
@@ -146,33 +154,54 @@ function bibliotheekBehaviour(result, huidigekaart, answer, tereturnen, kaart) {
 
 function schutterijBehaviour(result, kaart) {
     var i = 0;
-    $(".kaartOpVeld").append("<li class='" + kaart + "'><img src='lib/images/kaarten/" + kaart + ".png' title='" + kaart + "'/></li>");
+    var toonSpecialeKaarten = $("#toonSpecialeKaarten");
+
+    $(".kaartOpVeld").append("<li class='" + kaart 
+        + "'><img src='lib/images/kaarten/" + kaart 
+            + ".png' title='" + kaart + "'/></li>");
     $(".hand ." + kaart + ":first").remove();
+    
     while (i < result.length) {
         if (result.length > 3) {
-            $("#toonSpecialeKaarten").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".png' title='" + result[i] + "'/></li>");
+            toonSpecialeKaarten.append("<li class='" + result[i] 
+                + "'><img src='lib/images/kaarten/" + result[i] 
+                + ".png' title='" + result[i] + "'/></li>");
             i++;
         }
     }
+    
     $("#log").html("Kies de kaarten die de tegenstander wilt afleggen");
-    $("#toonSpecialeKaarten").on("click", "img", function () {
-        if ($("#toonSpecialeKaarten li").size() > 4) {
+    toonSpecialeKaarten.on("click", "img", function () {
+        if (toonSpecialeKaarten.find("li").size() > 4) {
             $(this).parent().remove();
-        } else if ($("#toonSpecialeKaarten li").size() < 5) {
-            $("#toonSpecialeKaarten li").remove();
+        } else if (toonSpecialeKaarten.find("li").size() < 5) {
+            toonSpecialeKaarten.find("li").remove();
         }
     });
 }
 
 function bureaucraatBehaviour(result, kaart) {
-    $("#toonSpecialeKaarten").empty();
-    $("#toonSpecialeKaarten").append("<h2>Kaarten van je vijand: </h2>");
+    var toonSpecialeKaarten = $("#toonSpecialeKaarten");
+    
+    toonSpecialeKaarten
+        .empty()
+        .append("<h2>Kaarten van je vijand: </h2>");
+    
     for (i = 0; i < result.length; i++) {
-        $("#toonSpecialeKaarten").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".png' title='" + result[i] + "'/></li>");
+        toonSpecialeKaarten.append("<li class='" + result[i] 
+            + "'><img src='lib/images/kaarten/" + result[i] 
+            + ".png' title='" + result[i] + "'/></li>");
     }
-    $(".kaartOpVeld").append("<li class='" + kaart + "'><img src='lib/images/kaarten/" + kaart + ".png' title='" + kaart + "'/></li>");
-    $(".hand").slice(1).remove("." + kaart + "");
-    $("#toonSpecialeKaarten").on("click", function () {
+    
+    $(".kaartOpVeld").append("<li class='" + kaart 
+        + "'><img src='lib/images/kaarten/" + kaart 
+        + ".png' title='" + kaart + "'/></li>");
+    
+    $(".hand")
+        .slice(1)
+        .remove("." + kaart + "");
+    
+    toonSpecialeKaarten.on("click", function () {
         $(this).empty();
     });
 }
@@ -180,6 +209,7 @@ function bureaucraatBehaviour(result, kaart) {
 function spionBehaviour(result, huidigekaart, answer, tereturnen, kaart) {
     var janee = 2;
     var naam = "";
+    
     for (i = 0; i < result.length; i++) {
         huidigekaart = result[i];
         if ((i % 2) == 0 && huidigekaart == $("#naamspeler").html()) {
@@ -199,6 +229,7 @@ function spionBehaviour(result, huidigekaart, answer, tereturnen, kaart) {
 
 function checkActiekaart(kaart, gebruikacties){
     gekozenkaarten = [];
+    var log = $("#log");
     if(kaart.indexOf("png") > -1){
         kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/", "");
         kaart = kaart.replace(".png", "");
@@ -214,27 +245,27 @@ function checkActiekaart(kaart, gebruikacties){
             }
             break;
         case "Kelder":
-            $("#log").html("Kies de kaarten die je wilt afleggen");
+            log.html("Kies de kaarten die je wilt afleggen");
             setMasterkaartenToonOk(kaart);
             break;
         case "Kerk":
-            $("#log").html("Kies de kaarten die je wilt wegsmijten");
+            log.html("Kies de kaarten die je wilt wegsmijten");
             setMasterkaartenToonOk(kaart);
             break;
         case "Geldverlener":
-            $("#log").html("Kies een koperkaart om weg te smijten");
+            log.html("Kies een koperkaart om weg te smijten");
             setMasterkaartenToonOk(kaart);
             break;
         case "Ombouwen":
-            $("#log").html("Kies een kaart om weg te smijten");
+            log.html("Kies een kaart om weg te smijten");
             setMasterkaartenToonOk(kaart);
             break;
         case "Mijn":
-            $("#log").html("Kies een geldkaart om weg te smijten");
+            log.html("Kies een geldkaart om weg te smijten");
             setMasterkaartenToonOk(kaart);
             break;
         case "Troonzaal":
-            $("#log").html("Kies een actiekaart om tweemaal te spelen");
+            log.html("Kies een actiekaart om tweemaal te spelen");
             setMasterkaartenToonOk(kaart);
             break;
         case "Dief":
@@ -261,7 +292,11 @@ function setMasterkaartenToonOk(kaart) {
 function voegKaartToe(kaart) {
     kaart = kaart.replace("http://localhost:8081/lib/images/kaarten/", "");
     kaart = kaart.replace(".png", "");
-    $(".kaartOpVeld").append("<li class='" + kaart + "'><img src='lib/images/kaarten/" + kaart + ".png' title='" + kaart + "'/></li>");
+    
+    $(".kaartOpVeld").append("<li class='" + kaart 
+        + "'><img src='lib/images/kaarten/" + kaart 
+        + ".png' title='" + kaart + "'/></li>");
+    
     $(".hand ." + kaart + ":first").remove();
     gekozenkaarten.push(kaart);
     showPlayerGegevens();
@@ -293,7 +328,7 @@ function specializedKoopKaart(kaart) {
             showKoopOpties();
             showPlayerGegevens();
             showTopAflegstapel();
-            if(troonzaal){
+            if(troonzaalmode){
                 troonzaalBehaviour2();
             }
             checkGameStatus();
@@ -304,8 +339,12 @@ function specializedKoopKaart(kaart) {
 function checkGameStatus(){
     $.ajax({
         type: "POST",
-        dataType: "json",
-        url: "EindeGameServlet"
+        url: "EindeGameServlet",
+        success: function(result){
+            if(result !== ""){
+                window.location = result;
+            }
+        }
     });
 }
 
@@ -381,7 +420,10 @@ var gooiGeld = function () {
         url: "GooiGeldServlet",
         success: function (result) {
             for (i = 0; i < result.length; i++) {
-                $(".kaartOpVeld").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".png' title='" + result[i] + "'/></li>");
+                $(".kaartOpVeld").append("<li class='" + result[i] 
+                    + "'><img src='lib/images/kaarten/" + result[i] 
+                    + ".png' title='" + result[i] + "'/></li>");
+                
                 $(".hand").remove("." + result[i] + "");
                 showPlayerGegevens();
                 showHand();
@@ -392,20 +434,22 @@ var gooiGeld = function () {
 };
 
 var zoomIn = function () {
-    if ($(".toonKaart").has("li")) {
-        $(".toonKaart li").remove();
+    var toonKaart = $(".toonKaart");
+    if (toonKaart.has("li")) {
+        toonKaart.find("li").remove();
     }
-    $(".toonKaart").append("<li></li>");
+    toonKaart.append("<li></li>");
     $(this).clone().appendTo(".toonKaart li");
 };
 
 function showPlayerName() {
+    var naamspeler = $("#naamspeler");
     $.ajax({
         type: "POST",
         url: "NaamServlet",
         success: function (result) {
-            $("#naamspeler").html(result);
-            $("#log").html("Het is " + $("#naamspeler").html() + " zijn beurt");
+            naamspeler.html(result);
+            $("#log").html("Het is " + naamspeler.html() + " zijn beurt");
         }
     })
 }
@@ -417,11 +461,15 @@ function showActieKaarten() {
         url: "ActieKaartServlet",
         success: function (result) {
             for (i = 0; i < result.length / 2; i++) {
-                $("#actiekaarten").prepend("<li id=" + result[i] + "><img src='lib/images/kaarten/" + result[i] + ".png' title='" + result[i] + "'/></li>");
+                $("#actiekaarten").prepend("<li id=" + result[i] 
+                    + "><img src='lib/images/kaarten/" + result[i] 
+                    + ".png' title='" + result[i] + "'/></li>");
             }
             for (i = result.length / 2; i < result.length; i++) {
 
-                $("#actiekaarten").append("<li id=" + result[i] + "><img src='lib/images/kaarten/" + result[i] + ".png' title='" + result[i] + "'/></li>");
+                $("#actiekaarten").append("<li id=" + result[i] 
+                    + "><img src='lib/images/kaarten/" + result[i] 
+                    + ".png' title='" + result[i] + "'/></li>");
             }
         }
     })
@@ -445,14 +493,19 @@ var showKoopAantal = function () {
 
 
 function showHand() {
+    var hand = $(".hand");
     $.ajax({
         type: "POST",
         dataType: "json",
         url: "HandServlet",
         success: function (result) {
-            $(".hand").html("<li class='" + result[0] + "'><img src='lib/images/kaarten/" + result[0] + ".png' title='" + "temp" + "'/></li>");
+            hand.html("<li class='" + result[0]
+                + "'><img src='lib/images/kaarten/" + result[0]
+                + ".png' title='" + result[0] + "'/></li>");
             for (i = 1; i < result.length; i++) {
-                $(".hand").append("<li class='" + result[i] + "'><img src='lib/images/kaarten/" + result[i] + ".png' title='" + "temp" + "'/></li>");
+                hand.append("<li class='" + result[i]
+                    + "'><img src='lib/images/kaarten/" + result[i]
+                    + ".png' title='" + result[i] + "'/></li>");
             }
         }
     })
@@ -471,45 +524,23 @@ function showPlayerGegevens() {
     })
 }
 
-function showScorebord() {
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "EindeGameServlet",
-        success: function (result) {
-            for (i = 0; i < result.length; i++) {
-                $("#punten").append("<li>" + result[i] + "</li>");
-            }
-        }
-    });
-}
 function showTopAflegstapel() {
+    var top = $("#top");
     $.ajax({
         type: "POST",
         url: "AflegstapelServlet",
         success: function (result) {
             if (result == "") {
-                $("#top").attr("src", "lib/images/kaarten/undefined.png");
-                $("#top").attr("alt", "undefined");
-                $("#top").attr("title", "undefined");
+                top
+                    .attr("src", "lib/images/kaarten/undefined.png")
+                    .attr("alt", "undefined")
+                    .attr("title", "undefined");
             }
             else {
-                $("#top").attr("src", "lib/images/kaarten/" + result + ".png");
-                $("#top").attr("alt", result);
-                $("#top").attr("title", result);
-            }
-
-        }
-    });
-}
-function showSpelerNaamScorePagina() {
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        url: "SpelerNaamWeergevenServlet",
-        success: function (result) {
-            for (i = 0; i < result.length; i++) {
-                $("#spelers").append("<li>" + result[i] + "</li>");
+                top
+                    .attr("src", "lib/images/kaarten/" + result + ".png")
+                    .attr("alt", result)
+                    .attr("title", result);
             }
         }
     });
