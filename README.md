@@ -1,2 +1,2 @@
 # Dominion
-Programmeerproject dominion
+Programming project dominion card game
